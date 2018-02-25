@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
+		F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */; };
+		F9FE6EAE2042E99300F892DC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAD2042E99300F892DC /* MasterViewController.swift */; };
+		F9FE6EB02042E99300F892DC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
+		F9FE6EB32042E99300F892DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FE6EB12042E99300F892DC /* Main.storyboard */; };
+		F9FE6EB52042E99300F892DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9FE6EB42042E99300F892DC /* Assets.xcassets */; };
+		F9FE6EB82042E99300F892DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */; };
+		F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EC22042E99300F892DC /* TresorMockupTests.swift */; };
+		F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6ECD2042E99400F892DC /* TresorMockupUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9FE6EBF2042E99300F892DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9FE6E9D2042E99300F892DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9FE6EA42042E99300F892DC;
+			remoteInfo = TresorMockup;
+		};
+		F9FE6ECA2042E99400F892DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9FE6E9D2042E99300F892DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9FE6EA42042E99300F892DC;
+			remoteInfo = TresorMockup;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F9FE6EA52042E99300F892DC /* TresorMockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresorMockup.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FE6EA82042E99300F892DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F9FE6EAB2042E99300F892DC /* TresorMockup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TresorMockup.xcdatamodel; sourceTree = "<group>"; };
+		F9FE6EAD2042E99300F892DC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		F9FE6EAF2042E99300F892DC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F9FE6EB22042E99300F892DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F9FE6EB42042E99300F892DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9FE6EB72042E99300F892DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F9FE6EB92042E99300F892DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9FE6EBE2042E99300F892DC /* TresorMockupTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TresorMockupTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FE6EC22042E99300F892DC /* TresorMockupTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresorMockupTests.swift; sourceTree = "<group>"; };
+		F9FE6EC42042E99400F892DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9FE6EC92042E99400F892DC /* TresorMockupUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TresorMockupUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FE6ECD2042E99400F892DC /* TresorMockupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresorMockupUITests.swift; sourceTree = "<group>"; };
+		F9FE6ECF2042E99400F892DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9FE6EA22042E99300F892DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9FE6EBB2042E99300F892DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9FE6EC62042E99400F892DC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9FE6E9C2042E99300F892DC = {
+			isa = PBXGroup;
+			children = (
+				F9FE6EA72042E99300F892DC /* TresorMockup */,
+				F9FE6EC12042E99300F892DC /* TresorMockupTests */,
+				F9FE6ECC2042E99400F892DC /* TresorMockupUITests */,
+				F9FE6EA62042E99300F892DC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9FE6EA62042E99300F892DC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9FE6EA52042E99300F892DC /* TresorMockup.app */,
+				F9FE6EBE2042E99300F892DC /* TresorMockupTests.xctest */,
+				F9FE6EC92042E99400F892DC /* TresorMockupUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9FE6EA72042E99300F892DC /* TresorMockup */ = {
+			isa = PBXGroup;
+			children = (
+				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
+				F9FE6EAD2042E99300F892DC /* MasterViewController.swift */,
+				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
+				F9FE6EB12042E99300F892DC /* Main.storyboard */,
+				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
+				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
+				F9FE6EB92042E99300F892DC /* Info.plist */,
+				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
+			);
+			path = TresorMockup;
+			sourceTree = "<group>";
+		};
+		F9FE6EC12042E99300F892DC /* TresorMockupTests */ = {
+			isa = PBXGroup;
+			children = (
+				F9FE6EC22042E99300F892DC /* TresorMockupTests.swift */,
+				F9FE6EC42042E99400F892DC /* Info.plist */,
+			);
+			path = TresorMockupTests;
+			sourceTree = "<group>";
+		};
+		F9FE6ECC2042E99400F892DC /* TresorMockupUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F9FE6ECD2042E99400F892DC /* TresorMockupUITests.swift */,
+				F9FE6ECF2042E99400F892DC /* Info.plist */,
+			);
+			path = TresorMockupUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9FE6EA42042E99300F892DC /* TresorMockup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9FE6ED22042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockup" */;
+			buildPhases = (
+				F9FE6EA12042E99300F892DC /* Sources */,
+				F9FE6EA22042E99300F892DC /* Frameworks */,
+				F9FE6EA32042E99300F892DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TresorMockup;
+			productName = TresorMockup;
+			productReference = F9FE6EA52042E99300F892DC /* TresorMockup.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F9FE6EBD2042E99300F892DC /* TresorMockupTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9FE6ED52042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockupTests" */;
+			buildPhases = (
+				F9FE6EBA2042E99300F892DC /* Sources */,
+				F9FE6EBB2042E99300F892DC /* Frameworks */,
+				F9FE6EBC2042E99300F892DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9FE6EC02042E99300F892DC /* PBXTargetDependency */,
+			);
+			name = TresorMockupTests;
+			productName = TresorMockupTests;
+			productReference = F9FE6EBE2042E99300F892DC /* TresorMockupTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F9FE6EC82042E99400F892DC /* TresorMockupUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9FE6ED82042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockupUITests" */;
+			buildPhases = (
+				F9FE6EC52042E99400F892DC /* Sources */,
+				F9FE6EC62042E99400F892DC /* Frameworks */,
+				F9FE6EC72042E99400F892DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9FE6ECB2042E99400F892DC /* PBXTargetDependency */,
+			);
+			name = TresorMockupUITests;
+			productName = TresorMockupUITests;
+			productReference = F9FE6EC92042E99400F892DC /* TresorMockupUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9FE6E9D2042E99300F892DC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "OKU Junichirou";
+				TargetAttributes = {
+					F9FE6EA42042E99300F892DC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					F9FE6EBD2042E99300F892DC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F9FE6EA42042E99300F892DC;
+					};
+					F9FE6EC82042E99400F892DC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = F9FE6EA42042E99300F892DC;
+					};
+				};
+			};
+			buildConfigurationList = F9FE6EA02042E99300F892DC /* Build configuration list for PBXProject "TresorMockup" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F9FE6E9C2042E99300F892DC;
+			productRefGroup = F9FE6EA62042E99300F892DC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9FE6EA42042E99300F892DC /* TresorMockup */,
+				F9FE6EBD2042E99300F892DC /* TresorMockupTests */,
+				F9FE6EC82042E99400F892DC /* TresorMockupUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9FE6EA32042E99300F892DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9FE6EB82042E99300F892DC /* LaunchScreen.storyboard in Resources */,
+				F9FE6EB52042E99300F892DC /* Assets.xcassets in Resources */,
+				F9FE6EB32042E99300F892DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9FE6EBC2042E99300F892DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9FE6EC72042E99400F892DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9FE6EA12042E99300F892DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */,
+				F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */,
+				F9FE6EAE2042E99300F892DC /* MasterViewController.swift in Sources */,
+				F9FE6EB02042E99300F892DC /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9FE6EBA2042E99300F892DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9FE6EC52042E99400F892DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9FE6EC02042E99300F892DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9FE6EA42042E99300F892DC /* TresorMockup */;
+			targetProxy = F9FE6EBF2042E99300F892DC /* PBXContainerItemProxy */;
+		};
+		F9FE6ECB2042E99400F892DC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9FE6EA42042E99300F892DC /* TresorMockup */;
+			targetProxy = F9FE6ECA2042E99400F892DC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F9FE6EB12042E99300F892DC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9FE6EB22042E99300F892DC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F9FE6EB72042E99300F892DC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F9FE6ED02042E99400F892DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F9FE6ED12042E99400F892DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F9FE6ED32042E99400F892DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
+				INFOPLIST_FILE = TresorMockup/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F9FE6ED42042E99400F892DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
+				INFOPLIST_FILE = TresorMockup/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockup;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F9FE6ED62042E99400F892DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
+				INFOPLIST_FILE = TresorMockupTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresorMockup.app/TresorMockup";
+			};
+			name = Debug;
+		};
+		F9FE6ED72042E99400F892DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
+				INFOPLIST_FILE = TresorMockupTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresorMockup.app/TresorMockup";
+			};
+			name = Release;
+		};
+		F9FE6ED92042E99400F892DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
+				INFOPLIST_FILE = TresorMockupUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TresorMockup;
+			};
+			name = Debug;
+		};
+		F9FE6EDA2042E99400F892DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
+				INFOPLIST_FILE = TresorMockupUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TresorMockup;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9FE6EA02042E99300F892DC /* Build configuration list for PBXProject "TresorMockup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9FE6ED02042E99400F892DC /* Debug */,
+				F9FE6ED12042E99400F892DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9FE6ED22042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9FE6ED32042E99400F892DC /* Debug */,
+				F9FE6ED42042E99400F892DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9FE6ED52042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockupTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9FE6ED62042E99400F892DC /* Debug */,
+				F9FE6ED72042E99400F892DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9FE6ED82042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockupUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9FE6ED92042E99400F892DC /* Debug */,
+				F9FE6EDA2042E99400F892DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F9FE6EAB2042E99300F892DC /* TresorMockup.xcdatamodel */,
+			);
+			currentVersion = F9FE6EAB2042E99300F892DC /* TresorMockup.xcdatamodel */;
+			path = TresorMockup.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F9FE6E9D2042E99300F892DC /* Project object */;
+}
