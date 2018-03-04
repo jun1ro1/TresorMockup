@@ -27,7 +27,7 @@
         <relationship name="passwords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Password" inverseName="site" inverseEntity="Password" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Password" positionX="261" positionY="189" width="128" height="133"/>
-        <element name="Site" positionX="-9" positionY="54" width="128" height="238"/>
+        <element name="Password" positionX="261" positionY="189" width="128" height="135"/>
+        <element name="Site" positionX="-9" positionY="54" width="128" height="240"/>
     </elements>
 </model>

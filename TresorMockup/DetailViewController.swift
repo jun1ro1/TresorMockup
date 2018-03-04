@@ -68,7 +68,7 @@ fileprivate enum SectionType: Int {
         return [
             "Site".localized,
             "Account".localized,
-            "",
+            "Memo",
             ][self.rawValue]
     }
     static var count: Int { return SectionType.typeEnd.rawValue }
@@ -85,32 +85,103 @@ fileprivate enum SectionType: Int {
     }
 }
 
-fileprivate var layouter = J1Layouter<SectionType, AppKeyType>([
-    .title:        (section: .site,    row: 0),
-    .url:          (section: .site,    row: 1),
-    .userid:       (section: .account, row: 0),
-    .password:     (section: .account, row: 1),
-    .selectAt:     (section: .account, row: 2),
-    .memo:         (section: .memo,    row: 0),
-    ])
 
+// MARK: -
 class LabelCell: UITableViewCell {
     @IBOutlet weak var label: UILabel?
+}
+
+class TextFieldCell: UITableViewCell {
+    @IBOutlet weak var textField: UITextField?
 }
 
 class TextViewCell: UITableViewCell {
     @IBOutlet weak var textView: UITextView?
 }
 
+// MARK: -
 class DetailViewController: UITableViewController {
+
+    fileprivate var layouter_nonedit = J1Layouter<SectionType, AppKeyType>([
+        .title:        (section: .site,    row: 0),
+        .url:          (section: .site,    row: 1),
+        .userid:       (section: .account, row: 0),
+        .password:     (section: .account, row: 1),
+        .selectAt:     (section: .account, row: 2),
+        .memo:         (section: .memo,    row: 0),
+        ])
+
+    fileprivate var layouter_edit = J1Layouter<SectionType, AppKeyType>([
+        .title:        (section: .site,    row: 0),
+        .url:          (section: .site,    row: 1),
+        .userid:       (section: .account, row: 0),
+        .password:     (section: .account, row: 1),
+        .selectAt:     (section: .account, row: 2),
+        .memo:         (section: .memo,    row: 0),
+        ])
+
+    fileprivate var layouter: J1Layouter<SectionType, AppKeyType> {
+        return self.inEditing ? self.layouter_edit : self.layouter_nonedit
+    }
+
+    var keyCell_nonedit: [AppKeyType: String] = [
+        .title:    "CellLabel",
+        .url:      "CellLabel",
+        .userid:   "CellLabel",
+        .password: "CellLabel",
+        .selectAt: "CellLabel",
+        .memo:     "CellLabel",
+    ]
+    var keyCell_edit: [AppKeyType: String] = [
+        .title:    "CellTextField",
+        .url:      "CellTextField",
+        .userid:   "CellTextField",
+        .password: "CellTextField",
+        .selectAt: "CellLabel",
+        .memo:     "CellTextView",
+    ]
+    var keyCell: [AppKeyType: String] {
+        return self.inEditing ? self.keyCell_edit : self.keyCell_nonedit
+    }
+
+    var keyAttribute: [AppKeyType: String] = [
+        .title:    "title",
+        .url:      "url",
+        .userid:   "userid",
+        .password: "password",
+        .selectAt: "selectAt",
+        .memo:     "memo",
+        ]
+
+
+    // MARK: Properties
+    var detailItem: Site?
+    //    {
+    //        didSet {
+    //            // Update the view.
+    //            configureView()
+    //        }
+    //    }
+
+    private var inEditing = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        self.inEditing = false
         self.tableView.estimatedRowHeight = 44.0
         self.tableView.rowHeight          = UITableViewAutomaticDimension
+        self.configureButtons(animated: false)
         configureView()
+
+        // DEBUG CODE
+        self.detailItem?.title    = "Apple"
+        self.detailItem?.url      = "http://www.apple.com"
+        self.detailItem?.userid   = "username"
+        self.detailItem?.password = "password"
+        self.detailItem?.memo     = "Hello world!"
+        self.detailItem?.selectAt = Date()
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,10 +189,40 @@ class DetailViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var detailItem: Site? {
-        didSet {
-            // Update the view.
-            configureView()
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        self.inEditing = editing
+
+        var paths: [IndexPath] = []
+        for key in AppKeyType.iterator {
+            if let indexPath = self.layouter.indexPath(forKey: key) {
+                paths.append(indexPath)
+            }
+        }
+
+        self.tableView.beginUpdates()
+        self.tableView.reloadRows(at: paths, with: .fade)
+        self.tableView.endUpdates()
+
+        self.configureButtons(animated: animated)
+    }
+
+    @objc func setToEditingMode(sender: AnyObject) {
+        self.setEditing(true, animated: true)
+    }
+
+    @objc func exitFromEditintgMode(sender: AnyObject) {
+        self.setEditing(false, animated: true)
+    }
+
+
+    func configureButtons(animated: Bool) {
+        if  self.inEditing {
+            let addButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector( DetailViewController.exitFromEditintgMode))
+            self.navigationItem.setRightBarButton(addButton, animated: animated)
+        }
+        else {
+            let addButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector( setToEditingMode ) )
+            self.navigationItem.setRightBarButton(addButton, animated: animated)
         }
     }
 
@@ -141,40 +242,34 @@ class DetailViewController: UITableViewController {
         guard let sec = SectionType(rawValue: section) else {
             return 0
         }
-        return layouter.numberOfRows(inSection: sec)
+        return self.layouter.numberOfRows(inSection: sec)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell
-        let key = layouter.key(forIndexPath: indexPath) ?? .typeEnd
+        let key = self.layouter.key(forIndexPath: indexPath) ?? .typeEnd
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.keyCell[key]!, for: indexPath)
 
         switch key {
-        case .title:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellLabel", for: indexPath) as! LabelCell
-            (cell as! LabelCell).label?.text = detailItem?.title
-
-        case .url:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellLabel", for: indexPath) as! LabelCell
-            (cell as! LabelCell).label?.text = detailItem?.url
-
-        case .userid:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellLabel", for: indexPath) as! LabelCell
-            (cell as! LabelCell).label?.text = detailItem?.userid
-
-        case .password:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellLabel", for: indexPath) as! LabelCell
-            (cell as! LabelCell).label?.text = detailItem?.password
+        case .title, .url, .userid, .password:
+            if self.inEditing {
+                (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+            }
+            else {
+                (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+            }
 
         case .selectAt:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellLabel", for: indexPath) as! LabelCell
-            (cell as! LabelCell).label?.text = "since" + (detailItem?.selectAt?.description ?? "")
+            (cell as! LabelCell).label?.text = "since " + (detailItem?.selectAt?.description ?? "")
 
         case .memo:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellTextView", for: indexPath) as! TextViewCell
-            (cell as! TextViewCell).textView?.text = detailItem?.memo
+            if self.inEditing {
+                (cell as! TextViewCell).textView?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+            }
+            else {
+                (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+            }
 
         default:
-            cell = tableView.dequeueReusableCell(withIdentifier: "CellLabel", for: indexPath)
             assertionFailure()
 
         }

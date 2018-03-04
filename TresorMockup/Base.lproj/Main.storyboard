@@ -30,13 +30,13 @@
         <scene sceneID="yUG-lL-AsK">
             <objects>
                 <viewController title="Detail" id="JEX-9P-axG" customClass="DetailViewController" customModule="TresorMockup" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ffz-vE-xM6">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ffz-vE-xM6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellLabel" id="DiA-P5-QxN" customClass="LabelCell" customModule="TresorMockup" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DiA-P5-QxN" id="JPH-gU-Lf6">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -60,15 +60,35 @@
                                     <outlet property="label" destination="J25-WC-pds" id="d3u-yH-KRy"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTextField" id="9E1-35-2JI" customClass="TextFieldCell" customModule="TresorMockup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9E1-35-2JI" id="7u9-vc-QD9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Sl-6B-HtB">
+                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="textField" destination="4Sl-6B-HtB" id="rKm-kj-bdQ"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellTextView" rowHeight="173" id="d60-bc-e4u" userLabel="CellTextView" customClass="TextViewCell" customModule="TresorMockup" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="173"/>
+                                <rect key="frame" x="0.0" y="143.5" width="375" height="173"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d60-bc-e4u" id="go7-dt-D7H">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="172.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="82V-9w-Xfa">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="173"/>
+                                            <rect key="frame" x="16" y="11" width="343" height="151.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -76,10 +96,10 @@
                                         </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="82V-9w-Xfa" firstAttribute="top" secondItem="go7-dt-D7H" secondAttribute="top" id="7au-Oy-Uxq"/>
-                                        <constraint firstItem="82V-9w-Xfa" firstAttribute="centerY" secondItem="go7-dt-D7H" secondAttribute="centerY" id="aOa-0b-khj"/>
-                                        <constraint firstItem="82V-9w-Xfa" firstAttribute="leading" secondItem="go7-dt-D7H" secondAttribute="leading" id="d4L-N5-2Tj"/>
-                                        <constraint firstAttribute="trailing" secondItem="82V-9w-Xfa" secondAttribute="trailing" id="oip-cu-IdM"/>
+                                        <constraint firstItem="82V-9w-Xfa" firstAttribute="top" secondItem="go7-dt-D7H" secondAttribute="topMargin" id="7au-Oy-Uxq"/>
+                                        <constraint firstItem="82V-9w-Xfa" firstAttribute="bottom" secondItem="go7-dt-D7H" secondAttribute="bottomMargin" id="aOa-0b-khj"/>
+                                        <constraint firstItem="82V-9w-Xfa" firstAttribute="leading" secondItem="go7-dt-D7H" secondAttribute="leadingMargin" id="d4L-N5-2Tj"/>
+                                        <constraint firstItem="82V-9w-Xfa" firstAttribute="trailing" secondItem="go7-dt-D7H" secondAttribute="trailingMargin" id="oip-cu-IdM"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
