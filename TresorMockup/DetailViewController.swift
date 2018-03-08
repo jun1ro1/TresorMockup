@@ -121,7 +121,7 @@ class DetailViewController: UITableViewController {
         ])
 
     fileprivate var layouter: J1Layouter<SectionType, AppKeyType> {
-        return self.inEditing ? self.layouter_edit : self.layouter_nonedit
+        return self.isEditing ? self.layouter_edit : self.layouter_nonedit
     }
 
     var keyCell_nonedit: [AppKeyType: String] = [
@@ -141,7 +141,7 @@ class DetailViewController: UITableViewController {
         .memo:     "CellTextView",
     ]
     var keyCell: [AppKeyType: String] {
-        return self.inEditing ? self.keyCell_edit : self.keyCell_nonedit
+        return self.isEditing ? self.keyCell_edit : self.keyCell_nonedit
     }
 
     var keyAttribute: [AppKeyType: String] = [
@@ -163,16 +163,15 @@ class DetailViewController: UITableViewController {
     //        }
     //    }
 
-    private var inEditing = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.inEditing = false
-        self.tableView.estimatedRowHeight = 44.0
-        self.tableView.rowHeight          = UITableViewAutomaticDimension
-        self.configureButtons(animated: false)
+        self.isEditing = false
+        self.tableView.estimatedRowHeight      = 44.0
+        self.tableView.rowHeight               = UITableViewAutomaticDimension
+        self.navigationItem.rightBarButtonItem = editButtonItem
         configureView()
 
         // DEBUG CODE
@@ -190,8 +189,7 @@ class DetailViewController: UITableViewController {
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
-        self.inEditing = editing
-
+        super.setEditing(editing, animated: animated)
         var paths: [IndexPath] = []
         for key in AppKeyType.iterator {
             if let indexPath = self.layouter.indexPath(forKey: key) {
@@ -202,28 +200,6 @@ class DetailViewController: UITableViewController {
         self.tableView.beginUpdates()
         self.tableView.reloadRows(at: paths, with: .fade)
         self.tableView.endUpdates()
-
-        self.configureButtons(animated: animated)
-    }
-
-    @objc func setToEditingMode(sender: AnyObject) {
-        self.setEditing(true, animated: true)
-    }
-
-    @objc func exitFromEditintgMode(sender: AnyObject) {
-        self.setEditing(false, animated: true)
-    }
-
-
-    func configureButtons(animated: Bool) {
-        if  self.inEditing {
-            let addButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector( DetailViewController.exitFromEditintgMode))
-            self.navigationItem.setRightBarButton(addButton, animated: animated)
-        }
-        else {
-            let addButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector( setToEditingMode ) )
-            self.navigationItem.setRightBarButton(addButton, animated: animated)
-        }
     }
 
     // MARK: - Table View
@@ -251,7 +227,7 @@ class DetailViewController: UITableViewController {
 
         switch key {
         case .title, .url, .userid, .password:
-            if self.inEditing {
+            if self.isEditing {
                 (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
             }
             else {
@@ -259,10 +235,10 @@ class DetailViewController: UITableViewController {
             }
 
         case .selectAt:
-            (cell as! LabelCell).label?.text = "since " + (detailItem?.selectAt?.description ?? "")
+            (cell as! LabelCell).label?.text = (detailItem?.selectAt?.description ?? "")
 
         case .memo:
-            if self.inEditing {
+            if self.isEditing {
                 (cell as! TextViewCell).textView?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
             }
             else {
@@ -276,7 +252,11 @@ class DetailViewController: UITableViewController {
 
         return cell
     }
-    
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+
     func configureView() {
 
         // Update the user interface for the detail item.
