@@ -9,13 +9,14 @@
 import UIKit
 
 enum AppKeyType: Int  {
-    case  title = 0
-    case  url
-    case  userid
-    case  password
-    case  selectAt
-    case  memo
-    case  typeEnd
+    case title = 0
+    case url
+    case userid
+    case password
+    case selectAt
+    case generator
+    case memo
+    case typeEnd
 
     var description: String {
         var s: String = "**UNKNOWN**AppKeyType"
@@ -25,6 +26,7 @@ enum AppKeyType: Int  {
         case .userid:     s = "User ID"
         case .password:   s = "Password"
         case .selectAt:   s = "Select at"
+        case .generator:  s = "Generator"
         case .memo:       s = "Memo"
         case .typeEnd:    s = "TypeEnd"
         }
@@ -47,43 +49,6 @@ enum AppKeyType: Int  {
     }
 }
 
-fileprivate enum SectionType: Int {
-    case site = 0
-    case account
-    case memo
-    case typeEnd
-
-    var description: String {
-        var s: String = "**UNKNOWN**SectionType"
-        switch self {
-        case .site:    s = "Site   "
-        case .account: s = "Account"
-        case .memo:    s = "Memo  "
-        case .typeEnd: s = "TypeEnd"
-        }
-        return s
-    }
-
-    var header: String {
-        return [
-            "Site".localized,
-            "Account".localized,
-            "Memo",
-            ][self.rawValue]
-    }
-    static var count: Int { return SectionType.typeEnd.rawValue }
-
-    static var iterator: AnyIterator<SectionType> {
-        var value: Int = -1
-        return AnyIterator {
-            value = value + 1
-            guard value < SectionType.typeEnd.rawValue else {
-                return nil
-            }
-            return SectionType(rawValue: value)!
-        }
-    }
-}
 
 
 // MARK: -
@@ -99,28 +64,73 @@ class TextViewCell: UITableViewCell {
     @IBOutlet weak var textView: UITextView?
 }
 
+class GeneratorCell: UITableViewCell {
+    @IBOutlet weak var lengthLabel:    UILabel?
+    @IBOutlet weak var lengthStepper:  UIStepper?
+    @IBOutlet weak var charsLabel:     UILabel?
+    @IBOutlet weak var charsStepper:   UIStepper?
+    @IBOutlet weak var generateButton: UIButton?
+
+//    required init?(coder aDecoder: NSCoder) {
+//        super.init(coder: aDecoder)
+//        self.okButton?.tag     = 10
+//        self.lengthSlider?.tag = 20
+//        self.charsStepper?.tag = 30
+//
+////      fatalError("init(coder:) has not been implemented")
+//    }
+//
+
+//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+//        super.init(style: style, reuseIdentifier: reuseIdentifier)
+//
+//        self.okButton?.tag     = 10
+//        self.lengthSlider?.tag = 20
+//        self.charsStepper?.tag = 30
+//    }
+//
+}
+
 // MARK: -
 class DetailViewController: UITableViewController {
+    let lengthArray: [Int16]             = [ 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 32 ]
+    let charsArray: [CypherCharacterSet] = [
+        CypherCharacterSet.DecimalDigits,
+        CypherCharacterSet.UppercaseLatinAlphabets,
+        CypherCharacterSet.LowercaseLatinAlphabets,
+        CypherCharacterSet.UpperCaseLettersSet,
+        CypherCharacterSet.LowerCaseLettersSet,
+        CypherCharacterSet.AlphaNumericsSet,
+        CypherCharacterSet.Base64Set,
+        CypherCharacterSet.ArithmeticCharactersSet,
+        CypherCharacterSet.AlphaNumericSymbolsSet,
+    ]
+    let TAG_BUTTON_GENERATE = 10
+    let TAG_STEPPER_LENGTH  = 20
+    let TAG_STEPPER_CHARS   = 30
 
-    fileprivate var layouter_nonedit = J1Layouter<SectionType, AppKeyType>([
-        .title:        (section: .site,    row: 0),
-        .url:          (section: .site,    row: 1),
-        .userid:       (section: .account, row: 0),
-        .password:     (section: .account, row: 1),
-        .selectAt:     (section: .account, row: 2),
-        .memo:         (section: .memo,    row: 0),
+    var randomLength: Int16 = 0
+    var randomChars:  CypherCharacterSet = .DecimalDigits
+
+    fileprivate var layouter_nonedit = Layouter<AppKeyType>([
+        .title:        (section: 0, row: 0),
+        .url:          (section: 0, row: 1),
+        .userid:       (section: 1, row: 0),
+        .password:     (section: 1, row: 1),
+        .selectAt:     (section: 1, row: 2),
+        .memo:         (section: 2, row: 0),
         ])
 
-    fileprivate var layouter_edit = J1Layouter<SectionType, AppKeyType>([
-        .title:        (section: .site,    row: 0),
-        .url:          (section: .site,    row: 1),
-        .userid:       (section: .account, row: 0),
-        .password:     (section: .account, row: 1),
-        .selectAt:     (section: .account, row: 2),
-        .memo:         (section: .memo,    row: 0),
+    fileprivate var layouter_edit = Layouter<AppKeyType>([
+        .title:        (section: 0, row: 0),
+        .url:          (section: 0, row: 1),
+        .userid:       (section: 1, row: 0),
+        .password:     (section: 1, row: 1),
+        .generator:    (section: 1, row: 2),
+        .memo:         (section: 2, row: 0),
         ])
 
-    fileprivate var layouter: J1Layouter<SectionType, AppKeyType> {
+    fileprivate var layouter: Layouter<AppKeyType> {
         return self.isEditing ? self.layouter_edit : self.layouter_nonedit
     }
 
@@ -131,15 +141,16 @@ class DetailViewController: UITableViewController {
         .password: "CellLabel",
         .selectAt: "CellLabel",
         .memo:     "CellLabel",
-    ]
+        ]
     var keyCell_edit: [AppKeyType: String] = [
         .title:    "CellTextField",
         .url:      "CellTextField",
         .userid:   "CellTextField",
         .password: "CellTextField",
         .selectAt: "CellLabel",
+        .generator:"CellGenerator",
         .memo:     "CellTextView",
-    ]
+        ]
     var keyCell: [AppKeyType: String] {
         return self.isEditing ? self.keyCell_edit : self.keyCell_nonedit
     }
@@ -163,12 +174,14 @@ class DetailViewController: UITableViewController {
     //        }
     //    }
 
+    weak var randTextField: UITextField?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-        self.isEditing = false
+//        self.isEditing = false
         self.tableView.estimatedRowHeight      = 44.0
         self.tableView.rowHeight               = UITableViewAutomaticDimension
         self.navigationItem.rightBarButtonItem = editButtonItem
@@ -181,6 +194,10 @@ class DetailViewController: UITableViewController {
         self.detailItem?.password = "password"
         self.detailItem?.memo     = "Hello world!"
         self.detailItem?.selectAt = Date()
+
+        self.randomLength = self.detailItem?.maxLength ?? self.lengthArray.first ?? 0
+        self.randomChars  = self.detailItem?.charSet != nil ?
+            CypherCharacterSet(rawValue: UInt32(self.detailItem!.charSet) ) : self.charsArray.first!
     }
 
     override func didReceiveMemoryWarning() {
@@ -189,36 +206,66 @@ class DetailViewController: UITableViewController {
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
-        super.setEditing(editing, animated: animated)
-        var paths: [IndexPath] = []
-        for key in AppKeyType.iterator {
-            if let indexPath = self.layouter.indexPath(forKey: key) {
-                paths.append(indexPath)
-            }
-        }
+        self.tableView.performBatchUpdates(
+            { () -> Void in
+                let beforePaths = AppKeyType.iterator.flatMap {
+                    self.layouter.indexPath(forKey: $0)
+                }
+                let beforeSections = beforePaths.map { $0.section }
 
-        self.tableView.beginUpdates()
-        self.tableView.reloadRows(at: paths, with: .fade)
-        self.tableView.endUpdates()
+                super.setEditing(editing, animated: animated)
+
+                let afterPaths = AppKeyType.iterator.flatMap {
+                    self.layouter.indexPath(forKey: $0)
+                }
+                let afterSections = afterPaths.map { $0.section }
+
+                self.tableView.insertSections(
+                    IndexSet(afterSections).subtracting(IndexSet(beforeSections)),
+                    with: .fade)
+                self.tableView.deleteSections(
+                    IndexSet(beforeSections).subtracting(IndexSet(afterSections)),
+                    with: .fade)
+
+                self.tableView.insertRows(
+                    at: Array( Set(afterPaths).subtracting(Set(beforePaths)) ),
+                    with: .fade)
+                self.tableView.deleteRows(
+                    at: Array( Set(beforePaths).subtracting(Set(afterPaths)) ),
+                    with: .fade)
+                self.tableView.reloadRows(
+                    at: Array( Set(afterPaths).intersection(Set(beforePaths)) ),
+                    with: .fade)
+            },
+            completion: nil )
     }
 
     // MARK: - Table View
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return SectionType.count
+        return self.layouter.numberOfSections
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let sec = SectionType(rawValue: section) else {
-            return nil
+        if self.isEditing {
+            return [
+                "Site".localized,
+                "User ID".localized,
+                "Password".localized,
+                "Memo".localized,
+                ][ section ]
+
         }
-        return sec.header
+        else {
+            return [
+                "Site".localized,
+                "Account".localized,
+                "Memo".localized,
+                ][ section ]
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sec = SectionType(rawValue: section) else {
-            return 0
-        }
-        return self.layouter.numberOfRows(inSection: sec)
+        return self.layouter.numberOfRows(inSection: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -229,6 +276,9 @@ class DetailViewController: UITableViewController {
         case .title, .url, .userid, .password:
             if self.isEditing {
                 (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+                if key == .password {
+                    self.randTextField = (cell as! TextFieldCell).textField
+                }
             }
             else {
                 (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
@@ -245,6 +295,21 @@ class DetailViewController: UITableViewController {
                 (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
             }
 
+        case .generator:
+            (cell as! GeneratorCell).lengthStepper?.minimumValue = 0
+            (cell as! GeneratorCell).lengthStepper?.maximumValue = Double(lengthArray.count - 1)
+            (cell as! GeneratorCell).lengthStepper?.value        = 0.0
+            (cell as! GeneratorCell).lengthStepper?.isContinuous = false
+            (cell as! GeneratorCell).lengthStepper?.tag          = TAG_STEPPER_LENGTH
+
+            (cell as! GeneratorCell).charsStepper?.minimumValue = 0.0
+            (cell as! GeneratorCell).charsStepper?.maximumValue = Double(charsArray.count - 1)
+            (cell as! GeneratorCell).charsStepper?.value        = 0.0
+            (cell as! GeneratorCell).charsStepper?.isContinuous = false
+            (cell as! GeneratorCell).charsStepper?.tag          = TAG_STEPPER_CHARS
+
+            (cell as! GeneratorCell).generateButton?.tag        = TAG_BUTTON_GENERATE
+            
         default:
             assertionFailure()
 
@@ -260,12 +325,50 @@ class DetailViewController: UITableViewController {
     func configureView() {
 
         // Update the user interface for the detail item.
-//        if let detail = detailItem {
-//            if let label = detailDescriptionLabel {
-//                //            label.text = detail.timestamp!.description
-//            }
-//        }
+        //        if let detail = detailItem {
+        //            if let label = detailDescriptionLabel {
+        //                //            label.text = detail.timestamp!.description
+        //            }
+        //        }
     }
 
+    @IBAction func valueChanged(sender: UIControl, event forEvent: UIEvent) {
+        let getcell = {
+            (_ view: UIView?) -> UITableViewCell? in
+            var c = view?.superview
+            while c != nil && !(c is UITableViewCell) {
+                c = c?.superview
+            }
+            return c as? UITableViewCell
+        }
+        guard let cell = getcell(sender) else {
+            assertionFailure()
+            return
+        }
+
+        switch sender.tag {
+        case TAG_BUTTON_GENERATE:
+            if let rnd = try? RandomData.shared.get(count: Int(self.randomLength), in: self.randomChars) {
+                self.randTextField?.text = rnd
+            }
+
+        case TAG_STEPPER_LENGTH:
+            let val = (sender as! UIStepper).value
+            let len = self.lengthArray[ Int(val) ]
+            let str = String( format: "%d", len )
+            (cell as? GeneratorCell)?.lengthLabel?.text = str
+            self.randomLength = len
+
+        case TAG_STEPPER_CHARS:
+            let val = (sender as! UIStepper).value
+            let chr = self.charsArray[ Int(val) ]
+            (cell as? GeneratorCell)?.charsLabel?.text = chr.description
+            self.randomChars = chr
+
+        default:
+            assertionFailure()
+        }
+
+    }
 }
 

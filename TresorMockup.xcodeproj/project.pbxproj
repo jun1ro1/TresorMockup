@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		F935B364204A284600B004B2 /* TresorMockup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */; };
 		F935B365204A284700B004B2 /* TresorMockup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */; };
-		F935B377204A371500B004B2 /* J1Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B376204A371400B004B2 /* J1Layouter.swift */; };
-		F935B378204A371500B004B2 /* J1Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B376204A371400B004B2 /* J1Layouter.swift */; };
-		F935B379204A371500B004B2 /* J1Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B376204A371400B004B2 /* J1Layouter.swift */; };
 		F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
 		F935B37C204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
 		F935B37D204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
+		F9610E1120552FEA00A97F0E /* Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E1020552FEA00A97F0E /* Layouter.swift */; };
+		F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E1020552FEA00A97F0E /* Layouter.swift */; };
+		F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E1020552FEA00A97F0E /* Layouter.swift */; };
+		F9610E152055862900A97F0E /* RandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E142055862800A97F0E /* RandomData.swift */; };
+		F9610E162055862900A97F0E /* RandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E142055862800A97F0E /* RandomData.swift */; };
+		F9610E172055862900A97F0E /* RandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E142055862800A97F0E /* RandomData.swift */; };
+		F9610E192055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
+		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
+		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20849204BF0D600543C81 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E20848204BF0D600543C81 /* Site.swift */; };
@@ -52,8 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F935B376204A371400B004B2 /* J1Layouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = J1Layouter.swift; sourceTree = "<group>"; };
 		F935B37A204A3ACA00B004B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
+		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
+		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		F9FE6EA52042E99300F892DC /* TresorMockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresorMockup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,14 +136,16 @@
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
 				F935B37A204A3ACA00B004B2 /* Extensions.swift */,
-				F935B376204A371400B004B2 /* J1Layouter.swift */,
 				F9FE6EAD2042E99300F892DC /* MasterViewController.swift */,
 				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
 				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
 				F9FE6EB12042E99300F892DC /* Main.storyboard */,
 				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
 				F9E20848204BF0D600543C81 /* Site.swift */,
+				F9610E142055862800A97F0E /* RandomData.swift */,
+				F9610E182055864C00A97F0E /* AsBytes.swift */,
 				F9E2084C204BF14F00543C81 /* Password.swift */,
+				F9610E1020552FEA00A97F0E /* Layouter.swift */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";
@@ -313,14 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9610E1120552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9E20849204BF0D600543C81 /* Site.swift in Sources */,
 				F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */,
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
 				F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */,
-				F935B377204A371500B004B2 /* J1Layouter.swift in Sources */,
 				F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */,
+				F9610E152055862900A97F0E /* RandomData.swift in Sources */,
 				F9FE6EAE2042E99300F892DC /* MasterViewController.swift in Sources */,
 				F9FE6EB02042E99300F892DC /* DetailViewController.swift in Sources */,
+				F9610E192055864D00A97F0E /* AsBytes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,12 +340,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F935B378204A371500B004B2 /* J1Layouter.swift in Sources */,
 				F935B37C204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */,
 				F935B364204A284600B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084E204BF14F00543C81 /* Password.swift in Sources */,
 				F9E2084A204BF0D600543C81 /* Site.swift in Sources */,
+				F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */,
+				F9610E162055862900A97F0E /* RandomData.swift in Sources */,
+				F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,12 +356,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F935B379204A371500B004B2 /* J1Layouter.swift in Sources */,
 				F935B37D204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */,
 				F935B365204A284700B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084F204BF14F00543C81 /* Password.swift in Sources */,
 				F9E2084B204BF0D600543C81 /* Site.swift in Sources */,
+				F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */,
+				F9610E172055862900A97F0E /* RandomData.swift in Sources */,
+				F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

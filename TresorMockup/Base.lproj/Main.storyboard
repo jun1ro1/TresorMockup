@@ -106,6 +106,76 @@
                                     <outlet property="textView" destination="82V-9w-Xfa" id="0ur-Jo-tmm"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellGenerator" rowHeight="160" id="WOr-rR-VFy" customClass="GeneratorCell" customModule="TresorMockup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="316.5" width="375" height="160"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WOr-rR-VFy" id="1DS-p4-OK1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sok-il-NN6">
+                                            <rect key="frame" x="16" y="12" width="240" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="3Cu-XU-6UC"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stepper opaque="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aB7-Ef-9wY">
+                                            <rect key="frame" x="264" y="60" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="valueChangedWithSender:event:" destination="JEX-9P-axG" eventType="valueChanged" id="9cd-7c-URE"/>
+                                            </connections>
+                                        </stepper>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-1n-Ckw">
+                                            <rect key="frame" x="16" y="60" width="240" height="28"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="28" id="4gG-dM-9wH"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="LsI-Xx-Tj1" userLabel="Length Stepper">
+                                            <rect key="frame" x="264" y="11" width="94" height="29"/>
+                                            <connections>
+                                                <action selector="valueChangedWithSender:event:" destination="JEX-9P-axG" eventType="valueChanged" id="FGI-3G-3U7"/>
+                                            </connections>
+                                        </stepper>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zs-LK-RiS">
+                                            <rect key="frame" x="16" y="113" width="342" height="30"/>
+                                            <state key="normal" title="Generate Password"/>
+                                            <connections>
+                                                <action selector="valueChangedWithSender:event:" destination="JEX-9P-axG" eventType="touchDown" id="vZs-Us-4S1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="LsI-Xx-Tj1" firstAttribute="top" secondItem="1DS-p4-OK1" secondAttribute="topMargin" id="6qP-5M-oud"/>
+                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="top" secondItem="Sok-il-NN6" secondAttribute="bottom" constant="20" id="8i9-RS-hkm"/>
+                                        <constraint firstItem="Sok-il-NN6" firstAttribute="leading" secondItem="1DS-p4-OK1" secondAttribute="leadingMargin" id="CAX-OA-uTe"/>
+                                        <constraint firstItem="LsI-Xx-Tj1" firstAttribute="leading" secondItem="aB7-Ef-9wY" secondAttribute="leading" id="Cj0-6A-uSc"/>
+                                        <constraint firstItem="Sok-il-NN6" firstAttribute="leading" secondItem="OL0-1n-Ckw" secondAttribute="leading" id="DlG-fH-8B2"/>
+                                        <constraint firstItem="aB7-Ef-9wY" firstAttribute="trailing" secondItem="0zs-LK-RiS" secondAttribute="trailing" id="G1B-0w-fjX"/>
+                                        <constraint firstItem="0zs-LK-RiS" firstAttribute="centerX" secondItem="1DS-p4-OK1" secondAttribute="centerX" id="JNm-pU-OdY"/>
+                                        <constraint firstItem="aB7-Ef-9wY" firstAttribute="leading" secondItem="OL0-1n-Ckw" secondAttribute="trailing" constant="8" symbolic="YES" id="TEJ-HE-S3t"/>
+                                        <constraint firstItem="0zs-LK-RiS" firstAttribute="top" secondItem="aB7-Ef-9wY" secondAttribute="bottom" constant="24" id="Vka-wq-yJD"/>
+                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="centerY" secondItem="aB7-Ef-9wY" secondAttribute="centerY" id="XSq-wX-qSr"/>
+                                        <constraint firstItem="Sok-il-NN6" firstAttribute="centerY" secondItem="LsI-Xx-Tj1" secondAttribute="centerY" id="hJH-1i-iUI"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0zs-LK-RiS" secondAttribute="bottom" constant="6" id="obz-Y6-nZ1"/>
+                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="leading" secondItem="0zs-LK-RiS" secondAttribute="leading" id="pXg-Cb-sfG"/>
+                                        <constraint firstItem="LsI-Xx-Tj1" firstAttribute="leading" secondItem="Sok-il-NN6" secondAttribute="trailing" constant="8" symbolic="YES" id="qZV-9l-h6u"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="charsLabel" destination="OL0-1n-Ckw" id="Xc9-fr-Mew"/>
+                                    <outlet property="charsStepper" destination="aB7-Ef-9wY" id="g1D-Zj-Ax8"/>
+                                    <outlet property="generateButton" destination="0zs-LK-RiS" id="aKG-zI-jQR"/>
+                                    <outlet property="lengthLabel" destination="Sok-il-NN6" id="eiF-CN-xNd"/>
+                                    <outlet property="lengthStepper" destination="LsI-Xx-Tj1" id="HlN-uC-8NR"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                     </tableView>
