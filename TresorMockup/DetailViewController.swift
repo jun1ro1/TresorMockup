@@ -49,8 +49,6 @@ enum AppKeyType: Int  {
     }
 }
 
-
-
 // MARK: -
 class LabelCell: UITableViewCell {
     @IBOutlet weak var label: UILabel?
@@ -93,7 +91,7 @@ class GeneratorCell: UITableViewCell {
 
 // MARK: -
 class DetailViewController: UITableViewController {
-    let lengthArray: [Int16]             = [ 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 32 ]
+//    let lengthArray: [Int16]             = [ 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 32 ]
     let charsArray: [CypherCharacterSet] = [
         CypherCharacterSet.DecimalDigits,
         CypherCharacterSet.UppercaseLatinAlphabets,
@@ -108,9 +106,6 @@ class DetailViewController: UITableViewController {
     let TAG_BUTTON_GENERATE = 10
     let TAG_STEPPER_LENGTH  = 20
     let TAG_STEPPER_CHARS   = 30
-
-    var randomLength: Int16 = 0
-    var randomChars:  CypherCharacterSet = .DecimalDigits
 
     fileprivate var layouter_nonedit = Layouter<AppKeyType>([
         .title:        (section: 0, row: 0),
@@ -174,7 +169,10 @@ class DetailViewController: UITableViewController {
     //        }
     //    }
 
-    weak var randTextField: UITextField?
+    weak var passTextField: UITextField? = nil
+    var randomLength: Int16 = 0
+    var randomChars:  CypherCharacterSet = .DecimalDigits
+
 
 
     override func viewDidLoad() {
@@ -190,14 +188,24 @@ class DetailViewController: UITableViewController {
         // DEBUG CODE
         self.detailItem?.title    = "Apple"
         self.detailItem?.url      = "http://www.apple.com"
-        self.detailItem?.userid   = "username"
-        self.detailItem?.password = "password"
+//        self.detailItem?.userid   = "username"
+//        self.detailItem?.password = "password"
         self.detailItem?.memo     = "Hello world!"
         self.detailItem?.selectAt = Date()
 
-        self.randomLength = self.detailItem?.maxLength ?? self.lengthArray.first ?? 0
+        self.randomLength = max( self.detailItem?.maxLength ?? 0, 4 )
         self.randomChars  = self.detailItem?.charSet != nil ?
             CypherCharacterSet(rawValue: UInt32(self.detailItem!.charSet) ) : self.charsArray.first!
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if let tf = self.passTextField {
+            self.detailItem?.password = tf.text
+        }
+        self.detailItem?.maxLength = self.randomLength
+        self.detailItem?.charSet   = Int32(self.randomChars.rawValue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -273,15 +281,22 @@ class DetailViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.keyCell[key]!, for: indexPath)
 
         switch key {
-        case .title, .url, .userid, .password:
+        case .title, .url, .userid:
             if self.isEditing {
                 (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
-                if key == .password {
-                    self.randTextField = (cell as! TextFieldCell).textField
-                }
             }
             else {
                 (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+            }
+
+        case .password:
+            if self.isEditing {
+                (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+                self.passTextField = (cell as! TextFieldCell).textField
+            }
+            else {
+                (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+                self.passTextField = nil
             }
 
         case .selectAt:
@@ -296,19 +311,23 @@ class DetailViewController: UITableViewController {
             }
 
         case .generator:
-            (cell as! GeneratorCell).lengthStepper?.minimumValue = 0
-            (cell as! GeneratorCell).lengthStepper?.maximumValue = Double(lengthArray.count - 1)
-            (cell as! GeneratorCell).lengthStepper?.value        = 0.0
+            (cell as! GeneratorCell).lengthStepper?.minimumValue = 4
+            (cell as! GeneratorCell).lengthStepper?.maximumValue = 32.0
+            (cell as! GeneratorCell).lengthStepper?.value        = Double(self.randomLength)
             (cell as! GeneratorCell).lengthStepper?.isContinuous = false
             (cell as! GeneratorCell).lengthStepper?.tag          = TAG_STEPPER_LENGTH
 
-            (cell as! GeneratorCell).charsStepper?.minimumValue = 0.0
-            (cell as! GeneratorCell).charsStepper?.maximumValue = Double(charsArray.count - 1)
-            (cell as! GeneratorCell).charsStepper?.value        = 0.0
-            (cell as! GeneratorCell).charsStepper?.isContinuous = false
-            (cell as! GeneratorCell).charsStepper?.tag          = TAG_STEPPER_CHARS
+            (cell as! GeneratorCell).lengthLabel?.text           = String( format: "%d", self.randomLength )
 
-            (cell as! GeneratorCell).generateButton?.tag        = TAG_BUTTON_GENERATE
+            (cell as! GeneratorCell).charsStepper?.minimumValue  = 0.0
+            (cell as! GeneratorCell).charsStepper?.maximumValue  = Double(charsArray.count - 1)
+            (cell as! GeneratorCell).charsStepper?.value         = Double(self.randomChars.rawValue)
+            (cell as! GeneratorCell).charsStepper?.isContinuous  = false
+            (cell as! GeneratorCell).charsStepper?.tag           = TAG_STEPPER_CHARS
+
+            (cell as! GeneratorCell).charsLabel?.text            = self.randomChars.description
+
+            (cell as! GeneratorCell).generateButton?.tag         = TAG_BUTTON_GENERATE
             
         default:
             assertionFailure()
@@ -349,12 +368,12 @@ class DetailViewController: UITableViewController {
         switch sender.tag {
         case TAG_BUTTON_GENERATE:
             if let rnd = try? RandomData.shared.get(count: Int(self.randomLength), in: self.randomChars) {
-                self.randTextField?.text = rnd
+                self.passTextField?.text = rnd
             }
 
         case TAG_STEPPER_LENGTH:
             let val = (sender as! UIStepper).value
-            let len = self.lengthArray[ Int(val) ]
+            let len = Int16(val)
             let str = String( format: "%d", len )
             (cell as? GeneratorCell)?.lengthLabel?.text = str
             self.randomLength = len
