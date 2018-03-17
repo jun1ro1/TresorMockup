@@ -106,6 +106,9 @@ class DetailViewController: UITableViewController {
     let TAG_BUTTON_GENERATE = 10
     let TAG_STEPPER_LENGTH  = 20
     let TAG_STEPPER_CHARS   = 30
+    let TAG_TEXTFIELD_LENGTH   = 100
+    let TAG_TEXTFIELD_PASSWORD = 110
+
 
     fileprivate var layouter_nonedit = Layouter<AppKeyType>([
         .title:        (section: 0, row: 0),
@@ -170,10 +173,12 @@ class DetailViewController: UITableViewController {
     //    }
 
     weak var passTextField: UITextField? = nil
-    var randomLength: Int16 = 0
-    var randomChars:  CypherCharacterSet = .DecimalDigits
+ //   var randomLength: Int16 = 0
+//    var randomChars:  CypherCharacterSet = .DecimalDigits
 
-
+    var itemProxy: ManagedObjectProxy?
+    let maxLength = "maxLength"
+    let charSet   = "charSet"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -192,20 +197,32 @@ class DetailViewController: UITableViewController {
 //        self.detailItem?.password = "password"
         self.detailItem?.memo     = "Hello world!"
         self.detailItem?.selectAt = Date()
+        self.detailItem?.loginAt  = Date()
 
-        self.randomLength = max( self.detailItem?.maxLength ?? 0, 4 )
-        self.randomChars  = self.detailItem?.charSet != nil ?
-            CypherCharacterSet(rawValue: UInt32(self.detailItem!.charSet) ) : self.charsArray.first!
+        self.itemProxy = ManagedObjectProxy(managedObject: self.detailItem!)
+        self.itemProxy!.setValue(value: max( self.detailItem?.maxLength ?? 0, 4 ) as AnyObject,
+                                 forKey: self.maxLength)
+        self.itemProxy!.setValue(
+            value:
+            (self.detailItem?.charSet != nil ?
+               UInt32(self.detailItem!.charSet) :
+               UInt32(self.charsArray.first!.rawValue)) as AnyObject,
+            forKey: self.charSet)
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        if let tf = self.passTextField {
-            self.detailItem?.password = tf.text
+        self.itemProxy?.writeBack()
+        if let context = self.detailItem?.managedObjectContext {
+            do {
+                try context.save()
+            }
+            catch {
+                print("error = \(error)")
+                abort()
+            }
         }
-        self.detailItem?.maxLength = self.randomLength
-        self.detailItem?.charSet   = Int32(self.randomChars.rawValue)
     }
 
     override func didReceiveMemoryWarning() {
@@ -293,6 +310,10 @@ class DetailViewController: UITableViewController {
             if self.isEditing {
                 (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
                 self.passTextField = (cell as! TextFieldCell).textField
+                self.passTextField?.tag = TAG_TEXTFIELD_PASSWORD
+                self.passTextField?.addTarget(self,
+                                              action: #selector(self.textFieldChanged(_:)),
+                                              for: .valueChanged)
             }
             else {
                 (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
@@ -311,23 +332,33 @@ class DetailViewController: UITableViewController {
             }
 
         case .generator:
+            let len = self.itemProxy!.valueForKey(key: self.maxLength) as! Int
             (cell as! GeneratorCell).lengthStepper?.minimumValue = 4
             (cell as! GeneratorCell).lengthStepper?.maximumValue = 32.0
-            (cell as! GeneratorCell).lengthStepper?.value        = Double(self.randomLength)
+            (cell as! GeneratorCell).lengthStepper?.value        = Double( len )
             (cell as! GeneratorCell).lengthStepper?.isContinuous = false
             (cell as! GeneratorCell).lengthStepper?.tag          = TAG_STEPPER_LENGTH
+            (cell as! GeneratorCell).lengthStepper?.addTarget(self,
+                                                              action: #selector(self.valueChanged(sender:forEvent:)),
+                                                              for: .valueChanged)
+            (cell as! GeneratorCell).lengthLabel?.text           = String( format: "%d", len )
 
-            (cell as! GeneratorCell).lengthLabel?.text           = String( format: "%d", self.randomLength )
-
+            let chars = CypherCharacterSet(rawValue: self.itemProxy!.valueForKey(key: self.charSet) as! UInt32)
             (cell as! GeneratorCell).charsStepper?.minimumValue  = 0.0
             (cell as! GeneratorCell).charsStepper?.maximumValue  = Double(charsArray.count - 1)
-            (cell as! GeneratorCell).charsStepper?.value         = Double(self.randomChars.rawValue)
+            (cell as! GeneratorCell).charsStepper?.value         = Double(chars.rawValue)
             (cell as! GeneratorCell).charsStepper?.isContinuous  = false
             (cell as! GeneratorCell).charsStepper?.tag           = TAG_STEPPER_CHARS
+            (cell as! GeneratorCell).charsStepper?.addTarget(self,
+                                                              action: #selector(self.valueChanged(sender:forEvent:)),
+                                                              for: .valueChanged)
 
-            (cell as! GeneratorCell).charsLabel?.text            = self.randomChars.description
+            (cell as! GeneratorCell).charsLabel?.text            = chars.description
 
             (cell as! GeneratorCell).generateButton?.tag         = TAG_BUTTON_GENERATE
+            (cell as! GeneratorCell).generateButton?.addTarget(self,
+                                                               action: #selector(self.valueChanged(sender:forEvent:)),
+                for: .touchDown)
             
         default:
             assertionFailure()
@@ -351,7 +382,7 @@ class DetailViewController: UITableViewController {
         //        }
     }
 
-    @IBAction func valueChanged(sender: UIControl, event forEvent: UIEvent) {
+    @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
         let getcell = {
             (_ view: UIView?) -> UITableViewCell? in
             var c = view?.superview
@@ -367,8 +398,12 @@ class DetailViewController: UITableViewController {
 
         switch sender.tag {
         case TAG_BUTTON_GENERATE:
-            if let rnd = try? RandomData.shared.get(count: Int(self.randomLength), in: self.randomChars) {
+            let len = self.itemProxy!.valueForKey(key: self.maxLength) as! Int
+            let chars = CypherCharacterSet(rawValue: self.itemProxy!.valueForKey(key: self.charSet) as! UInt32)
+
+            if let rnd = try? RandomData.shared.get(count: len, in: chars) {
                 self.passTextField?.text = rnd
+                self.itemProxy?.setValue(value: rnd as AnyObject, forKey: "password")
             }
 
         case TAG_STEPPER_LENGTH:
@@ -376,18 +411,29 @@ class DetailViewController: UITableViewController {
             let len = Int16(val)
             let str = String( format: "%d", len )
             (cell as? GeneratorCell)?.lengthLabel?.text = str
-            self.randomLength = len
+            self.itemProxy!.setValue(value: len as AnyObject, forKey: self.maxLength)
 
         case TAG_STEPPER_CHARS:
             let val = (sender as! UIStepper).value
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
-            self.randomChars = chr
+            self.itemProxy!.setValue(value: chr.rawValue as AnyObject, forKey: self.charSet)
 
         default:
             assertionFailure()
         }
+    }
 
+    @objc func textFieldChanged(_ textField: UITextField) {
+        switch textField.tag {
+        case TAG_TEXTFIELD_PASSWORD:
+            if let str = self.passTextField?.text {
+                self.itemProxy!.setValue(value: str as AnyObject,
+                                         forKey: "password")
+            }
+        default:
+            assertionFailure()
+        }
     }
 }
 

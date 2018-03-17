@@ -124,9 +124,6 @@
                                         </label>
                                         <stepper opaque="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aB7-Ef-9wY">
                                             <rect key="frame" x="264" y="60" width="94" height="29"/>
-                                            <connections>
-                                                <action selector="valueChangedWithSender:event:" destination="JEX-9P-axG" eventType="valueChanged" id="9cd-7c-URE"/>
-                                            </connections>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-1n-Ckw">
                                             <rect key="frame" x="16" y="60" width="240" height="28"/>
@@ -139,16 +136,10 @@
                                         </label>
                                         <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="LsI-Xx-Tj1" userLabel="Length Stepper">
                                             <rect key="frame" x="264" y="11" width="94" height="29"/>
-                                            <connections>
-                                                <action selector="valueChangedWithSender:event:" destination="JEX-9P-axG" eventType="valueChanged" id="FGI-3G-3U7"/>
-                                            </connections>
                                         </stepper>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zs-LK-RiS">
                                             <rect key="frame" x="16" y="113" width="342" height="30"/>
                                             <state key="normal" title="Generate Password"/>
-                                            <connections>
-                                                <action selector="valueChangedWithSender:event:" destination="JEX-9P-axG" eventType="touchDown" id="vZs-Us-4S1"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
