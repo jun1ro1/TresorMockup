@@ -8,47 +8,6 @@
 
 import UIKit
 
-enum AppKeyType: Int  {
-    case title = 0
-    case url
-    case userid
-    case password
-    case selectAt
-    case generator
-    case memo
-    case typeEnd
-
-    var description: String {
-        var s: String = "**UNKNOWN**AppKeyType"
-        switch self {
-        case .title:      s = "Title"
-        case .url:        s = "URL"
-        case .userid:     s = "User ID"
-        case .password:   s = "Password"
-        case .selectAt:   s = "Select at"
-        case .generator:  s = "Generator"
-        case .memo:       s = "Memo"
-        case .typeEnd:    s = "TypeEnd"
-        }
-        return s
-    }
-
-    // MARK: class functions
-    /// - parameter:
-    /// - retunrs: the number of AppKeyType elements
-    static var count: Int { return AppKeyType.typeEnd.rawValue }
-    static var iterator: AnyIterator<AppKeyType> {
-        var value: Int = -1
-        return AnyIterator {
-            value = value + 1
-            guard value < AppKeyType.typeEnd.rawValue else {
-                return nil
-            }
-            return AppKeyType(rawValue: value)!
-        }
-    }
-}
-
 // MARK: -
 class LabelCell: UITableViewCell {
     @IBOutlet weak var label: UILabel?
@@ -64,30 +23,49 @@ class TextViewCell: UITableViewCell {
 
 class GeneratorCell: UITableViewCell {
     @IBOutlet weak var lengthLabel:    UILabel?
-    @IBOutlet weak var lengthStepper:  UIStepper?
+    @IBOutlet weak var lengthSlider:   UISlider?
     @IBOutlet weak var charsLabel:     UILabel?
     @IBOutlet weak var charsStepper:   UIStepper?
     @IBOutlet weak var generateButton: UIButton?
-
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        self.okButton?.tag     = 10
-//        self.lengthSlider?.tag = 20
-//        self.charsStepper?.tag = 30
-//
-////      fatalError("init(coder:) has not been implemented")
-//    }
-//
-
-//    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-//        super.init(style: style, reuseIdentifier: reuseIdentifier)
-//
-//        self.okButton?.tag     = 10
-//        self.lengthSlider?.tag = 20
-//        self.charsStepper?.tag = 30
-//    }
-//
 }
+
+// MARK: -
+fileprivate extension ManagedObjectProxy {
+    var title: String {
+        get { return (self.value(forKey: "title") as? String) ?? "" }
+        set { self.setValue(newValue as AnyObject, forKey: "title") }
+    }
+
+    var url: String {
+        get { return (self.value(forKey: "url") as? String) ?? "" }
+        set { self.setValue(newValue as AnyObject, forKey: "url") }
+    }
+
+    var userid: String {
+        get { return (self.value(forKey: "userid") as? String) ?? "" }
+        set { self.setValue(newValue as AnyObject, forKey: "userid") }
+    }
+
+    var password: String {
+        get { return (self.value(forKey: "password") as? String) ?? "" }
+        set { self.setValue(newValue as AnyObject, forKey: "password") }
+    }
+
+    var charSet: CypherCharacterSet {
+        get {
+            return CypherCharacterSet(rawValue: (self.value(forKey: "charSet") as? UInt32) ?? 0)
+        }
+        set {
+            self.setValue(Int32(newValue.rawValue) as AnyObject, forKey: "charSet")
+        }
+    }
+
+    var maxLength: Int {
+        get { return (self.value(forKey: "maxLength") as? Int) ?? 0 }
+        set { self.setValue(Int16(newValue) as AnyObject, forKey: "maxLength") }
+    }
+}
+
 
 // MARK: -
 class DetailViewController: UITableViewController {
@@ -102,12 +80,15 @@ class DetailViewController: UITableViewController {
         CypherCharacterSet.Base64Set,
         CypherCharacterSet.ArithmeticCharactersSet,
         CypherCharacterSet.AlphaNumericSymbolsSet,
-    ]
-    let TAG_BUTTON_GENERATE = 10
-    let TAG_STEPPER_LENGTH  = 20
-    let TAG_STEPPER_CHARS   = 30
-    let TAG_TEXTFIELD_LENGTH   = 100
-    let TAG_TEXTFIELD_PASSWORD = 110
+        ].sorted { $0.rawValue < $1.rawValue }
+    let TAG_BUTTON_GENERATE    =  10
+    let TAG_STEPPER_LENGTH     =  20
+    let TAG_STEPPER_CHARS      =  30
+    let TAG_TEXTFIELD_TITLE    = 110
+    let TAG_TEXTFIELD_URL      = 120
+    let TAG_TEXTFIELD_USERID   = 130
+    let TAG_TEXTFIELD_LENGTH   = 140
+    let TAG_TEXTFIELD_PASSWORD = 150
 
 
     fileprivate var layouter_nonedit = Layouter<AppKeyType>([
@@ -173,12 +154,8 @@ class DetailViewController: UITableViewController {
     //    }
 
     weak var passTextField: UITextField? = nil
- //   var randomLength: Int16 = 0
-//    var randomChars:  CypherCharacterSet = .DecimalDigits
 
     var itemProxy: ManagedObjectProxy?
-    let maxLength = "maxLength"
-    let charSet   = "charSet"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -193,21 +170,16 @@ class DetailViewController: UITableViewController {
         // DEBUG CODE
         self.detailItem?.title    = "Apple"
         self.detailItem?.url      = "http://www.apple.com"
-//        self.detailItem?.userid   = "username"
-//        self.detailItem?.password = "password"
         self.detailItem?.memo     = "Hello world!"
         self.detailItem?.selectAt = Date()
         self.detailItem?.loginAt  = Date()
+        // DEBUG CODE
 
         self.itemProxy = ManagedObjectProxy(managedObject: self.detailItem!)
-        self.itemProxy!.setValue(value: max( self.detailItem?.maxLength ?? 0, 4 ) as AnyObject,
-                                 forKey: self.maxLength)
-        self.itemProxy!.setValue(
-            value:
-            (self.detailItem?.charSet != nil ?
-               UInt32(self.detailItem!.charSet) :
-               UInt32(self.charsArray.first!.rawValue)) as AnyObject,
-            forKey: self.charSet)
+        self.itemProxy!.maxLength = max(self.itemProxy!.maxLength, 4)
+        if self.itemProxy!.charSet.rawValue == 0 {
+            self.itemProxy!.charSet = self.charsArray.first!
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -298,25 +270,48 @@ class DetailViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: self.keyCell[key]!, for: indexPath)
 
         switch key {
-        case .title, .url, .userid:
+        case .title:
             if self.isEditing {
-                (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+                let t = (cell as! TextFieldCell).textField
+                t?.text = self.itemProxy!.title
+                t?.tag  = TAG_TEXTFIELD_TITLE
+                t?.delegate = self
             }
             else {
-                (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+                (cell as! LabelCell).label?.text = self.itemProxy!.title
+            }
+        case .url:
+            if self.isEditing {
+                let t = (cell as! TextFieldCell).textField
+                t?.text = self.itemProxy!.url
+                t?.tag  = TAG_TEXTFIELD_URL
+                t?.delegate = self
+            }
+            else {
+                (cell as! LabelCell).label?.text = self.itemProxy!.url
+            }
+
+        case .userid:
+            if self.isEditing {
+                let t = (cell as! TextFieldCell).textField
+                t?.text = self.itemProxy!.userid
+                t?.tag  = TAG_TEXTFIELD_USERID
+                t?.delegate = self
+            }
+            else {
+                (cell as! LabelCell).label?.text = self.itemProxy!.userid
             }
 
         case .password:
             if self.isEditing {
-                (cell as! TextFieldCell).textField?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
-                self.passTextField = (cell as! TextFieldCell).textField
-                self.passTextField?.tag = TAG_TEXTFIELD_PASSWORD
-                self.passTextField?.addTarget(self,
-                                              action: #selector(self.textFieldChanged(_:)),
-                                              for: .valueChanged)
+                let t = (cell as! TextFieldCell).textField
+                t?.text = self.itemProxy!.password
+                t?.tag  = TAG_TEXTFIELD_PASSWORD
+                t?.delegate = self
+                self.passTextField = t
             }
             else {
-                (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
+                (cell as! LabelCell).label?.text = self.itemProxy!.password
                 self.passTextField = nil
             }
 
@@ -332,34 +327,35 @@ class DetailViewController: UITableViewController {
             }
 
         case .generator:
-            let len = self.itemProxy!.valueForKey(key: self.maxLength) as! Int
-            (cell as! GeneratorCell).lengthStepper?.minimumValue = 4
-            (cell as! GeneratorCell).lengthStepper?.maximumValue = 32.0
-            (cell as! GeneratorCell).lengthStepper?.value        = Double( len )
-            (cell as! GeneratorCell).lengthStepper?.isContinuous = false
-            (cell as! GeneratorCell).lengthStepper?.tag          = TAG_STEPPER_LENGTH
-            (cell as! GeneratorCell).lengthStepper?.addTarget(self,
-                                                              action: #selector(self.valueChanged(sender:forEvent:)),
-                                                              for: .valueChanged)
-            (cell as! GeneratorCell).lengthLabel?.text           = String( format: "%d", len )
+            let len = self.itemProxy!.maxLength
+            let c   = cell as! GeneratorCell
+            c.lengthSlider?.minimumValue = 4
+            c.lengthSlider?.maximumValue = 32.0
+            c.lengthSlider?.value        = Float( len )
+            c.lengthSlider?.isContinuous = true
+            c.lengthSlider?.tag          = TAG_STEPPER_LENGTH
+            c.lengthSlider?.addTarget(self,
+                                      action: #selector(valueChanged(sender:forEvent:)),
+                                      for: .valueChanged)
+            c.lengthLabel?.text = String( format: "%d", len )
 
-            let chars = CypherCharacterSet(rawValue: self.itemProxy!.valueForKey(key: self.charSet) as! UInt32)
-            (cell as! GeneratorCell).charsStepper?.minimumValue  = 0.0
-            (cell as! GeneratorCell).charsStepper?.maximumValue  = Double(charsArray.count - 1)
-            (cell as! GeneratorCell).charsStepper?.value         = Double(chars.rawValue)
-            (cell as! GeneratorCell).charsStepper?.isContinuous  = false
-            (cell as! GeneratorCell).charsStepper?.tag           = TAG_STEPPER_CHARS
-            (cell as! GeneratorCell).charsStepper?.addTarget(self,
-                                                              action: #selector(self.valueChanged(sender:forEvent:)),
-                                                              for: .valueChanged)
+            let chars = self.itemProxy!.charSet
+            c.charsStepper?.minimumValue  = 0.0
+            c.charsStepper?.maximumValue  = Double(charsArray.count - 1)
+            c.charsStepper?.value         = Double(
+                (charsArray.index {$0.rawValue >= chars.rawValue} ?? 0) )
+            c.charsStepper?.isContinuous  = true
+            c.charsStepper?.tag           = TAG_STEPPER_CHARS
+            c.charsStepper?.addTarget(self,
+                                      action: #selector(self.valueChanged(sender:forEvent:)),
+                                      for: .valueChanged)
+            c.charsLabel?.text            = chars.description
 
-            (cell as! GeneratorCell).charsLabel?.text            = chars.description
+            c.generateButton?.tag         = TAG_BUTTON_GENERATE
+            c.generateButton?.addTarget(self,
+                                        action: #selector(self.valueChanged(sender:forEvent:)),
+                                        for: .touchDown)
 
-            (cell as! GeneratorCell).generateButton?.tag         = TAG_BUTTON_GENERATE
-            (cell as! GeneratorCell).generateButton?.addTarget(self,
-                                                               action: #selector(self.valueChanged(sender:forEvent:)),
-                for: .touchDown)
-            
         default:
             assertionFailure()
 
@@ -398,26 +394,23 @@ class DetailViewController: UITableViewController {
 
         switch sender.tag {
         case TAG_BUTTON_GENERATE:
-            let len = self.itemProxy!.valueForKey(key: self.maxLength) as! Int
-            let chars = CypherCharacterSet(rawValue: self.itemProxy!.valueForKey(key: self.charSet) as! UInt32)
-
-            if let rnd = try? RandomData.shared.get(count: len, in: chars) {
-                self.passTextField?.text = rnd
-                self.itemProxy?.setValue(value: rnd as AnyObject, forKey: "password")
+            let len   = self.itemProxy!.maxLength
+            let chars = self.itemProxy!.charSet
+            if let val = try? RandomData.shared.get(count: len, in: chars) {
+                self.passTextField?.text = val
+                self.itemProxy!.password = val
             }
 
         case TAG_STEPPER_LENGTH:
-            let val = (sender as! UIStepper).value
-            let len = Int16(val)
-            let str = String( format: "%d", len )
-            (cell as? GeneratorCell)?.lengthLabel?.text = str
-            self.itemProxy!.setValue(value: len as AnyObject, forKey: self.maxLength)
+            let val = Int((sender as! UISlider).value)
+            (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
+            self.itemProxy!.maxLength = val
 
         case TAG_STEPPER_CHARS:
-            let val = (sender as! UIStepper).value
+            let val = Int((sender as! UIStepper).value)
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
-            self.itemProxy!.setValue(value: chr.rawValue as AnyObject, forKey: self.charSet)
+            self.itemProxy!.charSet = chr
 
         default:
             assertionFailure()
@@ -428,7 +421,7 @@ class DetailViewController: UITableViewController {
         switch textField.tag {
         case TAG_TEXTFIELD_PASSWORD:
             if let str = self.passTextField?.text {
-                self.itemProxy!.setValue(value: str as AnyObject,
+                self.itemProxy!.setValue(str as AnyObject,
                                          forKey: "password")
             }
         default:
@@ -437,3 +430,31 @@ class DetailViewController: UITableViewController {
     }
 }
 
+extension DetailViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        switch textField.tag {
+        case TAG_TEXTFIELD_TITLE:
+            if let str = textField.text {
+                self.itemProxy!.title = str
+            }
+
+        case TAG_TEXTFIELD_URL:
+            if let str = textField.text {
+                self.itemProxy!.url = str
+            }
+
+        case TAG_TEXTFIELD_USERID:
+            if let str = textField.text {
+                self.itemProxy!.userid = str
+            }
+
+        case TAG_TEXTFIELD_PASSWORD:
+            if let str = textField.text {
+                self.itemProxy!.password = str
+            }
+
+        default:
+            assertionFailure()
+        }
+    }
+}

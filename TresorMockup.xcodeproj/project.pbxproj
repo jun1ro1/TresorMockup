@@ -24,6 +24,7 @@
 		F9BC4F9F205C284100A639DB /* ManagedObjectProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */; };
 		F9BC4FA0205C284100A639DB /* ManagedObjectProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */; };
 		F9BC4FA1205C284100A639DB /* ManagedObjectProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */; };
+		F9D3F353205E97F200878975 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
 		F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20849204BF0D600543C81 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E20848204BF0D600543C81 /* Site.swift */; };
@@ -66,6 +67,7 @@
 		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
 		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
 		F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectProxy.swift; sourceTree = "<group>"; };
+		F9D3F352205E97F200878975 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		F9FE6EA52042E99300F892DC /* TresorMockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresorMockup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
 				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
+				F9D3F352205E97F200878975 /* AppKey.swift */,
 				F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
 				F935B37A204A3ACA00B004B2 /* Extensions.swift */,
@@ -329,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9610E1120552FEA00A97F0E /* Layouter.swift in Sources */,
+				F9D3F353205E97F200878975 /* AppKey.swift in Sources */,
 				F9E20849204BF0D600543C81 /* Site.swift in Sources */,
 				F9BC4F9F205C284100A639DB /* ManagedObjectProxy.swift in Sources */,
 				F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */,

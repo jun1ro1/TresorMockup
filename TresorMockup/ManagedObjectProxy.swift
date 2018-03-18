@@ -43,17 +43,19 @@ class ManagedObjectProxy {
     func writeBack(closure: (NSObject, AnyObject)->Void = {_,_ in }) {
         self.changed = false
         for (key, val) in self.attributes {
-            self.managedObject.setValue(val, forKey: key)
-            closure(key as NSObject, val)
+            if (val as? NSNull) == nil {
+                self.managedObject.setValue(val, forKey: key)
+                closure(key as NSObject, val)
+            }
         }
     }
 
-    func setValue(value: AnyObject?, forKey key: String) {
+    func setValue(_ value: AnyObject?, forKey key: String) {
         self.attributes[key] = value
         self.changed = true
     }
 
-    func valueForKey(key: String) -> AnyObject? {
+    func value(forKey key: String) -> AnyObject? {
         return self.attributes[ key ]
     }
 }
