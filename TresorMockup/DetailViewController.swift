@@ -144,7 +144,7 @@ class DetailViewController: UITableViewController {
         ]
 
 
-    // MARK: Properties
+    // MARK: - Properties
     var detailItem: Site?
     //    {
     //        didSet {
@@ -155,7 +155,27 @@ class DetailViewController: UITableViewController {
 
     weak var passTextField: UITextField? = nil
 
-    var itemProxy: ManagedObjectProxy?
+    var itemProxy: ManagedObjectProxy? {
+        didSet {
+            if let sv = self.splitViewController {
+                self.deffered = sv.isCollapsed
+            }
+            if !self.deffered {
+                self.itemProxy?.writeBack()
+                if let context = self.detailItem?.managedObjectContext {
+                    do {
+                        try context.save()
+                    }
+                    catch {
+                        print("error = \(error)")
+                        abort()
+                    }
+                }
+            }
+        }
+    }
+
+    var deffered = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -168,8 +188,8 @@ class DetailViewController: UITableViewController {
         configureView()
 
         // DEBUG CODE
-        self.detailItem?.title    = "Apple"
-        self.detailItem?.url      = "http://www.apple.com"
+//        self.detailItem?.title    = "Apple"
+//        self.detailItem?.url      = "http://www.apple.com"
         self.detailItem?.memo     = "Hello world!"
         self.detailItem?.selectAt = Date()
         self.detailItem?.loginAt  = Date()
@@ -185,14 +205,17 @@ class DetailViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        self.itemProxy?.writeBack()
-        if let context = self.detailItem?.managedObjectContext {
-            do {
-                try context.save()
-            }
-            catch {
-                print("error = \(error)")
-                abort()
+        if self.deffered {
+            self.deffered = false
+            self.itemProxy?.writeBack()
+            if let context = self.detailItem?.managedObjectContext {
+                do {
+                    try context.save()
+                }
+                catch {
+                    print("error = \(error)")
+                    abort()
+                }
             }
         }
     }
@@ -316,7 +339,7 @@ class DetailViewController: UITableViewController {
             }
 
         case .selectAt:
-            (cell as! LabelCell).label?.text = (detailItem?.selectAt?.description ?? "")
+            (cell as! LabelCell).label?.text = (detailItem?.selectAt?.description(with: nil) ?? "")
 
         case .memo:
             if self.isEditing {
@@ -430,6 +453,7 @@ class DetailViewController: UITableViewController {
     }
 }
 
+// MARK: - extension
 extension DetailViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField.tag {
