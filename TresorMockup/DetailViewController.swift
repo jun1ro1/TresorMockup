@@ -30,28 +30,8 @@ class GeneratorCell: UITableViewCell {
 }
 
 // MARK: -
-fileprivate extension ManagedObjectProxy {
-    var title: String {
-        get { return (self.value(forKey: "title") as? String) ?? "" }
-        set { self.setValue(newValue as AnyObject, forKey: "title") }
-    }
-
-    var url: String {
-        get { return (self.value(forKey: "url") as? String) ?? "" }
-        set { self.setValue(newValue as AnyObject, forKey: "url") }
-    }
-
-    var userid: String {
-        get { return (self.value(forKey: "userid") as? String) ?? "" }
-        set { self.setValue(newValue as AnyObject, forKey: "userid") }
-    }
-
-    var password: String {
-        get { return (self.value(forKey: "password") as? String) ?? "" }
-        set { self.setValue(newValue as AnyObject, forKey: "password") }
-    }
-
-    var charSet: CypherCharacterSet {
+fileprivate extension Site {
+    var forCharSet: CypherCharacterSet {
         get {
             return CypherCharacterSet(rawValue: (self.value(forKey: "charSet") as? UInt32) ?? 0)
         }
@@ -60,7 +40,7 @@ fileprivate extension ManagedObjectProxy {
         }
     }
 
-    var maxLength: Int {
+    var forMaxLength: Int {
         get { return (self.value(forKey: "maxLength") as? Int) ?? 0 }
         set { self.setValue(Int16(newValue) as AnyObject, forKey: "maxLength") }
     }
@@ -145,23 +125,13 @@ class DetailViewController: UITableViewController {
 
 
     // MARK: - Properties
-    var detailItem: Site?
-    //    {
-    //        didSet {
-    //            // Update the view.
-    //            configureView()
-    //        }
-    //    }
-
-    weak var passTextField: UITextField? = nil
-
-    var itemProxy: ManagedObjectProxy? {
+    var deffered = false  // hasChanges?
+    var detailItem: Site? {
         didSet {
             if let sv = self.splitViewController {
                 self.deffered = sv.isCollapsed
             }
-            if !self.deffered {
-                self.itemProxy?.writeBack()
+            if !self.deffered && (self.detailItem?.hasChanges ?? false) {
                 if let context = self.detailItem?.managedObjectContext {
                     do {
                         try context.save()
@@ -175,7 +145,8 @@ class DetailViewController: UITableViewController {
         }
     }
 
-    var deffered = false
+    weak var passTextField: UITextField? = nil
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -187,27 +158,34 @@ class DetailViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = editButtonItem
         configureView()
 
+        guard self.detailItem != nil else {
+            return
+        }
         // DEBUG CODE
 //        self.detailItem?.title    = "Apple"
 //        self.detailItem?.url      = "http://www.apple.com"
-        self.detailItem?.memo     = "Hello world!"
-        self.detailItem?.selectAt = Date()
-        self.detailItem?.loginAt  = Date()
+//        self.detailItem?.memo     = "Hello world!"
+//        self.detailItem?.selectAt = Date()
+//        self.detailItem?.loginAt  = Date()
         // DEBUG CODE
 
-        self.itemProxy = ManagedObjectProxy(managedObject: self.detailItem!)
-        self.itemProxy!.maxLength = max(self.itemProxy!.maxLength, 4)
-        if self.itemProxy!.charSet.rawValue == 0 {
-            self.itemProxy!.charSet = self.charsArray.first!
+        self.detailItem?.forMaxLength = max((self.detailItem?.forMaxLength)!, 4)
+        if self.detailItem?.forCharSet.rawValue == 0 {
+            self.detailItem?.forCharSet = self.charsArray.first!
         }
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+    }
+
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         if self.deffered {
             self.deffered = false
-            self.itemProxy?.writeBack()
             if let context = self.detailItem?.managedObjectContext {
                 do {
                     try context.save()
@@ -291,50 +269,53 @@ class DetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let key = self.layouter.key(forIndexPath: indexPath) ?? .typeEnd
         let cell = tableView.dequeueReusableCell(withIdentifier: self.keyCell[key]!, for: indexPath)
+        guard self.detailItem != nil else {
+            return cell
+        }
 
         switch key {
         case .title:
             if self.isEditing {
                 let t = (cell as! TextFieldCell).textField
-                t?.text = self.itemProxy!.title
+                t?.text = self.detailItem?.title
                 t?.tag  = TAG_TEXTFIELD_TITLE
                 t?.delegate = self
             }
             else {
-                (cell as! LabelCell).label?.text = self.itemProxy!.title
+                (cell as! LabelCell).label?.text = self.detailItem?.title
             }
         case .url:
             if self.isEditing {
                 let t = (cell as! TextFieldCell).textField
-                t?.text = self.itemProxy!.url
+                t?.text = self.detailItem?.url
                 t?.tag  = TAG_TEXTFIELD_URL
                 t?.delegate = self
             }
             else {
-                (cell as! LabelCell).label?.text = self.itemProxy!.url
+                (cell as! LabelCell).label?.text = self.detailItem?.url
             }
 
         case .userid:
             if self.isEditing {
                 let t = (cell as! TextFieldCell).textField
-                t?.text = self.itemProxy!.userid
+                t?.text = self.detailItem?.userid
                 t?.tag  = TAG_TEXTFIELD_USERID
                 t?.delegate = self
             }
             else {
-                (cell as! LabelCell).label?.text = self.itemProxy!.userid
+                (cell as! LabelCell).label?.text = self.detailItem?.userid
             }
 
         case .password:
             if self.isEditing {
                 let t = (cell as! TextFieldCell).textField
-                t?.text = self.itemProxy!.password
+                t?.text = self.detailItem?.password
                 t?.tag  = TAG_TEXTFIELD_PASSWORD
                 t?.delegate = self
                 self.passTextField = t
             }
             else {
-                (cell as! LabelCell).label?.text = self.itemProxy!.password
+                (cell as! LabelCell).label?.text = self.detailItem?.password
                 self.passTextField = nil
             }
 
@@ -350,7 +331,7 @@ class DetailViewController: UITableViewController {
             }
 
         case .generator:
-            let len = self.itemProxy!.maxLength
+            let len = self.detailItem!.forMaxLength
             let c   = cell as! GeneratorCell
             c.lengthSlider?.minimumValue = 4
             c.lengthSlider?.maximumValue = 32.0
@@ -362,7 +343,7 @@ class DetailViewController: UITableViewController {
                                       for: .valueChanged)
             c.lengthLabel?.text = String( format: "%d", len )
 
-            let chars = self.itemProxy!.charSet
+            let chars = self.detailItem!.forCharSet
             c.charsStepper?.minimumValue  = 0.0
             c.charsStepper?.maximumValue  = Double(charsArray.count - 1)
             c.charsStepper?.value         = Double(
@@ -401,6 +382,27 @@ class DetailViewController: UITableViewController {
         //        }
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let key = self.layouter.key(forIndexPath: indexPath) ?? .typeEnd
+        switch key {
+        case .url:
+            guard let cell = tableView.cellForRow(at: indexPath) as? LabelCell else {
+                return
+            }
+            if let str = cell.label?.text {
+                if let url = NSURL(string: str) as URL? {
+                    if UIApplication.shared.canOpenURL(url) {
+                        UIApplication.shared.open(url, options:[:])
+                    }
+                }
+            }
+
+        default:
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+
+    }
+
     @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
         let getcell = {
             (_ view: UIView?) -> UITableViewCell? in
@@ -417,23 +419,23 @@ class DetailViewController: UITableViewController {
 
         switch sender.tag {
         case TAG_BUTTON_GENERATE:
-            let len   = self.itemProxy!.maxLength
-            let chars = self.itemProxy!.charSet
+            let len   = self.detailItem!.forMaxLength
+            let chars = self.detailItem!.forCharSet
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 self.passTextField?.text = val
-                self.itemProxy!.password = val
+                self.detailItem?.password = val
             }
 
         case TAG_STEPPER_LENGTH:
             let val = Int((sender as! UISlider).value)
             (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
-            self.itemProxy!.maxLength = val
+            self.detailItem?.forMaxLength = val
 
         case TAG_STEPPER_CHARS:
             let val = Int((sender as! UIStepper).value)
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
-            self.itemProxy!.charSet = chr
+            self.detailItem?.forCharSet = chr
 
         default:
             assertionFailure()
@@ -444,7 +446,7 @@ class DetailViewController: UITableViewController {
         switch textField.tag {
         case TAG_TEXTFIELD_PASSWORD:
             if let str = self.passTextField?.text {
-                self.itemProxy!.setValue(str as AnyObject,
+                self.detailItem?.setValue(str as AnyObject,
                                          forKey: "password")
             }
         default:
@@ -459,22 +461,22 @@ extension DetailViewController: UITextFieldDelegate {
         switch textField.tag {
         case TAG_TEXTFIELD_TITLE:
             if let str = textField.text {
-                self.itemProxy!.title = str
+                self.detailItem?.title = str
             }
 
         case TAG_TEXTFIELD_URL:
             if let str = textField.text {
-                self.itemProxy!.url = str
+                self.detailItem?.url = str
             }
 
         case TAG_TEXTFIELD_USERID:
             if let str = textField.text {
-                self.itemProxy!.userid = str
+                self.detailItem?.userid = str
             }
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
-                self.itemProxy!.password = str
+                self.detailItem?.password = str
             }
 
         default:

@@ -21,9 +21,6 @@
 		F9610E192055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
-		F9BC4F9F205C284100A639DB /* ManagedObjectProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */; };
-		F9BC4FA0205C284100A639DB /* ManagedObjectProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */; };
-		F9BC4FA1205C284100A639DB /* ManagedObjectProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */; };
 		F9D3F353205E97F200878975 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
 		F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
@@ -66,7 +63,6 @@
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
 		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
 		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
-		F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectProxy.swift; sourceTree = "<group>"; };
 		F9D3F352205E97F200878975 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
@@ -141,7 +137,6 @@
 				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
 				F9D3F352205E97F200878975 /* AppKey.swift */,
-				F9BC4F9E205C284100A639DB /* ManagedObjectProxy.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
 				F935B37A204A3ACA00B004B2 /* Extensions.swift */,
 				F9FE6EAD2042E99300F892DC /* MasterViewController.swift */,
@@ -334,7 +329,6 @@
 				F9610E1120552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D3F353205E97F200878975 /* AppKey.swift in Sources */,
 				F9E20849204BF0D600543C81 /* Site.swift in Sources */,
-				F9BC4F9F205C284100A639DB /* ManagedObjectProxy.swift in Sources */,
 				F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */,
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
 				F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */,
@@ -351,7 +345,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F935B37C204A3ACA00B004B2 /* Extensions.swift in Sources */,
-				F9BC4FA0205C284100A639DB /* ManagedObjectProxy.swift in Sources */,
 				F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */,
 				F935B364204A284600B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084E204BF14F00543C81 /* Password.swift in Sources */,
@@ -368,7 +361,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F935B37D204A3ACA00B004B2 /* Extensions.swift in Sources */,
-				F9BC4FA1205C284100A639DB /* ManagedObjectProxy.swift in Sources */,
 				F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */,
 				F935B365204A284700B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084F204BF14F00543C81 /* Password.swift in Sources */,
