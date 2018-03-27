@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: -
 class LabelCell: UITableViewCell {
-    @IBOutlet weak var label: UILabel?
+    @IBOutlet weak var label: CopyableLabel?
 }
 
 class TextFieldCell: UITableViewCell {
@@ -19,6 +19,10 @@ class TextFieldCell: UITableViewCell {
 
 class TextViewCell: UITableViewCell {
     @IBOutlet weak var textView: UITextView?
+}
+
+class DisclosureCell: UITableViewCell {
+    @IBOutlet weak var label: CopyableLabel?
 }
 
 class GeneratorCell: UITableViewCell {
@@ -46,10 +50,53 @@ fileprivate extension Site {
     }
 }
 
+// MARK: -
+// http://stephenradford.me/make-uilabel-copyable/
+// https://gist.github.com/zyrx/67fa2f42b567d1d4c8fef434c7987387
+
+class CopyableLabel: UILabel {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
+                                                               action: #selector(self.showMenu)))
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
+                                                               action: #selector(self.showMenu)))
+    }
+
+    @objc func showMenu(sender: AnyObject?) {
+        self.becomeFirstResponder()
+        let menu = UIMenuController.shared
+        if !menu.isMenuVisible {
+            menu.setTargetRect(bounds, in: self)
+            menu.setMenuVisible(true, animated: true)
+        }
+    }
+
+    override func copy(_ sender: Any?) {
+        UIPasteboard.general.string = self.text
+        UIMenuController.shared.setMenuVisible(false, animated: true)
+    }
+
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(UIResponderStandardEditActions.copy)
+    }
+
+    override var canBecomeFirstResponder: Bool {
+        get {return true }
+    }
+}
+
 
 // MARK: -
-class DetailViewController: UITableViewController {
-//    let lengthArray: [Int16]             = [ 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 32 ]
+class DetailViewController: UITableViewController, UITextFieldDelegate {
+    //    let lengthArray: [Int16]             = [ 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 32 ]
     let charsArray: [CypherCharacterSet] = [
         CypherCharacterSet.DecimalDigits,
         CypherCharacterSet.UppercaseLatinAlphabets,
@@ -108,7 +155,7 @@ class DetailViewController: UITableViewController {
         .password: "CellTextField",
         .selectAt: "CellLabel",
         .generator:"CellGenerator",
-        .memo:     "CellTextView",
+        .memo:     "CellDisclosure",
         ]
     var keyCell: [AppKeyType: String] {
         return self.isEditing ? self.keyCell_edit : self.keyCell_nonedit
@@ -125,13 +172,10 @@ class DetailViewController: UITableViewController {
 
 
     // MARK: - Properties
-    var deffered = false  // hasChanges?
     var detailItem: Site? {
         didSet {
-            if let sv = self.splitViewController {
-                self.deffered = sv.isCollapsed
-            }
-            if !self.deffered && (self.detailItem?.hasChanges ?? false) {
+            if !(self.splitViewController?.isCollapsed ?? true) &&
+                (self.detailItem?.hasChanges ?? false) {
                 if let context = self.detailItem?.managedObjectContext {
                     do {
                         try context.save()
@@ -152,7 +196,6 @@ class DetailViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
-//        self.isEditing = false
         self.tableView.estimatedRowHeight      = 44.0
         self.tableView.rowHeight               = UITableViewAutomaticDimension
         self.navigationItem.rightBarButtonItem = editButtonItem
@@ -162,11 +205,11 @@ class DetailViewController: UITableViewController {
             return
         }
         // DEBUG CODE
-//        self.detailItem?.title    = "Apple"
-//        self.detailItem?.url      = "http://www.apple.com"
-//        self.detailItem?.memo     = "Hello world!"
-//        self.detailItem?.selectAt = Date()
-//        self.detailItem?.loginAt  = Date()
+        //        self.detailItem?.title    = "Apple"
+        //        self.detailItem?.url      = "http://www.apple.com"
+        //        self.detailItem?.memo     = "Hello world!"
+        //        self.detailItem?.selectAt = Date()
+        //        self.detailItem?.loginAt  = Date()
         // DEBUG CODE
 
         self.detailItem?.forMaxLength = max((self.detailItem?.forMaxLength)!, 4)
@@ -184,8 +227,7 @@ class DetailViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        if self.deffered {
-            self.deffered = false
+        if (self.detailItem?.hasChanges ?? false) {
             if let context = self.detailItem?.managedObjectContext {
                 do {
                     try context.save()
@@ -204,6 +246,9 @@ class DetailViewController: UITableViewController {
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
+        guard self.detailItem != nil else {
+            return
+        }
         self.tableView.performBatchUpdates(
             { () -> Void in
                 let beforePaths = AppKeyType.iterator.flatMap {
@@ -234,12 +279,15 @@ class DetailViewController: UITableViewController {
                 self.tableView.reloadRows(
                     at: Array( Set(afterPaths).intersection(Set(beforePaths)) ),
                     with: .fade)
-            },
+        },
             completion: nil )
     }
 
     // MARK: - Table View
     override func numberOfSections(in tableView: UITableView) -> Int {
+        guard self.detailItem != nil else {
+            return 0
+        }
         return self.layouter.numberOfSections
     }
 
@@ -263,6 +311,10 @@ class DetailViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard self.detailItem != nil else {
+            return 0
+        }
+
         return self.layouter.numberOfRows(inSection: section)
     }
 
@@ -447,16 +499,16 @@ class DetailViewController: UITableViewController {
         case TAG_TEXTFIELD_PASSWORD:
             if let str = self.passTextField?.text {
                 self.detailItem?.setValue(str as AnyObject,
-                                         forKey: "password")
+                                          forKey: "password")
             }
         default:
             assertionFailure()
         }
     }
-}
+//}
 
 // MARK: - extension
-extension DetailViewController: UITextFieldDelegate {
+//extension DetailViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField.tag {
         case TAG_TEXTFIELD_TITLE:
