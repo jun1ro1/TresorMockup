@@ -25,6 +25,12 @@
 		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9D3F353205E97F200878975 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
+		F9D85C86206FE11100317AFD /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
+		F9D85C87206FE11200317AFD /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
+		F9D85C88206FE14400317AFD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAD2042E99300F892DC /* MasterViewController.swift */; };
+		F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAD2042E99300F892DC /* MasterViewController.swift */; };
+		F9D85C8A206FE14F00317AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
+		F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
 		F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20849204BF0D600543C81 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E20848204BF0D600543C81 /* Site.swift */; };
@@ -354,9 +360,12 @@
 				F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */,
 				F935B364204A284600B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084E204BF14F00543C81 /* Password.swift in Sources */,
+				F9D85C86206FE11100317AFD /* AppKey.swift in Sources */,
 				F9E2084A204BF0D600543C81 /* Site.swift in Sources */,
 				F950E78420676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */,
+				F9D85C8A206FE14F00317AFD /* AppDelegate.swift in Sources */,
+				F9D85C88206FE14400317AFD /* MasterViewController.swift in Sources */,
 				F9610E162055862900A97F0E /* RandomData.swift in Sources */,
 				F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */,
@@ -371,9 +380,12 @@
 				F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */,
 				F935B365204A284700B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084F204BF14F00543C81 /* Password.swift in Sources */,
+				F9D85C87206FE11200317AFD /* AppKey.swift in Sources */,
 				F9E2084B204BF0D600543C81 /* Site.swift in Sources */,
 				F950E78520676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */,
+				F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */,
+				F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */,
 				F9610E172055862900A97F0E /* RandomData.swift in Sources */,
 				F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */,
