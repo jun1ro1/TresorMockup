@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,6 +24,15 @@
 		F9610E192055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
+		F9C556E3207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
+		F9C556E4207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
+		F9C556E5207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
+		F9C556E7207098FF0023D6D9 /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */; };
+		F9C556E8207098FF0023D6D9 /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */; };
+		F9C556E9207098FF0023D6D9 /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */; };
+		F9C556EB207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556EA207099070023D6D9 /* TresorMockup+CoreDataModel.swift */; };
+		F9C556EC207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556EA207099070023D6D9 /* TresorMockup+CoreDataModel.swift */; };
+		F9C556ED207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556EA207099070023D6D9 /* TresorMockup+CoreDataModel.swift */; };
 		F9D3F353205E97F200878975 /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
 		F9D85C86206FE11100317AFD /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
 		F9D85C87206FE11200317AFD /* AppKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D3F352205E97F200878975 /* AppKey.swift */; };
@@ -73,6 +82,9 @@
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
 		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
 		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
+		F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F9C556EA207099070023D6D9 /* TresorMockup+CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TresorMockup+CoreDataModel.swift"; sourceTree = "<group>"; };
 		F9D3F352205E97F200878975 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
@@ -146,20 +158,23 @@
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
 				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
-				F950E78220676C8600D55557 /* TextViewController.swift */,
 				F9D3F352205E97F200878975 /* AppKey.swift */,
+				F9610E182055864C00A97F0E /* AsBytes.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
 				F935B37A204A3ACA00B004B2 /* Extensions.swift */,
+				F9610E1020552FEA00A97F0E /* Layouter.swift */,
 				F9FE6EAD2042E99300F892DC /* MasterViewController.swift */,
+				F9E2084C204BF14F00543C81 /* Password.swift */,
+				F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */,
+				F9610E142055862800A97F0E /* RandomData.swift */,
+				F9E20848204BF0D600543C81 /* Site.swift */,
+				F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */,
+				F950E78220676C8600D55557 /* TextViewController.swift */,
+				F9C556EA207099070023D6D9 /* TresorMockup+CoreDataModel.swift */,
 				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
 				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
 				F9FE6EB12042E99300F892DC /* Main.storyboard */,
 				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
-				F9E20848204BF0D600543C81 /* Site.swift */,
-				F9610E142055862800A97F0E /* RandomData.swift */,
-				F9610E182055864C00A97F0E /* AsBytes.swift */,
-				F9E2084C204BF14F00543C81 /* Password.swift */,
-				F9610E1020552FEA00A97F0E /* Layouter.swift */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";
@@ -252,7 +267,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "OKU Junichirou";
 				TargetAttributes = {
 					F9FE6EA42042E99300F892DC = {
@@ -286,7 +301,7 @@
 				};
 			};
 			buildConfigurationList = F9FE6EA02042E99300F892DC /* Build configuration list for PBXProject "TresorMockup" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -337,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9C556E7207098FF0023D6D9 /* Site+CoreDataProperties.swift in Sources */,
 				F9610E1120552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D3F353205E97F200878975 /* AppKey.swift in Sources */,
 				F9E20849204BF0D600543C81 /* Site.swift in Sources */,
@@ -347,8 +363,10 @@
 				F9610E152055862900A97F0E /* RandomData.swift in Sources */,
 				F9FE6EAE2042E99300F892DC /* MasterViewController.swift in Sources */,
 				F9FE6EB02042E99300F892DC /* DetailViewController.swift in Sources */,
+				F9C556EB207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */,
 				F9610E192055864D00A97F0E /* AsBytes.swift in Sources */,
 				F950E78320676C8600D55557 /* TextViewController.swift in Sources */,
+				F9C556E3207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,18 +374,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9C556EC207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */,
 				F935B37C204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */,
 				F935B364204A284600B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084E204BF14F00543C81 /* Password.swift in Sources */,
 				F9D85C86206FE11100317AFD /* AppKey.swift in Sources */,
 				F9E2084A204BF0D600543C81 /* Site.swift in Sources */,
+				F9C556E8207098FF0023D6D9 /* Site+CoreDataProperties.swift in Sources */,
 				F950E78420676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D85C8A206FE14F00317AFD /* AppDelegate.swift in Sources */,
 				F9D85C88206FE14400317AFD /* MasterViewController.swift in Sources */,
 				F9610E162055862900A97F0E /* RandomData.swift in Sources */,
 				F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */,
+				F9C556E4207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */,
 				F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,18 +397,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9C556ED207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */,
 				F935B37D204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */,
 				F935B365204A284700B004B2 /* TresorMockup.xcdatamodeld in Sources */,
 				F9E2084F204BF14F00543C81 /* Password.swift in Sources */,
 				F9D85C87206FE11200317AFD /* AppKey.swift in Sources */,
 				F9E2084B204BF0D600543C81 /* Site.swift in Sources */,
+				F9C556E9207098FF0023D6D9 /* Site+CoreDataProperties.swift in Sources */,
 				F950E78520676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */,
 				F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */,
 				F9610E172055862900A97F0E /* RandomData.swift in Sources */,
 				F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */,
+				F9C556E5207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */,
 				F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,6 +465,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -448,6 +473,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -475,11 +501,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -498,6 +525,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -505,6 +533,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -526,10 +555,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -541,7 +571,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -556,7 +589,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -572,7 +608,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockupTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -589,7 +629,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockupTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -605,7 +649,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockupUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -621,7 +669,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockupUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

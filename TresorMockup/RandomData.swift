@@ -34,7 +34,7 @@ public struct CypherCharacterSet: OptionSet, Hashable {
 
     /// Retuns a string representation.
     public var string: String {
-        return CypherCharacterSet.iterator.flatMap {
+        return CypherCharacterSet.iterator.compactMap {
             self.contains($0) ? $0.tostr : nil
             }.joined()
     }

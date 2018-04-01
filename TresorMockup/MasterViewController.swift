@@ -3,7 +3,7 @@
 //  TresorMockup
 //
 //  Created by OKU Junichirou on 2018/02/25.
-//  Copyright © 2018年 OKU Junichirou. All rights reserved.
+//  Copyright (C) 2018 OKU Junichirou. All rights reserved.
 //
 
 import UIKit

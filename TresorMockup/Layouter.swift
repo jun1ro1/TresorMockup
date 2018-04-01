@@ -47,7 +47,7 @@ where T.RawValue == Int {
 
     func numberOfRows(inSection section: Int) -> Int {
         // get the values whose section value equals 'section'
-        let vals: [Int] = self.mapping.values.flatMap {
+        let vals: [Int] = self.mapping.values.compactMap {
             let lower: Int = section * Radix
             let upper: Int = lower + Radix - 1
             return ( lower <= $0 && $0 <= upper ) ? $0 : nil

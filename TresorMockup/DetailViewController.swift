@@ -8,94 +8,9 @@
 
 import UIKit
 
-// MARK: -
-class LabelCell: UITableViewCell {
-    @IBOutlet weak var label: CopyableLabel?
-}
-
-class TextFieldCell: UITableViewCell {
-    @IBOutlet weak var textField: UITextField?
-}
-
-class TextViewCell: UITableViewCell {
-    @IBOutlet weak var textView: UITextView?
-}
-
-class DisclosureCell: UITableViewCell {
-    @IBOutlet weak var label: CopyableLabel?
-}
-
-class GeneratorCell: UITableViewCell {
-    @IBOutlet weak var lengthLabel:    UILabel?
-    @IBOutlet weak var lengthSlider:   UISlider?
-    @IBOutlet weak var charsLabel:     UILabel?
-    @IBOutlet weak var charsStepper:   UIStepper?
-    @IBOutlet weak var generateButton: UIButton?
-}
 
 // MARK: -
-fileprivate extension Site {
-    var forCharSet: CypherCharacterSet {
-        get {
-            return CypherCharacterSet(rawValue: (self.value(forKey: "charSet") as? UInt32) ?? 0)
-        }
-        set {
-            self.setValue(Int32(newValue.rawValue) as AnyObject, forKey: "charSet")
-        }
-    }
-
-    var forMaxLength: Int {
-        get { return (self.value(forKey: "maxLength") as? Int) ?? 0 }
-        set { self.setValue(Int16(newValue) as AnyObject, forKey: "maxLength") }
-    }
-}
-
-// MARK: -
-// http://stephenradford.me/make-uilabel-copyable/
-// https://gist.github.com/zyrx/67fa2f42b567d1d4c8fef434c7987387
-
-class CopyableLabel: UILabel {
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.isUserInteractionEnabled = true
-        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
-                                                               action: #selector(self.showMenu)))
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.isUserInteractionEnabled = true
-        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
-                                                               action: #selector(self.showMenu)))
-    }
-
-    @objc func showMenu(sender: AnyObject?) {
-        self.becomeFirstResponder()
-        let menu = UIMenuController.shared
-        if !menu.isMenuVisible {
-            menu.setTargetRect(bounds, in: self)
-            menu.setMenuVisible(true, animated: true)
-        }
-    }
-
-    override func copy(_ sender: Any?) {
-        UIPasteboard.general.string = self.text
-        UIMenuController.shared.setMenuVisible(false, animated: true)
-    }
-
-    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-        return action == #selector(UIResponderStandardEditActions.copy)
-    }
-
-    override var canBecomeFirstResponder: Bool {
-        get {return true }
-    }
-}
-
-
-// MARK: -
-class DetailViewController: UITableViewController, UITextFieldDelegate {
+class DetailViewController: UITableViewController {
     //    let lengthArray: [Int16]             = [ 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 32 ]
     let charsArray: [CypherCharacterSet] = [
         CypherCharacterSet.DecimalDigits,
@@ -146,7 +61,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         .userid:   "CellLabel",
         .password: "CellLabel",
         .selectAt: "CellLabel",
-        .memo:     "CellLabel",
+        .memo:     "CellDisclosure",
         ]
     var keyCell_edit: [AppKeyType: String] = [
         .title:    "CellTextField",
@@ -174,24 +89,13 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Properties
     var detailItem: Site? {
         didSet {
-            if !(self.splitViewController?.isCollapsed ?? true) &&
-                (self.detailItem?.hasChanges ?? false) {
-                if let context = self.detailItem?.managedObjectContext {
-                    do {
-                        try context.save()
-                    }
-                    catch {
-                        print("error = \(error)")
-                        abort()
-                    }
-                }
-            }
+            self.tableView.reloadData()
         }
     }
 
     weak var passTextField: UITextField? = nil
 
-
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -200,6 +104,12 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         self.tableView.rowHeight               = UITableViewAutomaticDimension
         self.navigationItem.rightBarButtonItem = editButtonItem
         configureView()
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
 
         guard self.detailItem != nil else {
             return
@@ -218,26 +128,10 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-    }
-
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-
-        if (self.detailItem?.hasChanges ?? false) {
-            if let context = self.detailItem?.managedObjectContext {
-                do {
-                    try context.save()
-                }
-                catch {
-                    print("error = \(error)")
-                    abort()
-                }
-            }
-        }
+        self.save()
     }
 
     override func didReceiveMemoryWarning() {
@@ -251,14 +145,14 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
         self.tableView.performBatchUpdates(
             { () -> Void in
-                let beforePaths = AppKeyType.iterator.flatMap {
+                let beforePaths = AppKeyType.iterator.compactMap {
                     self.layouter.indexPath(forKey: $0)
                 }
                 let beforeSections = beforePaths.map { $0.section }
 
                 super.setEditing(editing, animated: animated)
 
-                let afterPaths = AppKeyType.iterator.flatMap {
+                let afterPaths = AppKeyType.iterator.compactMap {
                     self.layouter.indexPath(forKey: $0)
                 }
                 let afterSections = afterPaths.map { $0.section }
@@ -281,6 +175,33 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
                     with: .fade)
         },
             completion: nil )
+    }
+
+    @IBAction func unwindToMaster(unwindSegue: UIStoryboardSegue) {
+        return
+    }
+
+    // MARK: - private mothds
+    fileprivate func save() {
+        guard self.splitViewController != nil else {
+            return
+        }
+        guard self.detailItem != nil else {
+            return
+        }
+
+        if !self.splitViewController!.isCollapsed &&
+            self.detailItem!.hasChanges {
+            if let context = self.detailItem!.managedObjectContext {
+                do {
+                    try context.save()
+                }
+                catch {
+                    print("error = \(error)")
+                    abort()
+                }
+            }
+        }
     }
 
     // MARK: - Table View
@@ -375,12 +296,7 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             (cell as! LabelCell).label?.text = (detailItem?.selectAt?.description(with: nil) ?? "")
 
         case .memo:
-            if self.isEditing {
-                (cell as! TextViewCell).textView?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
-            }
-            else {
-                (cell as! LabelCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
-            }
+            (cell as! DisclosureCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
 
         case .generator:
             let len = self.detailItem!.forMaxLength
@@ -455,6 +371,22 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
 
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "SegueText":
+            guard let viewController = segue.destination as? TextViewController else {
+                assertionFailure()
+                return
+            }
+            viewController.text = self.detailItem?.memo ?? ""
+            viewController.setEditing(self.isEditing, animated: false)
+
+        default:
+            assertionFailure()
+        }
+    }
+
+
     @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
         let getcell = {
             (_ view: UIView?) -> UITableViewCell? in
@@ -476,18 +408,22 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 self.passTextField?.text = val
                 self.detailItem?.password = val
+                self.save()
             }
 
         case TAG_STEPPER_LENGTH:
             let val = Int((sender as! UISlider).value)
             (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
             self.detailItem?.forMaxLength = val
+            self.save()
+
 
         case TAG_STEPPER_CHARS:
             let val = Int((sender as! UIStepper).value)
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
             self.detailItem?.forCharSet = chr
+            self.save()
 
         default:
             assertionFailure()
@@ -498,17 +434,17 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         switch textField.tag {
         case TAG_TEXTFIELD_PASSWORD:
             if let str = self.passTextField?.text {
-                self.detailItem?.setValue(str as AnyObject,
-                                          forKey: "password")
+                self.detailItem?.password = str
+                self.save()
             }
         default:
             assertionFailure()
         }
     }
-//}
+}
 
 // MARK: - extension
-//extension DetailViewController: UITextFieldDelegate {
+extension DetailViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         switch textField.tag {
         case TAG_TEXTFIELD_TITLE:
@@ -536,3 +472,90 @@ class DetailViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 }
+
+// MARK: -
+class LabelCell: UITableViewCell {
+    @IBOutlet weak var label: CopyableLabel?
+}
+
+class TextFieldCell: UITableViewCell {
+    @IBOutlet weak var textField: UITextField?
+}
+
+class TextViewCell: UITableViewCell {
+    @IBOutlet weak var textView: UITextView?
+}
+
+class DisclosureCell: UITableViewCell {
+    @IBOutlet weak var label: CopyableLabel?
+}
+
+class GeneratorCell: UITableViewCell {
+    @IBOutlet weak var lengthLabel:    UILabel?
+    @IBOutlet weak var lengthSlider:   UISlider?
+    @IBOutlet weak var charsLabel:     UILabel?
+    @IBOutlet weak var charsStepper:   UIStepper?
+    @IBOutlet weak var generateButton: UIButton?
+}
+
+// MARK: -
+fileprivate extension Site {
+    var forCharSet: CypherCharacterSet {
+        get {
+            return CypherCharacterSet(rawValue: (self.value(forKey: "charSet") as? UInt32) ?? 0)
+        }
+        set {
+            self.setValue(Int32(newValue.rawValue) as AnyObject, forKey: "charSet")
+        }
+    }
+
+    var forMaxLength: Int {
+        get { return (self.value(forKey: "maxLength") as? Int) ?? 0 }
+        set { self.setValue(Int16(newValue) as AnyObject, forKey: "maxLength") }
+    }
+}
+
+// MARK: -
+// http://stephenradford.me/make-uilabel-copyable/
+// https://gist.github.com/zyrx/67fa2f42b567d1d4c8fef434c7987387
+
+class CopyableLabel: UILabel {
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
+                                                               action: #selector(self.showMenu)))
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.isUserInteractionEnabled = true
+        self.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
+                                                               action: #selector(self.showMenu)))
+    }
+
+    @objc func showMenu(sender: AnyObject?) {
+        self.becomeFirstResponder()
+        let menu = UIMenuController.shared
+        if !menu.isMenuVisible {
+            menu.setTargetRect(bounds, in: self)
+            menu.setMenuVisible(true, animated: true)
+        }
+    }
+
+    override func copy(_ sender: Any?) {
+        UIPasteboard.general.string = self.text
+        UIMenuController.shared.setMenuVisible(false, animated: true)
+    }
+
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return action == #selector(UIResponderStandardEditActions.copy)
+    }
+
+    override var canBecomeFirstResponder: Bool {
+        get {return true }
+    }
+}
+
+
