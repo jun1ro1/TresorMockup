@@ -166,10 +166,10 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Sok-il-NN6" firstAttribute="leading" secondItem="1DS-p4-OK1" secondAttribute="leadingMargin" id="0ti-Uh-s0f"/>
-                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="leading" secondItem="0zs-LK-RiS" secondAttribute="leading" id="94O-n4-fF7"/>
+                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0zs-LK-RiS" secondAttribute="leading" id="94O-n4-fF7"/>
                                         <constraint firstItem="0zs-LK-RiS" firstAttribute="top" secondItem="aB7-Ef-9wY" secondAttribute="bottom" constant="24" id="DJt-ZK-zLw"/>
                                         <constraint firstItem="OL0-1n-Ckw" firstAttribute="top" secondItem="I4j-Cf-SlA" secondAttribute="bottom" constant="19" id="E99-uQ-pRm"/>
-                                        <constraint firstItem="aB7-Ef-9wY" firstAttribute="trailing" secondItem="0zs-LK-RiS" secondAttribute="trailing" id="ISk-y9-CTP"/>
+                                        <constraint firstItem="aB7-Ef-9wY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0zs-LK-RiS" secondAttribute="trailing" id="ISk-y9-CTP"/>
                                         <constraint firstItem="I4j-Cf-SlA" firstAttribute="trailing" secondItem="aB7-Ef-9wY" secondAttribute="trailing" id="Jui-YA-neE"/>
                                         <constraint firstItem="I4j-Cf-SlA" firstAttribute="leading" secondItem="Sok-il-NN6" secondAttribute="trailing" constant="21" id="MBZ-27-FXx"/>
                                         <constraint firstItem="Sok-il-NN6" firstAttribute="top" secondItem="I4j-Cf-SlA" secondAttribute="top" id="PFb-xs-rTJ"/>

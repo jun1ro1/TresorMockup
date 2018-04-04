@@ -131,7 +131,7 @@ class DetailViewController: UITableViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.save()
+        self.delayedSave(force: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -177,28 +177,49 @@ class DetailViewController: UITableViewController {
             completion: nil )
     }
 
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "SegueText":
+            guard let viewController = segue.destination as? TextViewController else {
+                assertionFailure()
+                return
+            }
+            viewController.text = self.detailItem?.memo ?? ""
+            viewController.setEditing(self.isEditing, animated: false)
+
+        default:
+            assertionFailure()
+        }
+    }
+
+
     @IBAction func unwindToMaster(unwindSegue: UIStoryboardSegue) {
+        guard unwindSegue.identifier == "TextViewToMaster",
+            let vc = unwindSegue.source as? TextViewController else {
+                assertionFailure()
+                return
+        }
+        self.detailItem?.memo = vc.text ?? ""
         return
     }
 
     // MARK: - private mothds
-    fileprivate func save() {
-        guard self.splitViewController != nil else {
-            return
-        }
-        guard self.detailItem != nil else {
+    fileprivate func delayedSave(force: Bool = false) {
+        guard self.detailItem?.hasChanges ?? false else {
             return
         }
 
-        if !self.splitViewController!.isCollapsed &&
-            self.detailItem!.hasChanges {
-            if let context = self.detailItem!.managedObjectContext {
-                do {
-                    try context.save()
-                }
-                catch {
-                    print("error = \(error)")
-                    abort()
+        if let svc = self.splitViewController {
+            if !svc.isCollapsed || force {
+                if let context = self.detailItem!.managedObjectContext {
+                    do {
+                        try context.save()
+                    }
+                    catch {
+                        print("error = \(error)")
+                        abort()
+                    }
                 }
             }
         }
@@ -371,21 +392,6 @@ class DetailViewController: UITableViewController {
 
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "SegueText":
-            guard let viewController = segue.destination as? TextViewController else {
-                assertionFailure()
-                return
-            }
-            viewController.text = self.detailItem?.memo ?? ""
-            viewController.setEditing(self.isEditing, animated: false)
-
-        default:
-            assertionFailure()
-        }
-    }
-
 
     @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
         let getcell = {
@@ -408,14 +414,14 @@ class DetailViewController: UITableViewController {
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 self.passTextField?.text = val
                 self.detailItem?.password = val
-                self.save()
+                self.delayedSave()
             }
 
         case TAG_STEPPER_LENGTH:
             let val = Int((sender as! UISlider).value)
             (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
             self.detailItem?.forMaxLength = val
-            self.save()
+            self.delayedSave()
 
 
         case TAG_STEPPER_CHARS:
@@ -423,20 +429,8 @@ class DetailViewController: UITableViewController {
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
             self.detailItem?.forCharSet = chr
-            self.save()
+            self.delayedSave()
 
-        default:
-            assertionFailure()
-        }
-    }
-
-    @objc func textFieldChanged(_ textField: UITextField) {
-        switch textField.tag {
-        case TAG_TEXTFIELD_PASSWORD:
-            if let str = self.passTextField?.text {
-                self.detailItem?.password = str
-                self.save()
-            }
         default:
             assertionFailure()
         }
@@ -450,21 +444,25 @@ extension DetailViewController: UITextFieldDelegate {
         case TAG_TEXTFIELD_TITLE:
             if let str = textField.text {
                 self.detailItem?.title = str
+                self.delayedSave()
             }
 
         case TAG_TEXTFIELD_URL:
             if let str = textField.text {
                 self.detailItem?.url = str
+                self.delayedSave()
             }
 
         case TAG_TEXTFIELD_USERID:
             if let str = textField.text {
                 self.detailItem?.userid = str
+                self.delayedSave()
             }
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
                 self.detailItem?.password = str
+                self.delayedSave()
             }
 
         default:
