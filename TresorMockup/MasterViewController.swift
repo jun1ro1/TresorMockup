@@ -171,6 +171,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
                 tableView.deleteRows(at: [indexPath!], with: .fade)
             case .update:
                 configureCell(tableView.cellForRow(at: indexPath!)!, withSite: anObject as! Site)
+                tableView.reloadRows(at: [indexPath!], with: .fade)
             case .move:
                 configureCell(tableView.cellForRow(at: indexPath!)!, withSite: anObject as! Site)
                 tableView.moveRow(at: indexPath!, to: newIndexPath!)

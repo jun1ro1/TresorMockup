@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,8 +44,11 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J25-WC-pds" customClass="CopyableLabel" customModule="TresorMockup" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J25-WC-pds" customClass="CopyableValueLabel" customModule="TresorMockup" customModuleProvider="target">
                                             <rect key="frame" x="16" y="11" width="343" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Z8W-Nt-q54"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -68,22 +72,67 @@
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-EV-u7a" customClass="CopyableLabel" customModule="TresorMockup" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="11" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-EV-u7a" customClass="CopyableValueLabel" customModule="TresorMockup" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="11" width="317" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="xJJ-n2-FFx"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="2tN-EV-u7a" secondAttribute="bottom" id="4D0-Tf-YNR"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="2tN-EV-u7a" secondAttribute="trailing" id="Dya-GI-aOg"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="2tN-EV-u7a" secondAttribute="leading" id="VpJ-0J-m3v"/>
+                                        <constraint firstAttribute="topMargin" secondItem="2tN-EV-u7a" secondAttribute="top" id="w0A-DF-ap0"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="label" destination="2tN-EV-u7a" id="S9u-w5-xKc"/>
                                     <segue destination="6P8-fb-cvK" kind="show" identifier="SegueText" id="jLR-0r-tm8"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTextField" id="9E1-35-2JI" customClass="TextFieldCell" customModule="TresorMockup" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellPassword" id="UXc-f8-ZvC" customClass="PasswordCell" customModule="TresorMockup" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UXc-f8-ZvC" id="71B-6y-CWK">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVr-d5-htT" customClass="CopyableValueLabel" customModule="TresorMockup" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="11" width="275" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-ux-6hG">
+                                            <rect key="frame" x="291" y="6.5" width="42" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="42" id="Hvq-zG-2Xi"/>
+                                            </constraints>
+                                            <state key="normal" title="Eye"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CVr-d5-htT" firstAttribute="top" secondItem="71B-6y-CWK" secondAttribute="topMargin" id="5Rb-8a-B0q"/>
+                                        <constraint firstItem="1Dv-ux-6hG" firstAttribute="baseline" secondItem="CVr-d5-htT" secondAttribute="firstBaseline" id="7Rb-Fs-v1v"/>
+                                        <constraint firstItem="CVr-d5-htT" firstAttribute="trailing" secondItem="1Dv-ux-6hG" secondAttribute="leading" id="ESj-Oj-kPW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="1Dv-ux-6hG" secondAttribute="trailing" id="RYL-Hl-3Zc"/>
+                                        <constraint firstItem="CVr-d5-htT" firstAttribute="leading" secondItem="71B-6y-CWK" secondAttribute="leadingMargin" id="S3s-DL-Nhk"/>
+                                        <constraint firstItem="CVr-d5-htT" firstAttribute="bottom" secondItem="71B-6y-CWK" secondAttribute="bottomMargin" id="WU0-DY-yKv"/>
+                                        <constraint firstItem="CVr-d5-htT" firstAttribute="centerY" secondItem="1Dv-ux-6hG" secondAttribute="centerY" id="m4T-3s-f9a"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="CVr-d5-htT" secondAttribute="bottom" id="s7G-3a-ZlQ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="eyeButton" destination="1Dv-ux-6hG" id="K6i-OM-MCa"/>
+                                    <outlet property="label" destination="CVr-d5-htT" id="Xax-oC-7S3"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTextField" id="9E1-35-2JI" customClass="TextFieldCell" customModule="TresorMockup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="187.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9E1-35-2JI" id="7u9-vc-QD9">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -102,8 +151,42 @@
                                     <outlet property="textField" destination="4Sl-6B-HtB" id="rKm-kj-bdQ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellSecretTextField" id="aoi-PK-2Pn" customClass="SecretTextViewCell" customModule="TresorMockup" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="231.5" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aoi-PK-2Pn" id="sQU-Dk-zVw">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-iR-Qu1">
+                                            <rect key="frame" x="16" y="7" width="313" height="30"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw3-W9-hR1">
+                                            <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="lu9-dt-3gX"/>
+                                            </constraints>
+                                            <state key="normal" title="Eye"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YhP-iR-Qu1" firstAttribute="centerY" secondItem="sQU-Dk-zVw" secondAttribute="centerY" id="EQx-FW-zvT"/>
+                                        <constraint firstItem="uw3-W9-hR1" firstAttribute="leading" secondItem="YhP-iR-Qu1" secondAttribute="trailing" id="RxU-FT-IRh"/>
+                                        <constraint firstItem="YhP-iR-Qu1" firstAttribute="leading" secondItem="sQU-Dk-zVw" secondAttribute="leadingMargin" id="TZy-Jf-XfR"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="uw3-W9-hR1" secondAttribute="trailing" id="XVL-28-yCI"/>
+                                        <constraint firstItem="YhP-iR-Qu1" firstAttribute="top" secondItem="uw3-W9-hR1" secondAttribute="top" id="bIv-ls-LmN"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="eyeButton" destination="uw3-W9-hR1" id="lY4-Tm-tnX"/>
+                                    <outlet property="textField" destination="YhP-iR-Qu1" id="p3l-TK-mMW"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellTextView" rowHeight="173" id="d60-bc-e4u" userLabel="CellTextView" customClass="TextViewCell" customModule="TresorMockup" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="187.5" width="375" height="173"/>
+                                <rect key="frame" x="0.0" y="275.5" width="375" height="173"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d60-bc-e4u" id="go7-dt-D7H">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="172.5"/>
@@ -129,7 +212,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellGenerator" rowHeight="160" id="WOr-rR-VFy" customClass="GeneratorCell" customModule="TresorMockup" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="360.5" width="375" height="160"/>
+                                <rect key="frame" x="0.0" y="448.5" width="375" height="160"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WOr-rR-VFy" id="1DS-p4-OK1">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="159.5"/>
@@ -145,10 +228,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stepper opaque="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aB7-Ef-9wY">
-                                            <rect key="frame" x="264" y="60" width="94" height="29"/>
+                                            <rect key="frame" x="265" y="60" width="94" height="29"/>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-1n-Ckw">
-                                            <rect key="frame" x="16" y="60" width="240" height="28"/>
+                                            <rect key="frame" x="16" y="60" width="241" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="tUJ-PY-Loi"/>
                                             </constraints>
@@ -157,11 +240,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zs-LK-RiS">
-                                            <rect key="frame" x="16" y="113" width="342" height="30"/>
+                                            <rect key="frame" x="16" y="113" width="343" height="30"/>
                                             <state key="normal" title="Generate Password"/>
                                         </button>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-Cf-SlA">
-                                            <rect key="frame" x="89" y="12" width="271" height="30"/>
+                                            <rect key="frame" x="89" y="12" width="272" height="30"/>
                                         </slider>
                                     </subviews>
                                     <constraints>

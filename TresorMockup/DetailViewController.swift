@@ -31,6 +31,8 @@ class DetailViewController: UITableViewController {
     let TAG_TEXTFIELD_USERID   = 130
     let TAG_TEXTFIELD_LENGTH   = 140
     let TAG_TEXTFIELD_PASSWORD = 150
+    let TAG_LABEL_PASSWORD     = 160
+    let TAG_BUTTON_EYE         = 170
 
 
     fileprivate var layouter_nonedit = Layouter<AppKeyType>([
@@ -59,7 +61,7 @@ class DetailViewController: UITableViewController {
         .title:    "CellLabel",
         .url:      "CellLabel",
         .userid:   "CellLabel",
-        .password: "CellLabel",
+        .password: "CellPassword",
         .selectAt: "CellLabel",
         .memo:     "CellDisclosure",
         ]
@@ -67,7 +69,7 @@ class DetailViewController: UITableViewController {
         .title:    "CellTextField",
         .url:      "CellTextField",
         .userid:   "CellTextField",
-        .password: "CellTextField",
+        .password: "CellSecretTextField",
         .selectAt: "CellLabel",
         .generator:"CellGenerator",
         .memo:     "CellDisclosure",
@@ -131,7 +133,7 @@ class DetailViewController: UITableViewController {
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.delayedSave(force: true)
+        self.lazySave(force: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -205,22 +207,26 @@ class DetailViewController: UITableViewController {
     }
 
     // MARK: - private mothds
-    fileprivate func delayedSave(force: Bool = false) {
-        guard self.detailItem?.hasChanges ?? false else {
-            return
+    fileprivate func lazySave(force: Bool = false) {
+        guard self.detailItem?.hasChanges ?? false else { return }
+
+        var cond = false
+        if let svc = self.splitViewController {
+            cond = (!svc.isCollapsed || force)
+        }
+        else {
+            cond = force
         }
 
-        if let svc = self.splitViewController {
-            if !svc.isCollapsed || force {
-                if let context = self.detailItem!.managedObjectContext {
-                    do {
-                        try context.save()
-                    }
-                    catch {
-                        print("error = \(error)")
-                        abort()
-                    }
-                }
+        guard cond else { return }
+
+        if let context = self.detailItem!.managedObjectContext {
+            do {
+                try context.save()
+            }
+            catch {
+                print("error = \(error)")
+                abort()
             }
         }
     }
@@ -270,20 +276,20 @@ class DetailViewController: UITableViewController {
         switch key {
         case .title:
             if self.isEditing {
-                let t = (cell as! TextFieldCell).textField
-                t?.text = self.detailItem?.title
-                t?.tag  = TAG_TEXTFIELD_TITLE
-                t?.delegate = self
+                let tf = (cell as! TextFieldCell).textField
+                tf?.text = self.detailItem?.title
+                tf?.tag  = TAG_TEXTFIELD_TITLE
+                tf?.delegate = self
             }
             else {
                 (cell as! LabelCell).label?.text = self.detailItem?.title
             }
         case .url:
             if self.isEditing {
-                let t = (cell as! TextFieldCell).textField
-                t?.text = self.detailItem?.url
-                t?.tag  = TAG_TEXTFIELD_URL
-                t?.delegate = self
+                let tf = (cell as! TextFieldCell).textField
+                tf?.text = self.detailItem?.url
+                tf?.tag  = TAG_TEXTFIELD_URL
+                tf?.delegate = self
             }
             else {
                 (cell as! LabelCell).label?.text = self.detailItem?.url
@@ -291,10 +297,10 @@ class DetailViewController: UITableViewController {
 
         case .userid:
             if self.isEditing {
-                let t = (cell as! TextFieldCell).textField
-                t?.text = self.detailItem?.userid
-                t?.tag  = TAG_TEXTFIELD_USERID
-                t?.delegate = self
+                let tf = (cell as! TextFieldCell).textField
+                tf?.text = self.detailItem?.userid
+                tf?.tag  = TAG_TEXTFIELD_USERID
+                tf?.delegate = self
             }
             else {
                 (cell as! LabelCell).label?.text = self.detailItem?.userid
@@ -302,14 +308,40 @@ class DetailViewController: UITableViewController {
 
         case .password:
             if self.isEditing {
-                let t = (cell as! TextFieldCell).textField
-                t?.text = self.detailItem?.password
-                t?.tag  = TAG_TEXTFIELD_PASSWORD
-                t?.delegate = self
-                self.passTextField = t
+                let tf = (cell as! SecretTextViewCell).textField
+                tf?.text = self.detailItem?.password
+                tf?.tag  = TAG_TEXTFIELD_PASSWORD
+                tf?.delegate = self
+                tf?.clearsOnInsertion = false
+
+                // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
+                tf?.clearsOnBeginEditing = false
+                self.passTextField = tf
+
+
+
+                let button   = (cell as! SecretTextViewCell).eyeButton
+                button?.tag  = TAG_BUTTON_EYE
+                button?.addTarget(self,
+                                  action: #selector(showPassword(sender:)),
+                                  for: .touchDown)
+                button?.addTarget(self,
+                                  action: #selector(hidePoassword(sender:)),
+                                  for: [.touchUpInside, .touchUpOutside])
             }
             else {
-                (cell as! LabelCell).label?.text = self.detailItem?.password
+                let label = (cell as! PasswordCell).label
+                label?.text  = "****"
+                label?.value = self.detailItem?.password
+                label?.tag   = TAG_LABEL_PASSWORD
+                let button   = (cell as! PasswordCell).eyeButton
+                button?.tag  = TAG_BUTTON_EYE
+                button?.addTarget(self,
+                                  action: #selector(showPassword(sender:)),
+                                  for: .touchDown)
+                button?.addTarget(self,
+                                  action: #selector(hidePoassword(sender:)),
+                                  for: [.touchUpInside, .touchUpOutside])
                 self.passTextField = nil
             }
 
@@ -392,17 +424,16 @@ class DetailViewController: UITableViewController {
 
     }
 
+    fileprivate func getcell(_ view: UIView?) -> UITableViewCell? {
+        var c = view?.superview
+        while c != nil && !(c is UITableViewCell) {
+            c = c?.superview
+        }
+        return c as? UITableViewCell
+    }
 
     @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
-        let getcell = {
-            (_ view: UIView?) -> UITableViewCell? in
-            var c = view?.superview
-            while c != nil && !(c is UITableViewCell) {
-                c = c?.superview
-            }
-            return c as? UITableViewCell
-        }
-        guard let cell = getcell(sender) else {
+         guard let cell = getcell(sender) else {
             assertionFailure()
             return
         }
@@ -414,14 +445,14 @@ class DetailViewController: UITableViewController {
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 self.passTextField?.text = val
                 self.detailItem?.password = val
-                self.delayedSave()
+                self.lazySave()
             }
 
         case TAG_STEPPER_LENGTH:
             let val = Int((sender as! UISlider).value)
             (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
             self.detailItem?.forMaxLength = val
-            self.delayedSave()
+            self.lazySave()
 
 
         case TAG_STEPPER_CHARS:
@@ -429,8 +460,48 @@ class DetailViewController: UITableViewController {
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
             self.detailItem?.forCharSet = chr
-            self.delayedSave()
+            self.lazySave()
 
+        default:
+            assertionFailure()
+        }
+    }
+
+    @objc func showPassword(sender: UIControl) {
+         guard let cell = getcell(sender) else {
+            assertionFailure()
+            return
+        }
+
+        switch cell {
+        case is PasswordCell:
+            let label = (cell as! PasswordCell).label
+            label?.text = label?.value
+        case is SecretTextViewCell:
+            let tf = (cell as! SecretTextViewCell).textField
+            tf?.isSecureTextEntry = false
+
+            // https://stackoverflow.com/questions/34922331/getting-and-setting-cursor-position-of-uitextfield-and-uitextview-in-swift
+            if let tp = tf?.endOfDocument {
+                tf?.selectedTextRange = tf?.textRange(from: tp, to: tp)
+            }
+        default:
+            assertionFailure()
+        }
+    }
+
+    @objc func hidePoassword(sender: UIControl) {
+        guard let cell = getcell(sender) else {
+            assertionFailure()
+            return
+        }
+
+        switch cell {
+        case is PasswordCell:
+            let label = (cell as! PasswordCell).label
+            label?.text = "****"
+        case is SecretTextViewCell:
+            (cell as! SecretTextViewCell).textField?.isSecureTextEntry = true
         default:
             assertionFailure()
         }
@@ -444,36 +515,45 @@ extension DetailViewController: UITextFieldDelegate {
         case TAG_TEXTFIELD_TITLE:
             if let str = textField.text {
                 self.detailItem?.title = str
-                self.delayedSave()
+                self.lazySave()
             }
 
         case TAG_TEXTFIELD_URL:
             if let str = textField.text {
                 self.detailItem?.url = str
-                self.delayedSave()
+                self.lazySave()
             }
 
         case TAG_TEXTFIELD_USERID:
             if let str = textField.text {
                 self.detailItem?.userid = str
-                self.delayedSave()
+                self.lazySave()
             }
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
                 self.detailItem?.password = str
-                self.delayedSave()
+                self.lazySave()
             }
 
         default:
             assertionFailure()
         }
     }
+
+    // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // https://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index
+        if let tx = textField.text {
+            textField.text = tx.replacingCharacters(in: Range(range, in: tx)!, with: string)
+        }
+        return false
+    }
 }
 
 // MARK: -
 class LabelCell: UITableViewCell {
-    @IBOutlet weak var label: CopyableLabel?
+    @IBOutlet weak var label: CopyableValueLabel?
 }
 
 class TextFieldCell: UITableViewCell {
@@ -485,7 +565,18 @@ class TextViewCell: UITableViewCell {
 }
 
 class DisclosureCell: UITableViewCell {
-    @IBOutlet weak var label: CopyableLabel?
+    @IBOutlet weak var label: CopyableValueLabel?
+}
+
+class PasswordCell: UITableViewCell {
+    @IBOutlet weak var label: CopyableValueLabel?
+    @IBOutlet weak var eyeButton: UIButton?
+
+}
+
+class SecretTextViewCell: UITableViewCell {
+    @IBOutlet weak var textField: UITextField?
+    @IBOutlet weak var eyeButton: UIButton?
 }
 
 class GeneratorCell: UITableViewCell {
@@ -517,7 +608,13 @@ fileprivate extension Site {
 // http://stephenradford.me/make-uilabel-copyable/
 // https://gist.github.com/zyrx/67fa2f42b567d1d4c8fef434c7987387
 
-class CopyableLabel: UILabel {
+class CopyableValueLabel: UILabel {
+
+    private var val: String?
+    var value: String? {
+        get { return self.val }
+        set { self.val = newValue }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -543,7 +640,7 @@ class CopyableLabel: UILabel {
     }
 
     override func copy(_ sender: Any?) {
-        UIPasteboard.general.string = self.text
+        UIPasteboard.general.string = self.value ?? self.text
         UIMenuController.shared.setMenuVisible(false, animated: true)
     }
 
@@ -552,7 +649,7 @@ class CopyableLabel: UILabel {
     }
 
     override var canBecomeFirstResponder: Bool {
-        get {return true }
+        get { return true }
     }
 }
 
