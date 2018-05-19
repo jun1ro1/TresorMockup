@@ -11,9 +11,11 @@ import CoreData
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
+    @IBOutlet var searchBar: UISearchBar!
+
+    private let CACHE_NAME = "MASTER"
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+
+        self.searchBar.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -123,7 +127,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Set the batch size to a suitable number.
         fetchRequest.fetchBatchSize = 20
-        
+
         // Edit the sort key as appropriate.
         let sortDescriptor = NSSortDescriptor(key: "title", ascending: false)
         
@@ -131,7 +135,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext!, sectionNameKeyPath: nil, cacheName: "Master")
+        let aFetchedResultsController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
+            managedObjectContext: self.managedObjectContext!,
+            sectionNameKeyPath: nil,
+            cacheName: CACHE_NAME)
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
         
@@ -193,3 +201,29 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
 }
 
+
+extension MasterViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0 {
+            self.fetchedResultsController.fetchRequest.predicate = nil
+        }
+        else {
+            let predicate = NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+            self.fetchedResultsController.fetchRequest.predicate = predicate
+        }
+
+        // clear cache before to perform fetch
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: CACHE_NAME)
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+
+        self.tableView.reloadData()
+    }
+
+}

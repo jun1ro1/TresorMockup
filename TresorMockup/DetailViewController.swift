@@ -318,8 +318,6 @@ class DetailViewController: UITableViewController {
                 tf?.clearsOnBeginEditing = false
                 self.passTextField = tf
 
-
-
                 let button   = (cell as! SecretTextViewCell).eyeButton
                 button?.tag  = TAG_BUTTON_EYE
                 button?.addTarget(self,
@@ -330,10 +328,10 @@ class DetailViewController: UITableViewController {
                                   for: [.touchUpInside, .touchUpOutside])
             }
             else {
-                let label = (cell as! PasswordCell).label
-                label?.text  = "****"
-                label?.value = self.detailItem?.password
+                let label    = (cell as! PasswordCell).label
+                label?.value = self.detailItem?.password ?? ""
                 label?.tag   = TAG_LABEL_PASSWORD
+                label?.secret(true)
                 let button   = (cell as! PasswordCell).eyeButton
                 button?.tag  = TAG_BUTTON_EYE
                 button?.addTarget(self,
@@ -467,6 +465,7 @@ class DetailViewController: UITableViewController {
         }
     }
 
+    // MARK: -
     @objc func showPassword(sender: UIControl) {
          guard let cell = getcell(sender) else {
             assertionFailure()
@@ -475,16 +474,14 @@ class DetailViewController: UITableViewController {
 
         switch cell {
         case is PasswordCell:
-            let label = (cell as! PasswordCell).label
-            label?.text = label?.value
+            (cell as! PasswordCell).label?.secret(false)
         case is SecretTextViewCell:
+            // https://stackoverflow.com/questions/34922331/getting-and-setting-cursor-position-of-uitextfield-and-uitextview-in-swift
             let tf = (cell as! SecretTextViewCell).textField
             tf?.isSecureTextEntry = false
-
-            // https://stackoverflow.com/questions/34922331/getting-and-setting-cursor-position-of-uitextfield-and-uitextview-in-swift
-            if let tp = tf?.endOfDocument {
-                tf?.selectedTextRange = tf?.textRange(from: tp, to: tp)
-            }
+//             if let tp = tf?.endOfDocument {
+//                tf?.selectedTextRange = tf?.textRange(from: tp, to: tp)
+//            }
         default:
             assertionFailure()
         }
@@ -498,8 +495,7 @@ class DetailViewController: UITableViewController {
 
         switch cell {
         case is PasswordCell:
-            let label = (cell as! PasswordCell).label
-            label?.text = "****"
+            (cell as! PasswordCell).label?.secret(true)
         case is SecretTextViewCell:
             (cell as! SecretTextViewCell).textField?.isSecureTextEntry = true
         default:
@@ -541,14 +537,26 @@ extension DetailViewController: UITextFieldDelegate {
         }
     }
 
+/*
     // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // https://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index
+        // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
         if let tx = textField.text {
             textField.text = tx.replacingCharacters(in: Range(range, in: tx)!, with: string)
         }
+
+        let tp = textField.endOfDocument
+        textField.selectedTextRange = textField.textRange(from: tp, to: tp)
+
+//        let selectedRange = NSMakeRange(range.location + string.count, 0)
+//        let from = textField.position(from: textField.beginningOfDocument, offset:selectedRange.location)
+//        let to = textField.position(from: from!, offset:selectedRange.length)
+//        textField.selectedTextRange = textField.textRange(from: from!, to: to!)
+
         return false
     }
+ */
 }
 
 // MARK: -
@@ -605,6 +613,29 @@ fileprivate extension Site {
 }
 
 // MARK: -
+
+// https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
+class PasswordTextField: UITextField {
+    override var isSecureTextEntry: Bool {
+        didSet {
+            if self.isFirstResponder {
+                _ = self.becomeFirstResponder()
+            }
+        }
+    }
+
+    override func becomeFirstResponder() -> Bool {
+        let success = super.becomeFirstResponder()
+        if self.isSecureTextEntry, let text = self.text {
+            self.text?.removeAll()
+            self.insertText(text)
+            self.text = text
+        }
+        return success
+    }
+}
+
+
 // http://stephenradford.me/make-uilabel-copyable/
 // https://gist.github.com/zyrx/67fa2f42b567d1d4c8fef434c7987387
 
@@ -628,6 +659,15 @@ class CopyableValueLabel: UILabel {
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(UILongPressGestureRecognizer(target: self,
                                                                action: #selector(self.showMenu)))
+    }
+
+    func secret(_ secret: Bool) {
+        let pass     = self.value ?? ""
+        if secret {
+            self.text = String(repeating: "•", count: pass.count)
+        } else {
+            self.text = pass
+        }
     }
 
     @objc func showMenu(sender: AnyObject?) {
