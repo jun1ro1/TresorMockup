@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,7 +47,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J25-WC-pds" customClass="CopyableValueLabel" customModule="TresorMockup" customModuleProvider="target">
                                             <rect key="frame" x="16" y="11" width="343" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="Z8W-Nt-q54"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="22" id="XiJ-BC-1UU"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -58,7 +58,7 @@
                                         <constraint firstItem="J25-WC-pds" firstAttribute="leading" secondItem="JPH-gU-Lf6" secondAttribute="leadingMargin" id="IwH-QK-ass"/>
                                         <constraint firstItem="J25-WC-pds" firstAttribute="top" secondItem="JPH-gU-Lf6" secondAttribute="topMargin" id="Vlq-Qe-QjH"/>
                                         <constraint firstItem="J25-WC-pds" firstAttribute="trailing" secondItem="JPH-gU-Lf6" secondAttribute="trailingMargin" id="msR-1s-fln"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="J25-WC-pds" secondAttribute="bottom" id="o2j-Tc-sE2"/>
+                                        <constraint firstItem="J25-WC-pds" firstAttribute="bottom" secondItem="JPH-gU-Lf6" secondAttribute="bottomMargin" id="o2j-Tc-sE2"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -68,14 +68,14 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellDisclosure" editingAccessoryType="disclosureIndicator" id="w3U-Jl-cTm" customClass="DisclosureCell" customModule="TresorMockup" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w3U-Jl-cTm" id="9mC-vV-8f1">
+                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w3U-Jl-cTm" id="9mC-vV-8f1">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tN-EV-u7a" customClass="CopyableValueLabel" customModule="TresorMockup" customModuleProvider="target">
                                             <rect key="frame" x="16" y="11" width="317" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="xJJ-n2-FFx"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="22" id="kbc-3B-By2"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -102,23 +102,27 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVr-d5-htT" customClass="CopyableValueLabel" customModule="TresorMockup" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="11" width="275" height="22"/>
+                                            <rect key="frame" x="16" y="11" width="273" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="750" constant="22" id="U9G-Bc-QNx"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-ux-6hG">
-                                            <rect key="frame" x="291" y="6.5" width="42" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dv-ux-6hG">
+                                            <rect key="frame" x="289" y="6.5" width="44" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="42" id="Hvq-zG-2Xi"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="44" id="Hvq-zG-2Xi"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="tSG-9k-9g4"/>
                                             </constraints>
                                             <state key="normal" title="Eye"/>
                                         </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="CVr-d5-htT" firstAttribute="top" secondItem="71B-6y-CWK" secondAttribute="topMargin" id="5Rb-8a-B0q"/>
-                                        <constraint firstItem="1Dv-ux-6hG" firstAttribute="baseline" secondItem="CVr-d5-htT" secondAttribute="firstBaseline" id="7Rb-Fs-v1v"/>
                                         <constraint firstItem="CVr-d5-htT" firstAttribute="trailing" secondItem="1Dv-ux-6hG" secondAttribute="leading" id="ESj-Oj-kPW"/>
+                                        <constraint firstItem="CVr-d5-htT" firstAttribute="centerY" secondItem="71B-6y-CWK" secondAttribute="centerYWithinMargins" id="GNF-oM-cfe"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="1Dv-ux-6hG" secondAttribute="trailing" id="RYL-Hl-3Zc"/>
                                         <constraint firstItem="CVr-d5-htT" firstAttribute="leading" secondItem="71B-6y-CWK" secondAttribute="leadingMargin" id="S3s-DL-Nhk"/>
                                         <constraint firstItem="CVr-d5-htT" firstAttribute="bottom" secondItem="71B-6y-CWK" secondAttribute="bottomMargin" id="WU0-DY-yKv"/>
@@ -138,14 +142,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Sl-6B-HtB">
-                                            <rect key="frame" x="16" y="7" width="343" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="4Sl-6B-HtB">
+                                            <rect key="frame" x="16" y="11" width="343" height="22"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4Sl-6B-HtB" firstAttribute="leading" secondItem="7u9-vc-QD9" secondAttribute="leadingMargin" id="CYe-nK-ups"/>
+                                        <constraint firstItem="4Sl-6B-HtB" firstAttribute="bottom" secondItem="7u9-vc-QD9" secondAttribute="bottomMargin" id="IIB-Tw-OnB"/>
+                                        <constraint firstItem="4Sl-6B-HtB" firstAttribute="trailing" secondItem="7u9-vc-QD9" secondAttribute="trailingMargin" id="TOH-wK-esf"/>
+                                        <constraint firstItem="4Sl-6B-HtB" firstAttribute="top" secondItem="7u9-vc-QD9" secondAttribute="topMargin" id="ZRh-YE-NGZ"/>
+                                        <constraint firstItem="4Sl-6B-HtB" firstAttribute="centerY" secondItem="7u9-vc-QD9" secondAttribute="centerYWithinMargins" id="bBX-5N-wk2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="textField" destination="4Sl-6B-HtB" id="rKm-kj-bdQ"/>
@@ -158,16 +168,16 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-iR-Qu1" customClass="PasswordTextField" customModule="TresorMockup" customModuleProvider="target">
-                                            <rect key="frame" x="16" y="7" width="313" height="30"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="YhP-iR-Qu1" customClass="PasswordTextField" customModule="TresorMockup" customModuleProvider="target">
+                                            <rect key="frame" x="16" y="7" width="299" height="30"/>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                         </textField>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw3-W9-hR1">
-                                            <rect key="frame" x="329" y="7" width="30" height="30"/>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uw3-W9-hR1">
+                                            <rect key="frame" x="315" y="7" width="44" height="30"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="30" id="lu9-dt-3gX"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="44" id="lu9-dt-3gX"/>
                                             </constraints>
                                             <state key="normal" title="Eye"/>
                                         </button>
@@ -372,7 +382,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="6S0-TO-JiA"/>
+                                    <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="showDetail" id="tEF-Y0-1ju"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -385,6 +395,7 @@
                     <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8"/>
                     <connections>
                         <outlet property="searchBar" destination="S74-DJ-3xw" id="72G-Hf-ROD"/>
+                        <segue destination="vC3-pB-5Vb" kind="showDetail" identifier="editDetail" id="svl-AS-CWL"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
@@ -409,6 +420,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6S0-TO-JiA"/>
+        <segue reference="svl-AS-CWL"/>
     </inferredMetricsTieBreakers>
 </document>

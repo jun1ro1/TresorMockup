@@ -31,6 +31,19 @@ class TresorMockupUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        let addButton = app.buttons["addButton"]
+        XCTAssertTrue(addButton.isEnabled)
+        addButton.tap()
+
+        var textFileld = app.textFields["textFieldTitle"]
+        textFileld.tap()
+        textFileld.typeText("title")
+
+        textFileld = app.textFields["textFieldURL"]
+        textFileld.tap()
+        textFileld.typeText("http://www.url.com/")
+
     }
     
 }

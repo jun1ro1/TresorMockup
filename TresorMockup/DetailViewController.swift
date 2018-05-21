@@ -102,6 +102,14 @@ class DetailViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
 
+        // set default detailItem value
+        if self.detailItem?.forMaxLength == 0 {
+            self.detailItem?.forMaxLength = 8
+        }
+        if self.detailItem?.forCharSet.rawValue == 0 {
+            self.detailItem?.forCharSet = CypherCharacterSet.AlphaNumericsSet
+        }
+
         self.tableView.estimatedRowHeight      = 44.0
         self.tableView.rowHeight               = UITableViewAutomaticDimension
         self.navigationItem.rightBarButtonItem = editButtonItem
@@ -116,24 +124,40 @@ class DetailViewController: UITableViewController {
         guard self.detailItem != nil else {
             return
         }
-        // DEBUG CODE
-        //        self.detailItem?.title    = "Apple"
-        //        self.detailItem?.url      = "http://www.apple.com"
-        //        self.detailItem?.memo     = "Hello world!"
-        //        self.detailItem?.selectAt = Date()
-        //        self.detailItem?.loginAt  = Date()
-        // DEBUG CODE
+    }
 
-        self.detailItem?.forMaxLength = max((self.detailItem?.forMaxLength)!, 4)
-        if self.detailItem?.forCharSet.rawValue == 0 {
-            self.detailItem?.forCharSet = self.charsArray.first!
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        self.view.viewWithTag(TAG_TEXTFIELD_TITLE)?.becomeFirstResponder()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard self.detailItem != nil else { return }
+        guard self.detailItem!.title != nil ||
+            self.detailItem!.url   != nil ||
+            self.detailItem!.memo  != nil  else {
+                // dispose the empty item
+                if let context = self.detailItem!.managedObjectContext {
+                    context.delete(self.detailItem!)
+                    self.detailItem = nil
+                    do {
+                        try context.save()
+                    }
+                    catch {
+                        print("error = \(error)")
+                        abort()
+                    }
+                }
+                return
         }
     }
 
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        self.lazySave(force: true)
+        self.save(force: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -207,8 +231,26 @@ class DetailViewController: UITableViewController {
     }
 
     // MARK: - private mothds
-    fileprivate func lazySave(force: Bool = false) {
-        guard self.detailItem?.hasChanges ?? false else { return }
+    fileprivate func save(force: Bool = false) {
+        guard self.detailItem != nil        else { return }
+        guard self.detailItem!.hasChanges   else { return }
+//        guard self.detailItem!.title != nil ||
+//            self.detailItem!.url   != nil ||
+//            self.detailItem!.memo  != nil  else {
+//                // dispose the empty item
+//                if let context = self.detailItem!.managedObjectContext {
+//                    context.delete(self.detailItem!)
+//                    self.detailItem = nil
+//                    do {
+//                        try context.save()
+//                    }
+//                    catch {
+//                        print("error = \(error)")
+//                        abort()
+//                    }
+//                }
+//                return
+//        }
 
         var cond = false
         if let svc = self.splitViewController {
@@ -279,6 +321,8 @@ class DetailViewController: UITableViewController {
                 let tf = (cell as! TextFieldCell).textField
                 tf?.text = self.detailItem?.title
                 tf?.tag  = TAG_TEXTFIELD_TITLE
+                tf?.placeholder = "Title".localized
+                tf?.accessibilityIdentifier = "textFieldTitle"
                 tf?.delegate = self
             }
             else {
@@ -289,6 +333,8 @@ class DetailViewController: UITableViewController {
                 let tf = (cell as! TextFieldCell).textField
                 tf?.text = self.detailItem?.url
                 tf?.tag  = TAG_TEXTFIELD_URL
+                tf?.placeholder = "URL".localized
+                tf?.accessibilityIdentifier = "textFieldURL"
                 tf?.delegate = self
             }
             else {
@@ -300,6 +346,8 @@ class DetailViewController: UITableViewController {
                 let tf = (cell as! TextFieldCell).textField
                 tf?.text = self.detailItem?.userid
                 tf?.tag  = TAG_TEXTFIELD_USERID
+                tf?.placeholder = "User ID".localized
+                tf?.accessibilityIdentifier = "textFieldUser"
                 tf?.delegate = self
             }
             else {
@@ -311,6 +359,8 @@ class DetailViewController: UITableViewController {
                 let tf = (cell as! SecretTextViewCell).textField
                 tf?.text = self.detailItem?.password
                 tf?.tag  = TAG_TEXTFIELD_PASSWORD
+                tf?.placeholder = "Password".localized
+                tf?.accessibilityIdentifier = "textFieldPassword"
                 tf?.delegate = self
                 tf?.clearsOnInsertion = false
 
@@ -344,40 +394,39 @@ class DetailViewController: UITableViewController {
             }
 
         case .selectAt:
-            (cell as! LabelCell).label?.text = (detailItem?.selectAt?.description(with: nil) ?? "")
-
+            (cell as! LabelCell).label?.text = detailItem?.forCreatedAt
         case .memo:
             (cell as! DisclosureCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
 
         case .generator:
             let len = self.detailItem!.forMaxLength
-            let c   = cell as! GeneratorCell
-            c.lengthSlider?.minimumValue = 4
-            c.lengthSlider?.maximumValue = 32.0
-            c.lengthSlider?.value        = Float( len )
-            c.lengthSlider?.isContinuous = true
-            c.lengthSlider?.tag          = TAG_STEPPER_LENGTH
-            c.lengthSlider?.addTarget(self,
-                                      action: #selector(valueChanged(sender:forEvent:)),
-                                      for: .valueChanged)
-            c.lengthLabel?.text = String( format: "%d", len )
+            let cl   = cell as! GeneratorCell
+            cl.lengthSlider?.minimumValue = 4
+            cl.lengthSlider?.maximumValue = 32.0
+            cl.lengthSlider?.value        = Float( len )
+            cl.lengthSlider?.isContinuous = true
+            cl.lengthSlider?.tag          = TAG_STEPPER_LENGTH
+            cl.lengthSlider?.addTarget(self,
+                                       action: #selector(valueChanged(sender:forEvent:)),
+                                       for: .valueChanged)
+            cl.lengthLabel?.text = String( format: "%d", len )
 
             let chars = self.detailItem!.forCharSet
-            c.charsStepper?.minimumValue  = 0.0
-            c.charsStepper?.maximumValue  = Double(charsArray.count - 1)
-            c.charsStepper?.value         = Double(
+            cl.charsStepper?.minimumValue  = 0.0
+            cl.charsStepper?.maximumValue  = Double(charsArray.count - 1)
+            cl.charsStepper?.value         = Double(
                 (charsArray.index {$0.rawValue >= chars.rawValue} ?? 0) )
-            c.charsStepper?.isContinuous  = true
-            c.charsStepper?.tag           = TAG_STEPPER_CHARS
-            c.charsStepper?.addTarget(self,
-                                      action: #selector(self.valueChanged(sender:forEvent:)),
-                                      for: .valueChanged)
-            c.charsLabel?.text            = chars.description
+            cl.charsStepper?.isContinuous  = true
+            cl.charsStepper?.tag           = TAG_STEPPER_CHARS
+            cl.charsStepper?.addTarget(self,
+                                       action: #selector(self.valueChanged(sender:forEvent:)),
+                                       for: .valueChanged)
+            cl.charsLabel?.text            = chars.description
 
-            c.generateButton?.tag         = TAG_BUTTON_GENERATE
-            c.generateButton?.addTarget(self,
-                                        action: #selector(self.valueChanged(sender:forEvent:)),
-                                        for: .touchDown)
+            cl.generateButton?.tag         = TAG_BUTTON_GENERATE
+            cl.generateButton?.addTarget(self,
+                                         action: #selector(self.valueChanged(sender:forEvent:)),
+                                         for: .touchDown)
 
         default:
             assertionFailure()
@@ -431,7 +480,7 @@ class DetailViewController: UITableViewController {
     }
 
     @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
-         guard let cell = getcell(sender) else {
+        guard let cell = getcell(sender) else {
             assertionFailure()
             return
         }
@@ -443,14 +492,14 @@ class DetailViewController: UITableViewController {
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 self.passTextField?.text = val
                 self.detailItem?.password = val
-                self.lazySave()
+                self.save()
             }
 
         case TAG_STEPPER_LENGTH:
             let val = Int((sender as! UISlider).value)
             (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
             self.detailItem?.forMaxLength = val
-            self.lazySave()
+            self.save()
 
 
         case TAG_STEPPER_CHARS:
@@ -458,7 +507,7 @@ class DetailViewController: UITableViewController {
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
             self.detailItem?.forCharSet = chr
-            self.lazySave()
+            self.save()
 
         default:
             assertionFailure()
@@ -467,7 +516,7 @@ class DetailViewController: UITableViewController {
 
     // MARK: -
     @objc func showPassword(sender: UIControl) {
-         guard let cell = getcell(sender) else {
+        guard let cell = getcell(sender) else {
             assertionFailure()
             return
         }
@@ -479,9 +528,9 @@ class DetailViewController: UITableViewController {
             // https://stackoverflow.com/questions/34922331/getting-and-setting-cursor-position-of-uitextfield-and-uitextview-in-swift
             let tf = (cell as! SecretTextViewCell).textField
             tf?.isSecureTextEntry = false
-//             if let tp = tf?.endOfDocument {
-//                tf?.selectedTextRange = tf?.textRange(from: tp, to: tp)
-//            }
+            //             if let tp = tf?.endOfDocument {
+            //                tf?.selectedTextRange = tf?.textRange(from: tp, to: tp)
+        //            }
         default:
             assertionFailure()
         }
@@ -510,26 +559,46 @@ extension DetailViewController: UITextFieldDelegate {
         switch textField.tag {
         case TAG_TEXTFIELD_TITLE:
             if let str = textField.text {
-                self.detailItem?.title = str
-                self.lazySave()
+                if str == "" && self.detailItem?.title == nil {
+                    // preserve nil
+                }
+                else {
+                    self.detailItem?.title = str
+                    self.save()
+                }
             }
 
         case TAG_TEXTFIELD_URL:
             if let str = textField.text {
-                self.detailItem?.url = str
-                self.lazySave()
+                if str == "" && self.detailItem?.url == nil {
+                    // preserve nil
+                }
+                else {
+                    self.detailItem?.url = str
+                    self.save()
+                }
             }
 
         case TAG_TEXTFIELD_USERID:
             if let str = textField.text {
-                self.detailItem?.userid = str
-                self.lazySave()
+                if str == "" && self.detailItem?.userid == nil {
+                    // preserve nil
+                }
+                else {
+                    self.detailItem?.userid = str
+                    self.save()
+                }
             }
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
-                self.detailItem?.password = str
-                self.lazySave()
+                if str == "" && self.detailItem?.password == nil {
+                    // preserve nil
+                }
+                else {
+                    self.detailItem?.password = str
+                    self.save()
+                }
             }
 
         default:
@@ -537,26 +606,26 @@ extension DetailViewController: UITextFieldDelegate {
         }
     }
 
-/*
-    // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // https://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index
-        // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
-        if let tx = textField.text {
-            textField.text = tx.replacingCharacters(in: Range(range, in: tx)!, with: string)
-        }
+    /*
+     // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
+     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+     // https://stackoverflow.com/questions/25138339/nsrange-to-rangestring-index
+     // https://stackoverflow.com/questions/7305538/uitextfield-with-secure-entry-always-getting-cleared-before-editing
+     if let tx = textField.text {
+     textField.text = tx.replacingCharacters(in: Range(range, in: tx)!, with: string)
+     }
 
-        let tp = textField.endOfDocument
-        textField.selectedTextRange = textField.textRange(from: tp, to: tp)
+     let tp = textField.endOfDocument
+     textField.selectedTextRange = textField.textRange(from: tp, to: tp)
 
-//        let selectedRange = NSMakeRange(range.location + string.count, 0)
-//        let from = textField.position(from: textField.beginningOfDocument, offset:selectedRange.location)
-//        let to = textField.position(from: from!, offset:selectedRange.length)
-//        textField.selectedTextRange = textField.textRange(from: from!, to: to!)
+     //        let selectedRange = NSMakeRange(range.location + string.count, 0)
+     //        let from = textField.position(from: textField.beginningOfDocument, offset:selectedRange.location)
+     //        let to = textField.position(from: from!, offset:selectedRange.length)
+     //        textField.selectedTextRange = textField.textRange(from: from!, to: to!)
 
-        return false
-    }
- */
+     return false
+     }
+     */
 }
 
 // MARK: -
@@ -609,6 +678,13 @@ fileprivate extension Site {
     var forMaxLength: Int {
         get { return (self.value(forKey: "maxLength") as? Int) ?? 0 }
         set { self.setValue(Int16(newValue) as AnyObject, forKey: "maxLength") }
+    }
+
+    var forCreatedAt: String {
+        get {
+            guard let date = self.value(forKey: "createdAt") as? Date else { return "" }
+            return DateFormatter.localizedString(from: date, dateStyle: .medium,timeStyle: .medium)
+        }
     }
 }
 
