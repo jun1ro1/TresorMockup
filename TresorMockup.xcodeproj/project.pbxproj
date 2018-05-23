@@ -24,6 +24,9 @@
 		F9610E192055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
+		F98B615B20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
+		F98B615C20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
+		F98B615D20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
 		F9C556E3207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
 		F9C556E4207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
 		F9C556E5207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
@@ -82,6 +85,7 @@
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
 		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
 		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
+		F98B615A20B5CA06008E7048 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F9C556EA207099070023D6D9 /* TresorMockup+CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TresorMockup+CoreDataModel.swift"; sourceTree = "<group>"; };
@@ -155,6 +159,7 @@
 		F9FE6EA72042E99300F892DC /* TresorMockup */ = {
 			isa = PBXGroup;
 			children = (
+				F98B615A20B5CA06008E7048 /* PasswordManager.swift */,
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
 				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
@@ -366,6 +371,7 @@
 				F9C556EB207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */,
 				F9610E192055864D00A97F0E /* AsBytes.swift in Sources */,
 				F950E78320676C8600D55557 /* TextViewController.swift in Sources */,
+				F98B615B20B5CA06008E7048 /* PasswordManager.swift in Sources */,
 				F9C556E3207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,6 +380,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98B615C20B5CA06008E7048 /* PasswordManager.swift in Sources */,
 				F9C556EC207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */,
 				F935B37C204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */,
@@ -397,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98B615D20B5CA06008E7048 /* PasswordManager.swift in Sources */,
 				F9C556ED207099080023D6D9 /* TresorMockup+CoreDataModel.swift in Sources */,
 				F935B37D204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */,
