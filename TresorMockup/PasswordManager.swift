@@ -11,6 +11,8 @@ import CoreData
 
 class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
 
+    static var shared = PasswordManager()
+
     private let CACHE_NAME = "PASSWORD"
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
@@ -26,7 +28,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         fetchRequest.fetchBatchSize = 20
 
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "selectedAt", ascending: false)
 
         fetchRequest.sortDescriptors = [sortDescriptor]
 
@@ -53,10 +55,22 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
     }
     var _fetchedResultsController: NSFetchedResultsController<Password>? = nil
 
-    func new() -> Password {
+    func newObject(for site: Site) -> Password {
         let context = self.fetchedResultsController.managedObjectContext
         // Create a new item
         let item    = Password(context: context)
+        site.addToPasswords(item)
+        return item
+    }
+
+    func deleteObject(password: Password) {
+        password.site?.removeFromPasswords(password)
+        let context = self.fetchedResultsController.managedObjectContext
+        context.delete(password)
+    }
+
+    func save() {
+        let context = self.fetchedResultsController.managedObjectContext
         // Save the context.
         do {
             try context.save()
@@ -66,9 +80,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
-        return item
     }
-
 }
 
 

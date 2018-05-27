@@ -97,6 +97,8 @@ class DetailViewController: UITableViewController {
 
     weak var passTextField: UITextField? = nil
 
+    private weak var passwordManager: PasswordManager? = PasswordManager.shared
+
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -213,6 +215,10 @@ class DetailViewController: UITableViewController {
             }
             viewController.text = self.detailItem?.memo ?? ""
             viewController.setEditing(self.isEditing, animated: false)
+
+        case "SeguePassoword":
+            let controller = segue.destination as! PasswordTableViewController
+            controller.detailItme = self.detailItem
 
         default:
             assertionFailure()
@@ -395,6 +401,7 @@ class DetailViewController: UITableViewController {
 
         case .selectAt:
             (cell as! LabelCell).label?.text = detailItem?.forCreatedAt
+
         case .memo:
             (cell as! DisclosureCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
 
@@ -490,6 +497,8 @@ class DetailViewController: UITableViewController {
             let len   = self.detailItem!.forMaxLength
             let chars = self.detailItem!.forCharSet
             if let val = try? RandomData.shared.get(count: len, in: chars) {
+                let password = self.passwordManager?.newObject(for: self.detailItem!)
+                password?.password = val
                 self.passTextField?.text = val
                 self.detailItem?.password = val
                 self.save()
@@ -596,6 +605,8 @@ extension DetailViewController: UITextFieldDelegate {
                     // preserve nil
                 }
                 else {
+                    let password = self.passwordManager?.newObject(for: self.detailItem!)
+                    password?.password = str
                     self.detailItem?.password = str
                     self.save()
                 }

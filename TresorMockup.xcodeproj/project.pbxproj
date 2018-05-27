@@ -27,6 +27,9 @@
 		F98B615B20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
 		F98B615C20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
 		F98B615D20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
+		F9C3C5BA20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */; };
+		F9C3C5BB20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */; };
+		F9C3C5BC20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */; };
 		F9C556E3207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
 		F9C556E4207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
 		F9C556E5207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */; };
@@ -86,6 +89,7 @@
 		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
 		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
 		F98B615A20B5CA06008E7048 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
+		F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewController.swift; sourceTree = "<group>"; };
 		F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F9C556EA207099070023D6D9 /* TresorMockup+CoreDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TresorMockup+CoreDataModel.swift"; sourceTree = "<group>"; };
@@ -159,7 +163,6 @@
 		F9FE6EA72042E99300F892DC /* TresorMockup */ = {
 			isa = PBXGroup;
 			children = (
-				F98B615A20B5CA06008E7048 /* PasswordManager.swift */,
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
 				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
@@ -171,6 +174,8 @@
 				F9FE6EAD2042E99300F892DC /* MasterViewController.swift */,
 				F9E2084C204BF14F00543C81 /* Password.swift */,
 				F9C556E2207098EB0023D6D9 /* Password+CoreDataProperties.swift */,
+				F98B615A20B5CA06008E7048 /* PasswordManager.swift */,
+				F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */,
 				F9610E142055862800A97F0E /* RandomData.swift */,
 				F9E20848204BF0D600543C81 /* Site.swift */,
 				F9C556E6207098FE0023D6D9 /* Site+CoreDataProperties.swift */,
@@ -363,6 +368,7 @@
 				F9E20849204BF0D600543C81 /* Site.swift in Sources */,
 				F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */,
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
+				F9C3C5BA20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */,
 				F9610E152055862900A97F0E /* RandomData.swift in Sources */,
@@ -394,6 +400,7 @@
 				F9D85C8A206FE14F00317AFD /* AppDelegate.swift in Sources */,
 				F9D85C88206FE14400317AFD /* MasterViewController.swift in Sources */,
 				F9610E162055862900A97F0E /* RandomData.swift in Sources */,
+				F9C3C5BB20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F9C556E4207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */,
 				F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */,
@@ -418,6 +425,7 @@
 				F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */,
 				F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */,
 				F9610E172055862900A97F0E /* RandomData.swift in Sources */,
+				F9C3C5BC20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F9C556E5207098EE0023D6D9 /* Password+CoreDataProperties.swift in Sources */,
 				F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */,
