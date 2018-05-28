@@ -11,7 +11,7 @@ import UIKit
 class PasswordTableViewController: UITableViewController {
 
     var detailItme: Site?
-    var passwords: [Password] = []
+//    var passwords: [Password] = []
     private weak var passwordManager = PasswordManager.shared
     
     override func viewDidLoad() {
@@ -23,8 +23,20 @@ class PasswordTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
-        self.passwords = self.detailItme?.passwords?
-            .sortedArray(using: [NSSortDescriptor(key: "selectedAt", ascending: false)]) as! [Password]
+//        self.passwords = self.detailItme?.passwords?
+//            .sortedArray(using: [NSSortDescriptor(key: "selectedAt", ascending: false)]) as! [Password]
+
+        let predicate = NSPredicate(format: "%K == %@", "site", self.detailItme ?? "")
+        self.passwordManager?.fetchedResultsController.fetchRequest.predicate = predicate
+        self.passwordManager?.deleteCache()
+        do {
+            try self.passwordManager!.fetchedResultsController.performFetch()
+        } catch {
+            // Replace this implementation with code to handle the error appropriately.
+            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,12 +48,15 @@ class PasswordTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+//        return 1
+        return self.passwordManager?.fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.detailItme?.passwords?.count ?? 0
+ //       return self.detailItme?.passwords?.count ?? 0
+        let sectionInfo = self.passwordManager?.fetchedResultsController.sections![section]
+        return sectionInfo?.numberOfObjects ?? 0
     }
 
 
@@ -49,10 +64,13 @@ class PasswordTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellPassword", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = self.passwords[indexPath.row].password
+        //        cell.textLabel?.text = self.passwords[indexPath.row].password
+        let password = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+        cell.textLabel?.text = password?.password
 
         cell.detailTextLabel?.text = { () -> String? in
-            if let date = self.passwords[indexPath.row].selectedAt {
+//            if let date = self.passwords[indexPath.row].selectedAt {
+            if let date = password?.selectedAt {
                 return DateFormatter.localizedString(from: date, dateStyle: .medium,timeStyle: .medium)
             }
             else {

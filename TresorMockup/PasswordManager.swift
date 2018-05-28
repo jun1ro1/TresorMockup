@@ -42,15 +42,15 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
 
-        do {
-            try _fetchedResultsController!.performFetch()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
-
+//        do {
+//            try _fetchedResultsController!.performFetch()
+//        } catch {
+//            // Replace this implementation with code to handle the error appropriately.
+//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//            let nserror = error as NSError
+//            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//        }
+//
         return _fetchedResultsController!
     }
     var _fetchedResultsController: NSFetchedResultsController<Password>? = nil
@@ -60,6 +60,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         // Create a new item
         let item    = Password(context: context)
         site.addToPasswords(item)
+        item.site = site
         return item
     }
 
@@ -67,6 +68,10 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         password.site?.removeFromPasswords(password)
         let context = self.fetchedResultsController.managedObjectContext
         context.delete(password)
+    }
+
+    func deleteCache() {
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: CACHE_NAME)
     }
 
     func save() {

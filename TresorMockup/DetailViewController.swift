@@ -225,7 +225,6 @@ class DetailViewController: UITableViewController {
         }
     }
 
-
     @IBAction func unwindToMaster(unwindSegue: UIStoryboardSegue) {
         guard unwindSegue.identifier == "TextViewToMaster",
             let vc = unwindSegue.source as? TextViewController else {
@@ -499,6 +498,7 @@ class DetailViewController: UITableViewController {
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 let password = self.passwordManager?.newObject(for: self.detailItem!)
                 password?.password = val
+                password?.selectedAt = Date()
                 self.passTextField?.text = val
                 self.detailItem?.password = val
                 self.save()
@@ -607,6 +607,7 @@ extension DetailViewController: UITextFieldDelegate {
                 else {
                     let password = self.passwordManager?.newObject(for: self.detailItem!)
                     password?.password = str
+                    password?.selectedAt = Date()
                     self.detailItem?.password = str
                     self.save()
                 }
