@@ -11,7 +11,7 @@ import UIKit
 class PasswordTableViewController: UITableViewController {
 
     var detailItme: Site?
-//    var passwords: [Password] = []
+    var selected: Password?
     private weak var passwordManager = PasswordManager.shared
     
     override func viewDidLoad() {
@@ -39,6 +39,20 @@ class PasswordTableViewController: UITableViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.selected = self.detailItme?.password
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        if self.selected != nil && self.selected != self.detailItme?.password {
+            self.detailItme?.password = self.selected
+            self.detailItme?.selectAt = Date() as NSDate
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -71,16 +85,24 @@ class PasswordTableViewController: UITableViewController {
         cell.detailTextLabel?.text = { () -> String? in
 //            if let date = self.passwords[indexPath.row].selectedAt {
             if let date = password?.selectedAt {
-                return DateFormatter.localizedString(from: date, dateStyle: .medium,timeStyle: .medium)
+                return DateFormatter.localizedString(from: date as Date, dateStyle: .medium,timeStyle: .medium)
             }
             else {
                 return ""
             }
         }()
 
+        if self.selected != nil {
+            cell.accessoryType = ( self.selected == password ) ? .checkmark : .none
+        }
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+        self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
+    }
+    
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

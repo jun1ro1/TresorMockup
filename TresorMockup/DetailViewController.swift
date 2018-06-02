@@ -126,6 +126,8 @@ class DetailViewController: UITableViewController {
         guard self.detailItem != nil else {
             return
         }
+
+        self.detailItem?.password?.addObserver(self, forKeyPath: "password", options: [], context: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -136,6 +138,9 @@ class DetailViewController: UITableViewController {
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
+        self.detailItem?.password?.removeObserver(self, forKeyPath: "password")
+
         guard self.detailItem != nil else { return }
         guard self.detailItem!.title != nil ||
             self.detailItem!.url   != nil ||
@@ -226,13 +231,19 @@ class DetailViewController: UITableViewController {
     }
 
     @IBAction func unwindToMaster(unwindSegue: UIStoryboardSegue) {
-        guard unwindSegue.identifier == "TextViewToMaster",
-            let vc = unwindSegue.source as? TextViewController else {
+        switch unwindSegue.identifier {
+        case "TextViewToMaster":
+            if let vc = unwindSegue.source as? TextViewController {
+                self.detailItem?.memo = vc.text ?? ""
+            }
+            else {
                 assertionFailure()
-                return
+            }
+        case "PasswordTableToMaster":
+            break
+        default:
+            assertionFailure()
         }
-        self.detailItem?.memo = vc.text ?? ""
-        return
     }
 
     // MARK: - private mothds
@@ -362,7 +373,7 @@ class DetailViewController: UITableViewController {
         case .password:
             if self.isEditing {
                 let tf = (cell as! SecretTextViewCell).textField
-                tf?.text = self.detailItem?.password
+                tf?.text = self.detailItem?.password?.password
                 tf?.tag  = TAG_TEXTFIELD_PASSWORD
                 tf?.placeholder = "Password".localized
                 tf?.accessibilityIdentifier = "textFieldPassword"
@@ -384,7 +395,7 @@ class DetailViewController: UITableViewController {
             }
             else {
                 let label    = (cell as! PasswordCell).label
-                label?.value = self.detailItem?.password ?? ""
+                label?.value = self.detailItem?.password?.password ?? ""
                 label?.tag   = TAG_LABEL_PASSWORD
                 label?.secret(true)
                 let button   = (cell as! PasswordCell).eyeButton
@@ -485,6 +496,18 @@ class DetailViewController: UITableViewController {
         return c as? UITableViewCell
     }
 
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        switch keyPath {
+        case "password":
+            break
+        default:
+            break
+
+        }
+    }
+
+
     @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
         guard let cell = getcell(sender) else {
             assertionFailure()
@@ -498,9 +521,9 @@ class DetailViewController: UITableViewController {
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 let password = self.passwordManager?.newObject(for: self.detailItem!)
                 password?.password = val
-                password?.selectedAt = Date()
+                password?.selectedAt = Date() as NSDate
                 self.passTextField?.text = val
-                self.detailItem?.password = val
+                self.detailItem?.password?.password = val
                 self.save()
             }
 
@@ -607,8 +630,9 @@ extension DetailViewController: UITextFieldDelegate {
                 else {
                     let password = self.passwordManager?.newObject(for: self.detailItem!)
                     password?.password = str
-                    password?.selectedAt = Date()
-                    self.detailItem?.password = str
+                    password?.selectedAt = Date() as NSDate
+                    self.detailItem?.password?.password = str
+                    self.detailItem?.selectAt = password?.selectedAt
                     self.save()
                 }
             }

@@ -1,10 +1,10 @@
 //
 //  Password+CoreDataProperties.swift
-//  
+//  TresorMockup
 //
-//  Created by OKU Junichirou on 2018/04/01.
+//  Created by OKU Junichirou on 2018/06/01.
+//  Copyright © 2018年 OKU Junichirou. All rights reserved.
 //
-//  This file was automatically generated and should not be edited.
 //
 
 import Foundation
@@ -18,9 +18,9 @@ extension Password {
     }
 
     @NSManaged public var active: Bool
-    @NSManaged public var createdAt: Date?
+    @NSManaged public var createdAt: NSDate?
     @NSManaged public var password: String?
-    @NSManaged public var selectedAt: Date?
+    @NSManaged public var selectedAt: NSDate?
     @NSManaged public var uuid: UUID?
     @NSManaged public var site: Site?
 
