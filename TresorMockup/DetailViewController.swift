@@ -127,7 +127,7 @@ class DetailViewController: UITableViewController {
             return
         }
 
-        self.detailItem?.password?.addObserver(self, forKeyPath: "password", options: [], context: nil)
+        self.detailItem?.addObserver(self, forKeyPath: "password", options: [], context: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -139,7 +139,7 @@ class DetailViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        self.detailItem?.password?.removeObserver(self, forKeyPath: "password")
+        self.detailItem?.removeObserver(self, forKeyPath: "password")
 
         guard self.detailItem != nil else { return }
         guard self.detailItem!.title != nil ||
@@ -165,6 +165,7 @@ class DetailViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.save(force: true)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -223,7 +224,7 @@ class DetailViewController: UITableViewController {
 
         case "SeguePassoword":
             let controller = segue.destination as! PasswordTableViewController
-            controller.detailItme = self.detailItem
+            controller.detailItem = self.detailItem
 
         default:
             assertionFailure()
@@ -410,7 +411,7 @@ class DetailViewController: UITableViewController {
             }
 
         case .selectAt:
-            (cell as! LabelCell).label?.text = detailItem?.forCreatedAt
+            (cell as! LabelCell).label?.text = detailItem?.forSelectAt
 
         case .memo:
             (cell as! DisclosureCell).label?.text = detailItem?.value(forKey: self.keyAttribute[key]!) as? String
@@ -496,18 +497,6 @@ class DetailViewController: UITableViewController {
         return c as? UITableViewCell
     }
 
-
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        switch keyPath {
-        case "password":
-            break
-        default:
-            break
-
-        }
-    }
-
-
     @objc func valueChanged(sender: UIControl, forEvent event: UIEvent) {
         guard let cell = getcell(sender) else {
             assertionFailure()
@@ -522,8 +511,10 @@ class DetailViewController: UITableViewController {
                 let password = self.passwordManager?.newObject(for: self.detailItem!)
                 password?.password = val
                 password?.selectedAt = Date() as NSDate
-                self.passTextField?.text = val
+                self.detailItem?.password = password
                 self.detailItem?.password?.password = val
+                self.detailItem?.selectAt = password?.selectedAt
+                self.passTextField?.text = val
                 self.save()
             }
 
@@ -583,6 +574,25 @@ class DetailViewController: UITableViewController {
             assertionFailure()
         }
     }
+
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        switch keyPath {
+        case "password":
+//            if let password = (object as? Site)?.password,
+//                let indexPath = self.passwordManager?
+//                .fetchedResultsController.indexPath(forObject: password) {
+//                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+//            }
+            let passData: [AppKeyType]  = [.password, .selectAt]
+            let indexPaths: [IndexPath?] = passData.map {
+                self.layouter.indexPath(forKey: $0)
+            }
+            self.tableView.reloadRows(at: indexPaths as! [IndexPath], with: .automatic)
+        default:
+            assertionFailure()
+
+        }
+    }
 }
 
 // MARK: - extension
@@ -631,6 +641,7 @@ extension DetailViewController: UITextFieldDelegate {
                     let password = self.passwordManager?.newObject(for: self.detailItem!)
                     password?.password = str
                     password?.selectedAt = Date() as NSDate
+                    self.detailItem?.password = password
                     self.detailItem?.password?.password = str
                     self.detailItem?.selectAt = password?.selectedAt
                     self.save()
@@ -719,6 +730,13 @@ fileprivate extension Site {
     var forCreatedAt: String {
         get {
             guard let date = self.value(forKey: "createdAt") as? Date else { return "" }
+            return DateFormatter.localizedString(from: date, dateStyle: .medium,timeStyle: .medium)
+        }
+    }
+
+    var forSelectAt: String {
+        get {
+            guard let date = self.value(forKey: "selectAt") as? Date else { return "" }
             return DateFormatter.localizedString(from: date, dateStyle: .medium,timeStyle: .medium)
         }
     }

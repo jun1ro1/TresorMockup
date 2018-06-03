@@ -10,7 +10,7 @@ import UIKit
 
 class PasswordTableViewController: UITableViewController {
 
-    var detailItme: Site?
+    var detailItem: Site?
     var selected: Password?
     private weak var passwordManager = PasswordManager.shared
     
@@ -26,7 +26,7 @@ class PasswordTableViewController: UITableViewController {
 //        self.passwords = self.detailItme?.passwords?
 //            .sortedArray(using: [NSSortDescriptor(key: "selectedAt", ascending: false)]) as! [Password]
 
-        let predicate = NSPredicate(format: "%K == %@", "site", self.detailItme ?? "")
+        let predicate = NSPredicate(format: "%K == %@", "site", self.detailItem ?? "")
         self.passwordManager?.fetchedResultsController.fetchRequest.predicate = predicate
         self.passwordManager?.deleteCache()
         do {
@@ -42,15 +42,24 @@ class PasswordTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.selected = self.detailItme?.password
+        self.selected = self.detailItem?.password
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        if self.selected != nil && self.selected != self.detailItme?.password {
-            self.detailItme?.password = self.selected
-            self.detailItme?.selectAt = Date() as NSDate
+        if self.selected != nil && self.selected != self.detailItem?.password {
+            self.detailItem?.password = self.selected
+            self.detailItem?.selectAt = Date() as NSDate
+            if let context = self.detailItem?.managedObjectContext {
+                do {
+                    try context.save()
+                }
+                catch {
+                    print("error = \(error)")
+                    abort()
+                }
+            }
         }
     }
     override func didReceiveMemoryWarning() {

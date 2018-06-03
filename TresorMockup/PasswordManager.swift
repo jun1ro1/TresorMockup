@@ -61,10 +61,14 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         let item    = Password(context: context)
         site.addToPasswords(item)
         item.site = site
+
+//        item.addObserver(self, forKeyPath: "password", options: [], context: nil)
         return item
     }
 
     func deleteObject(password: Password) {
+//        password.removeObserver(self, forKeyPath: "pasword")
+
         password.site?.removeFromPasswords(password)
         let context = self.fetchedResultsController.managedObjectContext
         context.delete(password)
@@ -87,5 +91,6 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
 }
+
 
 
