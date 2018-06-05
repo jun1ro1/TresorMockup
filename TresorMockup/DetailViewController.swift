@@ -511,9 +511,8 @@ class DetailViewController: UITableViewController {
                 let password = self.passwordManager?.newObject(for: self.detailItem!)
                 password?.password = val
                 password?.selectedAt = Date() as NSDate
-                self.detailItem?.password = password
-                self.detailItem?.password?.password = val
                 self.detailItem?.selectAt = password?.selectedAt
+                self.detailItem?.password = password
                 self.passTextField?.text = val
                 self.save()
             }
@@ -583,8 +582,8 @@ class DetailViewController: UITableViewController {
 //                .fetchedResultsController.indexPath(forObject: password) {
 //                self.tableView.reloadRows(at: [indexPath], with: .automatic)
 //            }
-            let passData: [AppKeyType]  = [.password, .selectAt]
-            let indexPaths: [IndexPath?] = passData.map {
+
+            let indexPaths: [IndexPath?] = [.password, .selectAt].map {
                 self.layouter.indexPath(forKey: $0)
             }
             self.tableView.reloadRows(at: indexPaths as! [IndexPath], with: .automatic)
@@ -641,9 +640,8 @@ extension DetailViewController: UITextFieldDelegate {
                     let password = self.passwordManager?.newObject(for: self.detailItem!)
                     password?.password = str
                     password?.selectedAt = Date() as NSDate
-                    self.detailItem?.password = password
-                    self.detailItem?.password?.password = str
                     self.detailItem?.selectAt = password?.selectedAt
+                    self.detailItem?.password = password
                     self.save()
                 }
             }

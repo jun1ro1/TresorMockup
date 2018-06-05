@@ -49,8 +49,8 @@ class PasswordTableViewController: UITableViewController {
         super.viewDidDisappear(animated)
 
         if self.selected != nil && self.selected != self.detailItem?.password {
-            self.detailItem?.password = self.selected
             self.detailItem?.selectAt = Date() as NSDate
+            self.detailItem?.password = self.selected
             if let context = self.detailItem?.managedObjectContext {
                 do {
                     try context.save()
