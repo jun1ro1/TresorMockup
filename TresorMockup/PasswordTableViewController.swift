@@ -28,6 +28,14 @@ class PasswordTableViewController: UITableViewController {
 
         let predicate = NSPredicate(format: "%K == %@", "site", self.detailItem ?? "")
         self.passwordManager?.fetchedResultsController.fetchRequest.predicate = predicate
+
+        self.selected = self.detailItem?.password
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         self.passwordManager?.deleteCache()
         do {
             try self.passwordManager!.fetchedResultsController.performFetch()
@@ -39,17 +47,10 @@ class PasswordTableViewController: UITableViewController {
         }
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        self.selected = self.detailItem?.password
-    }
-
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
         if self.selected != nil && self.selected != self.detailItem?.password {
-            self.detailItem?.selectAt = Date() as NSDate
             self.detailItem?.password = self.selected
             if let context = self.detailItem?.managedObjectContext {
                 do {
@@ -109,6 +110,9 @@ class PasswordTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+        self.selected?.selectedAt = Date() as NSDate
+        self.detailItem?.selectAt = self.selected?.selectedAt
+
         self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
     }
     
