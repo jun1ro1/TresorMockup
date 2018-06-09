@@ -577,16 +577,10 @@ class DetailViewController: UITableViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
         case "password":
-//            if let password = (object as? Site)?.password,
-//                let indexPath = self.passwordManager?
-//                .fetchedResultsController.indexPath(forObject: password) {
-//                self.tableView.reloadRows(at: [indexPath], with: .automatic)
-//            }
-
-            let indexPaths: [IndexPath?] = [.password, .selectAt].map {
+            let indexPaths: [IndexPath] = [.password, .selectAt].compactMap {
                 self.layouter.indexPath(forKey: $0)
             }
-            self.tableView.reloadRows(at: indexPaths as! [IndexPath], with: .automatic)
+            self.tableView.reloadRows(at: indexPaths, with: .automatic)
         default:
             assertionFailure()
 

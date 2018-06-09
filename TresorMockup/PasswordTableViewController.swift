@@ -23,8 +23,8 @@ class PasswordTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
-//        self.passwords = self.detailItme?.passwords?
-//            .sortedArray(using: [NSSortDescriptor(key: "selectedAt", ascending: false)]) as! [Password]
+        self.tableView.estimatedRowHeight      = 80.0
+        self.tableView.rowHeight               = UITableViewAutomaticDimension
 
         let predicate = NSPredicate(format: "%K == %@", "site", self.detailItem ?? "")
         self.passwordManager?.fetchedResultsController.fetchRequest.predicate = predicate
@@ -35,6 +35,8 @@ class PasswordTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
 
         self.passwordManager?.deleteCache()
         do {
@@ -50,19 +52,8 @@ class PasswordTableViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        if self.selected != nil && self.selected != self.detailItem?.password {
-            self.detailItem?.password = self.selected
-            if let context = self.detailItem?.managedObjectContext {
-                do {
-                    try context.save()
-                }
-                catch {
-                    print("error = \(error)")
-                    abort()
-                }
-            }
-        }
-    }
+        self.update(force: true)
+     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,30 +63,40 @@ class PasswordTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-//        return 1
+        //        return 1
         return self.passwordManager?.fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
- //       return self.detailItme?.passwords?.count ?? 0
+        //       return self.detailItme?.passwords?.count ?? 0
         let sectionInfo = self.passwordManager?.fetchedResultsController.sections![section]
         return sectionInfo?.numberOfObjects ?? 0
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CellPassword", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CellPassword", for: indexPath) as! PasswordTableCell
 
         // Configure the cell...
         //        cell.textLabel?.text = self.passwords[indexPath.row].password
         let password = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-        cell.textLabel?.text = password?.password
+        cell.password?.text = password?.password
 
-        cell.detailTextLabel?.text = { () -> String? in
-//            if let date = self.passwords[indexPath.row].selectedAt {
+        cell.createdAt?.text = { () -> String? in
+            //            if let date = self.passwords[indexPath.row].selectedAt {
+            if let date = password?.createdAt {
+                return DateFormatter.localizedString(from: date as Date, dateStyle: .short, timeStyle: .short)
+            }
+            else {
+                return ""
+            }
+        }()
+
+        cell.selectedAt?.text = { () -> String? in
+            //            if let date = self.passwords[indexPath.row].selectedAt {
             if let date = password?.selectedAt {
-                return DateFormatter.localizedString(from: date as Date, dateStyle: .medium,timeStyle: .medium)
+                return DateFormatter.localizedString(from: date as Date, dateStyle: .short, timeStyle: .short)
             }
             else {
                 return ""
@@ -113,9 +114,36 @@ class PasswordTableViewController: UITableViewController {
         self.selected?.selectedAt = Date() as NSDate
         self.detailItem?.selectAt = self.selected?.selectedAt
 
+//        self.update()
+
         self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
     }
-    
+
+    func update(force: Bool = false) {
+        var cond = false
+        if let svc = self.splitViewController {
+            cond = (!svc.isCollapsed || force)
+        }
+        else {
+            cond = force
+        }
+
+        guard cond else { return }
+
+        if self.selected != nil && self.selected != self.detailItem?.password {
+            self.detailItem?.password = self.selected
+            if let context = self.detailItem?.managedObjectContext {
+                do {
+                    try context.save()
+                }
+                catch {
+                    print("error = \(error)")
+                    abort()
+                }
+            }
+        }
+    }
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -162,3 +190,11 @@ class PasswordTableViewController: UITableViewController {
      */
 
 }
+
+// MARK: -
+class PasswordTableCell: UITableViewCell {
+    @IBOutlet weak var password:   UILabel?
+    @IBOutlet weak var createdAt:  UILabel?
+    @IBOutlet weak var selectedAt: UILabel?
+}
+

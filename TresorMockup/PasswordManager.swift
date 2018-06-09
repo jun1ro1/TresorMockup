@@ -28,7 +28,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         fetchRequest.fetchBatchSize = 20
 
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "selectedAt", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "createdAt", ascending: false)
 
         fetchRequest.sortDescriptors = [sortDescriptor]
 
