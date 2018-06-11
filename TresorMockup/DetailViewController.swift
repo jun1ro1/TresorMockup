@@ -521,7 +521,7 @@ class DetailViewController: UITableViewController {
             let val = Int((sender as! UISlider).value)
             (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
             self.detailItem?.forMaxLength = val
-            self.save()
+//            self.save()
 
 
         case TAG_STEPPER_CHARS:
@@ -529,7 +529,7 @@ class DetailViewController: UITableViewController {
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
             self.detailItem?.forCharSet = chr
-            self.save()
+//            self.save()
 
         default:
             assertionFailure()

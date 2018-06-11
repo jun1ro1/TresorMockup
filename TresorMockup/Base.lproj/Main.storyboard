@@ -310,7 +310,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="335" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lex-eN-mIP">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lex-eN-mIP" customClass="CopyableValueLabel" customModule="TresorMockup" customModuleProvider="target">
                                             <rect key="frame" x="16" y="11" width="311" height="28.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="24" id="hET-pm-Aso"/>
@@ -381,7 +381,18 @@
                             <outlet property="delegate" destination="RZa-f9-bwm" id="qaQ-jU-qmy"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" style="plain" id="eMc-GL-yVv">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="71l-Uc-0w3">
+                                <rect key="frame" x="16" y="7" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Eye"/>
+                            </button>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="eyeButton" destination="71l-Uc-0w3" id="KA9-Jx-zwr"/>
                         <segue destination="Lel-Ep-JC2" kind="unwind" identifier="PasswordTableToMaster" unwindAction="unwindToMasterWithUnwindSegue:" id="X3U-zd-5z0"/>
                     </connections>
                 </tableViewController>

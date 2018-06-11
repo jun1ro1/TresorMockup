@@ -13,6 +13,8 @@ class PasswordTableViewController: UITableViewController {
     var detailItem: Site?
     var selected: Password?
     private weak var passwordManager = PasswordManager.shared
+
+    @IBOutlet weak var eyeButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +33,24 @@ class PasswordTableViewController: UITableViewController {
 
         self.selected = self.detailItem?.password
 
+        eyeButton?.addTarget(self,
+                             action: #selector(showPassword(sender:)),
+                             for: .touchDown)
+        eyeButton?.addTarget(self,
+                             action: #selector(hidePoassword(sender:)),
+                             for: [.touchUpInside, .touchUpOutside])
+
+        self.navigationItem.rightBarButtonItem = editButtonItem
+        self.navigationController?.setToolbarHidden(false, animated: false)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+
+
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+
 
         self.passwordManager?.deleteCache()
         do {
@@ -53,7 +67,7 @@ class PasswordTableViewController: UITableViewController {
         super.viewDidDisappear(animated)
 
         self.update(force: true)
-     }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -81,7 +95,8 @@ class PasswordTableViewController: UITableViewController {
         // Configure the cell...
         //        cell.textLabel?.text = self.passwords[indexPath.row].password
         let password = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-        cell.password?.text = password?.password
+        cell.password?.value = password?.password
+        cell.password?.secret(true)
 
         cell.createdAt?.text = { () -> String? in
             //            if let date = self.passwords[indexPath.row].selectedAt {
@@ -109,15 +124,15 @@ class PasswordTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-        self.selected?.selectedAt = Date() as NSDate
-        self.detailItem?.selectAt = self.selected?.selectedAt
-
-//        self.update()
-
-        self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
-    }
+    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+    //        self.selected?.selectedAt = Date() as NSDate
+    //        self.detailItem?.selectAt = self.selected?.selectedAt
+    //
+    ////        self.update()
+    //
+    //        self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
+    //    }
 
     func update(force: Bool = false) {
         var cond = false
@@ -144,25 +159,45 @@ class PasswordTableViewController: UITableViewController {
         }
     }
 
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
+
+
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            assertionFailure()
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+
+    // MARK: - Swipe acions
+    // http://an.hatenablog.jp/entry/2017/10/23/225424
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal,
+                                        title: "select") {
+                                            (_: UIContextualAction,
+                                            _: UIView,
+                                            completion: (Bool) -> Void) -> Void in
+                                            self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+                                            self.selected?.selectedAt = Date() as NSDate
+                                            self.detailItem?.selectAt = self.selected?.selectedAt
+                                            self.tableView.reloadData()
+                                            completion(true)
+
+        }
+
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 
     /*
      // Override to support rearranging the table view.
@@ -189,12 +224,44 @@ class PasswordTableViewController: UITableViewController {
      }
      */
 
+    // MARK: - Copyable Label
+    @objc func showPassword(sender: UIControl) {
+        guard let indexPaths = self.tableView.indexPathsForVisibleRows else {
+            return
+        }
+        indexPaths.forEach {
+            if let cell = self.tableView.cellForRow(at: $0) as? PasswordTableCell {
+                cell.password!.secret(false)
+            }
+            else {
+                assertionFailure()
+            }
+
+        }
+    }
+
+    @objc func hidePoassword(sender: UIControl) {
+        guard let indexPaths = self.tableView.indexPathsForVisibleRows else {
+            return
+        }
+        indexPaths.forEach {
+            if let cell = self.tableView.cellForRow(at: $0) as? PasswordTableCell {
+                cell.password!.secret(true)
+            }
+            else {
+                assertionFailure()
+            }
+        }
+    }
 }
 
 // MARK: -
 class PasswordTableCell: UITableViewCell {
-    @IBOutlet weak var password:   UILabel?
+    @IBOutlet weak var password:   CopyableValueLabel?
     @IBOutlet weak var createdAt:  UILabel?
     @IBOutlet weak var selectedAt: UILabel?
 }
+
+// MARK: -
+
 
