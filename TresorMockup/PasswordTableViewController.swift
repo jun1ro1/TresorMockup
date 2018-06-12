@@ -124,15 +124,14 @@ class PasswordTableViewController: UITableViewController {
         return cell
     }
 
-    //    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-    //        self.selected?.selectedAt = Date() as NSDate
-    //        self.detailItem?.selectAt = self.selected?.selectedAt
-    //
-    ////        self.update()
-    //
-    //        self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
-    //    }
+        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            self.tableView.deselectRow(at: indexPath, animated: true)
+//            self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+//            self.selected?.selectedAt = Date() as NSDate
+//            self.detailItem?.selectAt = self.selected?.selectedAt
+//
+//            self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
+        }
 
     func update(force: Bool = false) {
         var cond = false
@@ -173,7 +172,16 @@ class PasswordTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            guard let object = self.passwordManager?.fetchedResultsController.object(at: indexPath) else {
+                assertionFailure()
+                return
+            }
+            if self.selected == object {
+                self.selected = nil
+            }
+            self.passwordManager?.deleteObject(password: object)
+            self.passwordManager?.deleteCache()
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         } else if editingStyle == .insert {
             assertionFailure()
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -183,18 +191,23 @@ class PasswordTableViewController: UITableViewController {
     // MARK: - Swipe acions
     // http://an.hatenablog.jp/entry/2017/10/23/225424
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .normal,
-                                        title: "select") {
-                                            (_: UIContextualAction,
-                                            _: UIView,
-                                            completion: (Bool) -> Void) -> Void in
-                                            self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-                                            self.selected?.selectedAt = Date() as NSDate
-                                            self.detailItem?.selectAt = self.selected?.selectedAt
-                                            self.tableView.reloadData()
-                                            completion(true)
-
+        let indexPaths = [
+            (self.selected == nil) ?
+                nil : self.passwordManager?.fetchedResultsController.indexPath(forObject: self.selected!),
+            indexPath
+            ].compactMap { $0 }
+        let handler =  {
+            (_: UIContextualAction, _: UIView, completion: (Bool) -> Void) -> Void in
+            self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+            self.selected?.selectedAt = Date() as NSDate
+            self.detailItem?.selectAt = self.selected?.selectedAt
+            self.tableView.performBatchUpdates(
+                { self.tableView.reloadRows(at: indexPaths, with: .automatic) },
+                completion: nil)
+            self.tableView.reloadData()
+            completion(true)
         }
+        let action = UIContextualAction(style: .normal, title: "select", handler: handler)
 
         return UISwipeActionsConfiguration(actions: [action])
     }
