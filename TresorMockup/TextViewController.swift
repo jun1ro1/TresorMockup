@@ -46,12 +46,15 @@ class TextViewController: UIViewController {
         self.textView.becomeFirstResponder()
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         // update AppData deferredly
         if self.deferred {
             self.text = self.textView.text ?? ""
             self.deferred = false
         }
+        super.viewWillDisappear(animated)
+    }
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
 
@@ -128,13 +131,13 @@ class TextViewController: UIViewController {
 extension TextViewController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
-        self.deferred = true // needed to write back the text view text to AppData
-        if let sv = self.splitViewController {
-            if !sv.isCollapsed {
-                // update AppData immediately on a regular view
+//        self.deferred = true // needed to write back the text view text to AppData
+//        if let sv = self.splitViewController {
+//            if !sv.isCollapsed {
+//                // update AppData immediately on a regular view
                 self.text = self.textView.text ?? ""
-                self.deferred = false
-            }
-        }
+//                self.deferred = false
+//            }
+//        }
     }
 }

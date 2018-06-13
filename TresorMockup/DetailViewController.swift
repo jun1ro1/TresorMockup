@@ -236,6 +236,7 @@ class DetailViewController: UITableViewController {
         case "TextViewToMaster":
             if let vc = unwindSegue.source as? TextViewController {
                 self.detailItem?.memo = vc.text ?? ""
+                self.save()
             }
             else {
                 assertionFailure()

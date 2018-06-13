@@ -103,7 +103,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellSite", for: indexPath)
         let site = fetchedResultsController.object(at: indexPath)
-        configureCell(cell, withSite: site)
+        self.configureCell(cell, withSite: site)
         return cell
     }
 

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class PasswordTableViewController: UITableViewController {
+class PasswordTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     var detailItem: Site?
     var selected: Password?
@@ -47,11 +48,9 @@ class PasswordTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-
-
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
 
-
+        self.passwordManager?.fetchedResultsController.delegate = self
         self.passwordManager?.deleteCache()
         do {
             try self.passwordManager!.fetchedResultsController.performFetch()
@@ -91,10 +90,14 @@ class PasswordTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellPassword", for: indexPath) as! PasswordTableCell
+        let password = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+        self.configureCell(cell, with: password)
+        return cell
+    }
 
+    fileprivate func configureCell(_ cell: PasswordTableCell, with password: Password?) {
         // Configure the cell...
         //        cell.textLabel?.text = self.passwords[indexPath.row].password
-        let password = self.passwordManager?.fetchedResultsController.object(at: indexPath)
         cell.password?.value = password?.password
         cell.password?.secret(true)
 
@@ -121,16 +124,10 @@ class PasswordTableViewController: UITableViewController {
         if self.selected != nil {
             cell.accessoryType = ( self.selected == password ) ? .checkmark : .none
         }
-        return cell
     }
 
         override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             self.tableView.deselectRow(at: indexPath, animated: true)
-//            self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-//            self.selected?.selectedAt = Date() as NSDate
-//            self.detailItem?.selectAt = self.selected?.selectedAt
-//
-//            self.performSegue(withIdentifier: "PasswordTableToMaster", sender: self)
         }
 
     func update(force: Bool = false) {
@@ -163,7 +160,6 @@ class PasswordTableViewController: UITableViewController {
     }
 
 
-
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .delete
@@ -181,29 +177,62 @@ class PasswordTableViewController: UITableViewController {
             }
             self.passwordManager?.deleteObject(password: object)
             self.passwordManager?.deleteCache()
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
         } else if editingStyle == .insert {
             assertionFailure()
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
 
+    // MARK: - NSFetchedResultsControllerDelegate
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+        default:
+            return
+        }
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
+            guard let cell = self.tableView.cellForRow(at: indexPath!) as? PasswordTableCell else {
+                break
+            }
+            self.configureCell(cell, with: anObject as? Password)
+            tableView.reloadRows(at: [indexPath!], with: .fade)
+        case .move:
+            guard let cell = self.tableView.cellForRow(at: indexPath!) as? PasswordTableCell else {
+                break
+            }
+            self.configureCell(cell, with: anObject as? Password)
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        }
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+
+
     // MARK: - Swipe acions
     // http://an.hatenablog.jp/entry/2017/10/23/225424
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let indexPaths = [
-            (self.selected == nil) ?
-                nil : self.passwordManager?.fetchedResultsController.indexPath(forObject: self.selected!),
-            indexPath
-            ].compactMap { $0 }
         let handler =  {
             (_: UIContextualAction, _: UIView, completion: (Bool) -> Void) -> Void in
             self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
             self.selected?.selectedAt = Date() as NSDate
             self.detailItem?.selectAt = self.selected?.selectedAt
-            self.tableView.performBatchUpdates(
-                { self.tableView.reloadRows(at: indexPaths, with: .automatic) },
-                completion: nil)
             self.tableView.reloadData()
             completion(true)
         }
