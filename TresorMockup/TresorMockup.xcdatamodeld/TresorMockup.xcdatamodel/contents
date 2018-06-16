@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Password" representedClassName=".Password">
         <attribute name="active" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="createdAt" optional="YES" attributeType="Date">
             <userInfo/>
         </attribute>
+        <attribute name="current" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="selectedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
@@ -23,11 +24,10 @@
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userid" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="password" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Password" syncable="YES"/>
         <relationship name="passwords" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Password" inverseName="site" inverseEntity="Password" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Password" positionX="261" positionY="189" width="128" height="135"/>
-        <element name="Site" positionX="-9" positionY="54" width="128" height="240"/>
+        <element name="Password" positionX="261" positionY="189" width="128" height="150"/>
+        <element name="Site" positionX="-9" positionY="54" width="128" height="225"/>
     </elements>
 </model>

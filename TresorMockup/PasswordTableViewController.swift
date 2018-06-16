@@ -13,6 +13,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
 
     var detailItem: Site?
     var selected: Password?
+    var selectedFirst: Password?
     private weak var passwordManager = PasswordManager.shared
 
     @IBOutlet weak var eyeButton: UIButton?
@@ -32,8 +33,6 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         let predicate = NSPredicate(format: "%K == %@", "site", self.detailItem ?? "")
         self.passwordManager?.fetchedResultsController.fetchRequest.predicate = predicate
 
-        self.selected = self.detailItem?.password
-
         eyeButton?.addTarget(self,
                              action: #selector(showPassword(sender:)),
                              for: .touchDown)
@@ -43,6 +42,8 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
 
         self.navigationItem.rightBarButtonItem = editButtonItem
         self.navigationController?.setToolbarHidden(false, animated: false)
+
+        self.selectedFirst = self.detailItem?.currentPassword
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,12 +61,13 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
             let nserror = error as NSError
             fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
+        self.selected = self.detailItem?.currentPassword
     }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
 
-        self.update(force: true)
+        self.save(force: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -97,12 +99,10 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
 
     fileprivate func configureCell(_ cell: PasswordTableCell, with password: Password?) {
         // Configure the cell...
-        //        cell.textLabel?.text = self.passwords[indexPath.row].password
         cell.password?.value = password?.password
         cell.password?.secret(true)
 
         cell.createdAt?.text = { () -> String? in
-            //            if let date = self.passwords[indexPath.row].selectedAt {
             if let date = password?.createdAt {
                 return DateFormatter.localizedString(from: date as Date, dateStyle: .short, timeStyle: .short)
             }
@@ -112,7 +112,6 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         }()
 
         cell.selectedAt?.text = { () -> String? in
-            //            if let date = self.passwords[indexPath.row].selectedAt {
             if let date = password?.selectedAt {
                 return DateFormatter.localizedString(from: date as Date, dateStyle: .short, timeStyle: .short)
             }
@@ -124,13 +123,16 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         if self.selected != nil {
             cell.accessoryType = ( self.selected == password ) ? .checkmark : .none
         }
+        else {
+            cell.accessoryType = .none
+        }
     }
 
-        override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            self.tableView.deselectRow(at: indexPath, animated: true)
-        }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: true)
+    }
 
-    func update(force: Bool = false) {
+    func save(force: Bool = false) {
         var cond = false
         if let svc = self.splitViewController {
             cond = (!svc.isCollapsed || force)
@@ -138,21 +140,21 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         else {
             cond = force
         }
-
         guard cond else { return }
 
-        if self.selected != nil && self.selected != self.detailItem?.password {
-            self.detailItem?.password = self.selected
-            if let context = self.detailItem?.managedObjectContext {
-                do {
-                    try context.save()
-                }
-                catch {
-                    print("error = \(error)")
-                    abort()
-                }
+        if self.selected == nil || self.selected != self.selectedFirst {
+            self.passwordManager?.select(password: self.selected, for: self.detailItem!)
+        }
+        if let context = self.detailItem?.managedObjectContext {
+            do {
+                try context.save()
+            }
+            catch {
+                print("error = \(error)")
+                abort()
             }
         }
+
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -231,13 +233,11 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         let handler =  {
             (_: UIContextualAction, _: UIView, completion: (Bool) -> Void) -> Void in
             self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-            self.selected?.selectedAt = Date() as NSDate
-            self.detailItem?.selectAt = self.selected?.selectedAt
             self.tableView.reloadData()
+
             completion(true)
         }
         let action = UIContextualAction(style: .normal, title: "select", handler: handler)
-
         return UISwipeActionsConfiguration(actions: [action])
     }
 

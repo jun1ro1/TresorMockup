@@ -58,20 +58,31 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
     func newObject(for site: Site) -> Password {
         let context = self.fetchedResultsController.managedObjectContext
         // Create a new item
-        let item    = Password(context: context)
+        let item      = Password(context: context)
         site.addToPasswords(item)
-        item.site = site
+
+//        item.site     = site
 
 //        item.addObserver(self, forKeyPath: "password", options: [], context: nil)
         return item
     }
 
     func deleteObject(password: Password) {
-//        password.removeObserver(self, forKeyPath: "pasword")
-
-        password.site?.removeFromPasswords(password)
+        let site = password.site
+        if password.current {
+            site?.selectAt = nil
+        }
+        site?.removeFromPasswords(password)
         let context = self.fetchedResultsController.managedObjectContext
         context.delete(password)
+    }
+
+    func select(password: Password?, for site: Site) {
+        let now = (password == nil) ? nil : Date() as NSDate
+        password?.selectedAt = now
+        site.passwords?.forEach { ($0 as! Password).current = false }
+        password?.current   = true
+        site.selectAt       = now // invakes observeValue
     }
 
     func deleteCache() {

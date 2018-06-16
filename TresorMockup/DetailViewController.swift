@@ -127,7 +127,7 @@ class DetailViewController: UITableViewController {
             return
         }
 
-        self.detailItem?.addObserver(self, forKeyPath: "password", options: [], context: nil)
+        self.detailItem?.addObserver(self, forKeyPath: "selectAt", options: [], context: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -139,7 +139,7 @@ class DetailViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        self.detailItem?.removeObserver(self, forKeyPath: "password")
+        self.detailItem?.removeObserver(self, forKeyPath: "selectAt")
 
         guard self.detailItem != nil else { return }
         guard self.detailItem!.title != nil ||
@@ -163,9 +163,8 @@ class DetailViewController: UITableViewController {
 
 
     override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
         self.save(force: true)
-
+        super.viewDidDisappear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -252,23 +251,6 @@ class DetailViewController: UITableViewController {
     fileprivate func save(force: Bool = false) {
         guard self.detailItem != nil        else { return }
         guard self.detailItem!.hasChanges   else { return }
-//        guard self.detailItem!.title != nil ||
-//            self.detailItem!.url   != nil ||
-//            self.detailItem!.memo  != nil  else {
-//                // dispose the empty item
-//                if let context = self.detailItem!.managedObjectContext {
-//                    context.delete(self.detailItem!)
-//                    self.detailItem = nil
-//                    do {
-//                        try context.save()
-//                    }
-//                    catch {
-//                        print("error = \(error)")
-//                        abort()
-//                    }
-//                }
-//                return
-//        }
 
         var cond = false
         if let svc = self.splitViewController {
@@ -375,7 +357,7 @@ class DetailViewController: UITableViewController {
         case .password:
             if self.isEditing {
                 let tf = (cell as! SecretTextViewCell).textField
-                tf?.text = self.detailItem?.password?.password
+                tf?.text = self.detailItem?.currentPassword?.password ?? ""
                 tf?.tag  = TAG_TEXTFIELD_PASSWORD
                 tf?.placeholder = "Password".localized
                 tf?.accessibilityIdentifier = "textFieldPassword"
@@ -397,7 +379,7 @@ class DetailViewController: UITableViewController {
             }
             else {
                 let label    = (cell as! PasswordCell).label
-                label?.value = self.detailItem?.password?.password ?? ""
+                label?.value = self.detailItem?.currentPassword?.password ?? ""
                 label?.tag   = TAG_LABEL_PASSWORD
                 label?.secret(true)
                 let button   = (cell as! PasswordCell).eyeButton
@@ -511,9 +493,7 @@ class DetailViewController: UITableViewController {
             if let val = try? RandomData.shared.get(count: len, in: chars) {
                 let password = self.passwordManager?.newObject(for: self.detailItem!)
                 password?.password = val
-                password?.selectedAt = Date() as NSDate
-                self.detailItem?.selectAt = password?.selectedAt
-                self.detailItem?.password = password
+                self.passwordManager?.select(password: password!, for: self.detailItem!)
                 self.passTextField?.text = val
                 self.save()
             }
@@ -577,7 +557,7 @@ class DetailViewController: UITableViewController {
 
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         switch keyPath {
-        case "password":
+        case "selectAt":
             let indexPaths: [IndexPath] = [.password, .selectAt].compactMap {
                 self.layouter.indexPath(forKey: $0)
             }
@@ -628,16 +608,15 @@ extension DetailViewController: UITextFieldDelegate {
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
-                if str == "" && self.detailItem?.password == nil {
+                if str == "" && self.detailItem?.currentPassword == nil {
                     // preserve nil
                 }
                 else {
-                    let password = self.passwordManager?.newObject(for: self.detailItem!)
-                    password?.password = str
-                    password?.selectedAt = Date() as NSDate
-                    self.detailItem?.selectAt = password?.selectedAt
-                    self.detailItem?.password = password
-                    self.save()
+                    if let password = self.passwordManager?.newObject(for: self.detailItem!) {
+                        password.password = str
+                        self.passwordManager?.select(password: password, for: self.detailItem!)
+                        self.save()
+                    }
                 }
             }
 

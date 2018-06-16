@@ -2,7 +2,7 @@
 //  Password+CoreDataProperties.swift
 //  TresorMockup
 //
-//  Created by OKU Junichirou on 2018/06/01.
+//  Created by OKU Junichirou on 2018/06/16.
 //  Copyright © 2018年 OKU Junichirou. All rights reserved.
 //
 //
@@ -22,6 +22,7 @@ extension Password {
     @NSManaged public var password: String?
     @NSManaged public var selectedAt: NSDate?
     @NSManaged public var uuid: UUID?
+    @NSManaged public var current: Bool
     @NSManaged public var site: Site?
 
 }

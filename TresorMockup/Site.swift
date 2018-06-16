@@ -15,4 +15,8 @@ public class Site: NSManagedObject {
         self.setPrimitiveValue(UUID(), forKey: "uuid")
         self.setPrimitiveValue(true, forKey: "active")
     }
+
+    public var currentPassword: Password? {
+        return self.passwords?.first { ($0 as! Password).current } as? Password
+    }
 }

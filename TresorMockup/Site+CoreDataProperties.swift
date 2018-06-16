@@ -2,8 +2,8 @@
 //  Site+CoreDataProperties.swift
 //  TresorMockup
 //
-//  Created by OKU Junichirou on 2018/06/01.
-//  Copyright © 2018年 OKU Junichirou. All rights reserved.
+//  Created by OKU Junichirou on 2018/06/16.
+//  Copyright (C) 2018 OKU Junichirou. All rights reserved.
 //
 //
 
@@ -29,7 +29,6 @@ extension Site {
     @NSManaged public var userid: String?
     @NSManaged public var uuid: UUID?
     @NSManaged public var passwords: NSSet?
-    @NSManaged public var password: Password?
 
 }
 
