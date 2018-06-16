@@ -12,8 +12,8 @@ import CoreData
 class PasswordTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     var detailItem: Site?
-    var selected: Password?
-    var selectedFirst: Password?
+    private weak var selected: Password?
+    private weak var selectedOriginal: Password?
     private weak var passwordManager = PasswordManager.shared
 
     @IBOutlet weak var eyeButton: UIButton?
@@ -43,7 +43,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         self.navigationItem.rightBarButtonItem = editButtonItem
         self.navigationController?.setToolbarHidden(false, animated: false)
 
-        self.selectedFirst = self.detailItem?.currentPassword
+        self.selectedOriginal = self.detailItem?.currentPassword
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -142,7 +142,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         }
         guard cond else { return }
 
-        if self.selected == nil || self.selected != self.selectedFirst {
+        if self.selected == nil || self.selected != self.selectedOriginal {
             self.passwordManager?.select(password: self.selected, for: self.detailItem!)
         }
         if let context = self.detailItem?.managedObjectContext {
@@ -232,8 +232,14 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let handler =  {
             (_: UIContextualAction, _: UIView, completion: (Bool) -> Void) -> Void in
+            let oldIndex = self.passwordManager?.fetchedResultsController.indexPath(forObject: self.selected!)
             self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-            self.tableView.reloadData()
+            let indexPaths = [oldIndex!, indexPath].compactMap { $0 }
+            self.tableView.performBatchUpdates(
+                { self.tableView.reloadRows(at: indexPaths, with: .automatic) },
+                completion: nil)
+
+//            self.tableView.reloadData()
 
             completion(true)
         }
