@@ -308,6 +308,7 @@ class PasswordTableCell: UITableViewCell {
     @IBOutlet weak var password:   CopyableValueLabel?
     @IBOutlet weak var createdAt:  UILabel?
     @IBOutlet weak var selectedAt: UILabel?
+    @IBOutlet weak var eyeButton:  UIButton?
 }
 
 // MARK: -
