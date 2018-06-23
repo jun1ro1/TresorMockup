@@ -46,7 +46,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     @objc
     func insertNewObject(_ sender: Any) {
-        let context = self.fetchedResultsController.managedObjectContext
+//        let context = self.fetchedResultsController.managedObjectContext
+        let context = CoreDataManager.shared.managedObjectContext
+
         // Create a new item
         let item    = Site(context: context)
         // Save the context.

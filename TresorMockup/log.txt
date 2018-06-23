@@ -1,0 +1,50 @@
+storeURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/E8678745-DC96-464D-BD42-39284DC531C1/Documents/TresorMockup.sqlite
+url = /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata
+key = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile%20Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/
+
+2018-06-24 01:15:51.219886+0900 TresorMockup[10492:375644] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 1 for new NSFileManager current token <1a2aa524 8e2cfddd f90eb5ad 9aa12594 af166af4>
+
+2018-06-24 01:15:52.322424+0900 TresorMockup[10492:375646] -[PFUbiquitySetupAssistant canReadFromUbiquityRootLocation:]_block_invoke(1531): CoreData: Ubiquity:  Attempting to download Peers hit a serious error for peers to download Error Domain=NSCocoaErrorDomain Code=512 "The file couldn’t be saved." UserInfo={NSUnderlyingError=0x6040000cbd50 {Error Domain=NSPOSIXErrorDomain Code=0 "Undefined error: 0" UserInfo={NSDescription=Undefined error: 0}}} with userInfo {
+NSUnderlyingError = "Error Domain=NSPOSIXErrorDomain Code=0 \"Undefined error: 0\" UserInfo={NSDescription=Undefined error: 0}";
+}
+
+2018-06-24 01:15:53.364666+0900 TresorMockup[10492:375646] [default] [ERROR] Could not get attribute values for item /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/receipt.0.cdt (n). Error: Error Domain=NSPOSIXErrorDomain Code=0 "Undefined error: 0" UserInfo={NSDescription=Undefined error: 0}
+
+2018-06-24 01:15:54.463829+0900 TresorMockup[10492:375648] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 0 for new NSFileManager current token <1a2aa524 8e2cfddd f90eb5ad 9aa12594 af166af4>
+
+2018-06-24 01:16:27.860554+0900 TresorMockup[10492:375441] -[PFUbiquityTransactionLog writeToDiskWithError:andUpdateFilenameInTransactionEntries:](823): CoreData: Ubiquity:  CoreData: Ubiquity: Error creating data for export: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
+userInfo: {
+NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
+}
+from transaction log: <PFUbiquityTransactionLog: 0x60b00000c010>
+transactionLogLocation: <PFUbiquityLocation: 0x60800002d3a0>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/FB69DEB7-42DE-4EE9-8DEC-1E27BDC0BC2B.1.cdt
+transactionNumber: 7
+
+2018-06-24 01:16:27.861331+0900 TresorMockup[10492:375441] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](559): CoreData: Ubiquity:  Error writing transaction log: <PFUbiquityTransactionLog: 0x60b00000c010>
+transactionLogLocation: <PFUbiquityLocation: 0x60800002d3a0>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/FB69DEB7-42DE-4EE9-8DEC-1E27BDC0BC2B.1.cdt
+transactionNumber: 7
+.
+Error: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
+User Info: {
+NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
+}
+
+2018-06-24 01:16:27.863331+0900 TresorMockup[10492:375441] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](569): CoreData: Ubiquity:  Export of save notification encountered the following errors: (
+"Error Domain=NSCocoaErrorDomain Code=3851 \"Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')\" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}"
+),
+Save Notification: NSConcreteNotification 0x6040000ef290 {name = _NSSQLCoreTransactionStateChangeNotification; object = <NSSQLCore: 0x6110000034c0> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/E8678745-DC96-464D-BD42-39284DC531C1/Documents/CoreDataUbiquitySupport/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/E13088D6-736C-44E9-8AD3-7CC90526B4AC/store/TresorMockup.sqlite); userInfo = {
+"_NSSQLCoreActiveSaveRequest" = "<NSSaveChangesRequest: 0x6060000e5700> { inserts ((\n    \"0xd0000000001c0002 <x-coredata://1757B694-6A04-4507-9B4C-80456D5C6705/Site/p7>\"\n)), updates (), deletes () locks () }";
+"_NSSQLCoreActiveSavingContext" = "<NSManagedObjectContext: 0x611000047580>";
+"_NSSQLCoreTransactionType" = 2;
+"_NSSQLCoreTransientSequenceNumber" = 1;
+}}
+2
+018-06-24 01:16:28.019970+0900 TresorMockup[10492:375441] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
+
+2018-06-24 01:16:28.859674+0900 TresorMockup[10492:375441] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+
+2018-06-24 01:16:28.861118+0900 TresorMockup[10492:375441] [MC] Reading from private effective user settings.
+
+2018-06-24 01:16:29.458252+0900 TresorMockup[10492:375441] [Common] _BSMachError: port af03; (os/kern) invalid capability (0x14) "Unable to insert COPY_SEND"

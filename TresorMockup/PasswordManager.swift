@@ -11,7 +11,13 @@ import CoreData
 
 class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
 
-    static var shared = PasswordManager()
+    private static var _manager: PasswordManager? = nil
+    static var shared: PasswordManager = {
+        if _manager == nil {
+            _manager = PasswordManager()
+        }
+        return _manager!
+    }()
 
     private let CACHE_NAME = "PASSWORD"
     var detailViewController: DetailViewController? = nil
