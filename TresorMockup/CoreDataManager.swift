@@ -59,7 +59,7 @@ class CoreDataManager: NSObject {
         }
 
         guard var storeURL =
-            FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
             assertionFailure()
             return nil
         }

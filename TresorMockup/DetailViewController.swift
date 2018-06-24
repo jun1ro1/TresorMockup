@@ -149,14 +149,16 @@ class DetailViewController: UITableViewController {
                 if let context = self.detailItem!.managedObjectContext {
                     context.delete(self.detailItem!)
                     self.detailItem = nil
-                    do {
-                        try context.save()
+                    context.performAndWait {
+                        do {
+                            try context.save()
+                        }
+                        catch {
+                            print("error = \(error)")
+                            abort()
+                        }
                     }
-                    catch {
-                        print("error = \(error)")
-                        abort()
-                    }
-                }
+                 }
                 return
         }
     }
@@ -263,12 +265,14 @@ class DetailViewController: UITableViewController {
         guard cond else { return }
 
         if let context = self.detailItem!.managedObjectContext {
-            do {
-                try context.save()
-            }
-            catch {
-                print("error = \(error)")
-                abort()
+            context.performAndWait {
+                do {
+                    try context.save()
+                }
+                catch {
+                    print("error = \(error)")
+                    abort()
+                }
             }
         }
     }
