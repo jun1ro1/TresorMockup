@@ -12,7 +12,7 @@ import CoreData
 public class Site: NSManagedObject {
     override public func awakeFromInsert() {
         self.setPrimitiveValue(Date(), forKey: "createdAt")
-        self.setPrimitiveValue(UUID(), forKey: "uuid")
+        self.setPrimitiveValue(UUID().uuidString, forKey: "uuid")
         self.setPrimitiveValue(true, forKey: "active")
     }
 

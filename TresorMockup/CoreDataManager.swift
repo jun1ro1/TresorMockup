@@ -7,6 +7,7 @@
 //
 // Reference
 // Marcus S. Zarra "Core Data in Swift" The Pragmatic Bookshelf
+// Tim Roadley "Learning Core Data for iOS with Swift" ISBN-13: 978-0-134-12003-5 December 2015 Addison-Wesley
 
 
 import UIKit
@@ -32,7 +33,7 @@ class CoreDataManager: NSObject {
             moc.persistentStoreCoordinator = coordinator
             NotificationCenter.default.addObserver(
                 self,
-                selector: #selector(mergeChnagesFrom_iCloud),
+                selector: #selector(mergeChangesFrom_iCloud),
                 name: NSNotification.Name.NSPersistentStoreDidImportUbiquitousContentChanges,
                 object: coordinator)
         }
@@ -45,10 +46,16 @@ class CoreDataManager: NSObject {
         if self._managedObjectModel != nil {
             return self._managedObjectModel!
         }
-        let bundles = [Bundle(for: type(of: self))]
-        print("bundles = \(bundles)")
-        self._managedObjectModel = NSManagedObjectModel.mergedModel(from: bundles)
-        print("_managedObjectModel = \(String(describing: self._managedObjectModel))")
+//        let bundles = [Bundle(for: type(of: self))]
+//        print("bundles = \(bundles)")
+//        self._managedObjectModel = NSManagedObjectModel.mergedModel(from: bundles)
+
+        let bundle = Bundle.main
+        let modelURL = bundle.url(forResource: "TresorMockup", withExtension: "momd")
+        self._managedObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
+
+//        print("_managedObjectModel = \(String(describing: self._managedObjectModel))")
+
         return self._managedObjectModel!
     }()
 
@@ -75,23 +82,24 @@ class CoreDataManager: NSObject {
         DispatchQueue.global(qos: .background).async {
             let fileManager = FileManager.default
             var options: [String: Any] = [:]
-            options[NSMigratePersistentStoresAutomaticallyOption] = true
-            options[NSInferMappingModelAutomaticallyOption]       = true
+            options[NSMigratePersistentStoresAutomaticallyOption] = 1
+            options[NSInferMappingModelAutomaticallyOption]       = 1
 
-            if let cloudURL = fileManager.url(forUbiquityContainerIdentifier: nil) {
-                let url = cloudURL.path.appending("data")
-                let key = NSURL.fileURL(withPath: url)
-                print("url = \(url)")
-                print("key = \(key)")
+            var cloudURL = fileManager.url(forUbiquityContainerIdentifier: nil)
+            if cloudURL != nil {
+//                cloudURL = cloudURL!.path.appending("data")
+//                let key = NSURL.fileURL(withPath: url)
+                print("cloudURL = \(cloudURL!)")
+//                print("key = \(key)")
                 options[NSPersistentStoreUbiquitousContentNameKey] = "TresorMockup"
-                options[NSPersistentStoreUbiquitousContentURLKey]  = key
+//                options[NSPersistentStoreUbiquitousContentURLKey]  = key
             }
 
             psc.performAndWait {
                 do {
                     try psc.addPersistentStore(ofType: NSSQLiteStoreType,
                                                configurationName: nil,
-                                               at: storeURL,
+                                               at: cloudURL, // storeURL,
                                                options: options)
                 }
                 catch {
@@ -108,14 +116,16 @@ class CoreDataManager: NSObject {
     }()
 
     func mergeiCloudChanges(notification note: Notification, forContext moc: NSManagedObjectContext) {
-        moc.mergeChanges(fromContextDidSave: note)
+        moc.perform {
+            moc.mergeChanges(fromContextDidSave: note)
+        }
         let notification = Notification(name: Notification.Name(rawValue: "RefreshAllVies"),
                                         object: self, userInfo: note.userInfo)
         NotificationCenter.default.post(notification)
     }
 
 
-    @objc func mergeChnagesFrom_iCloud(notification: Notification) {
+    @objc func mergeChangesFrom_iCloud(notification: Notification) {
         let moc = self.managedObjectContext
         moc.perform {
             self.mergeiCloudChanges(notification: notification, forContext: moc)

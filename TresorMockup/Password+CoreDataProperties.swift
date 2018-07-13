@@ -21,7 +21,7 @@ extension Password {
     @NSManaged public var createdAt: NSDate?
     @NSManaged public var password: String?
     @NSManaged public var selectedAt: NSDate?
-    @NSManaged public var uuid: UUID?
+    @NSManaged public var uuid: String?
     @NSManaged public var current: Bool
     @NSManaged public var site: Site?
 

@@ -27,7 +27,7 @@ extension Site {
     @NSManaged public var title: String?
     @NSManaged public var url: String?
     @NSManaged public var userid: String?
-    @NSManaged public var uuid: UUID?
+    @NSManaged public var uuid: String?
     @NSManaged public var passwords: NSSet?
 
 }

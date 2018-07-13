@@ -1,170 +1,252 @@
-storeURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/4761954F-B197-499A-B060-73175FD5DE06/Documents/TresorMockup.sqlite
+iPhone 8 Polus 11.4
 
-bundles = [NSBundle </Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Bundle/Application/42C7C5FD-B0A3-4A88-8389-C67666492BEA/TresorMockup.app> (loaded)]
+storeURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/EFC23357-1650-42A6-BF0B-84391F3787E9/Documents/TresorMockup.sqlite
 
-_managedObjectModel = Optional((<NSManagedObjectModel: 0x607000072550>) isEditable 0, entities {
+cloudURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile%20Documents/iCloud~com~mac~jun1ro1~TresorMockup/
 
-Password = "(<NSEntityDescription: 0x60f0000315a0>) name Password, managedObjectClassName TresorMockup.Password, renamingIdentifier Password, isAbstract 0, superentity name (null), properties {\n    active = \"(<NSAttributeDescription: 0x60c000024b80>), name active, isOptional 1, isTransient 0, entity Password, renamingIdentifier active, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 800 , attributeValueClassName NSNumber, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    createdAt = \"(<NSAttributeDescription: 0x60c000028e40>), name createdAt, isOptional 1, isTransient 0, entity Password, renamingIdentifier createdAt, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n    \\\"com.apple.syncservices.Syncable\\\" = NO;\\n}, attributeType 900 , attributeValueClassName NSDate, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    current = \"(<NSAttributeDescription: 0x60c0000226c0>), name current, isOptional 1, isTransient 0, entity Password, renamingIdentifier current, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 800 , attributeValueClassName NSNumber, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    password = \"(<NSAttributeDescription: 0x60c000022480>), name password, isOptional 1, isTransient 0, entity Password, renamingIdentifier password, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 700 , attributeValueClassName NSString, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    selectedAt = \"(<NSAttributeDescription: 0x60c000022300>), name selectedAt, isOptional 1, isTransient 0, entity Password, renamingIdentifier selectedAt, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 900 , attributeValueClassName NSDate, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    site = \"(<NSRelationshipDescription: 0x60e000007740>), name site, isOptional 1, isTransient 0, entity Password, renamingIdentifier site, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, destination entity Site, inverseRelationship passwords, minCount 0, maxCount 1, isOrdered 0, deleteRule 1\";\n    uuid = \"(<NSAttributeDescription: 0x60c0000223c0>), name uuid, isOptional 1, isTransient 0, entity Password, renamingIdentifier uuid, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 1100 , attributeValueClassName NSUUID, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n}, subentities {\n}, userInfo {\n    \"com.apple.syncservices.Syncable\" = NO;\n}, versionHashModifier (null), uniquenessConstraints (\n)";
-
-Site = "(<NSEntityDescription: 0x60f000019810>) name Site, managedObjectClassName TresorMockup.Site, renamingIdentifier Site, isAbstract 0, superentity name (null), properties {\n    active = \"(<NSAttributeDescription: 0x60c000022240>), name active, isOptional 1, isTransient 0, entity Site, renamingIdentifier active, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 800 , attributeValueClassName NSNumber, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    charSet = \"(<NSAttributeDescription: 0x60c0000220c0>), name charSet, isOptional 1, isTransient 0, entity Site, renamingIdentifier charSet, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 200 , attributeValueClassName NSNumber, defaultValue 0, preserveValueOnDeletionInPersistentHistory NO\";\n    createdAt = \"(<NSAttributeDescription: 0x60c000022180>), name createdAt, isOptional 1, isTransient 0, entity Site, renamingIdentifier createdAt, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 900 , attributeValueClassName NSDate, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    loginAt = \"(<NSAttributeDescription: 0x60c000022000>), name loginAt, isOptional 1, isTransient 0, entity Site, renamingIdentifier loginAt, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 900 , attributeValueClassName NSDate, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    maxLength = \"(<NSAttributeDescription: 0x60c000021e80>), name maxLength, isOptional 1, isTransient 0, entity Site, renamingIdentifier maxLength, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 100 , attributeValueClassName NSNumber, defaultValue 0, preserveValueOnDeletionInPersistentHistory NO\";\n    memo = \"(<NSAttributeDescription: 0x60c000021f40>), name memo, isOptional 1, isTransient 0, entity Site, renamingIdentifier memo, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 700 , attributeValueClassName NSString, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    passwords = \"(<NSRelationshipDescription: 0x60e000007ba0>), name passwords, isOptional 1, isTransient 0, entity Site, renamingIdentifier passwords, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, destination entity Password, inverseRelationship site, minCount 0, maxCount 0, isOrdered 0, deleteRule 1\";\n    selectAt = \"(<NSAttributeDescription: 0x60c000021dc0>), name selectAt, isOptional 1, isTransient 0, entity Site, renamingIdentifier selectAt, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 900 , attributeValueClassName NSDate, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    title = \"(<NSAttributeDescription: 0x60c000021d00>), name title, isOptional 1, isTransient 0, entity Site, renamingIdentifier title, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 700 , attributeValueClassName NSString, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    url = \"(<NSAttributeDescription: 0x60c000021c40>), name url, isOptional 1, isTransient 0, entity Site, renamingIdentifier url, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 700 , attributeValueClassName NSString, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    userid = \"(<NSAttributeDescription: 0x60c000021b80>), name userid, isOptional 1, isTransient 0, entity Site, renamingIdentifier userid, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 700 , attributeValueClassName NSString, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n    uuid = \"(<NSAttributeDescription: 0x60c000021ac0>), name uuid, isOptional 1, isTransient 0, entity Site, renamingIdentifier uuid, validation predicates (\\n), warnings (\\n), versionHashModifier (null)\\n userInfo {\\n}, attributeType 1100 , attributeValueClassName NSUUID, defaultValue (null), preserveValueOnDeletionInPersistentHistory NO\";\n}, subentities {\n}, userInfo {\n}, versionHashModifier (null), uniquenessConstraints (\n)";
-}, fetch request templates {
-})
-
-url = /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata
-
-key = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile%20Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/
-
-2018-06-24 10:17:30.467549+0900 TresorMockup[24311:795197] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+2018-06-24 22:15:28.659949+0900 TresorMockup[4701:159581] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
 Using local storage: 1 for new NSFileManager current token <1a2aa524 8e2cfddd f90eb5ad 9aa12594 af166af4>
 
-2018-06-24 10:17:31.416556+0900 TresorMockup[24311:795196] -[PFUbiquitySetupAssistant canReadFromUbiquityRootLocation:]_block_invoke(1531): CoreData: Ubiquity:  Attempting to download Peers hit a serious error for peers to download Error Domain=NSCocoaErrorDomain Code=512 "The file couldn’t be saved." UserInfo={NSUnderlyingError=0x6040000a3a90 {Error Domain=NSPOSIXErrorDomain Code=0 "Undefined error: 0" UserInfo={NSDescription=Undefined error: 0}}} with userInfo {
-NSUnderlyingError = "Error Domain=NSPOSIXErrorDomain Code=0 \"Undefined error: 0\" UserInfo={NSDescription=Undefined error: 0}";
-}
+2018-06-24 22:15:29.871180+0900 TresorMockup[4701:159583] +[PFUbiquitySetupAssistant createBaselineFromMostRecentLocation:localPeerID:error:](4099):
+CoreData: Ubiquity:  Unable to load baseline: Error Domain=com.apple.FileProvider Code=-1004 "Can’t Open File"
+UserInfo={NSUserStringVariant=Open, NSFilePath=/Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockup/CoreData/TresorMockup/.baseline/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/baseline.zip,
+NSUnderlyingError=0x60400010c510 {
+Error Domain=NSCocoaErrorDomain Code=4355 "Couldn’t access your iCloud account.
+The iCloud servers might be unreachable or your settings might be incorrect."}}
 
-2018-06-24 10:17:31.910226+0900 TresorMockup[24311:795196] [default] [ERROR] Could not get attribute values for item /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/receipt.0.cdt (n). Error: Error Domain=NSPOSIXErrorDomain Code=0 "Undefined error: 0" UserInfo={NSDescription=Undefined error: 0}
+2018-06-24 22:15:29.872382+0900 TresorMockup[4701:159583] -[PFUbiquitySetupAssistant initializeBaselineForStore:error:](1721): CoreData: Ubiquity:  <PFUbiquitySetupAssistant: 0x614000001640>
+Can't perform migration because there is no previous baseline file from which to get the managed object model: <PFUbiquityLocation: 0x60800003d5a0>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockup/CoreData/TresorMockup/.baseline/TresorMockup/k9_8vyjl3tsisMkKSR1ZwohG9lQJo1JeUlw4gCwKXWo=/baseline.zip
 
-2018-06-24 10:17:32.415088+0900 TresorMockup[24311:795195] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+2018-06-24 22:15:34.022014+0900 TresorMockup[4701:159583] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
 Using local storage: 0 for new NSFileManager current token <1a2aa524 8e2cfddd f90eb5ad 9aa12594 af166af4>
 
-2018-06-24 10:17:56.113584+0900 TresorMockup[24311:794988] -[PFUbiquityTransactionLog writeToDiskWithError:andUpdateFilenameInTransactionEntries:](823): CoreData: Ubiquity:  CoreData: Ubiquity: Error creating data for export: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-userInfo: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
-from transaction log: <PFUbiquityTransactionLog: 0x60b000010580>
-transactionLogLocation: <PFUbiquityLocation: 0x608000045720>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/BDDA4C23-F496-473E-B897-E31384E0F212.1.cdt
-transactionNumber: 5
+2018-06-24 22:15:42.561946+0900 TresorMockup[4701:159473] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
 
-2018-06-24 10:17:56.115343+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](559): CoreData: Ubiquity:  Error writing transaction log: <PFUbiquityTransactionLog: 0x60b000010580>
-transactionLogLocation: <PFUbiquityLocation: 0x608000045720>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/BDDA4C23-F496-473E-B897-E31384E0F212.1.cdt
-transactionNumber: 5
-.
-Error: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-User Info: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
+2018-06-24 22:15:43.892523+0900 TresorMockup[4701:159473] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
 
-2018-06-24 10:17:56.117028+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](569): CoreData: Ubiquity:  Export of save notification encountered the following errors: (
-"Error Domain=NSCocoaErrorDomain Code=3851 \"Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')\" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}"
-),
-Save Notification: NSConcreteNotification 0x604000124f50 {name = _NSSQLCoreTransactionStateChangeNotification; object = <NSSQLCore: 0x611000003240> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/4761954F-B197-499A-B060-73175FD5DE06/Documents/CoreDataUbiquitySupport/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/70E4D9EF-126C-414C-A405-3D0C71D4A024/store/TresorMockup.sqlite); userInfo = {
-"_NSSQLCoreActiveSaveRequest" = "<NSSaveChangesRequest: 0x6060000625a0> { inserts ((\n    \"0xd000000000140000 <x-coredata://A5FE3D97-B238-47BC-B970-590B1BA3F1AE/Site/p5>\"\n)), updates (), deletes () locks () }";
-"_NSSQLCoreActiveSavingContext" = "<NSManagedObjectContext: 0x611000179ac0>";
-"_NSSQLCoreTransactionType" = 2;
-"_NSSQLCoreTransientSequenceNumber" = 2;
-}}
+2018-06-24 22:15:43.893861+0900 TresorMockup[4701:159473] [MC] Reading from private effective user settings.
 
-2018-06-24 10:17:56.259839+0900 TresorMockup[24311:794988] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
+2018-06-24 22:15:45.351265+0900 TresorMockup[4701:159473] [Common] _BSMachError: port b103; (os/kern) invalid capability (0x14) "Unable to insert COPY_SEND"
 
-2018-06-24 10:17:57.145634+0900 TresorMockup[24311:794988] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
 
-2018-06-24 10:17:57.147625+0900 TresorMockup[24311:794988] [MC] Reading from private effective user settings.
+------- iPad Pro 10l5-inc 11.4
 
-2018-06-24 10:17:57.747500+0900 TresorMockup[24311:794988] [Common] _BSMachError: port 14803; (os/kern) invalid capability (0x14) "Unable to insert COPY_SEND"
+storeURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/87E43D54-DD1C-4BC4-AE57-C6A7DF763D18/data/Containers/Data/Application/BBA40E26-E571-46F2-B2AD-598B4624DD3F/Documents/TresorMockup.sqlite
 
-2018-06-24 10:18:27.907007+0900 TresorMockup[24311:794988] -[PFUbiquityTransactionLog writeToDiskWithError:andUpdateFilenameInTransactionEntries:](823): CoreData: Ubiquity:  CoreData: Ubiquity: Error creating data for export: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-userInfo: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
-from transaction log: <PFUbiquityTransactionLog: 0x60b000097020>
-transactionLogLocation: <PFUbiquityLocation: 0x608000070f20>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/9CE9DBEB-0BA9-448F-8D5F-AEE1BA6E5705.1.cdt
-transactionNumber: 5
+cloudURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/87E43D54-DD1C-4BC4-AE57-C6A7DF763D18/data/Library/Mobile%20Documents/iCloud~com~mac~jun1ro1~TresorMockup/
 
-2018-06-24 10:18:27.908408+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](559): CoreData: Ubiquity:  Error writing transaction log: <PFUbiquityTransactionLog: 0x60b000097020>
-transactionLogLocation: <PFUbiquityLocation: 0x608000070f20>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/9CE9DBEB-0BA9-448F-8D5F-AEE1BA6E5705.1.cdt
-transactionNumber: 5
-.
-Error: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-User Info: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
+2018-06-24 22:18:09.402246+0900 TresorMockup[4889:164388] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 1 for new NSFileManager current token <f860a8eb 4312ca9b 515db376 8bd9c7fe cffc160c>
 
-2018-06-24 10:18:27.913360+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](569): CoreData: Ubiquity:  Export of save notification encountered the following errors: (
-"Error Domain=NSCocoaErrorDomain Code=3851 \"Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')\" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}"
-),
-Save Notification: NSConcreteNotification 0x604000147f50 {name = _NSSQLCoreTransactionStateChangeNotification; object = <NSSQLCore: 0x611000003240> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/4761954F-B197-499A-B060-73175FD5DE06/Documents/CoreDataUbiquitySupport/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/70E4D9EF-126C-414C-A405-3D0C71D4A024/store/TresorMockup.sqlite); userInfo = {
-"_NSSQLCoreActiveSaveRequest" = "<NSSaveChangesRequest: 0x60600026c360> { inserts ((\n    \"0xd000000000040004 <x-coredata://A5FE3D97-B238-47BC-B970-590B1BA3F1AE/Password/p1>\",\n    \"0xd000000000080004 <x-coredata://A5FE3D97-B238-47BC-B970-590B1BA3F1AE/Password/p2>\"\n)), updates ((\n    \"0xd000000000140000 <x-coredata://A5FE3D97-B238-47BC-B970-590B1BA3F1AE/Site/p5>\"\n)), deletes () locks () }";
-"_NSSQLCoreActiveSavingContext" = "<NSManagedObjectContext: 0x611000179ac0>";
-"_NSSQLCoreTransactionType" = 2;
-"_NSSQLCoreTransientSequenceNumber" = 3;
-}}
+2018-06-24 22:18:09.974619+0900 TresorMockup[4889:164389] [error] error:  iCloud: Error: initial sync notification returned an error (Error Domain=BRCloudDocsErrorDomain Code=12 "sync is blocked for client zone: <iCloud.com.mac.jun1ro1.TresorMockup[5] foreground {client:initial-faults-live|ever-live|root-created|blocked-app-uninstalled server:idle sync:idle last-sync:2018-06-24/21:59:25, requestID:18, caught-up, token:<118,current> rid:19}>" UserInfo={NSDescription=sync is blocked for client zone: <iCloud.com.mac.jun1ro1.TresorMockup[5] foreground {client:initial-faults-live|ever-live|root-created|blocked-app-uninstalled server:idle sync:idle last-sync:2018-06-24/21:59:25, requestID:18, caught-up, token:<118,current> rid:19}>})
+CoreData: error:  iCloud: Error: initial sync notification returned an error (Error Domain=BRCloudDocsErrorDomain Code=12 "sync is blocked for client zone: <iCloud.com.mac.jun1ro1.TresorMockup[5] foreground {client:initial-faults-live|ever-live|root-created|blocked-app-uninstalled server:idle sync:idle last-sync:2018-06-24/21:59:25, requestID:18, caught-up, token:<118,current> rid:19}>" UserInfo={NSDescription=sync is blocked for client zone: <iCloud.com.mac.jun1ro1.TresorMockup[5] foreground {client:initial-faults-live|ever-live|root-created|blocked-app-uninstalled server:idle sync:idle last-sync:2018-06-24/21:59:25, requestID:18, caught-up, token:<118,current> rid:19}>})
 
-2018-06-24 10:18:37.475073+0900 TresorMockup[24311:794988] -[PFUbiquityTransactionLog writeToDiskWithError:andUpdateFilenameInTransactionEntries:](823): CoreData: Ubiquity:  CoreData: Ubiquity: Error creating data for export: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-userInfo: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
-from transaction log: <PFUbiquityTransactionLog: 0x60b0000942c0>
-transactionLogLocation: <PFUbiquityLocation: 0x60800000faa0>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/D5D5EF23-CC49-4778-931B-EA35E301479E.1.cdt
-transactionNumber: 5
-2018-06-24 10:18:37.475683+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](559): CoreData: Ubiquity:  Error writing transaction log: <PFUbiquityTransactionLog: 0x60b0000942c0>
-transactionLogLocation: <PFUbiquityLocation: 0x60800000faa0>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/D5D5EF23-CC49-4778-931B-EA35E301479E.1.cdt
-transactionNumber: 5
-.
-Error: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-User Info: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
+2018-06-24 22:18:09.981385+0900 TresorMockup[4889:164389] -[PFUbiquitySetupAssistant finishSetupWithRetry:](848): CoreData: Ubiquity:  <PFUbiquitySetupAssistant: 0x614000001640>: Retrying after delay: 1
+Error Domain=BRCloudDocsErrorDomain Code=12 "sync is blocked for client zone: <iCloud.com.mac.jun1ro1.TresorMockup[5] foreground {client:initial-faults-live|ever-live|root-created|blocked-app-uninstalled server:idle sync:idle last-sync:2018-06-24/21:59:25, requestID:18, caught-up, token:<118,current> rid:19}>" UserInfo={NSDescription=sync is blocked for client zone: <iCloud.com.mac.jun1ro1.TresorMockup[5] foreground {client:initial-faults-live|ever-live|root-created|blocked-app-uninstalled server:idle sync:idle last-sync:2018-06-24/21:59:25, requestID:18, caught-up, token:<118,current> rid:19}>}
 
-2018-06-24 10:18:37.476726+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](569): CoreData: Ubiquity:  Export of save notification encountered the following errors: (
-"Error Domain=NSCocoaErrorDomain Code=3851 \"Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')\" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}"
-),
-Save Notification: NSConcreteNotification 0x60400015e3d0 {name = _NSSQLCoreTransactionStateChangeNotification; object = <NSSQLCore: 0x611000003240> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/4761954F-B197-499A-B060-73175FD5DE06/Documents/CoreDataUbiquitySupport/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/70E4D9EF-126C-414C-A405-3D0C71D4A024/store/TresorMockup.sqlite); userInfo = {
-"_NSSQLCoreActiveSaveRequest" = "<NSSaveChangesRequest: 0x6060001b3bc0> { inserts (), updates (), deletes ((\n    \"0xd000000000040000 <x-coredata://A5FE3D97-B238-47BC-B970-590B1BA3F1AE/Site/p1>\"\n)) locks () }";
-"_NSSQLCoreActiveSavingContext" = "<NSManagedObjectContext: 0x611000179ac0>";
-"_NSSQLCoreTransactionType" = 2;
-"_NSSQLCoreTransientSequenceNumber" = 4;
-}}
+2018-06-24 22:18:20.584997+0900 TresorMockup[4889:164387] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 0 for new NSFileManager current token <f860a8eb 4312ca9b 515db376 8bd9c7fe cffc160c>
 
-2018-06-24 10:18:39.521072+0900 TresorMockup[24311:794988] -[PFUbiquityTransactionLog writeToDiskWithError:andUpdateFilenameInTransactionEntries:](823): CoreData: Ubiquity:  CoreData: Ubiquity: Error creating data for export: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-userInfo: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
-from transaction log: <PFUbiquityTransactionLog: 0x60b00004f770>
-transactionLogLocation: <PFUbiquityLocation: 0x608000062420>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/46049949-00BE-4DAB-B41B-0A85CCCB8942.1.cdt
-transactionNumber: 5
+2018-06-24 22:19:31.079071+0900 TresorMockup[4889:164260] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
 
-2018-06-24 10:18:39.521781+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](559): CoreData: Ubiquity:  Error writing transaction log: <PFUbiquityTransactionLog: 0x60b00004f770>
-transactionLogLocation: <PFUbiquityLocation: 0x608000062420>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/46049949-00BE-4DAB-B41B-0A85CCCB8942.1.cdt
-transactionNumber: 5
-.
-Error: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-User Info: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
+2018-06-24 22:19:32.134382+0900 TresorMockup[4889:164260] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/87E43D54-DD1C-4BC4-AE57-C6A7DF763D18/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
 
-2018-06-24 10:18:39.522878+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](569): CoreData: Ubiquity:  Export of save notification encountered the following errors: (
-"Error Domain=NSCocoaErrorDomain Code=3851 \"Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')\" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}"
-),
-Save Notification: NSConcreteNotification 0x604000163550 {name = _NSSQLCoreTransactionStateChangeNotification; object = <NSSQLCore: 0x611000003240> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/4761954F-B197-499A-B060-73175FD5DE06/Documents/CoreDataUbiquitySupport/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/70E4D9EF-126C-414C-A405-3D0C71D4A024/store/TresorMockup.sqlite); userInfo = {
-"_NSSQLCoreActiveSaveRequest" = "<NSSaveChangesRequest: 0x606000285c20> { inserts (), updates (), deletes ((\n    \"0xd000000000080000 <x-coredata://A5FE3D97-B238-47BC-B970-590B1BA3F1AE/Site/p2>\"\n)) locks () }";
-"_NSSQLCoreActiveSavingContext" = "<NSManagedObjectContext: 0x611000179ac0>";
-"_NSSQLCoreTransactionType" = 2;
-"_NSSQLCoreTransientSequenceNumber" = 5;
-}}
+2018-06-24 22:19:32.136318+0900 TresorMockup[4889:164260] [MC] Reading from private effective user settings.
 
-2018-06-24 10:18:41.377838+0900 TresorMockup[24311:794988] -[PFUbiquityTransactionLog writeToDiskWithError:andUpdateFilenameInTransactionEntries:](823): CoreData: Ubiquity:  CoreData: Ubiquity: Error creating data for export: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-userInfo: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
-from transaction log: <PFUbiquityTransactionLog: 0x60b00006f010>
-transactionLogLocation: <PFUbiquityLocation: 0x608000060520>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/88E14553-2610-40D5-9411-1B05204179D0.1.cdt
-transactionNumber: 5
+2018-06-24 22:19:40.748459+0900 TresorMockup[4889:164260] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000db860 h=--& v=--& UIKeyboardAssistantBar:0x61700000a500.height == 0   (active)>",
+"<NSLayoutConstraint:0x607000072400 V:|-(0)-[_UIButtonBarStackView:0x616000047480]   (active, names: '|':UIKeyboardAssistantBar:0x61700000a500 )>",
+"<NSLayoutConstraint:0x607000072010 V:[_UIButtonBarStackView:0x616000047480]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700000a500 )>",
+"<NSLayoutConstraint:0x6070000d6d90 'UIButtonBar.maximumAlignmentSize' _UIButtonBarButton:0x61600013ad80.height == UILayoutGuide:0x6110001399c0'UIViewLayoutMarginsGuide'.height   (active)>",
+"<NSLayoutConstraint:0x607000041160 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x6110001399c0'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000047480 )>",
+"<NSLayoutConstraint:0x607000041320 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x6110001399c0'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000047480 )>"
+)
 
-2018-06-24 10:18:41.378452+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](559): CoreData: Ubiquity:  Error writing transaction log: <PFUbiquityTransactionLog: 0x60b00006f010>
-transactionLogLocation: <PFUbiquityLocation: 0x608000060520>: /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile Documents/iCloud~com~mac~jun1ro1~TresorMockupdata/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/Oub4Z_K6ozCCxQhtOmSgD_VU1dSroFs8i3UbwP6isK8=/88E14553-2610-40D5-9411-1B05204179D0.1.cdt
-transactionNumber: 5
-.
-Error: Error Domain=NSCocoaErrorDomain Code=3851 "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}
-User Info: {
-NSDebugDescription = "Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')";
-}
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x607000041160 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x6110001399c0'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000047480 )>
 
-2018-06-24 10:18:41.379758+0900 TresorMockup[24311:794988] -[_PFUbiquityRecordsExporter managedObjectContextDidSave:](569): CoreData: Ubiquity:  Export of save notification encountered the following errors: (
-"Error Domain=NSCocoaErrorDomain Code=3851 \"Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')\" UserInfo={NSDebugDescription=Property list invalid for format: 200 (property lists cannot contain objects of type 'CFType')}"
-),
-Save Notification: NSConcreteNotification 0x6040001c0f50 {name = _NSSQLCoreTransactionStateChangeNotification; object = <NSSQLCore: 0x611000003240> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/4761954F-B197-499A-B060-73175FD5DE06/Documents/CoreDataUbiquitySupport/nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E/TresorMockup/70E4D9EF-126C-414C-A405-3D0C71D4A024/store/TresorMockup.sqlite); userInfo = {
-"_NSSQLCoreActiveSaveRequest" = "<NSSaveChangesRequest: 0x60600029eee0> { inserts (), updates (), deletes ((\n    \"0xd0000000000c0000 <x-coredata://A5FE3D97-B238-47BC-B970-590B1BA3F1AE/Site/p3>\"\n)) locks () }";
-"_NSSQLCoreActiveSavingContext" = "<NSManagedObjectContext: 0x611000179ac0>";
-"_NSSQLCoreTransactionType" = 2;
-"_NSSQLCoreTransientSequenceNumber" = 6;
-}}
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+2018-06-24 22:19:40.752000+0900 TresorMockup[4889:164260] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000db860 h=--& v=--& UIKeyboardAssistantBar:0x61700000a500.height == 0   (active)>",
+"<NSLayoutConstraint:0x6070000728d0 V:|-(0)-[_UIButtonBarStackView:0x616000046e80]   (active, names: '|':UIKeyboardAssistantBar:0x61700000a500 )>",
+"<NSLayoutConstraint:0x607000072860 V:[_UIButtonBarStackView:0x616000046e80]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700000a500 )>",
+"<NSLayoutConstraint:0x6070000da3d0 'UIButtonBar.maximumAlignmentSize' _UIButtonBarButton:0x61600013b980.height == UILayoutGuide:0x61100015d500'UIViewLayoutMarginsGuide'.height   (active)>",
+"<NSLayoutConstraint:0x607000074d90 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x61100015d500'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000046e80 )>",
+"<NSLayoutConstraint:0x607000074fc0 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x61100015d500'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000046e80 )>"
+)
+
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x607000074d90 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x61100015d500'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000046e80 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+2018-06-24 22:19:40.754268+0900 TresorMockup[4889:164260] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000db860 h=--& v=--& UIKeyboardAssistantBar:0x61700000a500.height == 0   (active)>",
+"<NSLayoutConstraint:0x607000072390 V:|-(0)-[_UIButtonBarStackView:0x616000047180]   (active, names: '|':UIKeyboardAssistantBar:0x61700000a500 )>",
+"<NSLayoutConstraint:0x6070000727f0 V:[_UIButtonBarStackView:0x616000047180]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700000a500 )>",
+"<NSLayoutConstraint:0x6070000d8fb0 'UIButtonBar.maximumAlignmentSize' UIView:0x615000012780.height == UILayoutGuide:0x611000140a40'UIViewLayoutMarginsGuide'.height   (active)>",
+"<NSLayoutConstraint:0x607000076300 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x611000140a40'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000047180 )>",
+"<NSLayoutConstraint:0x607000076370 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x611000140a40'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000047180 )>"
+)
+
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x607000076300 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x611000140a40'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000047180 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+
+---- iPhone 8 Plus
+storeURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/24D9D524-D1F0-46A5-A6A0-8E8E1F04416C/Documents/TresorMockup.sqlite
+cloudURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Library/Mobile%20Documents/iCloud~com~mac~jun1ro1~TresorMockup/
+
+2018-06-24 22:32:47.781793+0900 TresorMockup[5498:184062] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 1 for new NSFileManager current token <1a2aa524 8e2cfddd f90eb5ad 9aa12594 af166af4>
+
+2018-06-24 22:32:49.226201+0900 TresorMockup[5498:184063] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 0 for new NSFileManager current token <1a2aa524 8e2cfddd f90eb5ad 9aa12594 af166af4>
+
+2018-06-24 22:32:55.622692+0900 TresorMockup[5498:183834] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
+
+2018-06-24 22:32:56.457826+0900 TresorMockup[5498:183834] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+
+2018-06-24 22:32:56.459218+0900 TresorMockup[5498:183834] [MC] Reading from private effective user settings.
+
+
+--- iPad Pro 10.5
+storeURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/87E43D54-DD1C-4BC4-AE57-C6A7DF763D18/data/Containers/Data/Application/944EE593-8240-4D9E-B1AC-9C39394613CC/Documents/TresorMockup.sqlite
+cloudURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/87E43D54-DD1C-4BC4-AE57-C6A7DF763D18/data/Library/Mobile%20Documents/iCloud~com~mac~jun1ro1~TresorMockup/
+
+2018-06-24 22:35:20.136651+0900 TresorMockup[5725:189439] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 1 for new NSFileManager current token <f860a8eb 4312ca9b 515db376 8bd9c7fe cffc160c>
+
+2018-06-24 22:35:24.688502+0900 TresorMockup[5725:189432] -[PFUbiquitySwitchboardEntryMetadata setUseLocalStorage:](897): CoreData: Ubiquity:  nobody~simF11DDF39-5CD5-5C42-9EB5-7F1F0CF7D90E:TresorMockup
+Using local storage: 0 for new NSFileManager current token <f860a8eb 4312ca9b 515db376 8bd9c7fe cffc160c>
+
+2018-06-24 22:35:51.828507+0900 TresorMockup[5725:189226] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
+2018-06-24 22:35:52.039394+0900 TresorMockup[5725:189226] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/87E43D54-DD1C-4BC4-AE57-C6A7DF763D18/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
+2018-06-24 22:35:52.040931+0900 TresorMockup[5725:189226] [MC] Reading from private effective user settings.
+2018-06-24 22:35:57.493516+0900 TresorMockup[5725:189226] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000da280 h=--& v=--& UIKeyboardAssistantBar:0x61700002df80.height == 0   (active)>",
+"<NSLayoutConstraint:0x607000039e50 V:|-(0)-[_UIButtonBarStackView:0x616000001b80]   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x607000039de0 V:[_UIButtonBarStackView:0x616000001b80]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x6070000d8220 'UIButtonBar.maximumAlignmentSize' UIImageView:0x616000081c80.height == UILayoutGuide:0x611000026740'UIViewLayoutMarginsGuide'.height   (active)>",
+"<NSLayoutConstraint:0x6070000037b0 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x611000026740'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000001b80 )>",
+"<NSLayoutConstraint:0x607000090000 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x611000026740'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000001b80 )>"
+)
+
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x6070000037b0 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x611000026740'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000001b80 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+2018-06-24 22:35:57.498373+0900 TresorMockup[5725:189226] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000da280 h=--& v=--& UIKeyboardAssistantBar:0x61700002df80.height == 0   (active)>",
+"<NSLayoutConstraint:0x60700003a5c0 V:|-(0)-[_UIButtonBarStackView:0x616000055580]   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x607000039ec0 V:[_UIButtonBarStackView:0x616000055580]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x6070000d7340 'UISV-canvas-connection' UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide'.top == _UILayoutSpacer:0x6110001ad3c0'UISV-alignment-spanner'.top   (active)>",
+"<NSLayoutConstraint:0x6070000d73b0 'UISV-canvas-connection' UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide'.bottom == _UILayoutSpacer:0x6110001ad3c0'UISV-alignment-spanner'.bottom   (active)>",
+"<NSLayoutConstraint:0x6070000575f0 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000055580 )>",
+"<NSLayoutConstraint:0x60700008e080 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000055580 )>"
+)
+
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x6070000d73b0 'UISV-canvas-connection' UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide'.bottom == _UILayoutSpacer:0x6110001ad3c0'UISV-alignment-spanner'.bottom   (active)>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+2018-06-24 22:35:57.500627+0900 TresorMockup[5725:189226] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000da280 h=--& v=--& UIKeyboardAssistantBar:0x61700002df80.height == 0   (active)>",
+"<NSLayoutConstraint:0x60700003a5c0 V:|-(0)-[_UIButtonBarStackView:0x616000055580]   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x607000039ec0 V:[_UIButtonBarStackView:0x616000055580]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x6070000d77a0 'UISV-alignment' _UIButtonBarButton:0x616000144980.centerY == UIView:0x615000097e80.centerY   (active)>",
+"<NSLayoutConstraint:0x6070000d7340 'UISV-canvas-connection' UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide'.top == _UILayoutSpacer:0x6110001ad3c0'UISV-alignment-spanner'.top   (active)>",
+"<NSLayoutConstraint:0x6070000d7420 'UISV-canvas-connection' UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide'.centerY == _UIButtonBarButton:0x616000144980.centerY   (active)>",
+"<NSLayoutConstraint:0x6070000d6ee0 'UISV-spanning-boundary' _UILayoutSpacer:0x6110001ad3c0'UISV-alignment-spanner'.top <= UIView:0x615000097e80.top   (active)>",
+"<NSLayoutConstraint:0x6070000575f0 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000055580 )>",
+"<NSLayoutConstraint:0x60700008e080 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000055580 )>"
+)
+
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x6070000d6ee0 'UISV-spanning-boundary' _UILayoutSpacer:0x6110001ad3c0'UISV-alignment-spanner'.top <= UIView:0x615000097e80.top   (active)>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+2018-06-24 22:35:57.502447+0900 TresorMockup[5725:189226] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000da280 h=--& v=--& UIKeyboardAssistantBar:0x61700002df80.height == 0   (active)>",
+"<NSLayoutConstraint:0x60700003a5c0 V:|-(0)-[_UIButtonBarStackView:0x616000055580]   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x607000039ec0 V:[_UIButtonBarStackView:0x616000055580]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x6070000d4010 'UIButtonBar.maximumAlignmentSize' _UIButtonBarButton:0x616000144980.height == UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide'.height   (active)>",
+"<NSLayoutConstraint:0x6070000575f0 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000055580 )>",
+"<NSLayoutConstraint:0x60700008e080 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000055580 )>"
+)
+
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x6070000575f0 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x6110001470c0'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000055580 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+2018-06-24 22:35:57.505234+0900 TresorMockup[5725:189226] [LayoutConstraints] Unable to simultaneously satisfy constraints.
+Probably at least one of the constraints in the following list is one you don't want.
+Try this:
+(1) look at each constraint and try to figure out which you don't expect;
+(2) find the code that added the unwanted constraint or constraints and fix it.
+(Note: If you're seeing NSAutoresizingMaskLayoutConstraints that you don't understand, refer to the documentation for the UIView property translatesAutoresizingMaskIntoConstraints)
+(
+"<NSAutoresizingMaskLayoutConstraint:0x6070000da280 h=--& v=--& UIKeyboardAssistantBar:0x61700002df80.height == 0   (active)>",
+"<NSLayoutConstraint:0x60700003a940 V:|-(0)-[_UIButtonBarStackView:0x616000054f80]   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x607000035310 V:[_UIButtonBarStackView:0x616000054f80]-(0)-|   (active, names: '|':UIKeyboardAssistantBar:0x61700002df80 )>",
+"<NSLayoutConstraint:0x6070000d79d0 'UIButtonBar.maximumAlignmentSize' UIView:0x615000063e00.height == UILayoutGuide:0x611000174840'UIViewLayoutMarginsGuide'.height   (active)>",
+"<NSLayoutConstraint:0x60700003b430 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x611000174840'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000054f80 )>",
+"<NSLayoutConstraint:0x60700002da50 'UIView-topMargin-guide-constraint' V:|-(10)-[UILayoutGuide:0x611000174840'UIViewLayoutMarginsGuide']   (active, names: '|':_UIButtonBarStackView:0x616000054f80 )>"
+)
+
+Will attempt to recover by breaking constraint
+<NSLayoutConstraint:0x60700003b430 'UIView-bottomMargin-guide-constraint' V:[UILayoutGuide:0x611000174840'UIViewLayoutMarginsGuide']-(9)-|   (active, names: '|':_UIButtonBarStackView:0x616000054f80 )>
+
+Make a symbolic breakpoint at UIViewAlertForUnsatisfiableConstraints to catch this in the debugger.
+The methods in the UIConstraintBasedLayoutDebugging category on UIView listed in <UIKit/UIView.h> may also be helpful.
+
 
