@@ -31,13 +31,16 @@ class CoreDataManager: NSObject {
         let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         moc.performAndWait {
             moc.persistentStoreCoordinator = coordinator
-            NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(mergeChangesFrom_iCloud),
-                name: NSNotification.Name.NSPersistentStoreDidImportUbiquitousContentChanges,
-                object: coordinator)
+//            NotificationCenter.default.addObserver(
+//                self,
+//                selector: #selector(mergeChangesFrom_iCloud),
+//                name: NSNotification.Name.NSPersistentStoreDidImportUbiquitousContentChanges,
+//                object: coordinator)
         }
         self._managedObjectContext = moc
+
+        CloudKitManager.shared?.addObserver(managedObjectContext: moc)
+
         return self._managedObjectContext!
     }()
 
@@ -85,21 +88,21 @@ class CoreDataManager: NSObject {
             options[NSMigratePersistentStoresAutomaticallyOption] = 1
             options[NSInferMappingModelAutomaticallyOption]       = 1
 
-            var cloudURL = fileManager.url(forUbiquityContainerIdentifier: nil)
-            if cloudURL != nil {
-//                cloudURL = cloudURL!.path.appending("data")
-//                let key = NSURL.fileURL(withPath: url)
-                print("cloudURL = \(cloudURL!)")
-//                print("key = \(key)")
-                options[NSPersistentStoreUbiquitousContentNameKey] = "TresorMockup"
-//                options[NSPersistentStoreUbiquitousContentURLKey]  = key
-            }
+//            var cloudURL = fileManager.url(forUbiquityContainerIdentifier: nil)
+//           if cloudURL != nil {
+////                cloudURL = cloudURL!.path.appending("data")
+////                let key = NSURL.fileURL(withPath: url)
+//                print("cloudURL = \(cloudURL!)")
+////                print("key = \(key)")
+//                options[NSPersistentStoreUbiquitousContentNameKey] = "TresorMockup"
+////                options[NSPersistentStoreUbiquitousContentURLKey]  = key
+//            }
 
             psc.performAndWait {
                 do {
                     try psc.addPersistentStore(ofType: NSSQLiteStoreType,
                                                configurationName: nil,
-                                               at: cloudURL, // storeURL,
+                                               at: storeURL, // cloudURL
                                                options: options)
                 }
                 catch {

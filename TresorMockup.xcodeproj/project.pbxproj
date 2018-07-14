@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		F906C49920DE5F57003DADEC /* log.txt in Resources */ = {isa = PBXBuildFile; fileRef = F906C49820DE5F57003DADEC /* log.txt */; };
+		F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
+		F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
+		F926350620F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F92E9ADD20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADE20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADF20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
@@ -85,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		F906C49820DE5F57003DADEC /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log.txt; sourceTree = "<group>"; };
+		F926350320F981C700EF7851 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F92E9AD920D411F9007EE75A /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F935B37A204A3ACA00B004B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			children = (
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
 				F985628B20DD438400177F55 /* CoreDataManager.swift */,
+				F926350320F981C700EF7851 /* CloudKitManager.swift */,
 				F9D3F352205E97F200878975 /* AppKey.swift */,
 				F9610E182055864C00A97F0E /* AsBytes.swift */,
 				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
@@ -373,6 +378,7 @@
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
 				F9C3C5BA20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F92E9AE320D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,
+				F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */,
 				F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F92E9ADD20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */,
 				F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */,
@@ -397,6 +403,7 @@
 				F9D85C86206FE11100317AFD /* AppKey.swift in Sources */,
 				F985628D20DD438400177F55 /* CoreDataManager.swift in Sources */,
 				F92E9AE420D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,
+				F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */,
 				F9E2084A204BF0D600543C81 /* Site.swift in Sources */,
 				F950E78420676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */,
@@ -422,6 +429,7 @@
 				F9D85C87206FE11200317AFD /* AppKey.swift in Sources */,
 				F985628E20DD438400177F55 /* CoreDataManager.swift in Sources */,
 				F92E9AE520D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,
+				F926350620F981C700EF7851 /* CloudKitManager.swift in Sources */,
 				F9E2084B204BF0D600543C81 /* Site.swift in Sources */,
 				F950E78520676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */,
