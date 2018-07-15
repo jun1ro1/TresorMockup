@@ -9,13 +9,48 @@
 import UIKit
 import CoreData
 
+fileprivate class deletedObject {
+    var entryName: String?
+    var id: URL?
+
+    func description() -> String {
+        return (self.id?.absoluteString ?? "") + ":" + (self.entryName ?? "")
+    }
+}
+
+fileprivate class updatedObject {
+    var entryName: String?
+    var id: URL?
+    var attributes: [String: Any?]
+
+    init() {
+        self.entryName  = nil
+        self.id         = nil
+        self.attributes = [:]
+    }
+
+    func description() -> String {
+        var str: String = ""
+        str += self.id?.absoluteString ?? ""
+        str += ":"
+        str += self.entryName ?? ""
+        str += "\n"
+        str += self.attributes.reduce("") { (result, dic) in
+            let (key, val) = dic
+            return result + key + ": " + val.debugDescription + "\n"
+        }
+        return str
+    }
+
+}
+
 class CloudKitManager: NSObject {
 
     static var shared: CloudKitManager? = CloudKitManager()
 
-    var deleted:  [NSManagedObject]?
-    var updated:  [NSManagedObject]?
-    var inserted: [NSManagedObject]?
+    fileprivate var deleted:  [deletedObject]?
+    fileprivate var updated:  [updatedObject]?
+    fileprivate var inserted: [NSManagedObject]?
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
@@ -29,8 +64,26 @@ class CloudKitManager: NSObject {
             return
         }
         print("contextWillSave")
-        self.deleted  = Array(moc.deletedObjects)
-        self.updated  = Array(moc.updatedObjects)
+        self.deleted  = moc.deletedObjects.map { obj in
+            if obj.objectID.isTemporaryID {
+                assertionFailure()
+            }
+            let delobj       = deletedObject()
+            delobj.id        = obj.objectID.uriRepresentation()
+            delobj.entryName = obj.entity.managedObjectClassName
+            return delobj
+        }
+        self.updated  = moc.updatedObjects.map { obj in
+            if obj.objectID.isTemporaryID {
+                assertionFailure()
+            }
+            let updobj       = updatedObject()
+            updobj.id        = obj.objectID.uriRepresentation()
+            updobj.entryName = obj.entity.managedObjectClassName
+            updobj.attributes = obj.changedValues()
+            return updobj
+
+        }
         self.inserted = Array(moc.insertedObjects)
 
     }
@@ -40,12 +93,7 @@ class CloudKitManager: NSObject {
 
         self.deleted?.forEach  { obj in print("deleted  = \(obj)")}
 
-        self.updated?.forEach  { obj in
-            print("updated =  \(obj.entity.managedObjectClassName)")
-            obj.committedValues(forKeys: nil).forEach { (key: String, val:Any?) in
-                print("updated: \(key): \(String(describing: val))")
-            }
-        }
+        self.updated?.forEach  { obj in print("updated  = \(obj.description())")}
 
         self.inserted?.forEach  { obj in
             print("inserted =  \(obj.entity.managedObjectClassName)")
