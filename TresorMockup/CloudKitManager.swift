@@ -9,12 +9,22 @@
 import UIKit
 import CoreData
 
+class UpdatedObject {
+    var object: NSManagedObject?
+    var keys: [String]
+
+    init() {
+        self.object = nil
+        self.keys   = []
+    }
+}
+
 class CloudKitManager: NSObject {
 
     static var shared: CloudKitManager? = CloudKitManager()
 
     var deleted:  [NSManagedObject]?
-    var updated:  [NSManagedObject]?
+    var updated:  [UpdatedObject]?
     var inserted: [NSManagedObject]?
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
@@ -30,21 +40,46 @@ class CloudKitManager: NSObject {
         }
         print("contextWillSave")
         self.deleted  = Array(moc.deletedObjects)
-        self.updated  = Array(moc.updatedObjects)
+        self.updated  = moc.updatedObjects.map { obj in
+            let uobj = UpdatedObject()
+            uobj.object = obj
+            uobj.keys   = obj.changedValues().map { (key, _) in return key }
+            return uobj
+        }
         self.inserted = Array(moc.insertedObjects)
-
     }
 
     @objc func contextDidSave(notification: Notification) {
         print("contextDidSave")
 
-        self.deleted?.forEach  { obj in print("deleted  = \(obj)")}
-
-        self.updated?.forEach  { obj in
-            print("updated =  \(obj.entity.managedObjectClassName)")
-            obj.committedValues(forKeys: nil).forEach { (key: String, val:Any?) in
-                print("updated: \(key): \(String(describing: val))")
+        self.deleted?.forEach { obj in
+            if obj.objectID.isTemporaryID {
+                assertionFailure()
             }
+            let id        = obj.objectID.uriRepresentation()
+            let entryName = obj.entity.managedObjectClassName ?? ""
+            print("deleted = \(id): \(entryName)")
+        }
+
+        self.updated?.forEach { uobj in
+            let obj = uobj.object
+            guard obj != nil else {
+                assertionFailure()
+                return
+            }
+            if obj!.objectID.isTemporaryID {
+                assertionFailure()
+            }
+            let id         = obj!.objectID.uriRepresentation()
+            let entryName  = obj!.entity.managedObjectClassName ?? ""
+            let attributes = obj!.committedValues(forKeys: uobj.keys)
+
+            let str = attributes.reduce("") { (result, dic) in
+                let (key, val) = dic
+                return result + key + ": " + (val as AnyObject).description + "\n"
+            }
+            print("updated = \(id): \(entryName)")
+            print("updated = \(str)")
         }
 
         self.inserted?.forEach  { obj in
