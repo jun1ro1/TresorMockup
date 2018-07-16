@@ -17,15 +17,20 @@ class UpdatedObject {
         self.object = nil
         self.keys   = []
     }
+
+    convenience init(object: NSManagedObject?) {
+        self.init()
+        self.object = object
+        self.keys   = object?.changedValues().map { (key, _) in return key } ?? []
+    }
 }
 
 class CloudKitManager: NSObject {
 
     static var shared: CloudKitManager? = CloudKitManager()
 
-    var deleted:  [NSManagedObject]?
-    var updated:  [UpdatedObject]?
-    var inserted: [NSManagedObject]?
+    var deleted:  [NSManagedObject] = []
+    var updated:  [UpdatedObject]  = []
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
@@ -40,19 +45,14 @@ class CloudKitManager: NSObject {
         }
         print("contextWillSave")
         self.deleted  = Array(moc.deletedObjects)
-        self.updated  = moc.updatedObjects.map { obj in
-            let uobj = UpdatedObject()
-            uobj.object = obj
-            uobj.keys   = obj.changedValues().map { (key, _) in return key }
-            return uobj
-        }
-        self.inserted = Array(moc.insertedObjects)
+        self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
+        self.updated.append(contentsOf: moc.insertedObjects.map { UpdatedObject( object: $0 ) } )
     }
 
     @objc func contextDidSave(notification: Notification) {
         print("contextDidSave")
 
-        self.deleted?.forEach { obj in
+        self.deleted.forEach { obj in
             if obj.objectID.isTemporaryID {
                 assertionFailure()
             }
@@ -61,7 +61,7 @@ class CloudKitManager: NSObject {
             print("deleted = \(id): \(entryName)")
         }
 
-        self.updated?.forEach { uobj in
+        self.updated.forEach { uobj in
             let obj = uobj.object
             guard obj != nil else {
                 assertionFailure()
@@ -82,15 +82,14 @@ class CloudKitManager: NSObject {
             print("updated = \(str)")
         }
 
-        self.inserted?.forEach  { obj in
-            print("inserted =  \(obj.entity.managedObjectClassName)")
-            obj.committedValues(forKeys: nil).forEach { (key: String, val:Any?) in
-                print("inserted: \(key): \(String(describing: val))")
-            }
-        }
+//        self.inserted?.forEach  { obj in
+//            print("inserted =  \(obj.entity.managedObjectClassName)")
+//            obj.committedValues(forKeys: nil).forEach { (key: String, val:Any?) in
+//                print("inserted: \(key): \(String(describing: val))")
+//            }
+//        }
 
-        self.deleted  = nil
-        self.updated  = nil
-        self.inserted = nil
+        self.deleted  = []
+        self.updated  = []
     }
 }
