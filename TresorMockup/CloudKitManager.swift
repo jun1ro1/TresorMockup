@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import CoreLocation
+import CloudKit
 
 class UpdatedObject {
     var object: NSManagedObject?
@@ -75,19 +77,82 @@ class CloudKitManager: NSObject {
             let attributes = obj!.committedValues(forKeys: uobj.keys)
 
             let str = attributes.reduce("") { (result, dic) in
-                let (key, val) = dic
-                return result + key + ": " + (val as AnyObject).description + "\n"
+                let (key, v) = dic
+
+                var typestr = ""
+                var valstr  = ""
+                if let val = v as? NSString {
+                    typestr = "NSString"
+                    valstr  = val as String
+                }
+                else if let val = v as? NSNumber {
+                    typestr = "NSNumber"
+                    valstr  = val.stringValue
+                }
+                else if let val = v as? NSData {
+                    typestr = "NSData"
+                    valstr  = val.description
+                }
+                else if let val = v as? NSDate {
+                    typestr = "NSDate"
+                    valstr  = val.description
+                }
+                else if let val = v as? NSArray {
+                    typestr = "NSArray"
+                    valstr  = val.description
+                }
+                else if let val = v as? CLLocation {
+                    typestr = "CLLocation"
+                    valstr  = val.description
+                }
+                else if let val = v as? CKAsset {
+                    typestr = "CKAsset"
+                    valstr  = val.description
+                }
+                else if let val = v as? CKReference {
+                    typestr = "CKReference"
+                    valstr  = val.description
+                }
+                else {
+                    typestr = "UNKNOWN"
+                    valstr  = (v as AnyObject).description 
+                }
+
+//                let tp = type(of: obj)
+//                var tpstr = ""
+//                switch tp {
+//                case is NSString:
+//                    tpstr = "NSString"
+//                case is NSNumber:
+//                    tpstr = "NSNumber"
+//                case is NSData:
+//                    tpstr = "NSData"
+//                case is NSDate:
+//                    tpstr = "NSDate"
+//                case is NSArray:
+//                    tpstr = "NSArray"
+//                case is CLLocation:
+//                    tpstr = "CLLocation"
+//                case is CKAsset:
+//                    tpstr = "CKAsset"
+//                case is CKReference:
+//                    tpstr = "CKReference"
+//                default:
+//                    tpstr = String(describing: tp)
+//                }
+                let str = "\(key): \(typestr) = \(valstr)"
+                return result + str + "\n"
             }
             print("updated = \(id): \(entryName)")
-            print("updated = \(str)")
+            print("updated = \(str)\n")
         }
 
-//        self.inserted?.forEach  { obj in
-//            print("inserted =  \(obj.entity.managedObjectClassName)")
-//            obj.committedValues(forKeys: nil).forEach { (key: String, val:Any?) in
-//                print("inserted: \(key): \(String(describing: val))")
-//            }
-//        }
+        //        self.inserted?.forEach  { obj in
+        //            print("inserted =  \(obj.entity.managedObjectClassName)")
+        //            obj.committedValues(forKeys: nil).forEach { (key: String, val:Any?) in
+        //                print("inserted: \(key): \(String(describing: val))")
+        //            }
+        //        }
 
         self.deleted  = []
         self.updated  = []
