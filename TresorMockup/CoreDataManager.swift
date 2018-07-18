@@ -27,19 +27,9 @@ class CoreDataManager: NSObject {
         if self._managedObjectContext != nil {
             return self._managedObjectContext!
         }
-        let coordinator = self.persistentStoreCoordinator
-        let moc = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        moc.performAndWait {
-            moc.persistentStoreCoordinator = coordinator
-//            NotificationCenter.default.addObserver(
-//                self,
-//                selector: #selector(mergeChangesFrom_iCloud),
-//                name: NSNotification.Name.NSPersistentStoreDidImportUbiquitousContentChanges,
-//                object: coordinator)
-        }
-        self._managedObjectContext = moc
+        self._managedObjectContext = self.persistentContainer.viewContext
 
-        CloudKitManager.shared?.addObserver(managedObjectContext: moc)
+        CloudKitManager.shared?.addObserver(managedObjectContext: self._managedObjectContext)
 
         return self._managedObjectContext!
     }()
@@ -49,91 +39,44 @@ class CoreDataManager: NSObject {
         if self._managedObjectModel != nil {
             return self._managedObjectModel!
         }
-//        let bundles = [Bundle(for: type(of: self))]
-//        print("bundles = \(bundles)")
-//        self._managedObjectModel = NSManagedObjectModel.mergedModel(from: bundles)
+        //        let bundles = [Bundle(for: type(of: self))]
+        //        print("bundles = \(bundles)")
+        //        self._managedObjectModel = NSManagedObjectModel.mergedModel(from: bundles)
 
         let bundle = Bundle.main
         let modelURL = bundle.url(forResource: "TresorMockup", withExtension: "momd")
         self._managedObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
 
-//        print("_managedObjectModel = \(String(describing: self._managedObjectModel))")
+        //        print("_managedObjectModel = \(String(describing: self._managedObjectModel))")
 
         return self._managedObjectModel!
     }()
 
-    private var _persistentStoreCoordinator: NSPersistentStoreCoordinator? = nil
-    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
-        if self._persistentStoreCoordinator != nil {
-            return self._persistentStoreCoordinator!
-        }
 
-        guard var storeURL =
-            FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last else {
-            assertionFailure()
-            return nil
-        }
-        storeURL = storeURL.appendingPathComponent("TresorMockup.sqlite")
-        print("storeURL = \(storeURL)")
-        self._persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        guard self._persistentStoreCoordinator != nil else {
-            assertionFailure()
-            return nil
-        }
+    lazy var persistentContainer: NSPersistentContainer = {
+        /*
+         The persistent container for the application. This implementation
+         creates and returns a container, having loaded the store for the
+         application to it. This property is optional since there are legitimate
+         error conditions that could cause the creation of the store to fail.
+         */
+        let container = NSPersistentContainer(name: "TresorMockup")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                // Replace this implementation with code to handle the error appropriately.
+                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 
-        var psc: NSPersistentStoreCoordinator = self._persistentStoreCoordinator!
-        DispatchQueue.global(qos: .background).async {
-            let fileManager = FileManager.default
-            var options: [String: Any] = [:]
-            options[NSMigratePersistentStoresAutomaticallyOption] = 1
-            options[NSInferMappingModelAutomaticallyOption]       = 1
-
-//            var cloudURL = fileManager.url(forUbiquityContainerIdentifier: nil)
-//           if cloudURL != nil {
-////                cloudURL = cloudURL!.path.appending("data")
-////                let key = NSURL.fileURL(withPath: url)
-//                print("cloudURL = \(cloudURL!)")
-////                print("key = \(key)")
-//                options[NSPersistentStoreUbiquitousContentNameKey] = "TresorMockup"
-////                options[NSPersistentStoreUbiquitousContentURLKey]  = key
-//            }
-
-            psc.performAndWait {
-                do {
-                    try psc.addPersistentStore(ofType: NSSQLiteStoreType,
-                                               configurationName: nil,
-                                               at: storeURL, // cloudURL
-                                               options: options)
-                }
-                catch {
-                    assertionFailure()
-                }
+                /*
+                 Typical reasons for an error here include:
+                 * The parent directory does not exist, cannot be created, or disallows writing.
+                 * The persistent store is not accessible, due to permissions or data protection when the device is locked.
+                 * The device is out of space.
+                 * The store could not be migrated to the current model version.
+                 Check the error message to determine what the actual problem was.
+                 */
+                fatalError("Unresolved error \(error), \(error.userInfo)")
             }
-
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "RefetchAllDatabaseData"), object: self, userInfo: nil)
-            }
-        }
-
-        return self._persistentStoreCoordinator
+        })
+        return container
     }()
-
-    func mergeiCloudChanges(notification note: Notification, forContext moc: NSManagedObjectContext) {
-        moc.perform {
-            moc.mergeChanges(fromContextDidSave: note)
-        }
-        let notification = Notification(name: Notification.Name(rawValue: "RefreshAllVies"),
-                                        object: self, userInfo: note.userInfo)
-        NotificationCenter.default.post(notification)
-    }
-
-
-    @objc func mergeChangesFrom_iCloud(notification: Notification) {
-        let moc = self.managedObjectContext
-        moc.perform {
-            self.mergeiCloudChanges(notification: notification, forContext: moc)
-        }
-
-    }
-
 }
