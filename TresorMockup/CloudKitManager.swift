@@ -31,8 +31,9 @@ class CloudKitManager: NSObject {
 
     static var shared: CloudKitManager? = CloudKitManager()
 
+    var inserted: [NSManagedObject] = []
     var deleted:  [NSManagedObject] = []
-    var updated:  [UpdatedObject]  = []
+    var updated:  [UpdatedObject]   = []
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
@@ -46,9 +47,9 @@ class CloudKitManager: NSObject {
             return
         }
         print("contextWillSave")
+        self.inserted = Array(moc.insertedObjects)
         self.deleted  = Array(moc.deletedObjects)
         self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
-        self.updated.append(contentsOf: moc.insertedObjects.map { UpdatedObject( object: $0 ) } )
     }
 
     @objc func contextDidSave(notification: Notification) {
@@ -118,28 +119,6 @@ class CloudKitManager: NSObject {
                     valstr  = (v as AnyObject).description 
                 }
 
-//                let tp = type(of: obj)
-//                var tpstr = ""
-//                switch tp {
-//                case is NSString:
-//                    tpstr = "NSString"
-//                case is NSNumber:
-//                    tpstr = "NSNumber"
-//                case is NSData:
-//                    tpstr = "NSData"
-//                case is NSDate:
-//                    tpstr = "NSDate"
-//                case is NSArray:
-//                    tpstr = "NSArray"
-//                case is CLLocation:
-//                    tpstr = "CLLocation"
-//                case is CKAsset:
-//                    tpstr = "CKAsset"
-//                case is CKReference:
-//                    tpstr = "CKReference"
-//                default:
-//                    tpstr = String(describing: tp)
-//                }
                 let str = "\(key): \(typestr) = \(valstr)"
                 return result + str + "\n"
             }
@@ -147,13 +126,16 @@ class CloudKitManager: NSObject {
             print("updated = \(str)\n")
         }
 
-        //        self.inserted?.forEach  { obj in
-        //            print("inserted =  \(obj.entity.managedObjectClassName)")
-        //            obj.committedValues(forKeys: nil).forEach { (key: String, val:Any?) in
-        //                print("inserted: \(key): \(String(describing: val))")
-        //            }
-        //        }
+        self.inserted.forEach  { obj in
+            if obj.objectID.isTemporaryID {
+                assertionFailure()
+            }
+            let id        = obj.objectID.uriRepresentation()
+            let entryName = obj.entity.managedObjectClassName ?? ""
+            print("inserted = \(id): \(entryName)")
+        }
 
+        self.inserted = []
         self.deleted  = []
         self.updated  = []
     }

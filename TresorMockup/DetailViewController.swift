@@ -361,7 +361,7 @@ class DetailViewController: UITableViewController {
         case .password:
             if self.isEditing {
                 let tf = (cell as! SecretTextViewCell).textField
-                tf?.text = self.detailItem?.currentPassword?.password ?? ""
+                tf?.text = (self.detailItem?.passwordCurrent as? String) ?? ""
                 tf?.tag  = TAG_TEXTFIELD_PASSWORD
                 tf?.placeholder = "Password".localized
                 tf?.accessibilityIdentifier = "textFieldPassword"
@@ -383,7 +383,7 @@ class DetailViewController: UITableViewController {
             }
             else {
                 let label    = (cell as! PasswordCell).label
-                label?.value = self.detailItem?.currentPassword?.password ?? ""
+                label?.value = (self.detailItem?.passwordCurrent as? String) ?? ""
                 label?.tag   = TAG_LABEL_PASSWORD
                 label?.secret(true)
                 let button   = (cell as! PasswordCell).eyeButton
@@ -612,7 +612,7 @@ extension DetailViewController: UITextFieldDelegate {
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
-                if str == "" && self.detailItem?.currentPassword == nil {
+                if str == "" && (self.detailItem?.passwordCurrent as String?) == nil {
                     // preserve nil
                 }
                 else {

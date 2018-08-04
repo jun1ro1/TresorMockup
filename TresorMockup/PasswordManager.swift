@@ -87,8 +87,9 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         let now = (password == nil) ? nil : Date() as NSDate
         password?.selectedAt = now
         site.passwords?.forEach { ($0 as! Password).current = false }
-        password?.current   = true
-        site.selectAt       = now // invakes observeValue
+        site.passwordCurrent = (password?.password ?? "") as NSString
+        password?.current    = true
+        site.selectAt        = now // invakes observeValue
     }
 
     func deleteCache() {
