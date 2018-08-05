@@ -129,7 +129,32 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+//        let indexPathOld: IndexPath? = {
+//             if let obj = self.selected {
+//                return self.passwordManager?.fetchedResultsController.indexPath(forObject: obj)
+//            }
+//            else {
+//                return nil
+//            }
+//        }()
+//        let indexPaths: [IndexPath] = ([indexPathOld, indexPath].filter { $0 != nil }) as! [IndexPath]
+//
+//        self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+//
+//        tableView.performBatchUpdates(
+//            { () -> Void in
+//                tableView.reloadRows(at: indexPaths, with: .automatic)
+//        },
+//            completion: nil
+//        )
+//
+////        if let indexPath = tableView.indexPathForSelectedRow {
+//            self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
+//        }
+//        tableView.deselectRow(at: indexPath, animated: true)
+
     }
 
     func save(force: Bool = false) {
@@ -234,13 +259,11 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
             (_: UIContextualAction, _: UIView, completion: (Bool) -> Void) -> Void in
             let oldIndex = self.passwordManager?.fetchedResultsController.indexPath(forObject: self.selected!)
             self.selected = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-            let indexPaths = [oldIndex!, indexPath].compactMap { $0 }
+            let indexPaths = [oldIndex, indexPath].compactMap { $0 }
             self.tableView.performBatchUpdates(
                 { self.tableView.reloadRows(at: indexPaths, with: .automatic) },
-                completion: nil)
-
-//            self.tableView.reloadData()
-
+                completion: nil
+            )
             completion(true)
         }
         let action = UIContextualAction(style: .normal, title: "select", handler: handler)
