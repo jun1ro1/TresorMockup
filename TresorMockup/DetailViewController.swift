@@ -139,6 +139,9 @@ class DetailViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
+        if self.tableView.isEditing {
+            self.setEditing(false, animated: false)
+        }
         self.detailItem?.removeObserver(self, forKeyPath: "selectAt")
 
         guard self.detailItem != nil else { return }
@@ -158,7 +161,7 @@ class DetailViewController: UITableViewController {
                             abort()
                         }
                     }
-                 }
+                }
                 return
         }
     }
@@ -178,6 +181,16 @@ class DetailViewController: UITableViewController {
         guard self.detailItem != nil else {
             return
         }
+        if let keys = self.detailItem?.changedValues().keys, keys.contains("passwordCurrent") {
+            print("changed passwordCurrent = \(String(describing: self.detailItem?.passwordCurrent))")
+            if let str = self.detailItem?.passwordCurrent as String?,
+                let password = self.passwordManager?.newObject(for: self.detailItem!) {
+                password.password = str
+                self.passwordManager?.select(password: password, for: self.detailItem!)
+                self.save()
+            }
+        }
+
         self.tableView.performBatchUpdates(
             { () -> Void in
                 let beforePaths = AppKeyType.iterator.compactMap {
@@ -210,6 +223,7 @@ class DetailViewController: UITableViewController {
                     with: .fade)
         },
             completion: nil )
+
     }
 
     // MARK: - Segue
@@ -361,7 +375,7 @@ class DetailViewController: UITableViewController {
         case .password:
             if self.isEditing {
                 let tf = (cell as! SecretTextViewCell).textField
-                tf?.text = (self.detailItem?.passwordCurrent as? String) ?? ""
+                tf?.text = (self.detailItem?.passwordCurrent as String?) ?? ""
                 tf?.tag  = TAG_TEXTFIELD_PASSWORD
                 tf?.placeholder = "Password".localized
                 tf?.accessibilityIdentifier = "textFieldPassword"
@@ -383,7 +397,7 @@ class DetailViewController: UITableViewController {
             }
             else {
                 let label    = (cell as! PasswordCell).label
-                label?.value = (self.detailItem?.passwordCurrent as? String) ?? ""
+                label?.value = (self.detailItem?.passwordCurrent as String?) ?? ""
                 label?.tag   = TAG_LABEL_PASSWORD
                 label?.secret(true)
                 let button   = (cell as! PasswordCell).eyeButton
@@ -495,18 +509,21 @@ class DetailViewController: UITableViewController {
             let len   = self.detailItem!.forMaxLength
             let chars = self.detailItem!.forCharSet
             if let val = try? RandomData.shared.get(count: len, in: chars) {
-                let password = self.passwordManager?.newObject(for: self.detailItem!)
-                password?.password = val
-                self.passwordManager?.select(password: password!, for: self.detailItem!)
+                self.detailItem?.passwordCurrent = val as NSString
                 self.passTextField?.text = val
-                self.save()
+//                if let password = self.passwordManager?.newObject(for: self.detailItem!) {
+//                    password.password = val
+//                    self.passwordManager?.select(password: password, for: self.detailItem!)
+//                    self.passTextField?.text = val
+//                    self.save()
+//                }
             }
 
         case TAG_STEPPER_LENGTH:
             let val = Int((sender as! UISlider).value)
             (cell as? GeneratorCell)?.lengthLabel?.text = String( format: "%d", val )
             self.detailItem?.forMaxLength = val
-//            self.save()
+            //            self.save()
 
 
         case TAG_STEPPER_CHARS:
@@ -514,7 +531,7 @@ class DetailViewController: UITableViewController {
             let chr = self.charsArray[ Int(val) ]
             (cell as? GeneratorCell)?.charsLabel?.text = chr.description
             self.detailItem?.forCharSet = chr
-//            self.save()
+            //            self.save()
 
         default:
             assertionFailure()
@@ -565,7 +582,9 @@ class DetailViewController: UITableViewController {
             let indexPaths: [IndexPath] = [.password, .selectAt].compactMap {
                 self.layouter.indexPath(forKey: $0)
             }
-            self.tableView.reloadRows(at: indexPaths, with: .automatic)
+            if !self.tableView.isEditing {
+                self.tableView.reloadRows(at: indexPaths, with: .automatic)
+            }
         default:
             assertionFailure()
 
@@ -616,11 +635,12 @@ extension DetailViewController: UITextFieldDelegate {
                     // preserve nil
                 }
                 else {
-                    if let password = self.passwordManager?.newObject(for: self.detailItem!) {
-                        password.password = str
-                        self.passwordManager?.select(password: password, for: self.detailItem!)
-                        self.save()
-                    }
+                    self.detailItem?.passwordCurrent = str as NSString
+//                    if let password = self.passwordManager?.newObject(for: self.detailItem!) {
+//                        password.password = str
+//                        self.passwordManager?.select(password: password, for: self.detailItem!)
+//                        self.save()
+//                    }
                 }
             }
 

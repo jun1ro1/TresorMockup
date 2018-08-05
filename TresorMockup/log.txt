@@ -1,3 +1,107 @@
+Thread 1 Queue : com.apple.main-thread (serial)
+#0    0x000000010a2dce4c in PasswordManager.newObject(for:) at /Users/jun1ro1/Documents/Xcode/TresorMockup/TresorMockup/PasswordManager.swift:65
+#1    0x000000010a2b185c in DetailViewController.textFieldDidEndEditing(_:) at /Users/jun1ro1/Documents/Xcode/TresorMockup/TresorMockup/DetailViewController.swift:619
+#2    0x000000010a2b1fcb in @objc DetailViewController.textFieldDidEndEditing(_:) ()
+#3    0x000000010e01e0ae in -[UITextField _notifyDidEndEditing] ()
+#4    0x000000010e01e2ba in -[UITextField _resignFirstResponder] ()
+#5    0x000000010d5370c8 in -[UIResponder _finishResignFirstResponder] ()
+#6    0x000000010e01debf in -[UITextField _finishResignFirstResponder] ()
+#7    0x000000010d5371fe in -[UIResponder resignFirstResponder] ()
+#8    0x000000010e01dd8f in -[UITextField resignFirstResponder] ()
+#9    0x000000010d432c6e in -[UITableView _resignFirstResponderInDeletedSectionOrRow:] ()
+#10    0x000000010d433009 in -[UITableView _updateWithItems:updateSupport:] ()
+#11    0x000000010d42b034 in -[UITableView _endCellAnimationsWithContext:] ()
+#12    0x000000010d445d33 in -[UITableView _updateRowsAtIndexPaths:withUpdateAction:rowAnimation:usingPresentationValues:] ()
+#13    0x000000010d4460c4 in -[UITableView reloadRowsAtIndexPaths:withRowAnimation:] ()
+#14    0x000000010a29f877 in DetailViewController.observeValue(forKeyPath:of:change:context:) at /Users/jun1ro1/Documents/Xcode/TresorMockup/TresorMockup/DetailViewController.swift:568
+#15    0x000000010a2a07ce in @objc DetailViewController.observeValue(forKeyPath:of:change:context:) ()
+#16    0x000000010b522820 in NSKeyValueNotifyObserver ()
+#17    0x000000010b5220d7 in NSKeyValueDidChange ()
+#18    0x000000010b602422 in NSKeyValueDidChangeWithPerThreadPendingNotifications ()
+#19    0x000000010c606f96 in _PF_ManagedObject_DidChangeValueForKeyIndex ()
+#20    0x000000010c606338 in _sharedIMPL_setvfk_core ()
+#21    0x000000010a2de49f in PasswordManager.select(password:for:) at /Users/jun1ro1/Documents/Xcode/TresorMockup/TresorMockup/PasswordManager.swift:92
+#22    0x000000010a29bd37 in DetailViewController.valueChanged(sender:forEvent:) at /Users/jun1ro1/Documents/Xcode/TresorMockup/TresorMockup/DetailViewController.swift:500
+#23    0x000000010a29db50 in @objc DetailViewController.valueChanged(sender:forEvent:) ()
+#24    0x000000010d30a3e8 in -[UIApplication sendAction:to:from:forEvent:] ()
+#25    0x000000010d4857a4 in -[UIControl sendAction:to:forEvent:] ()
+#26    0x000000010d485ac1 in -[UIControl _sendActionsForEvents:withEvent:] ()
+#27    0x000000010d48452b in -[UIControl touchesBegan:withEvent:] ()
+#28    0x000000010d8f1fbc in _UIGestureEnvironmentSortAndSendDelayedTouches ()
+#29    0x000000010d8ebed5 in _UIGestureEnvironmentUpdate ()
+#30    0x000000010d8eb8a7 in -[UIGestureEnvironment _deliverEvent:toGestureRecognizers:usingBlock:] ()
+#31    0x000000010d8ea9a9 in -[UIGestureEnvironment _updateGesturesForEvent:window:] ()
+#32    0x000000010d3807ab in -[UIWindow sendEvent:] ()
+#33    0x000000010d324310 in -[UIApplication sendEvent:] ()
+#34    0x000000010dc656af in __dispatchPreprocessedEventFromEventQueue ()
+#35    0x000000010dc682c4 in __handleEventQueueInternal ()
+#36    0x000000010cba9bb1 in __CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ ()
+#37    0x000000010cb8e4af in __CFRunLoopDoSources0 ()
+#38    0x000000010cb8da6f in __CFRunLoopRun ()
+#39    0x000000010cb8d30b in CFRunLoopRunSpecific ()
+#40    0x0000000112d85a73 in GSEventRunModal ()
+#41    0x000000010d309057 in UIApplicationMain ()
+#42    0x000000010a200d77 in main at /Users/jun1ro1/Documents/Xcode/TresorMockup/TresorMockup/AppDelegate.swift:13
+#43    0x0000000111182955 in start ()
+#44    0x0000000111182955 in start ()
+
+
+
+-----------------
+
+(lldb) po self.detailItem?.passwords
+▿ Optional<NSSet>
+▿ some : 2 elements
+- 0 : <TresorMockup.Password: 0x607000033e80> (entity: Password; id: 0x60300003b290 <x-coredata:///Password/t816E1393-F914-4705-823E-EA2266A47B083> ; data: {
+active = 1;
+createdAt = "2018-08-04 04:57:54 +0000";
+current = 0;
+password = 6lsAMsgE;
+selectedAt = "2018-08-04 04:59:27 +0000";
+site = "0xd000000000080000 <x-coredata://BAE32B75-A43C-4CBB-A7E3-1BAEBA00A9B9/Site/p2>";
+uuid = "51154BDE-9056-4BCB-ACA9-31C9DD127303";
+})
+- 1 : <TresorMockup.Password: 0x60700005bb10> (entity: Password; id: 0x6030000d1200 <x-coredata:///Password/t816E1393-F914-4705-823E-EA2266A47B084> ; data: {
+active = 1;
+createdAt = "2018-08-04 09:39:48 +0000";
+current = 1;
+password = "";
+selectedAt = "2018-08-04 09:39:48 +0000";
+site = "0xd000000000080000 <x-coredata://BAE32B75-A43C-4CBB-A7E3-1BAEBA00A9B9/Site/p2>";
+uuid = "7B73BFB7-82A6-4AD3-9C63-85101120B168";
+})
+
+
+(lldb) 
+
+(lldb) po site.passwords
+▿ Optional<NSSet>
+▿ some : 1 element
+- 0 : <TresorMockup.Password: 0x607000033e80> (entity: Password; id: 0x60300003b290 <x-coredata:///Password/t816E1393-F914-4705-823E-EA2266A47B083> ; data: {
+active = 1;
+createdAt = "2018-08-04 04:57:54 +0000";
+current = 1;
+password = 6lsAMsgE;
+selectedAt = "2018-08-04 04:59:27 +0000";
+site = "0xd000000000080000 <x-coredata://BAE32B75-A43C-4CBB-A7E3-1BAEBA00A9B9/Site/p2>";
+uuid = "51154BDE-9056-4BCB-ACA9-31C9DD127303";
+})
+
+(lldb) po password
+▿ Optional<Password>
+
+(lldb) po password!
+<TresorMockup.Password: 0x607000033e80> (entity: Password; id: 0x60300003b290 <x-coredata:///Password/t816E1393-F914-4705-823E-EA2266A47B083> ; data: {
+active = 1;
+createdAt = "2018-08-04 04:57:54 +0000";
+current = 0;
+password = 6lsAMsgE;
+selectedAt = "2018-08-04 04:59:27 +0000";
+site = "0xd000000000080000 <x-coredata://BAE32B75-A43C-4CBB-A7E3-1BAEBA00A9B9/Site/p2>";
+uuid = "51154BDE-9056-4BCB-ACA9-31C9DD127303";
+})
+
+
 iPhone 8 Polus 11.4
 
 storeURL = file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/4089B35B-96ED-4C4D-9C42-9A325EAEF35F/data/Containers/Data/Application/EFC23357-1650-42A6-BF0B-84391F3787E9/Documents/TresorMockup.sqlite
