@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -242,10 +241,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stepper opaque="NO" tag="30" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="aB7-Ef-9wY">
-                                            <rect key="frame" x="312" y="57" width="94" height="29"/>
+                                            <rect key="frame" x="218" y="57" width="94" height="29"/>
                                         </stepper>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL0-1n-Ckw">
-                                            <rect key="frame" x="8" y="57" width="296" height="28"/>
+                                            <rect key="frame" x="8" y="57" width="202" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="tUJ-PY-Loi"/>
                                             </constraints>
@@ -254,11 +253,11 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zs-LK-RiS">
-                                            <rect key="frame" x="8" y="110" width="398" height="35.5"/>
+                                            <rect key="frame" x="8" y="110" width="304" height="35.5"/>
                                             <state key="normal" title="Generate Password"/>
                                         </button>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-Cf-SlA">
-                                            <rect key="frame" x="81" y="9" width="327" height="30"/>
+                                            <rect key="frame" x="81" y="9" width="233" height="30"/>
                                         </slider>
                                     </subviews>
                                     <constraints>
@@ -354,13 +353,6 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVf-iq-7Xt">
-                                            <rect key="frame" x="237" y="6.5" width="35" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" priority="250" constant="44" id="c5f-Ak-shc"/>
-                                            </constraints>
-                                            <state key="normal" title="Eye"/>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="YwL-R1-6cl" firstAttribute="baseline" secondItem="Yiy-GH-QE8" secondAttribute="baseline" id="5Ya-EP-Ted"/>
@@ -378,14 +370,10 @@
                                         <constraint firstItem="TnW-eo-Cmp" firstAttribute="baseline" secondItem="7JB-Do-cen" secondAttribute="baseline" id="nvF-wz-viT"/>
                                         <constraint firstItem="Yiy-GH-QE8" firstAttribute="bottom" secondItem="cSp-Ab-MfK" secondAttribute="bottomMargin" id="riU-o8-exc"/>
                                         <constraint firstItem="lex-eN-mIP" firstAttribute="top" secondItem="cSp-Ab-MfK" secondAttribute="topMargin" id="tek-eA-cfh"/>
-                                        <constraint firstItem="xVf-iq-7Xt" firstAttribute="firstBaseline" secondItem="lex-eN-mIP" secondAttribute="firstBaseline" id="urR-8f-IUA"/>
-                                        <constraint firstItem="xVf-iq-7Xt" firstAttribute="leading" secondItem="lex-eN-mIP" secondAttribute="trailing" id="yZ8-0p-47Q"/>
-                                        <constraint firstItem="xVf-iq-7Xt" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="cSp-Ab-MfK" secondAttribute="trailing" id="yvu-xV-5hX"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="createdAt" destination="TnW-eo-Cmp" id="PDh-Xf-k0U"/>
-                                    <outlet property="eyeButton" destination="xVf-iq-7Xt" id="jue-dy-P6p"/>
                                     <outlet property="password" destination="lex-eN-mIP" id="fLy-a9-a16"/>
                                     <outlet property="selectedAt" destination="YwL-R1-6cl" id="Wx2-mV-Lmt"/>
                                 </connections>
