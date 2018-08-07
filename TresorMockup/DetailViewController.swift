@@ -139,7 +139,7 @@ class DetailViewController: UITableViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        if self.tableView.isEditing {
+        if self.isEditing {
             self.setEditing(false, animated: false)
         }
         self.detailItem?.removeObserver(self, forKeyPath: "selectAt")
@@ -178,6 +178,7 @@ class DetailViewController: UITableViewController {
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
         guard self.detailItem != nil else {
             return
         }
