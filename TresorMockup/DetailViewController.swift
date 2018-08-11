@@ -182,6 +182,16 @@ class DetailViewController: UITableViewController {
         guard self.detailItem != nil else {
             return
         }
+
+        if !editing {
+            var recur: ((UIView) -> Void)?
+            recur = { (view: UIView) -> Void in
+                (view as? UITextField)?.resignFirstResponder()
+                view.subviews.forEach { recur!($0) }
+            }
+            recur!(self.view)
+        }
+
         if let keys = self.detailItem?.changedValues().keys, keys.contains("passwordCurrent") {
             print("changed passwordCurrent = \(String(describing: self.detailItem?.passwordCurrent))")
             if let str = self.detailItem?.passwordCurrent as String?,
