@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 // MARK: -
 class DetailViewController: UITableViewController {
@@ -606,54 +606,49 @@ class DetailViewController: UITableViewController {
 // MARK: - extension
 extension DetailViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
+        let setStr = { (obj: NSManagedObject?, key: String, str:String?) -> Void in
+            guard obj != nil                     else { return }
+            guard str != nil && !str!.isEmpty    else { return }
+            guard obj?.value(forKey: key) != nil else { return }
+            guard let val = obj?.value(forKey: key) as? String else {
+                return
+            }
+            guard val != str else {return }
+            obj?.setValue(str, forKey: key)
+        }
         switch textField.tag {
         case TAG_TEXTFIELD_TITLE:
             if let str = textField.text {
-                if str == "" && self.detailItem?.title == nil {
-                    // preserve nil
-                }
-                else {
-                    self.detailItem?.title = str
-                    self.save()
-                }
+                setStr( self.detailItem, "title", str )
             }
 
         case TAG_TEXTFIELD_URL:
             if let str = textField.text {
-                if str == "" && self.detailItem?.url == nil {
-                    // preserve nil
-                }
-                else {
-                    self.detailItem?.url = str
-                    self.save()
-                }
+                setStr( self.detailItem, "url", str )
             }
 
         case TAG_TEXTFIELD_USERID:
             if let str = textField.text {
-                if str == "" && self.detailItem?.userid == nil {
-                    // preserve nil
-                }
-                else {
-                    self.detailItem?.userid = str
-                    self.save()
-                }
+                setStr( self.detailItem, "userid", str )
             }
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
-                if str == "" && (self.detailItem?.passwordCurrent as String?) == nil {
-                    // preserve nil
-                }
-                else {
-                    self.detailItem?.passwordCurrent = str as NSString
+                setStr( self.detailItem, "passwordCurrent", str )
+            }
+
+//                if str == "" && (self.detailItem?.passwordCurrent as String?) == nil {
+//                    // preserve nil
+//                }
+//                else {
+//                    self.detailItem?.passwordCurrent = str as NSString
 //                    if let password = self.passwordManager?.newObject(for: self.detailItem!) {
 //                        password.password = str
 //                        self.passwordManager?.select(password: password, for: self.detailItem!)
 //                        self.save()
 //                    }
-                }
-            }
+//                }
+//            }
 
         default:
             assertionFailure()
