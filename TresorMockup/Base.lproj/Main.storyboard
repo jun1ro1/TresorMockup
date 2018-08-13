@@ -384,18 +384,8 @@
                             <outlet property="delegate" destination="RZa-f9-bwm" id="qaQ-jU-qmy"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" style="plain" id="eMc-GL-yVv">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="71l-Uc-0w3">
-                                <rect key="frame" x="16" y="7" width="288" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Eye"/>
-                            </button>
-                        </barButtonItem>
-                    </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <toolbarItems/>
                     <connections>
-                        <outlet property="eyeButton" destination="71l-Uc-0w3" id="KA9-Jx-zwr"/>
                         <segue destination="Lel-Ep-JC2" kind="unwind" identifier="PasswordTableToMaster" unwindAction="unwindToMasterWithUnwindSegue:" id="X3U-zd-5z0"/>
                     </connections>
                 </tableViewController>
@@ -531,6 +521,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="svl-AS-CWL"/>
+        <segue reference="Tll-UG-LXB"/>
     </inferredMetricsTieBreakers>
 </document>

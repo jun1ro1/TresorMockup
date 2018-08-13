@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import CoreGraphics
 
 class PasswordTableViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
@@ -16,8 +17,8 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     private weak var selectedOriginal: Password?
     private weak var passwordManager = PasswordManager.shared
 
-    @IBOutlet weak var eyeButton: UIButton?
-    
+//    @IBOutlet weak var eyeButton: UIButton?
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,15 +34,31 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         let predicate = NSPredicate(format: "%K == %@", "site", self.detailItem ?? "")
         self.passwordManager?.fetchedResultsController.fetchRequest.predicate = predicate
 
-        eyeButton?.addTarget(self,
+        let eyeButton = UIButton(type: UIButtonType.system)
+//        eyeButton.titleLabel?.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+//        eyeButton.titleLabel?.text = "eye"
+//        eyeButton.titleColor(for: .normal)
+//        eyeButton.titleLabel?.sizeToFit()
+//        eyeButton.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+//
+//        [.normal, .highlighted, .selected, .focused].forEach { eyeButton.setTitle("Eye", for: $0) }
+        eyeButton.setTitle("Eye", for: .normal)
+
+        eyeButton.addTarget(self,
                              action: #selector(showPassword(sender:)),
                              for: .touchDown)
-        eyeButton?.addTarget(self,
+        eyeButton.addTarget(self,
                              action: #selector(hidePoassword(sender:)),
                              for: [.touchUpInside, .touchUpOutside])
 
-//        self.navigationItem.rightBarButtonItem = editButtonItem
+// https://stackoverflow.com/questions/25590771/add-action-to-uibarbuttonitem-swift
+        let rightButton = UIBarButtonItem(customView: eyeButton)
+        rightButton.style = .plain
+//        rightButton.title = "eye"
+        self.navigationItem.rightBarButtonItem = rightButton
         self.navigationController?.setToolbarHidden(false, animated: false)
+
+        eyeButton.titleLabel?.isHidden = false
 
         self.selectedOriginal = self.detailItem?.currentPassword
     }
@@ -50,6 +67,8 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         super.viewWillAppear(animated)
 
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+
+        self.navigationController?.setToolbarHidden(false, animated: false)
 
         self.passwordManager?.fetchedResultsController.delegate = self
         self.passwordManager?.deleteCache()
