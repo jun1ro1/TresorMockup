@@ -34,16 +34,17 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         fetchRequest.fetchBatchSize = 20
 
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "selectedAt", ascending: false)
+        let sortDescriptor1 = NSSortDescriptor(key: "current",    ascending: false)
+        let sortDescriptor2 = NSSortDescriptor(key: "selectedAt", ascending: false)
 
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
 
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
         let aFetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext!,
-            sectionNameKeyPath: nil,
+            sectionNameKeyPath: "current",
             cacheName: CACHE_NAME)
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController

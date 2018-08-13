@@ -40,7 +40,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
                              action: #selector(hidePoassword(sender:)),
                              for: [.touchUpInside, .touchUpOutside])
 
-        self.navigationItem.rightBarButtonItem = editButtonItem
+//        self.navigationItem.rightBarButtonItem = editButtonItem
         self.navigationController?.setToolbarHidden(false, animated: false)
 
         self.selectedOriginal = self.detailItem?.currentPassword
@@ -89,6 +89,9 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         return sectionInfo?.numberOfObjects ?? 0
     }
 
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return ["Current","History"][section]
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellPassword", for: indexPath) as! PasswordTableCell
@@ -120,12 +123,12 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
             }
         }()
 
-        if self.selected != nil {
-            cell.accessoryType = ( self.selected == password ) ? .checkmark : .none
-        }
-        else {
+//        if self.selected != nil {
+//            cell.accessoryType = ( self.selected == password ) ? .checkmark : .none
+//        }
+//        else {
             cell.accessoryType = .none
-        }
+//        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -235,6 +238,16 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
             let oldIndex   = self.passwordManager?.fetchedResultsController.indexPath(forObject: self.selected!)
             self.selected  = self.passwordManager?.fetchedResultsController.object(at: indexPath)
             let indexPaths = [oldIndex, indexPath].compactMap { $0 }
+            self.passwordManager?.select(password: self.selected, for: (self.selected?.site)!)
+
+            self.passwordManager?.deleteCache()
+            do {
+                try self.passwordManager!.fetchedResultsController.performFetch()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+
             self.tableView.performBatchUpdates(
                 { self.tableView.reloadRows(at: indexPaths, with: .automatic) },
                 completion: nil
