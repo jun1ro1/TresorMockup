@@ -190,15 +190,15 @@ class DetailViewController: UITableViewController {
                 view.subviews.forEach { recur!($0) }
             }
             recur!(self.view)
-        }
 
-        if let keys = self.detailItem?.changedValues().keys, keys.contains("passwordCurrent") {
-            print("changed passwordCurrent = \(String(describing: self.detailItem?.passwordCurrent))")
-            if let str = self.detailItem?.passwordCurrent as String?,
-                let password = self.passwordManager?.newObject(for: self.detailItem!) {
-                password.password = str
-                self.passwordManager?.select(password: password, for: self.detailItem!)
-                self.save()
+            if let keys = self.detailItem?.changedValues().keys, keys.contains("passwordCurrent") {
+                print("changed passwordCurrent = \(String(describing: self.detailItem?.passwordCurrent))")
+                if let str = self.detailItem?.passwordCurrent as String?,
+                    let password = self.passwordManager?.newObject(for: self.detailItem!) {
+                    password.password = str
+                    self.passwordManager?.select(password: password, for: self.detailItem!)
+                    self.save(force: true)
+                }
             }
         }
 
