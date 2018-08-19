@@ -87,7 +87,11 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
     func select(password: Password?, for site: Site) {
         let now = (password == nil) ? nil : Date() as NSDate
         password?.selectedAt = now
-        site.passwords?.forEach { ($0 as! Password).current = false }
+        site.passwords?.forEach {
+            if ($0 as! Password).current {
+                ($0 as! Password).current = false
+            }
+        }
         site.passwordCurrent = (password?.password ?? "") as NSString
         password?.current    = true
         site.selectAt        = now // invakes observeValue

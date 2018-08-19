@@ -169,18 +169,16 @@
 		F9FE6EA72042E99300F892DC /* TresorMockup */ = {
 			isa = PBXGroup;
 			children = (
+				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
+				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
-				F985628B20DD438400177F55 /* CoreDataManager.swift */,
-				F926350320F981C700EF7851 /* CloudKitManager.swift */,
 				F9D3F352205E97F200878975 /* AppKey.swift */,
 				F9610E182055864C00A97F0E /* AsBytes.swift */,
-				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
+				F926350320F981C700EF7851 /* CloudKitManager.swift */,
+				F985628B20DD438400177F55 /* CoreDataManager.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
 				F935B37A204A3ACA00B004B2 /* Extensions.swift */,
-				F9FE6EB92042E99300F892DC /* Info.plist */,
-				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
 				F9610E1020552FEA00A97F0E /* Layouter.swift */,
-				F9FE6EB12042E99300F892DC /* Main.storyboard */,
 				F9FE6EAD2042E99300F892DC /* MasterViewController.swift */,
 				F9E2084C204BF14F00543C81 /* Password.swift */,
 				F92E9AD920D411F9007EE75A /* Password+CoreDataProperties.swift */,
@@ -190,9 +188,11 @@
 				F9E20848204BF0D600543C81 /* Site.swift */,
 				F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */,
 				F950E78220676C8600D55557 /* TextViewController.swift */,
-				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
-				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
 				F906C49820DE5F57003DADEC /* log.txt */,
+				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
+				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
+				F9FE6EB12042E99300F892DC /* Main.storyboard */,
+				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";

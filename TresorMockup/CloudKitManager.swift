@@ -15,6 +15,8 @@ class UpdatedObject {
     var object: NSManagedObject?
     var keys: [String]
 
+    let ZONE_ID = "TresorMockup"
+
     init() {
         self.object = nil
         self.keys   = []
@@ -59,9 +61,9 @@ class CloudKitManager: NSObject {
             if obj.objectID.isTemporaryID {
                 assertionFailure()
             }
-            let id        = obj.objectID.uriRepresentation()
+            let id        = obj.idstr ?? "NO UUID"
             let entryName = obj.entity.managedObjectClassName ?? ""
-            print("deleted = \(id): \(entryName)")
+            print("[deleted] = \(id): \(entryName)")
         }
 
         self.updated.forEach { uobj in
@@ -73,7 +75,7 @@ class CloudKitManager: NSObject {
             if obj!.objectID.isTemporaryID {
                 assertionFailure()
             }
-            let id         = obj!.objectID.uriRepresentation()
+            let id         = obj!.idstr ?? "NO UUID"
             let entryName  = obj!.entity.managedObjectClassName ?? ""
             let attributes = obj!.committedValues(forKeys: uobj.keys)
 
@@ -106,12 +108,18 @@ class CloudKitManager: NSObject {
                     typestr = "CLLocation"
                     valstr  = val.description
                 }
+                else if let val = v as? NSManagedObject {
+                    typestr = "CKReference"
+                    valstr  = "\(val.entity.name!) \(String(describing: val.idstr))"
+                }
+                else if let val = v as? NSSet {
+                    typestr = "CKReference NSSet"
+                    valstr  = val.reduce("") {
+                        let obj = $1 as! NSManagedObject
+                        return $0 + obj.entity.name! + String(describing: obj.idstr) + "\n" }
+                }
                 else if let val = v as? CKAsset {
                     typestr = "CKAsset"
-                    valstr  = val.description
-                }
-                else if let val = v as? CKReference {
-                    typestr = "CKReference"
                     valstr  = val.description
                 }
                 else {
@@ -122,21 +130,26 @@ class CloudKitManager: NSObject {
                 let str = "\(key): \(typestr) = \(valstr)"
                 return result + str + "\n"
             }
-            print("updated = \(id): \(entryName)")
-            print("updated = \(str)\n")
+            print("[updated] = \(id): \(entryName) \(str)\n")
         }
 
         self.inserted.forEach  { obj in
             if obj.objectID.isTemporaryID {
                 assertionFailure()
             }
-            let id        = obj.objectID.uriRepresentation()
+            let id        = obj.idstr ?? "NO UUID"
             let entryName = obj.entity.managedObjectClassName ?? ""
-            print("inserted = \(id): \(entryName)")
+            print("[inserted] = \(id): \(entryName)")
         }
 
         self.inserted = []
         self.deleted  = []
         self.updated  = []
+    }
+}
+
+extension NSManagedObject {
+    var idstr: String? {
+        return self.value(forKey: "uuid") as? String
     }
 }
