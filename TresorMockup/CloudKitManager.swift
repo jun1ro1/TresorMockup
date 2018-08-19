@@ -118,12 +118,10 @@ class CloudKitManager: NSObject {
         print("contextDidSave")
 
         self.deleted.forEach { obj in
-            if obj.objectID.isTemporaryID {
-                assertionFailure()
-            }
             let id        = obj.idstr ?? "NO UUID"
             let entryName = obj.entity.managedObjectClassName ?? ""
-            print("[deleted] = \(id): \(entryName)")
+            let str = self.propertiesString( obj.committedValues(forKeys: nil) )
+            print("[deleted] = \(id): \(entryName) \(str)\n")
         }
 
         self.updated.forEach { uobj in
@@ -132,15 +130,9 @@ class CloudKitManager: NSObject {
                 assertionFailure()
                 return
             }
-            if obj!.objectID.isTemporaryID {
-                assertionFailure()
-            }
             let id         = obj!.idstr ?? "NO UUID"
             let entryName  = obj!.entity.managedObjectClassName ?? ""
-            let attributes = obj!.committedValues(forKeys: uobj.keys)
-
-            let str = self.propertiesString( attributes )
-
+            let str = self.propertiesString( obj!.committedValues(forKeys: uobj.keys) )
             print("[updated] = \(id): \(entryName) \(str)\n")
         }
 
@@ -150,7 +142,8 @@ class CloudKitManager: NSObject {
             }
             let id        = obj.idstr ?? "NO UUID"
             let entryName = obj.entity.managedObjectClassName ?? ""
-            print("[inserted] = \(id): \(entryName)")
+            let str = self.propertiesString( obj.committedValues(forKeys: nil) )
+            print("[inserted] = \(id): \(entryName) \(str)\n")
         }
 
         self.inserted = []
