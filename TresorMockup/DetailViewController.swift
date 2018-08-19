@@ -197,7 +197,7 @@ class DetailViewController: UITableViewController {
                     let password = self.passwordManager?.newObject(for: self.detailItem!) {
                     password.password = str
                     self.passwordManager?.select(password: password, for: self.detailItem!)
-                    self.save(force: true)
+                    self.save(force: false)
                 }
             }
         }
@@ -609,12 +609,16 @@ extension DetailViewController: UITextFieldDelegate {
         let setStr = { (obj: NSManagedObject?, key: String, str:String?) -> Void in
             guard obj != nil                     else { return }
             guard str != nil && !str!.isEmpty    else { return }
-            guard obj?.value(forKey: key) != nil else { return }
-            guard let val = obj?.value(forKey: key) as? String else {
-                return
+//            guard obj?.value(forKey: key) != nil else { return }
+            let val = obj?.value(forKey: key)
+            if val == nil || (val as? String) != str {
+                obj?.setValue(str, forKey: key)
             }
-            guard val != str else {return }
-            obj?.setValue(str, forKey: key)
+//            guard let val = obj?.value(forKey: key) as? String else {
+//                return
+//            }
+//            guard val != str else {return }
+//            obj?.setValue(str, forKey: key)
         }
         switch textField.tag {
         case TAG_TEXTFIELD_TITLE:
