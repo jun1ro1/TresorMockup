@@ -54,6 +54,66 @@ class CloudKitManager: NSObject {
         self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
     }
 
+    func propertiesString(_ properties:[String: Any? ]) -> String {
+        return properties.reduce("") { (result, dic) in
+            let (key, v) = dic
+
+            var typestr = ""
+            var valstr  = ""
+
+            if v is NSNull {
+                typestr = "NULL"
+                valstr  = "NIL"
+            }
+            else if let val = v as? NSString {
+                typestr = "NSString"
+                valstr  = val as String
+            }
+            else if let val = v as? NSNumber {
+                typestr = "NSNumber"
+                valstr  = val.stringValue
+            }
+            else if let val = v as? NSData {
+                typestr = "NSData"
+                valstr  = val.description
+            }
+            else if let val = v as? NSDate {
+                typestr = "NSDate"
+                valstr  = val.description
+            }
+            else if let val = v as? NSArray {
+                typestr = "NSArray"
+                valstr  = val.description
+            }
+            else if let val = v as? CLLocation {
+                typestr = "CLLocation"
+                valstr  = val.description
+            }
+            else if let val = v as? NSManagedObject {
+                typestr = "CKReference"
+                valstr  = "\(val.entity.name!) \(String(describing: val.idstr))"
+            }
+            else if let val = v as? NSSet {
+                typestr = "CKReference NSSet"
+                valstr  = val.reduce("") {
+                    let obj = $1 as! NSManagedObject
+                    return $0 + obj.entity.name! + String(describing: obj.idstr) + "\n" }
+            }
+            else if let val = v as? CKAsset {
+                typestr = "CKAsset"
+                valstr  = val.description
+            }
+            else {
+                typestr = "UNKNOWN"
+                valstr  = (v as AnyObject).description
+                assertionFailure()
+            }
+
+            let str = "\(key): \(typestr) = \(valstr)"
+            return result + str + "\n"
+        }
+    }
+
     @objc func contextDidSave(notification: Notification) {
         print("contextDidSave")
 
@@ -79,57 +139,8 @@ class CloudKitManager: NSObject {
             let entryName  = obj!.entity.managedObjectClassName ?? ""
             let attributes = obj!.committedValues(forKeys: uobj.keys)
 
-            let str = attributes.reduce("") { (result, dic) in
-                let (key, v) = dic
+            let str = self.propertiesString( attributes )
 
-                var typestr = ""
-                var valstr  = ""
-                if let val = v as? NSString {
-                    typestr = "NSString"
-                    valstr  = val as String
-                }
-                else if let val = v as? NSNumber {
-                    typestr = "NSNumber"
-                    valstr  = val.stringValue
-                }
-                else if let val = v as? NSData {
-                    typestr = "NSData"
-                    valstr  = val.description
-                }
-                else if let val = v as? NSDate {
-                    typestr = "NSDate"
-                    valstr  = val.description
-                }
-                else if let val = v as? NSArray {
-                    typestr = "NSArray"
-                    valstr  = val.description
-                }
-                else if let val = v as? CLLocation {
-                    typestr = "CLLocation"
-                    valstr  = val.description
-                }
-                else if let val = v as? NSManagedObject {
-                    typestr = "CKReference"
-                    valstr  = "\(val.entity.name!) \(String(describing: val.idstr))"
-                }
-                else if let val = v as? NSSet {
-                    typestr = "CKReference NSSet"
-                    valstr  = val.reduce("") {
-                        let obj = $1 as! NSManagedObject
-                        return $0 + obj.entity.name! + String(describing: obj.idstr) + "\n" }
-                }
-                else if let val = v as? CKAsset {
-                    typestr = "CKAsset"
-                    valstr  = val.description
-                }
-                else {
-                    typestr = "UNKNOWN"
-                    valstr  = (v as AnyObject).description 
-                }
-
-                let str = "\(key): \(typestr) = \(valstr)"
-                return result + str + "\n"
-            }
             print("[updated] = \(id): \(entryName) \(str)\n")
         }
 
