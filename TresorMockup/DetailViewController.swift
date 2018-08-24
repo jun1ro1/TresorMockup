@@ -89,11 +89,12 @@ class DetailViewController: UITableViewController {
 
 
     // MARK: - Properties
-    var detailItem: Site? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    var detailItem: Site?
+//    {
+//        didSet {
+//            self.tableView.reloadData()
+//        }
+//    }
 
     weak var passTextField: UITextField? = nil
 
