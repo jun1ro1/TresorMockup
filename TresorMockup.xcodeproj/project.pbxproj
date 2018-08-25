@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		592F958880EDC3597BCBC738 /* Pods_TresorMockupTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */; };
+		860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */; };
+		CD66B538CEA5298BF975469B /* Pods_TresorMockupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */; };
 		F906C49920DE5F57003DADEC /* log.txt in Resources */ = {isa = PBXBuildFile; fileRef = F906C49820DE5F57003DADEC /* log.txt */; };
 		F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
@@ -87,6 +90,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E1393681DC1A0EC48AC2C22 /* Pods-TresorMockupUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupUITests/Pods-TresorMockupUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2F2D36717E9F878425165EFA /* Pods-TresorMockup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockup/Pods-TresorMockup.debug.xcconfig"; sourceTree = "<group>"; };
+		3E667FB1AFA1815DE62C50B0 /* Pods-TresorMockupTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupTests/Pods-TresorMockupTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6EE33ADCBDC6860C2AA143E0 /* Pods-TresorMockupUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupUITests/Pods-TresorMockupUITests.release.xcconfig"; sourceTree = "<group>"; };
+		793C7C13C8EFCB46B0A22612 /* Pods-TresorMockup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockup.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockup/Pods-TresorMockup.release.xcconfig"; sourceTree = "<group>"; };
+		98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresorMockupTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresorMockup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresorMockupUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupTests/Pods-TresorMockupTests.release.xcconfig"; sourceTree = "<group>"; };
 		F906C49820DE5F57003DADEC /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log.txt; sourceTree = "<group>"; };
 		F926350320F981C700EF7851 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -125,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				592F958880EDC3597BCBC738 /* Pods_TresorMockupTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,12 +153,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD66B538CEA5298BF975469B /* Pods_TresorMockupUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F574FF705EC802C60A943915 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2F2D36717E9F878425165EFA /* Pods-TresorMockup.debug.xcconfig */,
+				793C7C13C8EFCB46B0A22612 /* Pods-TresorMockup.release.xcconfig */,
+				3E667FB1AFA1815DE62C50B0 /* Pods-TresorMockupTests.debug.xcconfig */,
+				E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */,
+				2E1393681DC1A0EC48AC2C22 /* Pods-TresorMockupUITests.debug.xcconfig */,
+				6EE33ADCBDC6860C2AA143E0 /* Pods-TresorMockupUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F9FE6E9C2042E99300F892DC = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +181,7 @@
 				F9FE6ECC2042E99400F892DC /* TresorMockupUITests */,
 				F9FE6EA62042E99300F892DC /* Products */,
 				F9FE6EDC2042EB1600F892DC /* Frameworks */,
+				F574FF705EC802C60A943915 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -218,6 +247,9 @@
 		F9FE6EDC2042EB1600F892DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */,
+				98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */,
+				B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -229,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9FE6ED22042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockup" */;
 			buildPhases = (
+				2A77562F7E69320ECF0578B0 /* [CP] Check Pods Manifest.lock */,
 				F9FE6EA12042E99300F892DC /* Sources */,
 				F9FE6EA22042E99300F892DC /* Frameworks */,
 				F9FE6EA32042E99300F892DC /* Resources */,
+				79B9FD2C0652AC99C5578CC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,6 +280,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9FE6ED52042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockupTests" */;
 			buildPhases = (
+				202C9743F98FBD619514BB40 /* [CP] Check Pods Manifest.lock */,
 				F9FE6EBA2042E99300F892DC /* Sources */,
 				F9FE6EBB2042E99300F892DC /* Frameworks */,
 				F9FE6EBC2042E99300F892DC /* Resources */,
@@ -264,6 +299,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F9FE6ED82042E99400F892DC /* Build configuration list for PBXNativeTarget "TresorMockupUITests" */;
 			buildPhases = (
+				48773F873670394C19927D63 /* [CP] Check Pods Manifest.lock */,
 				F9FE6EC52042E99400F892DC /* Sources */,
 				F9FE6EC62042E99400F892DC /* Frameworks */,
 				F9FE6EC72042E99400F892DC /* Resources */,
@@ -364,6 +400,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		202C9743F98FBD619514BB40 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TresorMockupTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2A77562F7E69320ECF0578B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TresorMockup-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		48773F873670394C19927D63 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TresorMockupUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		79B9FD2C0652AC99C5578CC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TresorMockup/Pods-TresorMockup-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TresorMockup/Pods-TresorMockup-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F9FE6EA12042E99300F892DC /* Sources */ = {
@@ -593,6 +704,7 @@
 		};
 		F9FE6ED32042E99400F892DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F2D36717E9F878425165EFA /* Pods-TresorMockup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TresorMockup/TresorMockup.entitlements;
@@ -615,6 +727,7 @@
 		};
 		F9FE6ED42042E99400F892DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 793C7C13C8EFCB46B0A22612 /* Pods-TresorMockup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TresorMockup/TresorMockup.entitlements;
@@ -636,6 +749,7 @@
 		};
 		F9FE6ED62042E99400F892DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3E667FB1AFA1815DE62C50B0 /* Pods-TresorMockupTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -657,6 +771,7 @@
 		};
 		F9FE6ED72042E99400F892DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -678,6 +793,7 @@
 		};
 		F9FE6ED92042E99400F892DC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E1393681DC1A0EC48AC2C22 /* Pods-TresorMockupUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -698,6 +814,7 @@
 		};
 		F9FE6EDA2042E99400F892DC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE33ADCBDC6860C2AA143E0 /* Pods-TresorMockupUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

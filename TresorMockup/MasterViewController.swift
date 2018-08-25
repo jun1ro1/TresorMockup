@@ -197,12 +197,12 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
         case .update:
             configureCell(tableView.cellForRow(at: indexPath!)!, withSite: anObject as! Site)
-            tableView.reloadRows(at: [indexPath!], with: .fade)
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
         case .move:
             configureCell(tableView.cellForRow(at: indexPath!)!, withSite: anObject as! Site)
             tableView.moveRow(at: indexPath!, to: newIndexPath!)

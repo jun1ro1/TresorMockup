@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftyBeaver
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -27,6 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let controller = masterNavigationController.topViewController as! MasterViewController
 //        controller.managedObjectContext = self.persistentContainer.viewContext
 //        PasswordManager.shared.managedObjectContext = self.persistentContainer.viewContext
+
+        // https://github.com/SwiftyBeaver/SwiftyBeaver
+        let log = SwiftyBeaver.self
 
         controller.managedObjectContext = CoreDataManager.shared.managedObjectContext
         PasswordManager.shared.managedObjectContext = CoreDataManager.shared.managedObjectContext
