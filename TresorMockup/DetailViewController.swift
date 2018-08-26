@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
+import SwiftyBeaver
 
 // MARK: -
 class DetailViewController: UITableViewController {
+    private var log = SwiftyBeaver.self
+    
     //    let lengthArray: [Int16]             = [ 4, 5, 6, 8, 10, 12, 14, 16, 20, 24, 32 ]
     let charsArray: [CypherCharacterSet] = [
         CypherCharacterSet.DecimalDigits,
@@ -294,6 +297,7 @@ class DetailViewController: UITableViewController {
             context.performAndWait {
                 do {
                     try context.save()
+                    self.log.debug("save")
                 }
                 catch {
                     print("error = \(error)")

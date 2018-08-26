@@ -12,9 +12,12 @@
 
 import UIKit
 import CoreData
+import SwiftyBeaver
 
 class CoreDataManager: NSObject {
     private static var _manager: CoreDataManager? = nil
+    private var log = SwiftyBeaver.self
+
     static var shared: CoreDataManager = {
         if _manager == nil {
             _manager = CoreDataManager()

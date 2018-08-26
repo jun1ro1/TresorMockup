@@ -10,12 +10,11 @@ import UIKit
 import CoreData
 import CoreLocation
 import CloudKit
+import SwiftyBeaver
 
 class UpdatedObject {
     var object: NSManagedObject?
     var keys: [String]
-
-    let ZONE_ID = "TresorMockup"
 
     init() {
         self.object = nil
@@ -25,13 +24,17 @@ class UpdatedObject {
     convenience init(object: NSManagedObject?) {
         self.init()
         self.object = object
-        self.keys   = object?.changedValues().map { (key, _) in return key } ?? []
+        self.keys   = object?.changedValues().map {
+            let (k, v) = $0
+            SwiftyBeaver.self.debug("\(k):\(v)")
+            return $0.key
+            } ?? []
     }
 }
 
 class CloudKitManager: NSObject {
-
     static var shared: CloudKitManager? = CloudKitManager()
+    private var log = SwiftyBeaver.self
 
     var inserted: [NSManagedObject] = []
     var deleted:  [NSManagedObject] = []
@@ -43,20 +46,9 @@ class CloudKitManager: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave(notification:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: moc)
     }
 
-    @objc func contextWillSave(notification: Notification) {
-        guard let moc = notification.object as? NSManagedObjectContext else {
-            assertionFailure()
-            return
-        }
-        print("contextWillSave")
-        self.inserted = Array(moc.insertedObjects)
-        self.deleted  = Array(moc.deletedObjects)
-        self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
-    }
-
-    func propertiesString(_ properties:[String: Any? ]) -> String {
-        return properties.reduce("") { (result, dic) in
-            let (key, v) = dic
+    func propertiesString(_ properties:[String: Any? ]) -> [String] {
+        return properties.map {
+            let (key, v) = $0
 
             var typestr = ""
             var valstr  = ""
@@ -109,19 +101,41 @@ class CloudKitManager: NSObject {
                 assertionFailure()
             }
 
-            let str = "\(key): \(typestr) = \(valstr)"
-            return result + str + "\n"
+            return "\(key): \(typestr) = \(valstr)"
         }
     }
 
+    @objc func contextWillSave(notification: Notification) {
+        guard let moc = notification.object as? NSManagedObjectContext else {
+            assertionFailure()
+            return
+        }
+        self.log.debug("contextWillSave")
+        
+        self.deleted  = Array(moc.deletedObjects)
+        self.inserted = Array(moc.insertedObjects)
+        self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
+    }
+
     @objc func contextDidSave(notification: Notification) {
-        print("contextDidSave")
+        self.log.debug("contextDidSave")
 
         self.deleted.forEach { obj in
             let id        = obj.idstr ?? "NO UUID"
             let entryName = obj.entity.managedObjectClassName ?? ""
-            let str = self.propertiesString( obj.committedValues(forKeys: nil) )
-            print("[deleted] = \(id): \(entryName) \(str)\n")
+            self.log.debug("[deleted] id = \(id) type = \(entryName)")
+            self.propertiesString( obj.committedValues(forKeys: nil) ).forEach { self.log.debug("  " + $0) }
+
+        }
+
+        self.inserted.forEach  { obj in
+            if obj.objectID.isTemporaryID {
+                assertionFailure()
+            }
+            let id        = obj.idstr ?? "NO UUID"
+            let entryName = obj.entity.managedObjectClassName ?? ""
+            self.log.debug("[inserted] id = \(id): type = \(entryName)")
+            self.propertiesString( obj.committedValues(forKeys: nil) ).forEach { self.log.debug("  " + $0) }
         }
 
         self.updated.forEach { uobj in
@@ -132,18 +146,8 @@ class CloudKitManager: NSObject {
             }
             let id         = obj!.idstr ?? "NO UUID"
             let entryName  = obj!.entity.managedObjectClassName ?? ""
-            let str = self.propertiesString( obj!.committedValues(forKeys: uobj.keys) )
-            print("[updated] = \(id): \(entryName) \(str)\n")
-        }
-
-        self.inserted.forEach  { obj in
-            if obj.objectID.isTemporaryID {
-                assertionFailure()
-            }
-            let id        = obj.idstr ?? "NO UUID"
-            let entryName = obj.entity.managedObjectClassName ?? ""
-            let str = self.propertiesString( obj.committedValues(forKeys: nil) )
-            print("[inserted] = \(id): \(entryName) \(str)\n")
+            self.log.debug("[updated] id = \(id): type = \(entryName)")
+            self.propertiesString( obj!.committedValues(forKeys: uobj.keys) ).forEach { self.log.debug("  " + $0) }
         }
 
         self.inserted = []

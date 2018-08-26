@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftyBeaver
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
@@ -20,6 +21,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
         navigationItem.leftBarButtonItem = editButtonItem
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
@@ -31,12 +33,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
 
+        SwiftyBeaver.self.debug("viewDidLoad")
+
         self.searchBar.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
+
+        SwiftyBeaver.self.debug("viewWillAppear")
     }
 
     override func didReceiveMemoryWarning() {
