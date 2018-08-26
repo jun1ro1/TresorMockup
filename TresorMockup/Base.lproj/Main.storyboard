@@ -232,7 +232,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Length" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sok-il-NN6">
-                                            <rect key="frame" x="8" y="9" width="54" height="28"/>
+                                            <rect key="frame" x="8" y="8" width="54" height="28"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="28" id="gmX-AQ-c5w"/>
                                             </constraints>
@@ -253,28 +253,28 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0zs-LK-RiS">
-                                            <rect key="frame" x="8" y="110" width="304" height="35.5"/>
+                                            <rect key="frame" x="8" y="106" width="304" height="45.5"/>
                                             <state key="normal" title="Generate Password"/>
                                         </button>
                                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="I4j-Cf-SlA">
-                                            <rect key="frame" x="81" y="9" width="233" height="30"/>
+                                            <rect key="frame" x="80" y="8" width="234" height="30"/>
                                         </slider>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Sok-il-NN6" firstAttribute="leading" secondItem="1DS-p4-OK1" secondAttribute="leadingMargin" id="0ti-Uh-s0f"/>
-                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0zs-LK-RiS" secondAttribute="leading" id="94O-n4-fF7"/>
-                                        <constraint firstItem="0zs-LK-RiS" firstAttribute="top" secondItem="aB7-Ef-9wY" secondAttribute="bottom" constant="24" id="DJt-ZK-zLw"/>
-                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="top" secondItem="I4j-Cf-SlA" secondAttribute="bottom" constant="19" id="E99-uQ-pRm"/>
-                                        <constraint firstItem="aB7-Ef-9wY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0zs-LK-RiS" secondAttribute="trailing" id="ISk-y9-CTP"/>
+                                        <constraint firstItem="0zs-LK-RiS" firstAttribute="leading" secondItem="1DS-p4-OK1" secondAttribute="leadingMargin" id="94O-n4-fF7"/>
+                                        <constraint firstItem="0zs-LK-RiS" firstAttribute="top" secondItem="aB7-Ef-9wY" secondAttribute="bottom" constant="20" id="DJt-ZK-zLw"/>
+                                        <constraint firstItem="OL0-1n-Ckw" firstAttribute="top" secondItem="I4j-Cf-SlA" secondAttribute="bottom" constant="20" id="E99-uQ-pRm"/>
+                                        <constraint firstItem="0zs-LK-RiS" firstAttribute="trailing" secondItem="aB7-Ef-9wY" secondAttribute="trailing" id="ISk-y9-CTP"/>
                                         <constraint firstItem="I4j-Cf-SlA" firstAttribute="trailing" secondItem="aB7-Ef-9wY" secondAttribute="trailing" id="Jui-YA-neE"/>
-                                        <constraint firstItem="I4j-Cf-SlA" firstAttribute="leading" secondItem="Sok-il-NN6" secondAttribute="trailing" constant="21" id="MBZ-27-FXx"/>
+                                        <constraint firstItem="I4j-Cf-SlA" firstAttribute="leading" secondItem="Sok-il-NN6" secondAttribute="trailing" constant="20" id="MBZ-27-FXx"/>
                                         <constraint firstItem="Sok-il-NN6" firstAttribute="top" secondItem="I4j-Cf-SlA" secondAttribute="top" id="PFb-xs-rTJ"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="0zs-LK-RiS" secondAttribute="bottom" constant="6" id="XUh-TQ-E1m"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="0zs-LK-RiS" secondAttribute="bottom" id="XUh-TQ-E1m"/>
                                         <constraint firstItem="Sok-il-NN6" firstAttribute="centerY" secondItem="I4j-Cf-SlA" secondAttribute="centerY" id="j1c-nd-LpH"/>
                                         <constraint firstItem="0zs-LK-RiS" firstAttribute="centerX" secondItem="1DS-p4-OK1" secondAttribute="centerX" id="lDe-Kh-RVU"/>
                                         <constraint firstItem="Sok-il-NN6" firstAttribute="leading" secondItem="OL0-1n-Ckw" secondAttribute="leading" id="lyu-cb-HjE"/>
                                         <constraint firstItem="aB7-Ef-9wY" firstAttribute="leading" secondItem="OL0-1n-Ckw" secondAttribute="trailing" constant="8" symbolic="YES" id="mOu-jH-9VQ"/>
-                                        <constraint firstItem="Sok-il-NN6" firstAttribute="top" secondItem="1DS-p4-OK1" secondAttribute="topMargin" constant="1" id="uLN-w5-mFB"/>
+                                        <constraint firstItem="Sok-il-NN6" firstAttribute="top" secondItem="1DS-p4-OK1" secondAttribute="topMargin" id="uLN-w5-mFB"/>
                                         <constraint firstItem="OL0-1n-Ckw" firstAttribute="centerY" secondItem="aB7-Ef-9wY" secondAttribute="centerY" id="yoQ-pV-ojN"/>
                                     </constraints>
                                 </tableViewCellContentView>

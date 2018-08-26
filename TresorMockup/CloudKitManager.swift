@@ -24,11 +24,7 @@ class UpdatedObject {
     convenience init(object: NSManagedObject?) {
         self.init()
         self.object = object
-        self.keys   = object?.changedValues().map {
-            let (k, v) = $0
-            SwiftyBeaver.self.debug("\(k):\(v)")
-            return $0.key
-            } ?? []
+        self.keys   = object?.changedValues().map { $0.key } ?? []
     }
 }
 
@@ -106,35 +102,31 @@ class CloudKitManager: NSObject {
     }
 
     @objc func contextWillSave(notification: Notification) {
+        self.log.debug("contextWillSave")
         guard let moc = notification.object as? NSManagedObjectContext else {
             assertionFailure()
             return
         }
-        self.log.debug("contextWillSave")
-        
-        self.deleted  = Array(moc.deletedObjects)
+
         self.inserted = Array(moc.insertedObjects)
+        self.deleted  = Array(moc.deletedObjects)
         self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
     }
 
     @objc func contextDidSave(notification: Notification) {
         self.log.debug("contextDidSave")
 
+        self.inserted.forEach  { obj in
+            let id        = obj.idstr ?? "NO UUID"
+            let entryName = obj.entity.managedObjectClassName ?? ""
+            self.log.debug("[inserted] id = \(id): type = \(entryName)")
+            self.propertiesString( obj.committedValues(forKeys: nil) ).forEach { self.log.debug("  " + $0) }
+        }
+
         self.deleted.forEach { obj in
             let id        = obj.idstr ?? "NO UUID"
             let entryName = obj.entity.managedObjectClassName ?? ""
             self.log.debug("[deleted] id = \(id) type = \(entryName)")
-            self.propertiesString( obj.committedValues(forKeys: nil) ).forEach { self.log.debug("  " + $0) }
-
-        }
-
-        self.inserted.forEach  { obj in
-            if obj.objectID.isTemporaryID {
-                assertionFailure()
-            }
-            let id        = obj.idstr ?? "NO UUID"
-            let entryName = obj.entity.managedObjectClassName ?? ""
-            self.log.debug("[inserted] id = \(id): type = \(entryName)")
             self.propertiesString( obj.committedValues(forKeys: nil) ).forEach { self.log.debug("  " + $0) }
         }
 
