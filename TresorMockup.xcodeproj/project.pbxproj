@@ -37,6 +37,7 @@
 		F9610E192055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
+		F96367842132D2BB000E6D03 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96367832132D2BB000E6D03 /* CloudKit.framework */; };
 		F985628C20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
 		F985628D20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
 		F985628E20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
@@ -108,6 +109,7 @@
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
 		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
 		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
+		F96367832132D2BB000E6D03 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F985628B20DD438400177F55 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F98B615A20B5CA06008E7048 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */,
+				F96367842132D2BB000E6D03 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +250,7 @@
 		F9FE6EDC2042EB1600F892DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F96367832132D2BB000E6D03 /* CloudKit.framework */,
 				A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */,
 				98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */,
 				B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */,
@@ -334,7 +338,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.iCloud = {
 								enabled = 1;

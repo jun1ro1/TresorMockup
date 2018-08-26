@@ -30,11 +30,29 @@ class UpdatedObject {
 
 class CloudKitManager: NSObject {
     static var shared: CloudKitManager? = CloudKitManager()
+    fileprivate var container: CKContainer
+    fileprivate var database:  CKDatabase
     private var log = SwiftyBeaver.self
 
     var inserted: [NSManagedObject] = []
     var deleted:  [NSManagedObject] = []
     var updated:  [UpdatedObject]   = []
+
+    override init() {
+        //        super.init()
+        self.container = CKContainer.default()
+        self.database  = self.container.privateCloudDatabase
+    }
+
+    func save(record: CKRecord) {
+        self.database.save(record,
+                           completionHandler: { (recordSaved, error) in
+                            self.log.debug("error = \(String(describing: error))")
+                            if error != nil {
+                                print("CKRecord save error")
+                            }
+        })
+    }
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
@@ -42,64 +60,83 @@ class CloudKitManager: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave(notification:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: moc)
     }
 
-    func propertiesString(_ properties:[String: Any? ]) -> [String] {
-        return properties.map {
-            let (key, v) = $0
+    func setProperties(record: CKRecord, properties:[String: Any?]) {
+        properties.forEach {
+            let (key, value) = $0
 
-            var typestr = ""
-            var valstr  = ""
+            if (value as? NSNull) != nil {
+                record.setObject(nil, forKey: key)
+                self.log.debug("  \(key): NSNull = \(String(describing: value))")
+            }
+            else if let val = value as? NSString {
+                record.setObject(val, forKey: key)
+                self.log.debug("  \(key): NSString = \(val)")
+            }
+            else if let val = value as? NSNumber {
+                record.setObject(val, forKey: key)
+                self.log.debug("  \(key): NSNumber = \(val)")
+            }
+            else if let val = value as? NSData {
+                record.setObject(val, forKey: key)
+                self.log.debug("  \(key): NSData = \(val)")
+            }
+            else if let val = value as? NSDate {
+                record.setObject(val, forKey: key)
+                self.log.debug("  \(key): NSDate = \(val)")
+            }
+            else if let val = value as? NSArray {
+                record.setObject(val, forKey: key)
+                self.log.debug("  \(key): NSArray = \(val)")
+            }
+            else if let val = value as? CLLocation {
+                record.setObject(val, forKey: key)
+                self.log.debug("  \(key): CLLocation = \(val)")
+            }
+            else if let val = value as? CKAsset {
+                record.setObject(val, forKey: key)
+                self.log.debug("  \(key): CKAsset = \(val)")
+            }
+            else if let val = value as? NSManagedObject {
+                let targetid   = CKRecordID(recordName: val.idstr ?? "NO UUID")
+                let reference  = CKReference(recordID: targetid, action: .deleteSelf)
+                self.log.debug("  \(key): CKReference = \(targetid)")
 
-            if v is NSNull {
-                typestr = "NULL"
-                valstr  = "NIL"
             }
-            else if let val = v as? NSString {
-                typestr = "NSString"
-                valstr  = val as String
+            else if let val = value as? NSArray {
+                let val2 = val.map { (elem: Any) -> (Any) in
+                    if let val = elem as? NSManagedObject {
+                        let targetid   = CKRecordID(recordName: val.idstr ?? "NO UUID")
+                        let reference  = CKReference(recordID: targetid, action: .deleteSelf)
+                        self.log.debug("  \(key): CKReference = \(targetid)")
+                        return reference
+                    }
+                    else {
+                        return elem
+                    }
+                }
+                record.setObject(val2 as CKRecordValue, forKey: key)
             }
-            else if let val = v as? NSNumber {
-                typestr = "NSNumber"
-                valstr  = val.stringValue
-            }
-            else if let val = v as? NSData {
-                typestr = "NSData"
-                valstr  = val.description
-            }
-            else if let val = v as? NSDate {
-                typestr = "NSDate"
-                valstr  = val.description
-            }
-            else if let val = v as? NSArray {
-                typestr = "NSArray"
-                valstr  = val.description
-            }
-            else if let val = v as? CLLocation {
-                typestr = "CLLocation"
-                valstr  = val.description
-            }
-            else if let val = v as? NSManagedObject {
-                typestr = "CKReference"
-                valstr  = "\(val.entity.name!) \(String(describing: val.idstr))"
-            }
-            else if let val = v as? NSSet {
-                typestr = "CKReference NSSet"
-                valstr  = val.reduce("") {
-                    let obj = $1 as! NSManagedObject
-                    return $0 + obj.entity.name! + String(describing: obj.idstr) + "\n" }
-            }
-            else if let val = v as? CKAsset {
-                typestr = "CKAsset"
-                valstr  = val.description
+            else if let val = value as? NSSet {
+                let val2 = val.allObjects.map { (elem: Any) -> (Any) in
+                    if let val = elem as? NSManagedObject {
+                        let targetid   = CKRecordID(recordName: val.idstr ?? "NO UUID")
+                        let reference  = CKReference(recordID: targetid, action: .deleteSelf)
+                        self.log.debug("  \(key): CKReference = \(targetid)")
+                        return reference
+                    }
+                    else {
+                        return elem
+                    }
+                }
+                record.setObject(val2 as CKRecordValue, forKey: key)
             }
             else {
-                typestr = "UNKNOWN"
-                valstr  = (v as AnyObject).description
-                assertionFailure()
+                self.log.debug("  \(key): UNKNOWN = \(String(describing: value))")
+                assertionFailure("UNKOWN")
             }
-
-            return "\(key): \(typestr) = \(valstr)"
         }
     }
+
 
     @objc func contextWillSave(notification: Notification) {
         self.log.debug("contextWillSave")
@@ -117,29 +154,29 @@ class CloudKitManager: NSObject {
         self.log.debug("contextDidSave")
 
         self.inserted.forEach  { obj in
-            let id        = obj.idstr ?? "NO UUID"
-            let entryName = obj.entity.managedObjectClassName ?? ""
-            self.log.debug("[inserted] id = \(id): type = \(entryName)")
-            self.propertiesString( obj.committedValues(forKeys: nil) ).forEach { self.log.debug("  " + $0) }
-        }
-
-        self.deleted.forEach { obj in
-            let id        = obj.idstr ?? "NO UUID"
-            let entryName = obj.entity.managedObjectClassName ?? ""
-            self.log.debug("[deleted] id = \(id) type = \(entryName)")
-            self.propertiesString( obj.committedValues(forKeys: nil) ).forEach { self.log.debug("  " + $0) }
+            let recid   = CKRecordID(recordName: obj.idstr ?? "NO UUID")
+            let rectype = obj.entity.name ?? "UNKOWN NAME"
+            self.log.debug("[inserted] id = \(recid): type = \(rectype)")
+            let record  = CKRecord(recordType: rectype, recordID: recid)
+            self.setProperties(record: record, properties: obj.committedValues(forKeys: nil) )
         }
 
         self.updated.forEach { uobj in
-            let obj = uobj.object
-            guard obj != nil else {
+            guard let obj: NSManagedObject = uobj.object else {
                 assertionFailure()
                 return
             }
-            let id         = obj!.idstr ?? "NO UUID"
-            let entryName  = obj!.entity.managedObjectClassName ?? ""
-            self.log.debug("[updated] id = \(id): type = \(entryName)")
-            self.propertiesString( obj!.committedValues(forKeys: uobj.keys) ).forEach { self.log.debug("  " + $0) }
+            let recid   = CKRecordID(recordName: obj.idstr ?? "NO UUID")
+            let rectype = obj.entity.name ?? "UNKOWN NAME"
+            self.log.debug("[updated] id = \(recid): type = \(rectype)")
+            let record  = CKRecord(recordType: rectype, recordID: recid)
+            self.setProperties(record: record, properties: obj.committedValues(forKeys: uobj.keys) )
+        }
+
+        self.deleted.forEach { obj in
+            let recid   = CKRecordID(recordName: obj.idstr ?? "NO UUID")
+            let rectype = obj.entity.name ?? "UNKOWN NAME"
+            self.log.debug("[deleted] id = \(recid): type = \(rectype)")
         }
 
         self.inserted = []

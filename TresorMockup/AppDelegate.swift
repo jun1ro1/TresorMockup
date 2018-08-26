@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let log = SwiftyBeaver.self
         let console = ConsoleDestination()  // log to Xcode Console
         log.addDestination(console)
-        log.debug("Application start")
+        log.debug("Application starts")
 
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
