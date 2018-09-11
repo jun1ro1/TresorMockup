@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         // https://github.com/SwiftyBeaver/SwiftyBeaver
         let log = SwiftyBeaver.self
         let console = ConsoleDestination()  // log to Xcode Console
+        console.format = "$DHH:mm:ss.SSS$d $T $C$L$c $N.$F:$l - $M"
         log.addDestination(console)
         log.debug("Application starts")
 

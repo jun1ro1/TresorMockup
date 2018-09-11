@@ -159,6 +159,7 @@ class DetailViewController: UITableViewController {
                     context.performAndWait {
                         do {
                             try context.save()
+                            SwiftyBeaver.self.debug("save to dispose an empty item")
                         }
                         catch {
                             print("error = \(error)")
