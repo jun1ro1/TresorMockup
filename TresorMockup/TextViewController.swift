@@ -28,12 +28,12 @@ class TextViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardWillShow(notification:)),
-            name: Notification.Name.UIKeyboardWillShow,
+            name: UIResponder.keyboardWillShowNotification,
             object: nil)
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.keyboardWillHide(notification:)),
-            name: Notification.Name.UIKeyboardWillHide,
+            name: UIResponder.keyboardWillHideNotification,
             object: nil)
 
         // set a text to the text view after it is loaded
@@ -93,13 +93,13 @@ class TextViewController: UIViewController {
             return
         }
 
-        guard let height = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?
+        guard let height = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?
             .cgRectValue.size.height else {
                 assertionFailure()
                 return
         }
 
-        guard let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval) else {
+        guard let duration = (info[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval) else {
             assertionFailure()
             return
         }
@@ -116,7 +116,7 @@ class TextViewController: UIViewController {
             return
         }
 
-        guard let duration = (info[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval) else {
+        guard let duration = (info[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval) else {
             assertionFailure()
             return
         }

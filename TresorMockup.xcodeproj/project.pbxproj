@@ -330,6 +330,7 @@
 				TargetAttributes = {
 					F9FE6EA42042E99300F892DC = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 0;
@@ -347,11 +348,13 @@
 					};
 					F9FE6EBD2042E99300F892DC = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F9FE6EA42042E99300F892DC;
 					};
 					F9FE6EC82042E99400F892DC = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 						TestTargetID = F9FE6EA42042E99300F892DC;
 					};
@@ -724,7 +727,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -746,7 +749,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mac.jun1ro1.TresorMockup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -767,7 +770,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresorMockup.app/TresorMockup";
 			};
@@ -789,7 +792,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresorMockup.app/TresorMockup";
 			};
@@ -810,7 +813,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TresorMockup;
 			};
@@ -831,7 +834,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TresorMockup;
 			};

@@ -117,7 +117,7 @@ class DetailViewController: UITableViewController {
         }
 
         self.tableView.estimatedRowHeight      = 44.0
-        self.tableView.rowHeight               = UITableViewAutomaticDimension
+        self.tableView.rowHeight               = UITableView.automaticDimension
         self.navigationItem.rightBarButtonItem = editButtonItem
         configureView()
 

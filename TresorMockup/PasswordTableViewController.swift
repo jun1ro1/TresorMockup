@@ -29,12 +29,12 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
 
         self.tableView.estimatedRowHeight      = 80.0
-        self.tableView.rowHeight               = UITableViewAutomaticDimension
+        self.tableView.rowHeight               = UITableView.automaticDimension
 
         let predicate = NSPredicate(format: "%K == %@", "site", self.detailItem ?? "")
         self.passwordManager?.fetchedResultsController.fetchRequest.predicate = predicate
 
-        let eyeButton = UIButton(type: UIButtonType.system)
+        let eyeButton = UIButton(type: UIButton.ButtonType.system)
 //        eyeButton.titleLabel?.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
 //        eyeButton.titleLabel?.text = "eye"
 //        eyeButton.titleColor(for: .normal)
@@ -185,11 +185,11 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
 
 
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             guard let object = self.passwordManager?.fetchedResultsController.object(at: indexPath) else {
