@@ -31,7 +31,8 @@ class UpdatedObject {
 // https://developer.apple.com/library/archive/documentation/DataManagement/Conceptual/CloudKitQuickStart/MaintainingaLocalCacheofCloudKitRecords/MaintainingaLocalCacheofCloudKitRecords.html#//apple_ref/doc/uid/TP40014987-CH12-SW1
 
 class CloudKitManager: NSObject {
-    static      var shared: CloudKitManager? = CloudKitManager()
+    static      var shared: CloudKitManager = CloudKitManager()
+
     fileprivate var container: CKContainer
     fileprivate var database:  CKDatabase
     fileprivate var zone:      CKRecordZone
@@ -47,17 +48,38 @@ class CloudKitManager: NSObject {
         self.bundleID  = Bundle.main.bundleIdentifier!
         self.container = CKContainer.default()
         self.database  = self.container.privateCloudDatabase
-        self.zone      = CKRecordZone(zoneName: self.bundleID)
+        self.zone      = CKRecordZone(zoneName: self.bundleID + "_Zone")
+    }
 
-        let createZoneOperation = CKModifyRecordZonesOperation(recordZonesToSave: [self.zone], recordZoneIDsToDelete: nil)
+    func start() {
+        // Create a custom zone
+        let createZoneOperation =
+            CKModifyRecordZonesOperation(recordZonesToSave: [self.zone], recordZoneIDsToDelete: [])
         createZoneOperation.modifyRecordZonesCompletionBlock = { (saved, deleted, error) in
-            SwiftyBeaver.self.debug("CKModifyRecordZonesOperation error = \(String(describing: error))")
+            self.log.debug("CKModifyRecordZonesOperation error = \(String(describing: error))")
             guard error == nil else {
                 assertionFailure()
                 return
             }
         }
         self.database.add(createZoneOperation)
+
+        // Subscribing to Change Notifications
+        let subscription = CKDatabaseSubscription(subscriptionID: self.bundleID)
+        let notificationInfo = CKSubscription.NotificationInfo()
+        notificationInfo.shouldSendContentAvailable = true
+        subscription.notificationInfo = notificationInfo
+        let subscriptionOperation =
+            CKModifySubscriptionsOperation(subscriptionsToSave: [subscription], subscriptionIDsToDelete: [])
+        subscriptionOperation.modifySubscriptionsCompletionBlock = {
+            (subscriptions, deletedIDs, error) in
+            self.log.debug("CKModifySubscriptionsOperation error = \(String(describing: error))")
+            guard error == nil else {
+                assertionFailure()
+                return
+            }
+        }
+        self.database.add(subscriptionOperation)
     }
 
     func save(record: CKRecord) {

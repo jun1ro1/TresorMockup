@@ -32,7 +32,7 @@ class CoreDataManager: NSObject {
         }
         self._managedObjectContext = self.persistentContainer.viewContext
 
-        CloudKitManager.shared?.addObserver(managedObjectContext: self._managedObjectContext)
+        CloudKitManager.shared.addObserver(managedObjectContext: self._managedObjectContext)
 
         return self._managedObjectContext!
     }()

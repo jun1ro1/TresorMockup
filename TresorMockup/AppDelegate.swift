@@ -40,6 +40,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         controller.managedObjectContext = CoreDataManager.shared.managedObjectContext
         PasswordManager.shared.managedObjectContext = CoreDataManager.shared.managedObjectContext
 
+        // initialize CloudKitManager
+        CloudKitManager.shared.start()
+
+        // Listening for Push Notifications
+        application.registerForRemoteNotifications()
+
         return true
     }
 
@@ -78,6 +84,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         return false
     }
+
+    // MARK: - Receive Notifications
+
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification userInfo: [AnyHashable : Any],
+                     fetchCompletionHandler completionHandler:
+        @escaping (UIBackgroundFetchResult) -> Void) {
+        let log = SwiftyBeaver.self
+        log.debug("Receive Remote Notification = \(userInfo)")
+    }
+
     // MARK: - Core Data stack
 
 //    lazy var persistentContainer: NSPersistentContainer = {
