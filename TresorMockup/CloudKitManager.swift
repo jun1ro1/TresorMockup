@@ -202,6 +202,15 @@ class CloudKitManager: NSObject {
         //            toSave.append(record)
         //        }
 
+        // records to be deleted
+        self.deleted.forEach { obj in
+            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
+                                      zoneID: self.zone.zoneID)
+            let rectype = obj.entity.name ?? "UNKOWN NAME"
+            self.log.debug("[deleted] id = \(recid): type = \(rectype)")
+            toDelete.append(recid)
+        }
+
         // set recordID
         self.updated.forEach { uobj in
             guard let obj: NSManagedObject = uobj.object else {
@@ -212,8 +221,6 @@ class CloudKitManager: NSObject {
                                         zoneID: self.zone.zoneID)
         }
 
-        let operationGroup = DispatchGroup()
-        operationGroup.enter()
         let fetchOperation = CKFetchRecordsOperation(recordIDs: self.updated.map { $0.recordID! })
         fetchOperation.fetchRecordsCompletionBlock = { (records, error) in
             self.log.debug("CKFetchRecordsOperation error = \(String(describing: error))")
@@ -223,48 +230,38 @@ class CloudKitManager: NSObject {
                     uobj?.record = record
                 }
             }
-            operationGroup.leave()
+            self.updated.forEach {
+                if $0.record == nil {
+                    $0.record = CKRecord(recordType: $0.object!.entity.name ?? "UNKOWN NAME",
+                                         recordID: $0.recordID!)
+                }
+            }
+
+            self.updated.forEach { uobj in
+                guard let obj: NSManagedObject = uobj.object else {
+                    assertionFailure()
+                    return
+                }
+                let record  = uobj.record!
+                self.setProperties(record: record, properties: obj.committedValues(forKeys: uobj.keys) )
+                toSave.append(record)
+            }
+
+            self.log.debug( "CKModifyRecordsOperation save = \(String(describing: toSave))" )
+            self.log.debug( "CKModifyRecordsOperation delete = \(String(describing: toDelete))" )
+
+            let operation = CKModifyRecordsOperation(recordsToSave: toSave,
+                                                     recordIDsToDelete: toDelete)
+            operation.modifyRecordsCompletionBlock = { (save, delete, error) in
+                self.log.debug("CKModifyRecordsOperation error = \(String(describing: error))")
+                if error != nil {
+                    self.log.error( "CKModifyRecordsOperation error save = \(String(describing: save))" )
+                    self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
+                }
+            }
+            self.database.add(operation)
         }
         self.database.add(fetchOperation)
-
-        self.updated.forEach {
-            if $0.record == nil {
-                $0.record = CKRecord(recordType: $0.object!.entity.name ?? "UNKOWN NAME",
-                                     recordID: $0.recordID!)
-            }
-        }
-
-        self.updated.forEach { uobj in
-            guard let obj: NSManagedObject = uobj.object else {
-                assertionFailure()
-                return
-            }
-            let record  = uobj.record!
-            self.setProperties(record: record, properties: obj.committedValues(forKeys: uobj.keys) )
-            toSave.append(record)
-        }
-
-        self.deleted.forEach { obj in
-            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
-                                      zoneID: self.zone.zoneID)
-            let rectype = obj.entity.name ?? "UNKOWN NAME"
-            self.log.debug("[deleted] id = \(recid): type = \(rectype)")
-            toDelete.append(recid)
-        }
-
-        self.log.debug( "CKModifyRecordsOperation save = \(String(describing: toSave))" )
-        self.log.debug( "CKModifyRecordsOperation delete = \(String(describing: toDelete))" )
-
-        let operation = CKModifyRecordsOperation(recordsToSave: toSave,
-                                                 recordIDsToDelete: toDelete)
-        operation.modifyRecordsCompletionBlock = { (save, delete, error) in
-            self.log.debug("CKModifyRecordsOperation = \(String(describing: error))")
-            if error != nil {
-                self.log.error( "CKModifyRecordsOperation error save = \(String(describing: save))" )
-                self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
-            }
-        }
-        self.database.add(operation)
 
         self.inserted = []
         self.deleted  = []
