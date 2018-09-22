@@ -15,10 +15,14 @@ import SwiftyBeaver
 class UpdatedObject {
     var object: NSManagedObject?
     var keys: [String]
+    var recordID: CKRecord.ID?
+    var record: CKRecord?
 
     init() {
-        self.object = nil
-        self.keys   = []
+        self.object   = nil
+        self.keys     = []
+        self.recordID = nil
+        self.record   = nil
     }
 
     convenience init(object: NSManagedObject?) {
@@ -81,16 +85,6 @@ class CloudKitManager: NSObject {
         }
         self.database.add(subscriptionOperation)
     }
-
-//    func save(record: CKRecord) {
-//        self.database.save(record,
-//                           completionHandler: { (recordSaved, error) in
-//                            self.log.debug("error = \(String(describing: error))")
-//                            if error != nil {
-//                                print("CKRecord save error")
-//                            }
-//        })
-//    }
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
@@ -186,9 +180,10 @@ class CloudKitManager: NSObject {
             return
         }
 
-        self.inserted = Array(moc.insertedObjects)
+        //        self.inserted = Array(moc.insertedObjects)
         self.deleted  = Array(moc.deletedObjects)
         self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
+            + moc.insertedObjects.map { UpdatedObject( object: $0 ) }
     }
 
     @objc func contextDidSave(notification: Notification) {
@@ -197,14 +192,46 @@ class CloudKitManager: NSObject {
         var toSave:   [CKRecord]    = []
         var toDelete: [CKRecord.ID] = []
 
-        self.inserted.forEach  { obj in
-            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
-                                      zoneID: self.zone.zoneID)
-            let rectype = obj.entity.name ?? "UNKOWN NAME"
-            self.log.debug("[inserted] id = \(recid): type = \(rectype)")
-            let record  = CKRecord(recordType: rectype, recordID: recid)
-            self.setProperties(record: record, properties: obj.committedValues(forKeys: nil) )
-            toSave.append(record)
+        //        self.inserted.forEach  { obj in
+        //            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
+        //                                      zoneID: self.zone.zoneID)
+        //            let rectype = obj.entity.name ?? "UNKOWN NAME"
+        //            self.log.debug("[inserted] id = \(recid): type = \(rectype)")
+        //            let record  = CKRecord(recordType: rectype, recordID: recid)
+        //            self.setProperties(record: record, properties: obj.committedValues(forKeys: nil) )
+        //            toSave.append(record)
+        //        }
+
+        // set recordID
+        self.updated.forEach { uobj in
+            guard let obj: NSManagedObject = uobj.object else {
+                assertionFailure()
+                return
+            }
+            uobj.recordID = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
+                                        zoneID: self.zone.zoneID)
+        }
+
+        let operationGroup = DispatchGroup()
+        operationGroup.enter()
+        let fetchOperation = CKFetchRecordsOperation(recordIDs: self.updated.map { $0.recordID! })
+        fetchOperation.fetchRecordsCompletionBlock = { (records, error) in
+            self.log.debug("CKFetchRecordsOperation error = \(String(describing: error))")
+            records?.forEach { (id, record) in
+                let uobj = self.updated.first(where: { $0.recordID == id })
+                if uobj != nil {
+                    uobj?.record = record
+                }
+            }
+            operationGroup.leave()
+        }
+        self.database.add(fetchOperation)
+
+        self.updated.forEach {
+            if $0.record == nil {
+                $0.record = CKRecord(recordType: $0.object!.entity.name ?? "UNKOWN NAME",
+                                     recordID: $0.recordID!)
+            }
         }
 
         self.updated.forEach { uobj in
@@ -212,11 +239,7 @@ class CloudKitManager: NSObject {
                 assertionFailure()
                 return
             }
-            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
-                                      zoneID: self.zone.zoneID)
-            let rectype = obj.entity.name ?? "UNKOWN NAME"
-            self.log.debug("[updated] id = \(recid): type = \(rectype)")
-            let record  = CKRecord(recordType: rectype, recordID: recid)
+            let record  = uobj.record!
             self.setProperties(record: record, properties: obj.committedValues(forKeys: uobj.keys) )
             toSave.append(record)
         }
@@ -239,7 +262,7 @@ class CloudKitManager: NSObject {
             if error != nil {
                 self.log.error( "CKModifyRecordsOperation error save = \(String(describing: save))" )
                 self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
-           }
+            }
         }
         self.database.add(operation)
 
