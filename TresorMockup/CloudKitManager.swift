@@ -82,15 +82,15 @@ class CloudKitManager: NSObject {
         self.database.add(subscriptionOperation)
     }
 
-    func save(record: CKRecord) {
-        self.database.save(record,
-                           completionHandler: { (recordSaved, error) in
-                            self.log.debug("error = \(String(describing: error))")
-                            if error != nil {
-                                print("CKRecord save error")
-                            }
-        })
-    }
+//    func save(record: CKRecord) {
+//        self.database.save(record,
+//                           completionHandler: { (recordSaved, error) in
+//                            self.log.debug("error = \(String(describing: error))")
+//                            if error != nil {
+//                                print("CKRecord save error")
+//                            }
+//        })
+//    }
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
@@ -135,15 +135,17 @@ class CloudKitManager: NSObject {
                 self.log.debug("  \(key): CKAsset = \(val)")
             }
             else if let val = value as? NSManagedObject {
-                let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID")
+                let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
+                                             zoneID: self.zone.zoneID)
                 let reference  = CKRecord.Reference(recordID: targetid, action: .deleteSelf)
-                self.log.debug("  \(key): CKReference = \(targetid)")
+                self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
 
             }
             else if let val = value as? NSArray {
                 let val2 = val.map { (elem: Any) -> (Any) in
                     if let val = elem as? NSManagedObject {
-                        let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID")
+                        let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
+                                                     zoneID: self.zone.zoneID)
                         let reference  = CKRecord.Reference(recordID: targetid, action: .deleteSelf)
                         self.log.debug("  \(key): CKReference = \(targetid)")
                         return reference
@@ -152,12 +154,13 @@ class CloudKitManager: NSObject {
                         return elem
                     }
                 }
-                record.setObject(val2 as CKRecordValue, forKey: key)
+                record.setObject(val2.isEmpty ? nil : val2 as CKRecordValue, forKey: key)
             }
             else if let val = value as? NSSet {
                 let val2 = val.allObjects.map { (elem: Any) -> (Any) in
                     if let val = elem as? NSManagedObject {
-                        let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID")
+                        let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
+                                                     zoneID: self.zone.zoneID)
                         let reference  = CKRecord.Reference(recordID: targetid, action: .deleteSelf)
                         self.log.debug("  \(key): CKReference = \(targetid)")
                         return reference
@@ -166,7 +169,7 @@ class CloudKitManager: NSObject {
                         return elem
                     }
                 }
-                record.setObject(val2 as CKRecordValue, forKey: key)
+                record.setObject(val2.isEmpty ? nil : val2 as CKRecordValue, forKey: key)
             }
             else {
                 self.log.debug("  \(key): UNKNOWN = \(String(describing: value))")
@@ -191,12 +194,17 @@ class CloudKitManager: NSObject {
     @objc func contextDidSave(notification: Notification) {
         self.log.debug("contextDidSave")
 
+        var toSave:   [CKRecord]    = []
+        var toDelete: [CKRecord.ID] = []
+
         self.inserted.forEach  { obj in
-            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID")
+            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
+                                      zoneID: self.zone.zoneID)
             let rectype = obj.entity.name ?? "UNKOWN NAME"
             self.log.debug("[inserted] id = \(recid): type = \(rectype)")
             let record  = CKRecord(recordType: rectype, recordID: recid)
             self.setProperties(record: record, properties: obj.committedValues(forKeys: nil) )
+            toSave.append(record)
         }
 
         self.updated.forEach { uobj in
@@ -204,18 +212,36 @@ class CloudKitManager: NSObject {
                 assertionFailure()
                 return
             }
-            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID")
+            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
+                                      zoneID: self.zone.zoneID)
             let rectype = obj.entity.name ?? "UNKOWN NAME"
             self.log.debug("[updated] id = \(recid): type = \(rectype)")
             let record  = CKRecord(recordType: rectype, recordID: recid)
             self.setProperties(record: record, properties: obj.committedValues(forKeys: uobj.keys) )
+            toSave.append(record)
         }
 
         self.deleted.forEach { obj in
-            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID")
+            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
+                                      zoneID: self.zone.zoneID)
             let rectype = obj.entity.name ?? "UNKOWN NAME"
             self.log.debug("[deleted] id = \(recid): type = \(rectype)")
+            toDelete.append(recid)
         }
+
+        self.log.debug( "CKModifyRecordsOperation save = \(String(describing: toSave))" )
+        self.log.debug( "CKModifyRecordsOperation delete = \(String(describing: toDelete))" )
+
+        let operation = CKModifyRecordsOperation(recordsToSave: toSave,
+                                                 recordIDsToDelete: toDelete)
+        operation.modifyRecordsCompletionBlock = { (save, delete, error) in
+            self.log.debug("CKModifyRecordsOperation = \(String(describing: error))")
+            if error != nil {
+                self.log.error( "CKModifyRecordsOperation error save = \(String(describing: save))" )
+                self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
+           }
+        }
+        self.database.add(operation)
 
         self.inserted = []
         self.deleted  = []
