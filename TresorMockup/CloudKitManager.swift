@@ -43,8 +43,9 @@ class CloudKitManager: NSObject {
     fileprivate var bundleID:  String
     fileprivate var log = SwiftyBeaver.self
     fileprivate var changeToken: CKServerChangeToken?
+    fileprivate var fetchChangeToken: CKServerChangeToken?
     fileprivate var zoneIDs: [CKRecordZone.ID]
-
+    fileprivate var context: NSManagedObjectContext?
 
     var inserted: [NSManagedObject] = []
     var deleted:  [NSManagedObject] = []
@@ -57,10 +58,13 @@ class CloudKitManager: NSObject {
         self.database  = self.container.privateCloudDatabase
         self.zone      = CKRecordZone(zoneName: self.bundleID + "_Zone")
         self.changeToken = nil
+        self.fetchChangeToken = nil
         self.zoneIDs   = []
+        self.context   = nil
     }
 
     func start() {
+        self.context = CoreDataManager.shared.managedObjectContext
         // Create a custom zone
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
@@ -96,28 +100,75 @@ class CloudKitManager: NSObject {
         }
         self.database.add(subscriptionOperation)
         dispatchGroup.notify(queue: DispatchQueue.global()) {
+            self.log.debug("checkUpdates")
             self.checkUpdates()
         }
     }
 
     func checkUpdates() {
         let operation = CKFetchDatabaseChangesOperation(previousServerChangeToken: self.changeToken)
+        operation.recordZoneWithIDChangedBlock = { (zone) in
+            self.zoneIDs.append(zone)
+        }
+
         operation.changeTokenUpdatedBlock = { (token) in
             self.changeToken = token
             self.log.debug("changeTokenUpdatedBlock token = \(token)")
 
         }
 
-        operation.recordZoneWithIDChangedBlock = { (zone) in
-            self.zoneIDs.append(zone)
-        }
-
         operation.fetchDatabaseChangesCompletionBlock = { (token, more, error) in
             self.log.debug("fetchDatabaseChangesCompletionBlock error = \(String(describing: error))")
             self.log.debug("fetchDatabaseChangesCompletionBlock token = \(String(describing: token)) more = \(more)")
+            guard error == nil && !self.zoneIDs.isEmpty else {
+                assertionFailure()
+                return
+            }
 
+            self.changeToken = token
+            let options = CKFetchRecordZoneChangesOperation.ZoneOptions()
+            options.previousServerChangeToken = self.fetchChangeToken
+            let fetchOperaion = CKFetchRecordZoneChangesOperation(recordZoneIDs: self.zoneIDs, optionsByRecordZoneID: [self.zoneIDs[0]: options])
+            fetchOperaion.recordChangedBlock = { (record) in
+                self.log.debug("CKFetchRecordZoneChangesOperation record = \(record)")
+                let recordID = record.recordID.recordName
+                let request  = NSFetchRequest<NSFetchRequestResult>(entityName: record.recordType)
+                request.predicate = NSPredicate(format: "uuid = %@", recordID)
+                do {
+                    self.log.debug("context fetch request = \(request)")
+                    let result = try self.context?.fetch(request)
+                    self.log.debug("context fetch result = \(String(describing: result))")
+                    var obj: NSManagedObject?
+                    if result == nil || result!.isEmpty {
+                        let entityDesc = NSEntityDescription.entity(forEntityName: record.recordType, in: self.context!)
+                        obj = NSManagedObject(entity: entityDesc!, insertInto: self.context)
+                        self.context!.insert(obj!)
+                    }
+                    else {
+                        obj = result![0] as? NSManagedObject
+                    }
+                    record.allKeys().forEach { (key) in
+                        obj?.setValue(record[key], forKey: key)
+                    }
+                    self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: obj))")
+                }
+                catch {
+                    self.log.debug("context fetch = error")
+                }
+
+            }
+            fetchOperaion.recordZoneChangeTokensUpdatedBlock = { (zoneID, token, data) in
+                self.fetchChangeToken = token
+            }
+            fetchOperaion.recordZoneFetchCompletionBlock = { (zonID, token, data, more, error) in
+                self.log.debug("recordZoneFetchCompletionBlock error = \(String(describing: error))")
+            }
+            fetchOperaion.fetchRecordZoneChangesCompletionBlock = { (error) in
+                self.log.debug("fetchRecordZoneChangesCompletionBlock error = \(String(describing: error))")
+            }
+            self.database.add(fetchOperaion)
         }
-
+        self.database.add(operation)
     }
 
 

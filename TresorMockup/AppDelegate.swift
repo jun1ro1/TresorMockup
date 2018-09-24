@@ -95,6 +95,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         log.debug("Receive Remote Notification = \(userInfo)")
     }
 
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let log = SwiftyBeaver.self
+        log.debug("Remote Notification did register")
+    }
+
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        let log = SwiftyBeaver.self
+        log.debug("Remote Notification did fail to register error = \(error)")
+    }
+
     // MARK: - Core Data stack
 
 //    lazy var persistentContainer: NSPersistentContainer = {
