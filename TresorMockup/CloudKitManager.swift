@@ -149,13 +149,10 @@ class CloudKitManager: NSObject {
                     }
                     record.allKeys().forEach { (key) in
                         let val = record[key]
-                        if let relation = val as? NSSet {
-                            obj?.setValue(relation, forKey: key)
-                        }
-                        else {
-                            obj?.setValue(val, forKey: key)
-                        }
+                        self.log.debug("recordChangedBlock setValue val = \(String(describing: val)) key = \(key)")
+                        obj?.setValue(val, forKey: key)
                     }
+
                     self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: obj))")
                 }
                 catch {

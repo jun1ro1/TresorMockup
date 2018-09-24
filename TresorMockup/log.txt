@@ -112,17 +112,17 @@ uuid (modified) -> "A8D88532-3FB3-476D-AFE1-A31204673530"
 19:27:39.719 0x152a71540 💚 DEBUG CloudKitManager.contextDidSave():315 - CKModifyRecordsOperation error = nil
 
 --- iPad ---
-23:12:38.542  💚 DEBUG AppDelegate.application():27 - Application starts
-23:12:38.571  💚 DEBUG MasterViewController.viewDidLoad():36 - viewDidLoad
-23:12:38.612  💚 DEBUG MasterViewController.viewWillAppear():45 - viewWillAppear
-23:12:38.691  💚 DEBUG AppDelegate.application():100 - Remote Notification did register
-23:12:39.201 0x17356bde0 💚 DEBUG CloudKitManager.start():75 - CKModifyRecordZonesOperation error = nil
-23:12:39.270 0x1735407c0 💚 DEBUG CloudKitManager.start():93 - CKModifySubscriptionsOperation error = nil
-23:12:39.270 0x173564220 💚 DEBUG CloudKitManager.start():103 - checkUpdates
-23:12:39.502 0x1735407c0 💚 DEBUG CloudKitManager.checkUpdates():116 - changeTokenUpdatedBlock token = <CKServerChangeToken: 0x16a607010; data=AQAAAWYL7Htn>
-23:12:39.502 0x1735407c0 💚 DEBUG CloudKitManager.checkUpdates():121 - fetchDatabaseChangesCompletionBlock error = nil
-23:12:39.503 0x1735407c0 💚 DEBUG CloudKitManager.checkUpdates():122 - fetchDatabaseChangesCompletionBlock token = Optional(<CKServerChangeToken: 0x16a6070d0; data=AQAAAWYL7Htn>) more = false
-23:12:39.725 0x17356bde0 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x16dd24f40; recordID=A8D88532-3FB3-476D-AFE1-A31204673530:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=4, values={
+01:16:05.917  💚 DEBUG AppDelegate.application():27 - Application starts
+01:16:05.945  💚 DEBUG MasterViewController.viewDidLoad():36 - viewDidLoad
+01:16:05.989  💚 DEBUG MasterViewController.viewWillAppear():45 - viewWillAppear
+01:16:06.051  💚 DEBUG AppDelegate.application():100 - Remote Notification did register
+01:16:06.261 0x16aad2b60 💚 DEBUG CloudKitManager.start():93 - CKModifySubscriptionsOperation error = nil
+01:16:06.262 0x16aa6d580 💚 DEBUG CloudKitManager.start():103 - checkUpdates
+01:16:06.277 0x170529ba0 💚 DEBUG CloudKitManager.start():75 - CKModifyRecordZonesOperation error = nil
+01:16:06.438 0x16aad6a00 💚 DEBUG CloudKitManager.checkUpdates():116 - changeTokenUpdatedBlock token = <CKServerChangeToken: 0x169f0dcf0; data=AQAAAWYMXYB7>
+01:16:06.440 0x16aad2b60 💚 DEBUG CloudKitManager.checkUpdates():121 - fetchDatabaseChangesCompletionBlock error = nil
+01:16:06.442 0x16aad2b60 💚 DEBUG CloudKitManager.checkUpdates():122 - fetchDatabaseChangesCompletionBlock token = Optional(<CKServerChangeToken: 0x169f28d10; data=AQAAAWYMXYB7>) more = false
+01:16:06.678 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x16b30e740; recordID=A8D88532-3FB3-476D-AFE1-A31204673530:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=4, values={
 active = 1;
 createdAt = "2018-09-24 10:27:36 +0000";
 current = 1;
@@ -130,9 +130,15 @@ password = pass;
 selectedAt = "2018-09-24 10:27:36 +0000";
 uuid = "A8D88532-3FB3-476D-AFE1-A31204673530";
 }, recordType=Password>
-23:12:39.726 0x17356bde0 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x16d738640> (entity: Password; predicate: (uuid == "A8D88532-3FB3-476D-AFE1-A31204673530"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
-23:12:39.728 0x17356bde0 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
-23:12:39.730 0x17356bde0 💚 DEBUG CloudKitManager.checkUpdates():159 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x16b24aee0> (entity: Password; id: 0x16a522090 <x-coredata:///Password/tDE13D919-9A92-4885-B5AA-AF0997EB52AB2> ; data: {
+01:16:06.691 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x16ad21300> (entity: Password; predicate: (uuid == "A8D88532-3FB3-476D-AFE1-A31204673530"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+01:16:06.705 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+01:16:06.709 0x170529ba0 \360\237\222💚 DEBUG CloudKitManager.checkUpdates():152 - recordChangedBlock setValue val = Optional(pass) key = password
+01:16:06.713 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():152 - recordChangedBlock setValue val = Optional(2018-09-24 10:27:36 +0000) key = createdAt
+01:16:06.717 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():152 - recordChangedBlock setValue val = Optional(1) key = current
+01:16:06.720 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():152 - recordChangedBlock setValue val = Optional(1) key = active
+01:16:06.722 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():152 - recordChangedBlock setValue val = Optional(2018-09-24 10:27:36 +0000) key = selectedAt
+01:16:06.725 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():152 - recordChangedBlock setValue val = Optional(A8D88532-3FB3-476D-AFE1-A31204673530) key = uuid
+01:16:06.727 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():156 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x16ab22d10> (entity: Password; id: 0x169e4d620 <x-coredata:///Password/t3C41434A-37E6-4FE4-9FD6-47A5865B7E2D2> ; data: {
 active = 1;
 createdAt = "2018-09-24 10:27:36 +0000";
 current = 1;
@@ -141,14 +147,14 @@ selectedAt = "2018-09-24 10:27:36 +0000";
 site = nil;
 uuid = "A8D88532-3FB3-476D-AFE1-A31204673530";
 }))
-23:12:39.732 0x17356bde0 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x16dd24dc0; recordID=89A49407-CCD9-4A0B-8A6D-9F2F25A315FC:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=5, values={
+01:18:36.411 0x170529ba0 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x16b30e440; recordID=89A49407-CCD9-4A0B-8A6D-9F2F25A315FC:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=5, values={
 active = 1;
 charSet = 136331264;
 createdAt = "2018-09-24 10:27:14 +0000";
 maxLength = 8;
 passwordCurrent = pass;
 passwords =     (
-"<CKReference: 0x16a585f00; recordID=<CKRecordID: 0x16a585f30; recordName=A8D88532-3FB3-476D-AFE1-A31204673530, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+"<CKReference: 0x169e5e180; recordID=<CKRecordID: 0x169e83860; recordName=A8D88532-3FB3-476D-AFE1-A31204673530, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
 );
 selectAt = "2018-09-24 10:27:36 +0000";
 title = title;
@@ -156,11 +162,10 @@ url = url;
 userid = user;
 uuid = "89A49407-CCD9-4A0B-8A6D-9F2F25A315FC";
 }, recordType=Site>
-23:12:39.735 0x17356bde0 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x16d739610> (entity: Site; predicate: (uuid == "89A49407-CCD9-4A0B-8A6D-9F2F25A315FC"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
-23:12:39.737 0x17356bde0 💚 DEB2018-09-24 23:13:07.157203+0900 TresorMockup[12704:12426693] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Unacceptable type of value for to-many relationship: property = "passwords"; desired type = NSSet; given type = __NSArrayM; value = (
-"<CKReference: 0x16a585f00; recordID=<CKRecordID: 0x16a585f30; recordName=A8D88532-3FB3-476D-AFE1-A31204673530, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+2018-09-25 01:19:36.106378+0900 TresorMockup[12776:12452088] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: 'Unacceptable type of value for to-many relationship: property = "passwords"; desired type = NSSet; given type = __NSArrayM; value = (
+"<CKReference: 0x169e5e180; recordID=<CKRecordID: 0x169e83860; recordName=A8D88532-3FB3-476D-AFE1-A31204673530, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
 ).'
 *** First throw call stack:
-(0x183232d8c 0x1823ec5ec 0x185b38b60 0x185b371bc 0x1048387fc 0x10483891c 0x10485a520 0x1061ebf50 0x104836b40 0x104839220 0x18e06d734 0x18e03087c 0x18e0a8448 0x106c9919c 0x106ca57cc 0x104e97c18 0x106c991dc 0x106c9919c 0x106ca7dfc 0x106c9c6ac 0x106ca8d54 0x106cafe38 0x182e57e70 0x182e57b08)
+(0x183232d8c 0x1823ec5ec 0x185b38b60 0x185b371bc 0x1020abb30 0x1020ac5fc 0x1020ce214 0x103af7f50 0x1020a9ec4 0x1020acf00 0x18e06d734 0x18e03087c 0x18e0a8448 0x10451119c 0x10451d7cc 0x1027a3c18 0x1045111dc 0x10451119c 0x10451fdfc 0x1045146ac 0x104520d54 0x104527e38 0x182e57e70 0x182e57b08)
 libc++abi.dylib: terminating with uncaught exception of type NSException
 (lldb) 
