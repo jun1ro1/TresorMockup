@@ -42,6 +42,9 @@ class CloudKitManager: NSObject {
     fileprivate var zone:      CKRecordZone
     fileprivate var bundleID:  String
     fileprivate var log = SwiftyBeaver.self
+    fileprivate var changeToken: CKServerChangeToken?
+    fileprivate var zoneIDs: [CKRecordZone.ID]
+
 
     var inserted: [NSManagedObject] = []
     var deleted:  [NSManagedObject] = []
@@ -53,14 +56,20 @@ class CloudKitManager: NSObject {
         self.container = CKContainer.default()
         self.database  = self.container.privateCloudDatabase
         self.zone      = CKRecordZone(zoneName: self.bundleID + "_Zone")
+        self.changeToken = nil
+        self.zoneIDs   = []
     }
 
     func start() {
         // Create a custom zone
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+
         let createZoneOperation =
             CKModifyRecordZonesOperation(recordZonesToSave: [self.zone], recordZoneIDsToDelete: [])
         createZoneOperation.modifyRecordZonesCompletionBlock = { (saved, deleted, error) in
             self.log.debug("CKModifyRecordZonesOperation error = \(String(describing: error))")
+
             guard error == nil else {
                 assertionFailure()
                 return
@@ -78,13 +87,39 @@ class CloudKitManager: NSObject {
         subscriptionOperation.modifySubscriptionsCompletionBlock = {
             (subscriptions, deletedIDs, error) in
             self.log.debug("CKModifySubscriptionsOperation error = \(String(describing: error))")
+            dispatchGroup.leave()
+
             guard error == nil else {
                 assertionFailure()
                 return
             }
         }
         self.database.add(subscriptionOperation)
+        dispatchGroup.notify(queue: DispatchQueue.global()) {
+            self.checkUpdates()
+        }
     }
+
+    func checkUpdates() {
+        let operation = CKFetchDatabaseChangesOperation(previousServerChangeToken: self.changeToken)
+        operation.changeTokenUpdatedBlock = { (token) in
+            self.changeToken = token
+            self.log.debug("changeTokenUpdatedBlock token = \(token)")
+
+        }
+
+        operation.recordZoneWithIDChangedBlock = { (zone) in
+            self.zoneIDs.append(zone)
+        }
+
+        operation.fetchDatabaseChangesCompletionBlock = { (token, more, error) in
+            self.log.debug("fetchDatabaseChangesCompletionBlock error = \(String(describing: error))")
+            self.log.debug("fetchDatabaseChangesCompletionBlock token = \(String(describing: token)) more = \(more)")
+
+        }
+
+    }
+
 
     func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
@@ -259,13 +294,14 @@ class CloudKitManager: NSObject {
                     self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
                 }
             }
+            self.inserted = []
+            self.deleted  = []
+            self.updated  = []
+
             self.database.add(operation)
         }
         self.database.add(fetchOperation)
 
-        self.inserted = []
-        self.deleted  = []
-        self.updated  = []
     }
 }
 
