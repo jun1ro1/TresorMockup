@@ -148,9 +148,19 @@ class CloudKitManager: NSObject {
                         obj = result![0] as? NSManagedObject
                     }
                     record.allKeys().forEach { (key) in
-                        let val = record[key]
-                        self.log.debug("recordChangedBlock setValue val = \(String(describing: val)) key = \(key)")
-                        obj?.setValue(val, forKey: key)
+                        if record[key] is NSArray {
+                            let vals = record[key]! as [CKRecord.Reference]
+                            vals.forEach { (ref) in
+                                self.log.debug("reference = \(ref.recordID)")
+                            }
+                        }
+                        else if let val = record[key] {
+                            self.log.debug("recordChangedBlock setValue val = \(String(describing: val)) key = \(key)")
+                            obj?.setValue(val, forKey: key)
+                        }
+                        else {
+                            obj?.setValue(nil, forKey: key)
+                        }
                     }
 
                     self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: obj))")
