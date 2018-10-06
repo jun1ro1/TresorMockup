@@ -1,0 +1,1786 @@
+
+--- simulator ---
+
+02:15:11.053  💚 DEBUG AppDelegate.application():27 - Application starts
+02:15:11.150  💚 DEBUG MasterViewController.viewDidLoad():36 - viewDidLoad
+02:15:11.323  💚 DEBUG MasterViewController.viewWillAppear():45 - viewWillAppear
+02:15:11.557  💚 DEBUG AppDelegate.application():105 - Remote Notification did fail to register error = Error Domain=NSCocoaErrorDomain Code=3010 "remote notifications are not supported in the simulator" UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}
+02:15:12.135 0x6000022c2140 💚 DEBUG CloudKitManager.start():93 - CKModifySubscriptionsOperation error = nil
+02:15:12.136 0x6000022c2380 💚 DEBUG CloudKitManager.start():103 - checkUpdates
+02:15:12.486 0x6000022c2380 💚 DEBUG CloudKitManager.checkUpdates():116 - changeTokenUpdatedBlock token = <CKServerChangeToken: 0x60000356e940; data=AQAAAWY67Nho>
+02:15:12.488 0x6000022c2140 💚 DEBUG CloudKitManager.checkUpdates():121 - fetchDatabaseChangesCompletionBlock error = nil
+02:15:12.489 0x6000022c2140 💚 DEBUG CloudKitManager.checkUpdates():122 - fetchDatabaseChangesCompletionBlock token = Optional(<CKServerChangeToken: 0x60000356eca0; data=AQAAAWY67Nho>) more = false
+02:15:12.578 0x6000022cda40 💚 DEBUG CloudKitManager.start():75 - CKModifyRecordZonesOperation error = nil
+02:15:13.023 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a50f160; recordID=7EF45C25-13ED-4F7F-89B4-0A8150BF2E82:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=18, values={
+active = 1;
+createdAt = "2018-09-27 15:59:52 +0000";
+current = 1;
+password = pass3;
+selectedAt = "2018-09-27 15:59:52 +0000";
+uuid = "7EF45C25-13ED-4F7F-89B4-0A8150BF2E82";
+}, recordType=Password>
+02:15:13.027 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7c000> (entity: Password; predicate: (uuid == "7EF45C25-13ED-4F7F-89B4-0A8150BF2E82"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.030 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x600001420dc0> (entity: Password; id: 0xd8ec948b3ffe2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p11> ; data: <fault>)])
+02:15:13.031 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass3 key = password
+02:15:13.032 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:52 +0000 key = createdAt
+02:15:13.033 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:15:13.034 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.034 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:52 +0000 key = selectedAt
+02:15:13.035 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 7EF45C25-13ED-4F7F-89B4-0A8150BF2E82 key = uuid
+02:15:13.070 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x600001420dc0> (entity: Password; id: 0xd8ec948b3ffe2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p11> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:59:52 +0000";
+current = 1;
+password = pass3;
+selectedAt = "2018-09-27 15:59:52 +0000";
+site = "0xd8ec948b3fc22815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p4>";
+uuid = "7EF45C25-13ED-4F7F-89B4-0A8150BF2E82";
+}))
+02:15:13.073 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.092 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.094 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a426d90; recordID=6978E683-01E3-4C3C-8E16-490F71FEC07C:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=15, values={
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 1;
+selectedAt = "2018-09-21 16:46:05 +0000";
+uuid = "6978E683-01E3-4C3C-8E16-490F71FEC07C";
+}, recordType=Password>
+02:15:13.097 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c78310> (entity: Password; predicate: (uuid == "6978E683-01E3-4C3C-8E16-490F71FEC07C"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.098 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:15:13.098 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:57:54 +0000 key = createdAt
+02:15:13.099 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:15:13.100 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.102 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-21 16:46:05 +0000 key = selectedAt
+02:15:13.102 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 6978E683-01E3-4C3C-8E16-490F71FEC07C key = uuid
+02:15:13.104 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x60000142dc20> (entity: Password; id: 0x60000370aa80 <x-coredata:///Password/tA6808FFD-A4ED-4566-8816-CF28973D2EC12> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 1;
+password = nil;
+selectedAt = "2018-09-21 16:46:05 +0000";
+site = nil;
+uuid = "6978E683-01E3-4C3C-8E16-490F71FEC07C";
+}))
+02:15:13.106 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.113 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.113 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a4320f0; recordID=F20E1AB9-E540-4587-8DCF-E40A93CE904E:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=13, values={
+active = 1;
+createdAt = "2018-09-20 17:03:12 +0000";
+current = 0;
+password = vRNDdN12;
+selectedAt = "2018-09-20 17:03:12 +0000";
+uuid = "F20E1AB9-E540-4587-8DCF-E40A93CE904E";
+}, recordType=Password>
+02:15:13.115 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7c700> (entity: Password; predicate: (uuid == "F20E1AB9-E540-4587-8DCF-E40A93CE904E"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.117 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x600001421540> (entity: Password; id: 0xd8ec948b3fda2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p2> ; data: <fault>)])
+02:15:13.118 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = vRNDdN12 key = password
+02:15:13.119 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-20 17:03:12 +0000 key = createdAt
+02:15:13.120 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:15:13.121 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.122 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-20 17:03:12 +0000 key = selectedAt
+02:15:13.123 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = F20E1AB9-E540-4587-8DCF-E40A93CE904E key = uuid
+02:15:13.124 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x600001421540> (entity: Password; id: 0xd8ec948b3fda2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p2> ; data: {
+active = 1;
+createdAt = "2018-09-20 17:03:12 +0000";
+current = 0;
+password = vRNDdN12;
+selectedAt = "2018-09-20 17:03:12 +0000";
+site = "0xd8ec948b3fd62815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p1>";
+uuid = "F20E1AB9-E540-4587-8DCF-E40A93CE904E";
+}))
+02:15:13.126 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.128 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.133 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a439430; recordID=1D5D28A7-F506-4528-899D-BA2EB3A00B7F:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=11, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-22 14:15:49 +0000";
+maxLength = 8;
+passwordCurrent = 10TCtAic;
+passwords =     (
+"<CKReference: 0x60000370a2e0; recordID=<CKRecordID: 0x60000370a3a0; recordName=E426BAF2-4A41-432C-A002-BC5C6401A136, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x60000370a460; recordID=<CKRecordID: 0x60000370a500; recordName=9E7D5883-6392-454A-9FBC-BBF7D635C93B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-09-23 15:15:29 +0000";
+title = title2;
+url = url2;
+userid = user2;
+uuid = "1D5D28A7-F506-4528-899D-BA2EB3A00B7F";
+}, recordType=Site>
+02:15:13.139 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7c000> (entity: Site; predicate: (uuid == "1D5D28A7-F506-4528-899D-BA2EB3A00B7F"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.141 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x600001454000> (entity: Site; id: 0xd8ec948b3fda2815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p2> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-22 14:15:49 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 10TCtAic;
+passwords = "<relationship fault: 0x6000037310e0 'passwords'>";
+selectAt = "2018-09-23 15:15:29 +0000";
+title = title2;
+url = url2;
+userid = user2;
+uuid = "1D5D28A7-F506-4528-899D-BA2EB3A00B7F";
+})])
+02:15:13.143 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.143 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = user2 key = userid
+02:15:13.144 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 10TCtAic key = passwordCurrent
+02:15:13.145 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:15:13.145 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = title2 key = title
+02:15:13.146 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:15:13.147 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x60000370a3a0; recordName=E426BAF2-4A41-432C-A002-BC5C6401A136, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:13.148 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x60000370a500; recordName=9E7D5883-6392-454A-9FBC-BBF7D635C93B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:13.149 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1D5D28A7-F506-4528-899D-BA2EB3A00B7F key = uuid
+02:15:13.153 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-22 14:15:49 +0000 key = createdAt
+02:15:13.154 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:15:29 +0000 key = selectAt
+02:15:13.464 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = url2 key = url
+02:15:13.465 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x600001454000> (entity: Site; id: 0xd8ec948b3fda2815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p2> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-22 14:15:49 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 10TCtAic;
+passwords = "<relationship fault: 0x6000037310e0 'passwords'>";
+selectAt = "2018-09-23 15:15:29 +0000";
+title = title2;
+url = url2;
+userid = user2;
+uuid = "1D5D28A7-F506-4528-899D-BA2EB3A00B7F";
+}))
+02:15:13.467 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.482 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.483 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a53bdc0; recordID=8899DB7F-1D6C-47E8-8485-C5079F4B099B:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=z, values={
+active = 1;
+createdAt = "2018-09-24 01:44:41 +0000";
+current = 0;
+password = 2lZOtduQ;
+selectedAt = "2018-09-24 01:44:41 +0000";
+uuid = "8899DB7F-1D6C-47E8-8485-C5079F4B099B";
+}, recordType=Password>
+02:15:13.485 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c78d20> (entity: Password; predicate: (uuid == "8899DB7F-1D6C-47E8-8485-C5079F4B099B"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.486 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x60000142fb60> (entity: Password; id: 0xd8ec948b3ffa2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p10> ; data: <fault>)])
+02:15:13.487 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2lZOtduQ key = password
+02:15:13.488 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:44:41 +0000 key = createdAt
+02:15:13.489 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:15:13.490 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.491 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:44:41 +0000 key = selectedAt
+02:15:13.492 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8899DB7F-1D6C-47E8-8485-C5079F4B099B key = uuid
+02:15:13.493 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x60000142fb60> (entity: Password; id: 0xd8ec948b3ffa2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p10> ; data: {
+active = 1;
+createdAt = "2018-09-24 01:44:41 +0000";
+current = 0;
+password = 2lZOtduQ;
+selectedAt = "2018-09-24 01:44:41 +0000";
+site = nil;
+uuid = "8899DB7F-1D6C-47E8-8485-C5079F4B099B";
+}))
+02:15:13.619 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.619 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.620 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a609af0; recordID=57551DB9-2FD3-4BFB-B131-D428579232DC:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=x, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:57:54 +0000";
+maxLength = 8;
+passwordCurrent = I61X41XX;
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+uuid = "57551DB9-2FD3-4BFB-B131-D428579232DC";
+}, recordType=Site>
+02:15:13.622 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c78d20> (entity: Site; predicate: (uuid == "57551DB9-2FD3-4BFB-B131-D428579232DC"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.623 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:15:13.624 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.624 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:15:13.625 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:15:13.626 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:15:13.626 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 57551DB9-2FD3-4BFB-B131-D428579232DC key = uuid
+02:15:13.627 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:15:13.628 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:57:54 +0000 key = createdAt
+02:15:13.629 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:15:13.630 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:15:13.631 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x600001423b10> (entity: Site; id: 0x600003732260 <x-coredata:///Site/tA6808FFD-A4ED-4566-8816-CF28973D2EC13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:57:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords =     (
+);
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "57551DB9-2FD3-4BFB-B131-D428579232DC";
+}))
+02:15:13.632 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.633 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.634 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a611e30; recordID=E426BAF2-4A41-432C-A002-BC5C6401A136:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=v, values={
+active = 1;
+createdAt = "2018-09-22 14:16:04 +0000";
+current = 0;
+password = pass;
+selectedAt = "2018-09-22 14:16:04 +0000";
+uuid = "E426BAF2-4A41-432C-A002-BC5C6401A136";
+}, recordType=Password>
+02:15:13.704 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7dd50> (entity: Password; predicate: (uuid == "E426BAF2-4A41-432C-A002-BC5C6401A136"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.705 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x600001423bb0> (entity: Password; id: 0xd8ec948b3fc62817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p5> ; data: <fault>)])
+02:15:13.705 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass key = password
+02:15:13.706 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-22 14:16:04 +0000 key = createdAt
+02:15:13.707 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:15:13.707 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.708 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-22 14:16:04 +0000 key = selectedAt
+02:15:13.709 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = E426BAF2-4A41-432C-A002-BC5C6401A136 key = uuid
+02:15:13.710 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x600001423bb0> (entity: Password; id: 0xd8ec948b3fc62817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p5> ; data: {
+active = 1;
+createdAt = "2018-09-22 14:16:04 +0000";
+current = 0;
+password = pass;
+selectedAt = "2018-09-22 14:16:04 +0000";
+site = "0xd8ec948b3fda2815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p2>";
+uuid = "E426BAF2-4A41-432C-A002-BC5C6401A136";
+}))
+02:15:13.711 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.712 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.712 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a613eb0; recordID=0636C66D-C351-466E-9E0B-2BFFFBEEB6D5:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=l, values={
+current = 1;
+selectedAt = "2018-09-21 16:46:05 +0000";
+}, recordType=Password>
+02:15:13.714 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c798f0> (entity: Password; predicate: (uuid == "0636C66D-C351-466E-9E0B-2BFFFBEEB6D5"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.716 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x60000142a760> (entity: Password; id: 0xd8ec948b3fd62817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p1> ; data: <fault>)])
+02:15:13.717 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:15:13.719 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-21 16:46:05 +0000 key = selectedAt
+02:15:13.720 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x60000142a760> (entity: Password; id: 0xd8ec948b3fd62817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p1> ; data: {
+active = 1;
+createdAt = "2018-09-19 15:12:00 +0000";
+current = 1;
+password = pass;
+selectedAt = "2018-09-21 16:46:05 +0000";
+site = "0xd8ec948b3fd62815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p1>";
+uuid = "0636C66D-C351-466E-9E0B-2BFFFBEEB6D5";
+}))
+02:15:13.722 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.722 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.726 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a619480; recordID=BFA2F920-8C4E-43DC-8A4C-3E4B04760024:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=8, values={
+current = 0;
+}, recordType=Password>
+02:15:13.728 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7c3f0> (entity: Password; predicate: (uuid == "BFA2F920-8C4E-43DC-8A4C-3E4B04760024"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.734 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:15:13.735 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:15:13.736 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x60000142fb10> (entity: Password; id: 0x600003733c00 <x-coredata:///Password/tA6808FFD-A4ED-4566-8816-CF28973D2EC14> ; data: {
+active = 1;
+createdAt = "2018-10-03 17:15:13 +0000";
+current = 0;
+password = nil;
+selectedAt = nil;
+site = nil;
+uuid = "A3DA94DB-4C6D-4265-BD25-6E0EA64854A1";
+}))
+02:15:13.738 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:13.795 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:13.810 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a609920; recordID=8B3D445A-6A46-4D40-9210-2AA4109B037A:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=19, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:59:40 +0000";
+maxLength = 8;
+passwordCurrent = pass3;
+passwords =     (
+"<CKReference: 0x600003737a60; recordID=<CKRecordID: 0x600003737d80; recordName=7EF45C25-13ED-4F7F-89B4-0A8150BF2E82, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-09-27 15:59:52 +0000";
+title = title3;
+url = url3;
+userid = user3;
+uuid = "8B3D445A-6A46-4D40-9210-2AA4109B037A";
+}, recordType=Site>
+02:15:13.816 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c799d0> (entity: Site; predicate: (uuid == "8B3D445A-6A46-4D40-9210-2AA4109B037A"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:13.820 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x6000014577f0> (entity: Site; id: 0xd8ec948b3fc22815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p4> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:59:40 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass3;
+passwords = "<relationship fault: 0x60000370c060 'passwords'>";
+selectAt = "2018-09-27 15:59:52 +0000";
+title = title3;
+url = url3;
+userid = user3;
+uuid = "8B3D445A-6A46-4D40-9210-2AA4109B037A";
+})])
+02:15:13.932 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:13.934 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = user3 key = userid
+02:15:13.937 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass3 key = passwordCurrent
+02:15:13.939 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:15:13.940 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = title3 key = title
+02:15:13.942 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:15:13.943 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003737d80; recordName=7EF45C25-13ED-4F7F-89B4-0A8150BF2E82, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:13.945 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8B3D445A-6A46-4D40-9210-2AA4109B037A key = uuid
+02:15:13.945 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:40 +0000 key = createdAt
+02:15:13.947 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:52 +0000 key = selectAt
+02:15:13.948 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = url3 key = url
+02:15:13.949 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x6000014577f0> (entity: Site; id: 0xd8ec948b3fc22815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p4> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:59:40 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass3;
+passwords = "<relationship fault: 0x60000370c060 'passwords'>";
+selectAt = "2018-09-27 15:59:52 +0000";
+title = title3;
+url = url3;
+userid = user3;
+uuid = "8B3D445A-6A46-4D40-9210-2AA4109B037A";
+}))
+02:15:13.951 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.011 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.013 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a615e50; recordID=1C2740AB-D796-4361-AFD6-E1933A0337BF:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=16, values={
+passwordCurrent = pass;
+selectAt = "2018-09-21 16:46:05 +0000";
+title = Keyakizaka46;
+}, recordType=Site>
+02:15:14.015 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7c070> (entity: Site; predicate: (uuid == "1C2740AB-D796-4361-AFD6-E1933A0337BF"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.016 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x600001457480> (entity: Site; id: 0xd8ec948b3fd62815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-19 15:11:03 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass;
+passwords = "<relationship fault: 0x6000037367a0 'passwords'>";
+selectAt = "2018-09-21 16:46:05 +0000";
+title = Keyakizaka46;
+url = "http://www.keyakizaka46.com";
+userid = user;
+uuid = "1C2740AB-D796-4361-AFD6-E1933A0337BF";
+})])
+02:15:14.022 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = Keyakizaka46 key = title
+02:15:14.023 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass key = passwordCurrent
+02:15:14.024 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-21 16:46:05 +0000 key = selectAt
+02:15:14.026 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x600001457480> (entity: Site; id: 0xd8ec948b3fd62815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-19 15:11:03 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass;
+passwords = "<relationship fault: 0x6000037367a0 'passwords'>";
+selectAt = "2018-09-21 16:46:05 +0000";
+title = Keyakizaka46;
+url = "http://www.keyakizaka46.com";
+userid = user;
+uuid = "1C2740AB-D796-4361-AFD6-E1933A0337BF";
+}))
+02:15:14.028 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.029 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.029 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a618880; recordID=C1785063-E1D9-4C7E-ADB6-00BC85C6A38C:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=14, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:56:13 +0000";
+maxLength = 8;
+passwordCurrent = I61X41XX;
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+uuid = "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C";
+}, recordType=Site>
+02:15:14.031 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7c3f0> (entity: Site; predicate: (uuid == "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.032 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x6000014564e0> (entity: Site; id: 0xd8ec948b3fde2815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p3> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:56:13 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x60000370cb20 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C";
+})])
+02:15:14.034 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:14.180 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:15:14.181 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:15:14.181 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:15:14.182 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = C1785063-E1D9-4C7E-ADB6-00BC85C6A38C key = uuid
+02:15:14.183 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:15:14.183 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:56:13 +0000 key = createdAt
+02:15:14.184 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:15:14.185 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:15:14.187 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x6000014564e0> (entity: Site; id: 0xd8ec948b3fde2815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p3> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:56:13 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x60000370cb20 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C";
+}))
+02:15:14.190 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.191 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.193 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a6189b0; recordID=F0282B8C-94B6-41EF-B895-7A4F11EFC780:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=12, values={
+active = 1;
+createdAt = "2018-09-23 15:10:25 +0000";
+current = 0;
+password = 1E5cwc6H;
+selectedAt = "2018-09-23 15:10:25 +0000";
+uuid = "F0282B8C-94B6-41EF-B895-7A4F11EFC780";
+}, recordType=Password>
+02:15:14.196 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c79f80> (entity: Password; predicate: (uuid == "F0282B8C-94B6-41EF-B895-7A4F11EFC780"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.197 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x600001450d20> (entity: Password; id: 0xd8ec948b3ff62817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p9> ; data: <fault>)])
+02:15:14.298 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1E5cwc6H key = password
+02:15:14.298 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:10:25 +0000 key = createdAt
+02:15:14.299 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:15:14.299 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:14.300 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:10:25 +0000 key = selectedAt
+02:15:14.301 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = F0282B8C-94B6-41EF-B895-7A4F11EFC780 key = uuid
+02:15:14.302 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x600001450d20> (entity: Password; id: 0xd8ec948b3ff62817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p9> ; data: {
+active = 1;
+createdAt = "2018-09-23 15:10:25 +0000";
+current = 0;
+password = 1E5cwc6H;
+selectedAt = "2018-09-23 15:10:25 +0000";
+site = nil;
+uuid = "F0282B8C-94B6-41EF-B895-7A4F11EFC780";
+}))
+02:15:14.304 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.304 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.305 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a4388e0; recordID=27BCABDE-4061-4359-87E9-7975E70057FD:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=10, values={
+active = 1;
+createdAt = "2018-09-24 01:49:43 +0000";
+current = 1;
+password = I61X41XX;
+selectedAt = "2018-09-24 01:49:43 +0000";
+uuid = "27BCABDE-4061-4359-87E9-7975E70057FD";
+}, recordType=Password>
+02:15:14.307 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c79ce0> (entity: Password; predicate: (uuid == "27BCABDE-4061-4359-87E9-7975E70057FD"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.308 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x60000142b930> (entity: Password; id: 0xd8ec948b3fce2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p7> ; data: <fault>)])
+02:15:14.309 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = password
+02:15:14.310 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = createdAt
+02:15:14.310 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:15:14.311 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:14.311 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectedAt
+02:15:14.312 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 27BCABDE-4061-4359-87E9-7975E70057FD key = uuid
+02:15:14.312 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x60000142b930> (entity: Password; id: 0xd8ec948b3fce2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p7> ; data: {
+active = 1;
+createdAt = "2018-09-24 01:49:43 +0000";
+current = 1;
+password = I61X41XX;
+selectedAt = "2018-09-24 01:49:43 +0000";
+site = nil;
+uuid = "27BCABDE-4061-4359-87E9-7975E70057FD";
+}))
+02:15:14.314 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.314 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.315 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a43bdc0; recordID=DBE8C812-185C-4DF3-A362-57C586345574:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=y, values={
+active = 1;
+createdAt = "2018-09-27 15:56:13 +0000";
+current = 0;
+uuid = "DBE8C812-185C-4DF3-A362-57C586345574";
+}, recordType=Password>
+02:15:14.316 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7a220> (entity: Password; predicate: (uuid == "DBE8C812-185C-4DF3-A362-57C586345574"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.317 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x60000142ce10> (entity: Password; id: 0xd8ec948b3ff22817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p8> ; data: <fault>)])
+02:15:14.361 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:56:13 +0000 key = createdAt
+02:15:14.361 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:15:14.362 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:14.363 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = DBE8C812-185C-4DF3-A362-57C586345574 key = uuid
+02:15:14.363 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x60000142ce10> (entity: Password; id: 0xd8ec948b3ff22817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p8> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:56:13 +0000";
+current = 0;
+password = nil;
+selectedAt = nil;
+site = nil;
+uuid = "DBE8C812-185C-4DF3-A362-57C586345574";
+}))
+02:15:14.365 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.367 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.368 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a43bf60; recordID=612D707F-C543-48A4-AAAC-9F50A97CD666:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=w, values={
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 0;
+uuid = "612D707F-C543-48A4-AAAC-9F50A97CD666";
+}, recordType=Password>
+02:15:14.370 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7a370> (entity: Password; predicate: (uuid == "612D707F-C543-48A4-AAAC-9F50A97CD666"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.372 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:15:14.373 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:57:54 +0000 key = createdAt
+02:15:14.373 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:15:14.374 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:14.375 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 612D707F-C543-48A4-AAAC-9F50A97CD666 key = uuid
+02:15:14.376 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x6000014532f0> (entity: Password; id: 0x600003700d40 <x-coredata:///Password/tA6808FFD-A4ED-4566-8816-CF28973D2EC15> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 0;
+password = nil;
+selectedAt = nil;
+site = nil;
+uuid = "612D707F-C543-48A4-AAAC-9F50A97CD666";
+}))
+02:15:14.377 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.378 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.378 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a61a980; recordID=9E7D5883-6392-454A-9FBC-BBF7D635C93B:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=u, values={
+active = 1;
+createdAt = "2018-09-23 15:15:29 +0000";
+current = 1;
+password = 10TCtAic;
+selectedAt = "2018-09-23 15:15:29 +0000";
+uuid = "9E7D5883-6392-454A-9FBC-BBF7D635C93B";
+}, recordType=Password>
+02:15:14.380 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7a370> (entity: Password; predicate: (uuid == "9E7D5883-6392-454A-9FBC-BBF7D635C93B"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.382 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x600001420f00> (entity: Password; id: 0xd8ec948b3fca2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p6> ; data: <fault>)])
+02:15:14.383 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 10TCtAic key = password
+02:15:14.384 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:15:29 +0000 key = createdAt
+02:15:14.385 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:15:14.386 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:15:14.387 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:15:29 +0000 key = selectedAt
+02:15:14.388 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 9E7D5883-6392-454A-9FBC-BBF7D635C93B key = uuid
+02:15:14.389 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x600001420f00> (entity: Password; id: 0xd8ec948b3fca2817 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Password/p6> ; data: {
+active = 1;
+createdAt = "2018-09-23 15:15:29 +0000";
+current = 1;
+password = 10TCtAic;
+selectedAt = "2018-09-23 15:15:29 +0000";
+site = "0xd8ec948b3fda2815 <x-coredata://405AAE4E-55D9-4E10-9690-431E46126A80/Site/p2>";
+uuid = "9E7D5883-6392-454A-9FBC-BBF7D635C93B";
+}))
+02:15:14.393 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.393 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.394 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x7faf7a61b520; recordID=70F151F1-8F83-4EB1-92F4-9170D5C0A044:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=i, values={
+charSet = 136331264;
+maxLength = 8;
+passwordCurrent = I61X41XX;
+passwords =     (
+"<CKReference: 0x600003736be0; recordID=<CKRecordID: 0x600003736a20; recordName=E6D4F480-DE67-42A6-997D-AAFE8B211488, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003736ae0; recordID=<CKRecordID: 0x600003736e80; recordName=B3093E26-F84C-4509-B9AB-3A9891A7B8D6, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003736c40; recordID=<CKRecordID: 0x600003736dc0; recordName=ECA99787-89E8-4057-A011-B23FEFBEB2F2, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003736d00; recordID=<CKRecordID: 0x600003736b40; recordName=8899DB7F-1D6C-47E8-8485-C5079F4B099B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003736d60; recordID=<CKRecordID: 0x600003736e20; recordName=B91FCD6C-BEDC-4612-B494-E15728B831FA, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003736ca0; recordID=<CKRecordID: 0x600003736f40; recordName=F0282B8C-94B6-41EF-B895-7A4F11EFC780, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003736fa0; recordID=<CKRecordID: 0x600003737140; recordName=FB7422A9-64A3-4BBD-BA94-A2FAAE24DBD8, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003737380; recordID=<CKRecordID: 0x6000037372c0; recordName=BFA2F920-8C4E-43DC-8A4C-3E4B04760024, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x6000037371a0; recordID=<CKRecordID: 0x600003737260; recordName=FA65CFE2-EB8A-4B99-AF48-D924C056CFB9, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003737320; recordID=<CKRecordID: 0x600003737a20; recordName=01BA15EF-6FF0-4F62-BBE9-48445740F463, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x6000037375c0; recordID=<CKRecordID: 0x6000037373e0; recordName=9EEDFC1F-0890-4E52-A28D-888C2EC9BD78, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003737440; recordID=<CKRecordID: 0x6000037374a0; recordName=39CD2814-1C1E-4750-B8BA-505609692E34, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003737200; recordID=<CKRecordID: 0x600003737500; recordName=6ECEF4BD-5992-4CB2-97E2-F29C6256465A, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x600003737720; recordID=<CKRecordID: 0x600003737560; recordName=27BCABDE-4061-4359-87E9-7975E70057FD, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+}, recordType=Site>
+02:15:14.450 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x600001c7cbd0> (entity: Site; predicate: (uuid == "70F151F1-8F83-4EB1-92F4-9170D5C0A044"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:15:14.452 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:15:14.453 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:15:14.454 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:15:14.455 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:15:14.456 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:15:14.456 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003736a20; recordName=E6D4F480-DE67-42A6-997D-AAFE8B211488, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.458 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003736e80; recordName=B3093E26-F84C-4509-B9AB-3A9891A7B8D6, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.459 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003736dc0; recordName=ECA99787-89E8-4057-A011-B23FEFBEB2F2, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.459 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003736b40; recordName=8899DB7F-1D6C-47E8-8485-C5079F4B099B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.460 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003736e20; recordName=B91FCD6C-BEDC-4612-B494-E15728B831FA, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.461 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003736f40; recordName=F0282B8C-94B6-41EF-B895-7A4F11EFC780, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.462 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003737140; recordName=FB7422A9-64A3-4BBD-BA94-A2FAAE24DBD8, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.463 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x6000037372c0; recordName=BFA2F920-8C4E-43DC-8A4C-3E4B04760024, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.464 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003737260; recordName=FA65CFE2-EB8A-4B99-AF48-D924C056CFB9, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.467 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003737a20; recordName=01BA15EF-6FF0-4F62-BBE9-48445740F463, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.469 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x6000037373e0; recordName=9EEDFC1F-0890-4E52-A28D-888C2EC9BD78, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.471 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x6000037374a0; recordName=39CD2814-1C1E-4750-B8BA-505609692E34, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.473 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003737500; recordName=6ECEF4BD-5992-4CB2-97E2-F29C6256465A, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.474 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x600003737560; recordName=27BCABDE-4061-4359-87E9-7975E70057FD, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:15:14.475 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:15:14.475 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:15:14.476 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x600001420690> (entity: Site; id: 0x600003701ae0 <x-coredata:///Site/tA6808FFD-A4ED-4566-8816-CF28973D2EC16> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:15:13 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords =     (
+);
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "A8ED0C02-674E-4061-B150-3A4201F5D3A7";
+}))
+02:15:14.478 0x6000022cca80 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:15:14.479 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:15:14.480 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():182 - recordZoneFetchCompletionBlock error = nil
+02:15:14.481 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():182 - recordZoneFetchCompletionBlock error = nil
+02:15:14.481 0x6000022cca80 💚 DEBUG CloudKitManager.checkUpdates():185 - fetchRecordZoneChangesCompletionBlock error = nil
+02:15:14.569 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:14.575 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():209 -   uuid: NSString = A8ED0C02-674E-4061-B150-3A4201F5D3A7
+02:15:14.575 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():221 -   selectAt: NSDate = 2018-09-24 01:49:43 +0000
+02:15:14.576 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():221 -   createdAt: NSDate = 2018-10-03 17:15:13 +0000
+02:15:14.577 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():213 -   active: NSNumber = 1
+02:15:14.577 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():209 -   passwordCurrent: NSString = I61X41XX
+02:15:14.578 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():213 -   maxLength: NSNumber = 8
+02:15:14.579 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():209 -   url: NSString = URL
+02:15:14.579 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():209 -   title: NSString = t
+02:15:14.580 0x6000022c2380 💚 DEBUG CloudKitManager.setProperties():213 -   charSet: NSNumber = 136331264
+02:15:14.581 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = [<CKRecord: 0x7faf7a426d90; recordID=A8ED0C02-674E-4061-B150-3A4201F5D3A7:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:15:13 +0000";
+maxLength = 8;
+passwordCurrent = I61X41XX;
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+uuid = "A8ED0C02-674E-4061-B150-3A4201F5D3A7";
+}, recordType=Site>
+{
+creatorUserRecordID -> (null)
+lastModifiedUserRecordID -> (null)
+creationDate -> (null)
+modificationDate -> (null)
+active (modified) -> 1 (type c)
+passwordCurrent (modified) -> "I61X41XX"
+maxLength (modified) -> 8 (type s)
+title (modified) -> "t"
+uuid (modified) -> "A8ED0C02-674E-4061-B150-3A4201F5D3A7"
+charSet (modified) -> 136331264 (type i)
+createdAt (modified) -> 2018-10-03 17:15:13 +0000
+selectAt (modified) -> 2018-09-24 01:49:43 +0000
+url (modified) -> "URL"
+}]
+02:15:14.592 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:14.930 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:14.931 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:14.931 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:14.933 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:15.229 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:15.230 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:15.230 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:15.231 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:15.530 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:15.530 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:15.533 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:15.534 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:15.934 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:15.935 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:15.936 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:15.937 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:16.228 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:16.228 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:16.229 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:16.230 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:16.624 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:16.625 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:16.627 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:16.627 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:17.124 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:17.125 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:17.126 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:17.127 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:17.418 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = Optional(<CKError 0x6000039d88d0: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 511BB5F9-43D2-4C0F-B70F-60982E70DB42; container ID = "iCloud.com.mac.jun1ro1.TresorMockup"; partial errors: {
+A3DA94DB-4C6D-4265-BD25-6E0EA64854A1:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x6000039dc4e0: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 511BB5F9-43D2-4C0F-B70F-60982E70DB42>
+}>)
+02:15:17.423 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:17.423 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:17.424 0x6000022d07c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:18.278 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:18.279 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:18.280 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:18.281 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:19.038 0x6000022d07c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:19.039 0x6000022d07c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:19.040 0x6000022d07c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:19.041 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:19.479 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:19.480 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:19.481 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:19.481 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:19.822 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:19.823 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:19.823 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:19.824 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:20.626 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:20.627 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:20.628 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:20.628 0x6000022c2140 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:20.978 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:20.978 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:20.979 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:20.980 0x6000022c2380 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:21.331 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:21.331 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:21.332 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:21.333 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:22.025 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:15:22.026 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:22.028 0x6000022cca80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:22.030 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:22.282 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = Optional(<CKError 0x6000039d90e0: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 7E0388F0-52EB-448C-A867-73FA444164A6; container ID = "iCloud.com.mac.jun1ro1.TresorMockup"; partial errors: {
+A8ED0C02-674E-4061-B150-3A4201F5D3A7:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x6000039d8f90: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 7E0388F0-52EB-448C-A867-73FA444164A6>
+}>)
+02:15:22.285 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:15:22.286 0x6000022cda40 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:15:22.287 0x6000022dc500 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:15:22.993 0x6000022d07c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+
+--- iPhon4s ---
+02:20:49.738  💚 DEBUG AppDelegate.application():27 - Application starts
+02:20:49.783  💚 DEBUG MasterViewController.viewDidLoad():36 - viewDidLoad
+02:20:49.906  💚 DEBUG MasterViewController.viewWillAppear():45 - viewWillAppear
+02:20:50.046  💚 DEBUG AppDelegate.application():100 - Remote Notification did register
+02:20:50.491 0x282c20ec0 💚 DEBUG CloudKitManager.start():93 - CKModifySubscriptionsOperation error = nil
+02:20:50.493 0x282c22b80 💚 DEBUG CloudKitManager.start():103 - checkUpdates
+02:20:50.525 0x282c22b80 💚 DEBUG CloudKitManager.start():75 - CKModifyRecordZonesOperation error = nil
+02:20:50.716 0x282c231c0 💚 DEBUG CloudKitManager.checkUpdates():116 - changeTokenUpdatedBlock token = <CKServerChangeToken: 0x283b88e50; data=AQAAAWY68gGk>
+02:20:50.718 0x282c231c0 💚 DEBUG CloudKitManager.checkUpdates():121 - fetchDatabaseChangesCompletionBlock error = nil
+02:20:50.720 0x282c231c0 💚 DEBUG CloudKitManager.checkUpdates():122 - fetchDatabaseChangesCompletionBlock token = Optional(<CKServerChangeToken: 0x283b88fd0; data=AQAAAWY68gGk>) more = false
+02:20:51.213 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102222830; recordID=A8ED0C02-674E-4061-B150-3A4201F5D3A7:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1a, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:15:13 +0000";
+maxLength = 8;
+passwordCurrent = I61X41XX;
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+uuid = "A8ED0C02-674E-4061-B150-3A4201F5D3A7";
+}, recordType=Site>
+02:20:51.218 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281294d90> (entity: Site; predicate: (uuid == "A8ED0C02-674E-4061-B150-3A4201F5D3A7"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.225 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x281aa4280> (entity: Site; id: 0x9f3de9466e69cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p4> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:15:13 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839b52c0 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "A8ED0C02-674E-4061-B150-3A4201F5D3A7";
+})])
+02:20:51.229 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.231 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:20:51.232 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:51.240 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:20:51.241 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = A8ED0C02-674E-4061-B150-3A4201F5D3A7 key = uuid
+02:20:51.243 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:51.244 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-10-03 17:15:13 +0000 key = createdAt
+02:20:51.245 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:20:51.246 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:20:51.247 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa4280> (entity: Site; id: 0x9f3de9466e69cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p4> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:15:13 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839b52c0 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "A8ED0C02-674E-4061-B150-3A4201F5D3A7";
+}))
+02:20:51.258 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.281 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.284 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102248b80; recordID=DBE8C812-185C-4DF3-A362-57C586345574:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=y, values={
+active = 1;
+createdAt = "2018-09-27 15:56:13 +0000";
+current = 0;
+uuid = "DBE8C812-185C-4DF3-A362-57C586345574";
+}, recordType=Password>
+02:20:51.287 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x2812903f0> (entity: Password; predicate: (uuid == "DBE8C812-185C-4DF3-A362-57C586345574"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.294 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281a9b750> (entity: Password; id: 0x9f3de9466e71cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p2> ; data: <fault>)])
+02:20:51.295 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:56:13 +0000 key = createdAt
+02:20:51.303 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:20:51.304 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.305 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = DBE8C812-185C-4DF3-A362-57C586345574 key = uuid
+02:20:51.308 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281a9b750> (entity: Password; id: 0x9f3de9466e71cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p2> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:56:13 +0000";
+current = 0;
+password = nil;
+selectedAt = nil;
+site = nil;
+uuid = "DBE8C812-185C-4DF3-A362-57C586345574";
+}))
+02:20:51.314 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.315 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.316 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102248cb0; recordID=1C2740AB-D796-4361-AFD6-E1933A0337BF:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=16, values={
+passwordCurrent = pass;
+selectAt = "2018-09-21 16:46:05 +0000";
+title = Keyakizaka46;
+}, recordType=Site>
+02:20:51.317 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x2812960d0> (entity: Site; predicate: (uuid == "1C2740AB-D796-4361-AFD6-E1933A0337BF"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.319 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:20:51.332 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = Keyakizaka46 key = title
+02:20:51.334 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass key = passwordCurrent
+02:20:51.336 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-21 16:46:05 +0000 key = selectAt
+02:20:51.340 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281a9b6b0> (entity: Site; id: 0x283984c00 <x-coredata:///Site/t57343136-1C66-4FA0-BA2C-D4AA8973C69A2> ; data: {
+active = 1;
+charSet = 0;
+createdAt = "2018-10-03 17:20:51 +0000";
+loginAt = nil;
+maxLength = 0;
+memo = nil;
+passwordCurrent = pass;
+passwords =     (
+);
+selectAt = "2018-09-21 16:46:05 +0000";
+title = Keyakizaka46;
+url = nil;
+userid = nil;
+uuid = "8CA4FE1B-A2FA-40A8-B140-58FFCA4B2289";
+}))
+02:20:51.343 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.352 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.356 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102248de0; recordID=E426BAF2-4A41-432C-A002-BC5C6401A136:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=v, values={
+active = 1;
+createdAt = "2018-09-22 14:16:04 +0000";
+current = 0;
+password = pass;
+selectedAt = "2018-09-22 14:16:04 +0000";
+uuid = "E426BAF2-4A41-432C-A002-BC5C6401A136";
+}, recordType=Password>
+02:20:51.361 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x2812960d0> (entity: Password; predicate: (uuid == "E426BAF2-4A41-432C-A002-BC5C6401A136"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.362 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281aa66c0> (entity: Password; id: 0x9f3de9466e6dcd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p5> ; data: <fault>)])
+02:20:51.370 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass key = password
+02:20:51.371 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-22 14:16:04 +0000 key = createdAt
+02:20:51.373 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:20:51.374 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.375 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-22 14:16:04 +0000 key = selectedAt
+02:20:51.377 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = E426BAF2-4A41-432C-A002-BC5C6401A136 key = uuid
+02:20:51.378 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281aa66c0> (entity: Password; id: 0x9f3de9466e6dcd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p5> ; data: {
+active = 1;
+createdAt = "2018-09-22 14:16:04 +0000";
+current = 0;
+password = pass;
+selectedAt = "2018-09-22 14:16:04 +0000";
+site = nil;
+uuid = "E426BAF2-4A41-432C-A002-BC5C6401A136";
+}))
+02:20:51.389 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.391 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.393 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102248f10; recordID=F20E1AB9-E540-4587-8DCF-E40A93CE904E:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=13, values={
+active = 1;
+createdAt = "2018-09-20 17:03:12 +0000";
+current = 0;
+password = vRNDdN12;
+selectedAt = "2018-09-20 17:03:12 +0000";
+uuid = "F20E1AB9-E540-4587-8DCF-E40A93CE904E";
+}, recordType=Password>
+02:20:51.431 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281294d90> (entity: Password; predicate: (uuid == "F20E1AB9-E540-4587-8DCF-E40A93CE904E"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.450 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281aa6da0> (entity: Password; id: 0x9f3de9466e65cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p7> ; data: <fault>)])
+02:20:51.474 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = vRNDdN12 key = password
+02:20:51.484 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-20 17:03:12 +0000 key = createdAt
+02:20:51.497 0x282c23400 \360\237\222💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:20:51.520 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.524 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-20 17:03:12 +0000 key = selectedAt
+02:20:51.525 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = F20E1AB9-E540-4587-8DCF-E40A93CE904E key = uuid
+02:20:51.532 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281aa6da0> (entity: Password; id: 0x9f3de9466e65cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p7> ; data: {
+active = 1;
+createdAt = "2018-09-20 17:03:12 +0000";
+current = 0;
+password = vRNDdN12;
+selectedAt = "2018-09-20 17:03:12 +0000";
+site = nil;
+uuid = "F20E1AB9-E540-4587-8DCF-E40A93CE904E";
+}))
+02:20:51.544 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.545 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.546 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102303c40; recordID=70F151F1-8F83-4EB1-92F4-9170D5C0A044:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=i, values={
+charSet = 136331264;
+maxLength = 8;
+passwordCurrent = I61X41XX;
+passwords =     (
+"<CKReference: 0x2839b6f60; recordID=<CKRecordID: 0x2839b6f80; recordName=E6D4F480-DE67-42A6-997D-AAFE8B211488, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b6fa0; recordID=<CKRecordID: 0x2839b6fc0; recordName=B3093E26-F84C-4509-B9AB-3A9891A7B8D6, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b6fe0; recordID=<CKRecordID: 0x2839b7000; recordName=ECA99787-89E8-4057-A011-B23FEFBEB2F2, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b7040; recordID=<CKRecordID: 0x2839b7060; recordName=8899DB7F-1D6C-47E8-8485-C5079F4B099B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b7080; recordID=<CKRecordID: 0x2839b70a0; recordName=B91FCD6C-BEDC-4612-B494-E15728B831FA, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b7020; recordID=<CKRecordID: 0x2839b70c0; recordName=F0282B8C-94B6-41EF-B895-7A4F11EFC780, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b70e0; recordID=<CKRecordID: 0x2839b7100; recordName=FB7422A9-64A3-4BBD-BA94-A2FAAE24DBD8, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b7120; recordID=<CKRecordID: 0x2839b7140; recordName=BFA2F920-8C4E-43DC-8A4C-3E4B04760024, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b7160; recordID=<CKRecordID: 0x2839b7180; recordName=FA65CFE2-EB8A-4B99-AF48-D924C056CFB9, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b71a0; recordID=<CKRecordID: 0x2839b71c0; recordName=01BA15EF-6FF0-4F62-BBE9-48445740F463, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b71e0; recordID=<CKRecordID: 0x2839b7200; recordName=9EEDFC1F-0890-4E52-A28D-888C2EC9BD78, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b7220; recordID=<CKRecordID: 0x2839b7240; recordName=39CD2814-1C1E-4750-B8BA-505609692E34, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b7260; recordID=<CKRecordID: 0x2839b7280; recordName=6ECEF4BD-5992-4CB2-97E2-F29C6256465A, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839b72a0; recordID=<CKRecordID: 0x2839b72c0; recordName=27BCABDE-4061-4359-87E9-7975E70057FD, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+}, recordType=Site>
+02:20:51.612 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x2812903f0> (entity: Site; predicate: (uuid == "70F151F1-8F83-4EB1-92F4-9170D5C0A044"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.614 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:20:51.620 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:20:51.625 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:51.630 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:20:51.631 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:51.635 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b6f80; recordName=E6D4F480-DE67-42A6-997D-AAFE8B211488, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.636 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b6fc0; recordName=B3093E26-F84C-4509-B9AB-3A9891A7B8D6, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.644 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7000; recordName=ECA99787-89E8-4057-A011-B23FEFBEB2F2, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.645 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7060; recordName=8899DB7F-1D6C-47E8-8485-C5079F4B099B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.646 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b70a0; recordName=B91FCD6C-BEDC-4612-B494-E15728B831FA, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.647 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b70c0; recordName=F0282B8C-94B6-41EF-B895-7A4F11EFC780, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.653 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7100; recordName=FB7422A9-64A3-4BBD-BA94-A2FAAE24DBD8, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.659 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7140; recordName=BFA2F920-8C4E-43DC-8A4C-3E4B04760024, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.663 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7180; recordName=FA65CFE2-EB8A-4B99-AF48-D924C056CFB9, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.665 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b71c0; recordName=01BA15EF-6FF0-4F62-BBE9-48445740F463, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.666 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7200; recordName=9EEDFC1F-0890-4E52-A28D-888C2EC9BD78, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.676 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7240; recordName=39CD2814-1C1E-4750-B8BA-505609692E34, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.682 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b7280; recordName=6ECEF4BD-5992-4CB2-97E2-F29C6256465A, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.686 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839b72c0; recordName=27BCABDE-4061-4359-87E9-7975E70057FD, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.694 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:20:51.700 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:20:51.706 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281a9e990> (entity: Site; id: 0x2839b1760 <x-coredata:///Site/t57343136-1C66-4FA0-BA2C-D4AA8973C69A3> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:20:51 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords =     (
+);
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "365AEB4A-8B75-49ED-B1F1-A01F5D2B22EC";
+}))
+02:20:51.715 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.717 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.724 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102247ec0; recordID=B713922E-F948-47AE-8416-BFEB8C35FB83:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1d, values={
+active = 1;
+createdAt = "2018-10-03 17:19:56 +0000";
+current = 1;
+password = passnogi;
+selectedAt = "2018-10-03 17:19:56 +0000";
+uuid = "B713922E-F948-47AE-8416-BFEB8C35FB83";
+}, recordType=Password>
+02:20:51.732 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x2812917a0> (entity: Password; predicate: (uuid == "B713922E-F948-47AE-8416-BFEB8C35FB83"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.742 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:20:51.746 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = passnogi key = password
+02:20:51.748 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-10-03 17:19:56 +0000 key = createdAt
+02:20:51.749 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:20:51.751 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.756 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-10-03 17:19:56 +0000 key = selectedAt
+02:20:51.759 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = B713922E-F948-47AE-8416-BFEB8C35FB83 key = uuid
+02:20:51.768 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281a92170> (entity: Password; id: 0x2839b2260 <x-coredata:///Password/t57343136-1C66-4FA0-BA2C-D4AA8973C69A4> ; data: {
+active = 1;
+createdAt = "2018-10-03 17:19:56 +0000";
+current = 1;
+password = passnogi;
+selectedAt = "2018-10-03 17:19:56 +0000";
+site = nil;
+uuid = "B713922E-F948-47AE-8416-BFEB8C35FB83";
+}))
+02:20:51.772 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.772 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.780 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102247ff0; recordID=27BCABDE-4061-4359-87E9-7975E70057FD:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=10, values={
+active = 1;
+createdAt = "2018-09-24 01:49:43 +0000";
+current = 1;
+password = I61X41XX;
+selectedAt = "2018-09-24 01:49:43 +0000";
+uuid = "27BCABDE-4061-4359-87E9-7975E70057FD";
+}, recordType=Password>
+02:20:51.795 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281295180> (entity: Password; predicate: (uuid == "27BCABDE-4061-4359-87E9-7975E70057FD"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.801 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281a94690> (entity: Password; id: 0x9f3de9466e59cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p8> ; data: <fault>)])
+02:20:51.809 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = password
+02:20:51.814 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = createdAt
+02:20:51.817 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:20:51.819 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.825 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectedAt
+02:20:51.829 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 27BCABDE-4061-4359-87E9-7975E70057FD key = uuid
+02:20:51.831 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281a94690> (entity: Password; id: 0x9f3de9466e59cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p8> ; data: {
+active = 1;
+createdAt = "2018-09-24 01:49:43 +0000";
+current = 1;
+password = I61X41XX;
+selectedAt = "2018-09-24 01:49:43 +0000";
+site = nil;
+uuid = "27BCABDE-4061-4359-87E9-7975E70057FD";
+}))
+02:20:51.833 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.842 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.844 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102249040; recordID=8B3D445A-6A46-4D40-9210-2AA4109B037A:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=19, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:59:40 +0000";
+maxLength = 8;
+passwordCurrent = pass3;
+passwords =     (
+"<CKReference: 0x2839abaa0; recordID=<CKRecordID: 0x2839aaac0; recordName=7EF45C25-13ED-4F7F-89B4-0A8150BF2E82, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-09-27 15:59:52 +0000";
+title = title3;
+url = url3;
+userid = user3;
+uuid = "8B3D445A-6A46-4D40-9210-2AA4109B037A";
+}, recordType=Site>
+02:20:51.857 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281295180> (entity: Site; predicate: (uuid == "8B3D445A-6A46-4D40-9210-2AA4109B037A"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.866 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x281aa42d0> (entity: Site; id: 0x9f3de9466e6dcd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p5> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:59:40 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass3;
+passwords = "<relationship fault: 0x2839be440 'passwords'>";
+selectAt = "2018-09-27 15:59:52 +0000";
+title = title3;
+url = url3;
+userid = user3;
+uuid = "8B3D445A-6A46-4D40-9210-2AA4109B037A";
+})])
+02:20:51.879 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.882 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = user3 key = userid
+02:20:51.883 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass3 key = passwordCurrent
+02:20:51.890 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:51.892 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = title3 key = title
+02:20:51.901 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:51.905 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839aaac0; recordName=7EF45C25-13ED-4F7F-89B4-0A8150BF2E82, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:51.910 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8B3D445A-6A46-4D40-9210-2AA4109B037A key = uuid
+02:20:51.911 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:40 +0000 key = createdAt
+02:20:51.916 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:52 +0000 key = selectAt
+02:20:51.917 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = url3 key = url
+02:20:51.923 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa42d0> (entity: Site; id: 0x9f3de9466e6dcd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p5> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:59:40 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass3;
+passwords = "<relationship fault: 0x2839be440 'passwords'>";
+selectAt = "2018-09-27 15:59:52 +0000";
+title = title3;
+url = url3;
+userid = user3;
+uuid = "8B3D445A-6A46-4D40-9210-2AA4109B037A";
+}))
+02:20:51.939 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:51.942 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:51.943 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102249170; recordID=57551DB9-2FD3-4BFB-B131-D428579232DC:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=x, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:57:54 +0000";
+maxLength = 8;
+passwordCurrent = I61X41XX;
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+uuid = "57551DB9-2FD3-4BFB-B131-D428579232DC";
+}, recordType=Site>
+02:20:51.950 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281291340> (entity: Site; predicate: (uuid == "57551DB9-2FD3-4BFB-B131-D428579232DC"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:51.953 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x281aa41e0> (entity: Site; id: 0x9f3de9466e71cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p2> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:57:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839b2b00 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "57551DB9-2FD3-4BFB-B131-D428579232DC";
+})])
+02:20:51.956 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:51.958 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:20:51.960 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:51.962 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:20:52.045 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 57551DB9-2FD3-4BFB-B131-D428579232DC key = uuid
+02:20:52.048 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:52.085 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:57:54 +0000 key = createdAt
+02:20:52.093 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:20:52.098 0x282c23400 \360\237💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:20:52.114 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa41e0> (entity: Site; id: 0x9f3de9466e71cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p2> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:57:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839b2b00 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "57551DB9-2FD3-4BFB-B131-D428579232DC";
+}))
+02:20:52.127 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.128 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.131 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102346470; recordID=6978E683-01E3-4C3C-8E16-490F71FEC07C:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=15, values={
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 1;
+selectedAt = "2018-09-21 16:46:05 +0000";
+uuid = "6978E683-01E3-4C3C-8E16-490F71FEC07C";
+}, recordType=Password>
+02:20:52.134 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281292060> (entity: Password; predicate: (uuid == "6978E683-01E3-4C3C-8E16-490F71FEC07C"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.139 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281a9a5d0> (entity: Password; id: 0x9f3de9466e61cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p6> ; data: <fault>)])
+02:20:52.143 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:57:54 +0000 key = createdAt
+02:20:52.144 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:20:52.160 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.182 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-21 16:46:05 +0000 key = selectedAt
+02:20:52.203 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 6978E683-01E3-4C3C-8E16-490F71FEC07C key = uuid
+02:20:52.223 0x282c23400 \360\237\222💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281a9a5d0> (entity: Password; id: 0x9f3de9466e61cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p6> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 1;
+password = nil;
+selectedAt = "2018-09-21 16:46:05 +0000";
+site = nil;
+uuid = "6978E683-01E3-4C3C-8E16-490F71FEC07C";
+}))
+02:20:52.264 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.275 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.278 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102227a00; recordID=9E7D5883-6392-454A-9FBC-BBF7D635C93B:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=u, values={
+active = 1;
+createdAt = "2018-09-23 15:15:29 +0000";
+current = 1;
+password = 10TCtAic;
+selectedAt = "2018-09-23 15:15:29 +0000";
+uuid = "9E7D5883-6392-454A-9FBC-BBF7D635C93B";
+}, recordType=Password>
+02:20:52.283 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281292220> (entity: Password; predicate: (uuid == "9E7D5883-6392-454A-9FBC-BBF7D635C93B"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.288 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281a9fed0> (entity: Password; id: 0x9f3de9466e5dcd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p9> ; data: <fault>)])
+02:20:52.292 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 10TCtAic key = password
+02:20:52.294 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:15:29 +0000 key = createdAt
+02:20:52.296 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:20:52.297 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.299 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:15:29 +0000 key = selectedAt
+02:20:52.303 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 9E7D5883-6392-454A-9FBC-BBF7D635C93B key = uuid
+02:20:52.306 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281a9fed0> (entity: Password; id: 0x9f3de9466e5dcd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p9> ; data: {
+active = 1;
+createdAt = "2018-09-23 15:15:29 +0000";
+current = 1;
+password = 10TCtAic;
+selectedAt = "2018-09-23 15:15:29 +0000";
+site = nil;
+uuid = "9E7D5883-6392-454A-9FBC-BBF7D635C93B";
+}))
+02:20:52.317 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.318 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.320 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102227880; recordID=0413DB44-0382-4718-AB87-640CDE659C71:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1f, values={
+charSet = 136331264;
+maxLength = 8;
+}, recordType=Site>
+02:20:52.325 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x2812925a0> (entity: Site; predicate: (uuid == "0413DB44-0382-4718-AB87-640CDE659C71"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.335 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x281aa4320> (entity: Site; id: 0x9f3de9466e61cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p6> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:07 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass;
+passwords = "<relationship fault: 0x2839b3000 'passwords'>";
+selectAt = "2018-09-21 16:46:05 +0000";
+title = Keyakizaka46;
+url = nil;
+userid = nil;
+uuid = "0413DB44-0382-4718-AB87-640CDE659C71";
+})])
+02:20:52.346 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:52.348 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:52.349 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa4320> (entity: Site; id: 0x9f3de9466e61cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p6> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:07 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pass;
+passwords = "<relationship fault: 0x2839b3000 'passwords'>";
+selectAt = "2018-09-21 16:46:05 +0000";
+title = Keyakizaka46;
+url = nil;
+userid = nil;
+uuid = "0413DB44-0382-4718-AB87-640CDE659C71";
+}))
+02:20:52.358 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.361 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.363 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102247c50; recordID=F0282B8C-94B6-41EF-B895-7A4F11EFC780:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=12, values={
+active = 1;
+createdAt = "2018-09-23 15:10:25 +0000";
+current = 0;
+password = 1E5cwc6H;
+selectedAt = "2018-09-23 15:10:25 +0000";
+uuid = "F0282B8C-94B6-41EF-B895-7A4F11EFC780";
+}, recordType=Password>
+02:20:52.371 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281292990> (entity: Password; predicate: (uuid == "F0282B8C-94B6-41EF-B895-7A4F11EFC780"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.377 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281aa0050> (entity: Password; id: 0x9f3de9466e75cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p3> ; data: <fault>)])
+02:20:52.379 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1E5cwc6H key = password
+02:20:52.380 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:10:25 +0000 key = createdAt
+02:20:52.381 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:20:52.383 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.384 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:10:25 +0000 key = selectedAt
+02:20:52.395 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = F0282B8C-94B6-41EF-B895-7A4F11EFC780 key = uuid
+02:20:52.396 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281aa0050> (entity: Password; id: 0x9f3de9466e75cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p3> ; data: {
+active = 1;
+createdAt = "2018-09-23 15:10:25 +0000";
+current = 0;
+password = 1E5cwc6H;
+selectedAt = "2018-09-23 15:10:25 +0000";
+site = nil;
+uuid = "F0282B8C-94B6-41EF-B895-7A4F11EFC780";
+}))
+02:20:52.407 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.410 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.413 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x10224abc0; recordID=BFA2F920-8C4E-43DC-8A4C-3E4B04760024:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=8, values={
+current = 0;
+}, recordType=Password>
+02:20:52.421 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281290d90> (entity: Password; predicate: (uuid == "BFA2F920-8C4E-43DC-8A4C-3E4B04760024"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.424 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:20:52.427 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:20:52.428 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281a9b1b0> (entity: Password; id: 0x2839bf520 <x-coredata:///Password/t57343136-1C66-4FA0-BA2C-D4AA8973C69A5> ; data: {
+active = 1;
+createdAt = "2018-10-03 17:20:51 +0000";
+current = 0;
+password = nil;
+selectedAt = nil;
+site = nil;
+uuid = "03741E9C-F84A-416C-BED9-C04E79ED935F";
+}))
+02:20:52.439 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.441 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.442 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x10224acf0; recordID=FC8564B8-25E4-4B15-B91B-8F0E73BD780B:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1b, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:07 +0000";
+maxLength = 8;
+passwordCurrent = I61X41XX;
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+uuid = "FC8564B8-25E4-4B15-B91B-8F0E73BD780B";
+}, recordType=Site>
+02:20:52.453 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281296450> (entity: Site; predicate: (uuid == "FC8564B8-25E4-4B15-B91B-8F0E73BD780B"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.455 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x281aa4370> (entity: Site; id: 0x9f3de9466e65cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:07 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839ab160 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "FC8564B8-25E4-4B15-B91B-8F0E73BD780B";
+})])
+02:20:52.468 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.473 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:20:52.476 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:52.477 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:20:52.480 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = FC8564B8-25E4-4B15-B91B-8F0E73BD780B key = uuid
+02:20:52.481 0x282c23400 \360\237\222💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:52.485 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-10-03 17:19:07 +0000 key = createdAt
+02:20:52.486 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:20:52.488 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:20:52.492 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa4370> (entity: Site; id: 0x9f3de9466e65cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:07 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839ab160 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "FC8564B8-25E4-4B15-B91B-8F0E73BD780B";
+}))
+02:20:52.494 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.495 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.498 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102347420; recordID=8899DB7F-1D6C-47E8-8485-C5079F4B099B:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=z, values={
+active = 1;
+createdAt = "2018-09-24 01:44:41 +0000";
+current = 0;
+password = 2lZOtduQ;
+selectedAt = "2018-09-24 01:44:41 +0000";
+uuid = "8899DB7F-1D6C-47E8-8485-C5079F4B099B";
+}, recordType=Password>
+02:20:52.505 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281292d10> (entity: Password; predicate: (uuid == "8899DB7F-1D6C-47E8-8485-C5079F4B099B"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.507 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281aa0aa0> (entity: Password; id: 0x9f3de9466e7dcd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p1> ; data: <fault>)])
+02:20:52.513 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2lZOtduQ key = password
+02:20:52.517 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:44:41 +0000 key = createdAt
+02:20:52.519 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:20:52.525 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.526 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:44:41 +0000 key = selectedAt
+02:20:52.527 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8899DB7F-1D6C-47E8-8485-C5079F4B099B key = uuid
+02:20:52.531 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281aa0aa0> (entity: Password; id: 0x9f3de9466e7dcd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p1> ; data: {
+active = 1;
+createdAt = "2018-09-24 01:44:41 +0000";
+current = 0;
+password = 2lZOtduQ;
+selectedAt = "2018-09-24 01:44:41 +0000";
+site = nil;
+uuid = "8899DB7F-1D6C-47E8-8485-C5079F4B099B";
+}))
+02:20:52.556 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.559 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.561 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102347140; recordID=7EF45C25-13ED-4F7F-89B4-0A8150BF2E82:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=18, values={
+active = 1;
+createdAt = "2018-09-27 15:59:52 +0000";
+current = 1;
+password = pass3;
+selectedAt = "2018-09-27 15:59:52 +0000";
+uuid = "7EF45C25-13ED-4F7F-89B4-0A8150BF2E82";
+}, recordType=Password>
+02:20:52.569 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281293250> (entity: Password; predicate: (uuid == "7EF45C25-13ED-4F7F-89B4-0A8150BF2E82"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.574 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281aa08c0> (entity: Password; id: 0x9f3de9466e51cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p10> ; data: <fault>)])
+02:20:52.580 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = pass3 key = password
+02:20:52.585 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:52 +0000 key = createdAt
+02:20:52.587 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:20:52.594 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.597 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:59:52 +0000 key = selectedAt
+02:20:52.598 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 7EF45C25-13ED-4F7F-89B4-0A8150BF2E82 key = uuid
+02:20:52.600 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281aa08c0> (entity: Password; id: 0x9f3de9466e51cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p10> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:59:52 +0000";
+current = 1;
+password = pass3;
+selectedAt = "2018-09-27 15:59:52 +0000";
+site = nil;
+uuid = "7EF45C25-13ED-4F7F-89B4-0A8150BF2E82";
+}))
+02:20:52.602 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.603 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.606 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102347270; recordID=612D707F-C543-48A4-AAAC-9F50A97CD666:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=w, values={
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 0;
+uuid = "612D707F-C543-48A4-AAAC-9F50A97CD666";
+}, recordType=Password>
+02:20:52.619 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281295ce0> (entity: Password; predicate: (uuid == "612D707F-C543-48A4-AAAC-9F50A97CD666"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.626 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Password: 0x281aacb40> (entity: Password; id: 0x9f3de9466e69cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p4> ; data: <fault>)])
+02:20:52.627 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:57:54 +0000 key = createdAt
+02:20:52.628 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0 key = current
+02:20:52.629 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.634 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 612D707F-C543-48A4-AAAC-9F50A97CD666 key = uuid
+02:20:52.637 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281aacb40> (entity: Password; id: 0x9f3de9466e69cd10 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Password/p4> ; data: {
+active = 1;
+createdAt = "2018-09-27 15:57:54 +0000";
+current = 0;
+password = nil;
+selectedAt = nil;
+site = nil;
+uuid = "612D707F-C543-48A4-AAAC-9F50A97CD666";
+}))
+02:20:52.639 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.641 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.642 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102347550; recordID=C1785063-E1D9-4C7E-ADB6-00BC85C6A38C:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=14, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:56:13 +0000";
+maxLength = 8;
+passwordCurrent = I61X41XX;
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+uuid = "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C";
+}, recordType=Site>
+02:20:52.645 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281295e30> (entity: Site; predicate: (uuid == "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.647 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x281aa4190> (entity: Site; id: 0x9f3de9466e7dcd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:56:13 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839b19c0 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C";
+})])
+02:20:52.665 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.668 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = I61X41XX key = passwordCurrent
+02:20:52.671 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:52.674 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = t key = title
+02:20:52.679 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = C1785063-E1D9-4C7E-ADB6-00BC85C6A38C key = uuid
+02:20:52.681 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:52.682 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-27 15:56:13 +0000 key = createdAt
+02:20:52.687 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-24 01:49:43 +0000 key = selectAt
+02:20:52.691 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = URL key = url
+02:20:52.693 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa4190> (entity: Site; id: 0x9f3de9466e7dcd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-27 15:56:13 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = I61X41XX;
+passwords = "<relationship fault: 0x2839b19c0 'passwords'>";
+selectAt = "2018-09-24 01:49:43 +0000";
+title = t;
+url = URL;
+userid = nil;
+uuid = "C1785063-E1D9-4C7E-ADB6-00BC85C6A38C";
+}))
+02:20:52.695 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.697 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.700 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102222830; recordID=0636C66D-C351-466E-9E0B-2BFFFBEEB6D5:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=l, values={
+current = 1;
+selectedAt = "2018-09-21 16:46:05 +0000";
+}, recordType=Password>
+02:20:52.710 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281290ee0> (entity: Password; predicate: (uuid == "0636C66D-C351-466E-9E0B-2BFFFBEEB6D5"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.717 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:20:52.719 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = current
+02:20:52.723 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-21 16:46:05 +0000 key = selectedAt
+02:20:52.726 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Password: 0x281aacbe0> (entity: Password; id: 0x2839b28c0 <x-coredata:///Password/t57343136-1C66-4FA0-BA2C-D4AA8973C69A6> ; data: {
+active = 1;
+createdAt = "2018-10-03 17:20:51 +0000";
+current = 1;
+password = nil;
+selectedAt = "2018-09-21 16:46:05 +0000";
+site = nil;
+uuid = "AFA0279B-0188-4D93-8493-C9C8CDEFC484";
+}))
+02:20:52.740 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.741 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.743 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x102343120; recordID=0EC80CDD-21D4-4843-8BBA-F4C35C9179E0:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1e, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:22 +0000";
+maxLength = 8;
+passwordCurrent = passnogi;
+passwords =     (
+"<CKReference: 0x2839bc3c0; recordID=<CKRecordID: 0x2839bc760; recordName=B713922E-F948-47AE-8416-BFEB8C35FB83, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-10-03 17:19:56 +0000";
+title = nogizaka;
+url = Nogi;
+userid = usernogi;
+uuid = "0EC80CDD-21D4-4843-8BBA-F4C35C9179E0";
+}, recordType=Site>
+02:20:52.746 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281295ce0> (entity: Site; predicate: (uuid == "0EC80CDD-21D4-4843-8BBA-F4C35C9179E0"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.748 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([])
+02:20:52.753 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.756 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = usernogi key = userid
+02:20:52.760 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = passnogi key = passwordCurrent
+02:20:52.765 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:52.769 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = nogizaka key = title
+02:20:52.774 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:52.779 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839bc760; recordName=B713922E-F948-47AE-8416-BFEB8C35FB83, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:52.780 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 0EC80CDD-21D4-4843-8BBA-F4C35C9179E0 key = uuid
+02:20:52.782 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-10-03 17:19:22 +0000 key = createdAt
+02:20:52.784 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-10-03 17:19:56 +0000 key = selectAt
+02:20:52.786 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = Nogi key = url
+02:20:52.792 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa15e0> (entity: Site; id: 0x2839bfe60 <x-coredata:///Site/t57343136-1C66-4FA0-BA2C-D4AA8973C69A7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:22 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = passnogi;
+passwords =     (
+);
+selectAt = "2018-10-03 17:19:56 +0000";
+title = nogizaka;
+url = Nogi;
+userid = usernogi;
+uuid = "0EC80CDD-21D4-4843-8BBA-F4C35C9179E0";
+}))
+02:20:52.804 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.805 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.806 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():133 - CKFetchRecordZoneChangesOperation record = <CKRecord: 0x10233d290; recordID=1D5D28A7-F506-4528-899D-BA2EB3A00B7F:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=11, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-22 14:15:49 +0000";
+maxLength = 8;
+passwordCurrent = 10TCtAic;
+passwords =     (
+"<CKReference: 0x2839be180; recordID=<CKRecordID: 0x2839be2a0; recordName=E426BAF2-4A41-432C-A002-BC5C6401A136, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x2839be3a0; recordID=<CKRecordID: 0x2839be200; recordName=9E7D5883-6392-454A-9FBC-BBF7D635C93B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-09-23 15:15:29 +0000";
+title = title2;
+url = url2;
+userid = user2;
+uuid = "1D5D28A7-F506-4528-899D-BA2EB3A00B7F";
+}, recordType=Site>
+02:20:52.830 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():138 - context fetch request = <NSFetchRequest: 0x281295ce0> (entity: Site; predicate: (uuid == "1D5D28A7-F506-4528-899D-BA2EB3A00B7F"); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+02:20:52.837 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():140 - context fetch result = Optional([<TresorMockup.Site: 0x281aa4230> (entity: Site; id: 0x9f3de9466e75cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p3> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-22 14:15:49 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 10TCtAic;
+passwords = "<relationship fault: 0x2839afbc0 'passwords'>";
+selectAt = "2018-09-23 15:15:29 +0000";
+title = title2;
+url = url2;
+userid = user2;
+uuid = "1D5D28A7-F506-4528-899D-BA2EB3A00B7F";
+})])
+02:20:52.854 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1 key = active
+02:20:52.856 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = user2 key = userid
+02:20:52.857 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 10TCtAic key = passwordCurrent
+02:20:52.857 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 8 key = maxLength
+02:20:52.858 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = title2 key = title
+02:20:52.859 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 136331264 key = charSet
+02:20:52.861 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839be2a0; recordName=E426BAF2-4A41-432C-A002-BC5C6401A136, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:52.863 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():153 - reference = <CKRecordID: 0x2839be200; recordName=9E7D5883-6392-454A-9FBC-BBF7D635C93B, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>
+02:20:52.865 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 1D5D28A7-F506-4528-899D-BA2EB3A00B7F key = uuid
+02:20:52.867 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-22 14:15:49 +0000 key = createdAt
+02:20:52.870 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = 2018-09-23 15:15:29 +0000 key = selectAt
+02:20:52.875 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():157 - recordChangedBlock setValue val = url2 key = url
+02:20:52.876 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():164 - CKFetchRecordZoneChangesOperation obj = Optional(<TresorMockup.Site: 0x281aa4230> (entity: Site; id: 0x9f3de9466e75cd12 <x-coredata://3FA728AC-3619-43E0-B84F-70FC9369CA8A/Site/p3> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-22 14:15:49 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 10TCtAic;
+passwords = "<relationship fault: 0x2839afbc0 'passwords'>";
+selectAt = "2018-09-23 15:15:29 +0000";
+title = title2;
+url = url2;
+userid = user2;
+uuid = "1D5D28A7-F506-4528-899D-BA2EB3A00B7F";
+}))
+02:20:52.879 0x282c23400 💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:20:52.880 0x282c23400 💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:20:52.882 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():182 - recordZoneFetchCompletionBlock error = nil
+02:20:52.884 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():182 - recordZoneFetchCompletionBlock error = nil
+02:20:52.888 0x282c23400 💚 DEBUG CloudKitManager.checkUpdates():185 - fetchRecordZoneChangesCompletionBlock error = nil
+02:20:52.889 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = Optional(<CKError 0x2837200f0: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 894C0CAA-22C4-4539-A5F3-C7EC9BF8DB3F; container ID = "iCloud.com.mac.jun1ro1.TresorMockup"; partial errors: {
+8CA4FE1B-A2FA-40A8-B140-58FFCA4B2289:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x28371fc60: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 894C0CAA-22C4-4539-A5F3-C7EC9BF8DB3F>
+}>)
+02:20:52.908 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():221 -   selectAt: NSDate = 2018-09-23 15:15:29 +0000
+02:20:52.911 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():213 -   maxLength: NSNumber = 8
+02:20:52.930 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():205 -   memo: NSNull = Optional(<null>)
+02:20:52.932 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():209 -   title: NSString = title2
+02:20:52.934 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():213 -   charSet: NSNumber = 136331264
+02:20:52.939 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():209 -   passwordCurrent: NSString = 10TCtAic
+02:20:52.942 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():209 -   url: NSString = url2
+02:20:52.943 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():221 -   createdAt: NSDate = 2018-09-22 14:15:49 +0000
+02:20:52.945 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():205 -   loginAt: NSNull = Optional(<null>)
+02:20:52.948 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():209 -   userid: NSString = user2
+02:20:52.951 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():213 -   active: NSNumber = 1
+02:20:52.954 0x282c20ec0 💚 DEBUG CloudKitManager.setProperties():209 -   uuid: NSString = 1D5D28A7-F506-4528-899D-BA2EB3A00B7F
+02:20:52.955 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = [<CKRecord: 0x102257540; recordID=1D5D28A7-F506-4528-899D-BA2EB3A00B7F:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-09-22 14:15:49 +0000";
+maxLength = 8;
+passwordCurrent = 10TCtAic;
+selectAt = "2018-09-23 15:15:29 +0000";
+title = title2;
+url = url2;
+userid = user2;
+uuid = "1D5D28A7-F506-4528-899D-BA2EB3A00B7F";
+}, recordType=Site>
+{
+creatorUserRecordID -> (null)
+lastModifiedUserRecordID -> (null)
+creationDate -> (null)
+modificationDate -> (null)
+userid (modified) -> "user2"
+active (modified) -> 1 (type c)
+passwordCurrent (modified) -> "10TCtAic"
+maxLength (modified) -> 8 (type s)
+title (modified) -> "title2"
+charSet (modified) -> 136331264 (type i)
+uuid (modified) -> "1D5D28A7-F506-4528-899D-BA2EB3A00B7F"
+createdAt (modified) -> 2018-09-22 14:15:49 +0000
+selectAt (modified) -> 2018-09-23 15:15:29 +0000
+url (modified) -> "url2"
+}]
+02:20:52.980 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:52.981 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:52.984 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:52.988 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:52.992 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:53.258 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:53.260 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:53.264 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:53.265 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:53.725 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:53.727 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:53.729 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:53.731 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:54.163 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:54.165 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:54.168 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:54.170 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:54.467 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = Optional(<CKError 0x28374c4b0: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 3BF47E18-E5AA-4738-8364-BA23575F526B; container ID = "iCloud.com.mac.jun1ro1.TresorMockup"; partial errors: {
+365AEB4A-8B75-49ED-B1F1-A01F5D2B22EC:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x283740930: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 3BF47E18-E5AA-4738-8364-BA23575F526B>
+}>)
+02:20:54.471 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:54.473 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:54.474 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:54.765 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:54.766 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:54.767 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:54.769 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:55.163 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:55.165 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:55.167 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:55.168 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:55.533 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:55.535 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:55.537 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:55.539 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:55.795 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:55.797 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:55.799 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:55.802 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:56.105 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:56.106 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:56.107 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:56.108 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:56.363 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:56.364 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:56.366 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:56.368 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:56.737 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:56.740 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:56.741 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:56.745 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:57.087 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:57.089 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:57.090 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:57.092 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:57.401 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = Optional(<CKError 0x283740300: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 63656D63-8B75-4353-BF7C-E323CAE48B4A; container ID = "iCloud.com.mac.jun1ro1.TresorMockup"; partial errors: {
+03741E9C-F84A-416C-BED9-C04E79ED935F:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x2837406c0: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 63656D63-8B75-4353-BF7C-E323CAE48B4A>
+}>)
+02:20:57.408 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:57.410 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:57.411 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:57.775 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:57.777 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:57.779 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:57.781 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:58.143 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:58.145 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:58.147 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:58.148 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:58.553 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:58.556 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:58.559 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:58.561 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:58.851 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:58.852 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:58.853 0x282c22b80 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:58.854 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:59.163 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:59.165 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:59.166 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:59.167 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:59.555 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = Optional(<CKError 0x283740540: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = FD40EED8-B3C6-4E2A-BF55-320FDD016968; container ID = "iCloud.com.mac.jun1ro1.TresorMockup"; partial errors: {
+AFA0279B-0188-4D93-8493-C9C8CDEFC484:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x28374ca80: "Unknown Item" (11/2003); server message = "Record not found"; uuid = FD40EED8-B3C6-4E2A-BF55-320FDD016968>
+}>)
+02:20:59.563 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:59.566 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:59.569 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:20:59.980 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:20:59.981 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:20:59.983 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:20:59.987 0x282c20ec0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:21:00.291 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:21:00.292 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = []
+02:21:00.293 0x282c231c0 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:21:00.294 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:21:00.575 0x282c3a9c0 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = Optional(<CKError 0x28374c5a0: "Partial Failure" (2/1011); "Failed to modify some records"; uuid = 6C2DDC32-F665-46BA-87DF-340C5BB551C5; container ID = "iCloud.com.mac.jun1ro1.TresorMockup"; partial errors: {
+1D5D28A7-F506-4528-899D-BA2EB3A00B7F:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x28374d0b0: "Server Record Changed" (14/2004); server message = "record to insert already exists"; uuid = 6C2DDC32-F665-46BA-87DF-340C5BB551C5>
+}>)
+02:21:00.579 0x282c3a9c0 ❤️ ERROR CloudKitManager.contextDidSave():362 - CKModifyRecordsOperation error save = Optional([])
+02:21:00.580 0x282c3a9c0 ❤️ ERROR CloudKitManager.contextDidSave():363 - CKModifyRecordsOperation error delete = Optional([])
+02:21:31.908  💚 DEBUG CloudKitManager.contextWillSave():281 - contextWillSave
+02:21:31.920  💚 DEBUG CloudKitManager.contextDidSave():294 - contextDidSave
+02:21:32.735 0x282c43780 💚 DEBUG CloudKitManager.contextDidSave():330 - CKFetchRecordsOperation error = nil
+02:21:32.736 0x282c43780 💚 DEBUG CloudKitManager.setProperties():209 -   passwordCurrent: NSString =
+02:21:32.738 0x282c43780 💚 DEBUG CloudKitManager.setProperties():205 -   selectAt: NSNull = Optional(<null>)
+02:21:32.740 0x282c43780 💚 DEBUG CloudKitManager.contextDidSave():354 - CKModifyRecordsOperation save = [<CKRecord: 0x1022534e0; recordID=0EC80CDD-21D4-4843-8BBA-F4C35C9179E0:(com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1e, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-10-03 17:19:22 +0000";
+maxLength = 8;
+passwordCurrent = "";
+passwords =     (
+"<CKReference: 0x2839b9e20; recordID=<CKRecordID: 0x2839b9d40; recordName=B713922E-F948-47AE-8416-BFEB8C35FB83, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+title = nogizaka;
+url = Nogi;
+userid = usernogi;
+uuid = "0EC80CDD-21D4-4843-8BBA-F4C35C9179E0";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x2839b8740; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x2839bbec0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-10-03 17:19:23 +0000
+modificationDate -> 2018-10-03 17:20:03 +0000
+modifiedByDevice -> iPhone XS
+userid -> "usernogi"
+active -> 1 (type q)
+passwordCurrent (modified) -> ""
+maxLength -> 8 (type q)
+title -> "nogizaka"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x2839b9e20; recordID=<CKRecordID: 0x2839b9d40; recordName=B713922E-F948-47AE-8416-BFEB8C35FB83, zoneID=com.mac.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "0EC80CDD-21D4-4843-8BBA-F4C35C9179E0"
+createdAt -> 2018-10-03 17:19:22 +0000
+url -> "Nogi"
+}]
+02:21:32.754 0x282c43780 💚 DEBUG CloudKitManager.contextDidSave():355 - CKModifyRecordsOperation delete = []
+02:21:33.069 0x282c43780 💚 DEBUG CloudKitManager.contextDidSave():360 - CKModifyRecordsOperation error = nil
+02:21:39.393  💚 DEBUG MasterViewController.viewWillAppear():45 - viewWillAppear
+2018-10-04 02:21:52.961115+0900 TresorMockup[750:305455] Warning: Application delegate received call to -application:didReceiveRemoteNotification:fetchCompletionHandler: but the completion handler was never called.
+02:21:52.963  💚 DEBUG AppDelegate.application():95 - Receive Remote Notification = [AnyHashable("aps"): {
+"content-available" = 1;
+}, AnyHashable("ck"): {
+ce = 2;
+cid = "iCloud.com.mac.jun1ro1.TresorMockup";
+ckuserid = "_66fea320eb249d8f9407ff84c7838a58";
+met =     {
+dbs = 1;
+sid = "com.mac.jun1ro1.TresorMockup";
+zid = "com.mac.jun1ro1.TresorMockup_Zone";
+zoid = "_66fea320eb249d8f9407ff84c7838a58";
+};
+nid = "b4a69cbe-6d0b-467e-8052-e9e2a81b9f75";
+}]
+02:21:53.432  💚 DEBUG MasterViewController.viewWillAppear():45 - viewWillAppear
+

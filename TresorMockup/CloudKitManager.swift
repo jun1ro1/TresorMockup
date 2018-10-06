@@ -142,7 +142,6 @@ class CloudKitManager: NSObject {
                     if result == nil || result!.isEmpty {
                         let entityDesc = NSEntityDescription.entity(forEntityName: record.recordType, in: self.context!)
                         obj = NSManagedObject(entity: entityDesc!, insertInto: self.context)
-                        self.context!.insert(obj!)
                     }
                     else {
                         obj = result![0] as? NSManagedObject
@@ -162,11 +161,17 @@ class CloudKitManager: NSObject {
                             obj?.setValue(nil, forKey: key)
                         }
                     }
-
                     self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: obj))")
                 }
                 catch {
-                    self.log.debug("context fetch = error")
+                    self.log.debug("fetch error")
+                }
+
+                do {
+                    try self.context!.save()
+                }
+                catch {
+                    self.log.debug("context.save error")
                 }
 
             }

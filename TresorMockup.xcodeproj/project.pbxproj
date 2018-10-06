@@ -14,6 +14,7 @@
 		F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F926350620F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
+		F92A392A216531010073A544 /* log2.txt in Resources */ = {isa = PBXBuildFile; fileRef = F92A3929216531010073A544 /* log2.txt */; };
 		F92E9ADD20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADE20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADF20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
@@ -44,6 +45,9 @@
 		F98B615B20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
 		F98B615C20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
 		F98B615D20B5CA06008E7048 /* PasswordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98B615A20B5CA06008E7048 /* PasswordManager.swift */; };
+		F98CE01B215D34D8001AEF1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F98CE01A215D34D6001AEF1A /* Podfile */; };
+		F98CE01C215D34D8001AEF1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F98CE01A215D34D6001AEF1A /* Podfile */; };
+		F98CE01D215D34D8001AEF1A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F98CE01A215D34D6001AEF1A /* Podfile */; };
 		F9C3C5BA20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */; };
 		F9C3C5BB20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */; };
 		F9C3C5BC20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */; };
@@ -102,6 +106,7 @@
 		E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupTests/Pods-TresorMockupTests.release.xcconfig"; sourceTree = "<group>"; };
 		F906C49820DE5F57003DADEC /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log.txt; sourceTree = "<group>"; };
 		F926350320F981C700EF7851 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
+		F92A3929216531010073A544 /* log2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
 		F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F92E9AD920D411F9007EE75A /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F935B37A204A3ACA00B004B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -112,6 +117,7 @@
 		F96367832132D2BB000E6D03 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F985628B20DD438400177F55 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F98B615A20B5CA06008E7048 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
+		F98CE01A215D34D6001AEF1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewController.swift; sourceTree = "<group>"; };
 		F9D3F352205E97F200878975 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
@@ -225,6 +231,8 @@
 				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
 				F9FE6EB12042E99300F892DC /* Main.storyboard */,
 				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
+				F98CE01A215D34D6001AEF1A /* Podfile */,
+				F92A3929216531010073A544 /* log2.txt */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";
@@ -388,9 +396,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98CE01B215D34D8001AEF1A /* Podfile in Resources */,
 				F9FE6EB82042E99300F892DC /* LaunchScreen.storyboard in Resources */,
 				F9FE6EB52042E99300F892DC /* Assets.xcassets in Resources */,
 				F9FE6EB32042E99300F892DC /* Main.storyboard in Resources */,
+				F92A392A216531010073A544 /* log2.txt in Resources */,
 				F906C49920DE5F57003DADEC /* log.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98CE01C215D34D8001AEF1A /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +417,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F98CE01D215D34D8001AEF1A /* Podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
