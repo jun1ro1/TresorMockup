@@ -12,26 +12,6 @@ import CoreLocation
 import CloudKit
 import SwiftyBeaver
 
-class UpdatedObject {
-    var object: NSManagedObject?
-    var keys: [String]
-    var recordID: CKRecord.ID?
-    var record: CKRecord?
-
-    init() {
-        self.object   = nil
-        self.keys     = []
-        self.recordID = nil
-        self.record   = nil
-    }
-
-    convenience init(object: NSManagedObject?) {
-        self.init()
-        self.object = object
-        self.keys   = object?.changedValues().map { $0.key } ?? []
-    }
-}
-
 // https://developer.apple.com/library/archive/documentation/DataManagement/Conceptual/CloudKitQuickStart/MaintainingaLocalCacheofCloudKitRecords/MaintainingaLocalCacheofCloudKitRecords.html#//apple_ref/doc/uid/TP40014987-CH12-SW1
 
 class CloudKitManager: NSObject {
@@ -47,9 +27,8 @@ class CloudKitManager: NSObject {
     fileprivate var zoneIDs: [CKRecordZone.ID]
     fileprivate var context: NSManagedObjectContext?
 
-    var inserted: [NSManagedObject] = []
-    var deleted:  [NSManagedObject] = []
-    var updated:  [UpdatedObject]   = []
+    fileprivate var deleted:  [NSManagedObject] = []
+    fileprivate var updated:  [UpdatedObject]   = []
 
     override init() {
         //        super.init()
@@ -196,6 +175,127 @@ class CloudKitManager: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave(notification:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: moc)
     }
 
+
+    @objc func contextWillSave(notification: Notification) {
+        self.log.debug("contextWillSave")
+        guard let moc = notification.object as? NSManagedObjectContext else {
+            assertionFailure()
+            return
+        }
+
+        self.deleted  = Array(moc.deletedObjects)
+        self.updated  =
+            moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
+            + moc.insertedObjects.map { UpdatedObject( object: $0 ) }
+    }
+
+    @objc func contextDidSave(notification: Notification) {
+        self.log.debug("contextDidSave notification = \(notification)")
+
+        var toDelete: [CKRecord.ID] = []
+        var toSave:   [CKRecord]    = []
+
+        var managedObjectCloudRecordRelations: [String: ManagedObjectCloudRecord] = [:]
+
+        // records to be deleted
+        toDelete = self.deleted.map {
+            let recid   = CKRecord.ID(recordName: $0.idstr ?? "NO UUID",
+                                      zoneID: self.zone.zoneID)
+            let rectype = $0.entity.name ?? "UNKOWN NAME"
+            self.log.debug("[deleted] id = \(recid): type = \(rectype)")
+            return recid
+        }
+        self.deleted = []
+
+        // set managedObjectCloudRecordRelations
+        self.updated.forEach { uobj in
+            guard let obj: NSManagedObject = uobj.object else {
+                assertionFailure()
+                return
+            }
+            guard let id = obj.idstr else {
+                assertionFailure()
+                return
+            }
+            var mocr = ManagedObjectCloudRecord(managedObject: obj)
+            mocr.recordID = CKRecord.ID(recordName: id, zoneID: self.zone.zoneID)
+            mocr.keys     = uobj.keys
+            managedObjectCloudRecordRelations[id] = mocr
+        }
+        self.updated  = []
+
+        let fetchRecordsOperation = CKFetchRecordsOperation(
+            recordIDs: managedObjectCloudRecordRelations.values.map { $0.recordID! }
+        )
+        fetchRecordsOperation.fetchRecordsCompletionBlock = { (records, error) in
+            self.log.debug("CKFetchRecordsOperation error = \(String(describing: error))")
+            guard records != nil else {
+                assertionFailure()
+                return
+            }
+            guard !records!.isEmpty else {
+                self.log.info("records = empty")
+                return
+            }
+            for key in managedObjectCloudRecordRelations.keys {
+                guard let mocr = managedObjectCloudRecordRelations[key] else {
+                    assertionFailure()
+                    continue
+                }
+                guard let recordID = mocr.recordID else {
+                    assertionFailure()
+                    continue
+                }
+                if let record = records![recordID] {
+                    // the cloud record whose recordID is is found
+                    managedObjectCloudRecordRelations[key]!.cloudRecord = record
+                }
+                else {
+                    // a cloud record is not found then create it
+                    managedObjectCloudRecordRelations[key]!.cloudRecord =
+                        CKRecord(recordType: mocr.managedObject!.entity.name ?? "UNKOWN NAME",
+                                 recordID: mocr.recordID!)
+                }
+            }
+
+            for key in managedObjectCloudRecordRelations.keys {
+                guard let mocr = managedObjectCloudRecordRelations[key] else {
+                    assertionFailure()
+                    continue
+                }
+                guard let record = mocr.cloudRecord else {
+                    assertionFailure()
+                    continue
+                }
+                guard let obj = mocr.managedObject else {
+                    assertionFailure()
+                    continue
+                }
+                self.setProperties(record: record,
+                                   properties: obj.committedValues(forKeys: mocr.keys) )
+            }
+
+            toSave = managedObjectCloudRecordRelations.values.compactMap { $0.cloudRecord }
+
+            self.log.debug( "CKModifyRecordsOperation save = \(String(describing: toSave))" )
+            self.log.debug( "CKModifyRecordsOperation delete = \(String(describing: toDelete))" )
+        }
+
+        let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: toSave,
+                                                              recordIDsToDelete: toDelete)
+        modifyRecordsOperation.modifyRecordsCompletionBlock = { (save, delete, error) in
+            self.log.debug("CKModifyRecordsOperation error = \(String(describing: error))")
+            if error != nil {
+                self.log.error( "CKModifyRecordsOperation error save = \(String(describing: save))" )
+                self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
+            }
+        }
+
+        modifyRecordsOperation.addDependency(fetchRecordsOperation)
+        self.database.add(fetchRecordsOperation)
+        self.database.add(modifyRecordsOperation)
+    }
+
     func setProperties(record: CKRecord, properties:[String: Any?]) {
         properties.forEach {
             let (key, value) = $0
@@ -276,106 +376,56 @@ class CloudKitManager: NSObject {
         }
     }
 
+}
 
-    @objc func contextWillSave(notification: Notification) {
-        self.log.debug("contextWillSave")
-        guard let moc = notification.object as? NSManagedObjectContext else {
-            assertionFailure()
-            return
-        }
+// MARK: - Structures
+fileprivate struct ManagedObjectCloudRecord {
+    var recordID:      CKRecord.ID?
+    var managedObject: NSManagedObject?
+    var keys:          [String]
+    var cloudRecord:   CKRecord?
 
-        //        self.inserted = Array(moc.insertedObjects)
-        self.deleted  = Array(moc.deletedObjects)
-        self.updated  = moc.updatedObjects.map  { UpdatedObject( object: $0 ) }
-            + moc.insertedObjects.map { UpdatedObject( object: $0 ) }
+    init() {
+        self.recordID      = nil
+        self.managedObject = nil
+        self.keys          = []
+        self.cloudRecord   = nil
     }
 
-    @objc func contextDidSave(notification: Notification) {
-        self.log.debug("contextDidSave")
+    init(managedObject: NSManagedObject) {
+        self.init()
+        self.managedObject = managedObject
+    }
 
-        var toSave:   [CKRecord]    = []
-        var toDelete: [CKRecord.ID] = []
-
-        //        self.inserted.forEach  { obj in
-        //            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
-        //                                      zoneID: self.zone.zoneID)
-        //            let rectype = obj.entity.name ?? "UNKOWN NAME"
-        //            self.log.debug("[inserted] id = \(recid): type = \(rectype)")
-        //            let record  = CKRecord(recordType: rectype, recordID: recid)
-        //            self.setProperties(record: record, properties: obj.committedValues(forKeys: nil) )
-        //            toSave.append(record)
-        //        }
-
-        // records to be deleted
-        self.deleted.forEach { obj in
-            let recid   = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
-                                      zoneID: self.zone.zoneID)
-            let rectype = obj.entity.name ?? "UNKOWN NAME"
-            self.log.debug("[deleted] id = \(recid): type = \(rectype)")
-            toDelete.append(recid)
-        }
-
-        // set recordID
-        self.updated.forEach { uobj in
-            guard let obj: NSManagedObject = uobj.object else {
-                assertionFailure()
-                return
-            }
-            uobj.recordID = CKRecord.ID(recordName: obj.idstr ?? "NO UUID",
-                                        zoneID: self.zone.zoneID)
-        }
-
-        let fetchOperation = CKFetchRecordsOperation(recordIDs: self.updated.map { $0.recordID! })
-        fetchOperation.fetchRecordsCompletionBlock = { (records, error) in
-            self.log.debug("CKFetchRecordsOperation error = \(String(describing: error))")
-            records?.forEach { (id, record) in
-                let uobj = self.updated.first(where: { $0.recordID == id })
-                if uobj != nil {
-                    uobj?.record = record
-                }
-            }
-            self.updated.forEach {
-                if $0.record == nil {
-                    $0.record = CKRecord(recordType: $0.object!.entity.name ?? "UNKOWN NAME",
-                                         recordID: $0.recordID!)
-                }
-            }
-
-            self.updated.forEach { uobj in
-                guard let obj: NSManagedObject = uobj.object else {
-                    assertionFailure()
-                    return
-                }
-                let record  = uobj.record!
-                self.setProperties(record: record, properties: obj.committedValues(forKeys: uobj.keys) )
-                toSave.append(record)
-            }
-
-            self.log.debug( "CKModifyRecordsOperation save = \(String(describing: toSave))" )
-            self.log.debug( "CKModifyRecordsOperation delete = \(String(describing: toDelete))" )
-
-            let operation = CKModifyRecordsOperation(recordsToSave: toSave,
-                                                     recordIDsToDelete: toDelete)
-            operation.modifyRecordsCompletionBlock = { (save, delete, error) in
-                self.log.debug("CKModifyRecordsOperation error = \(String(describing: error))")
-                if error != nil {
-                    self.log.error( "CKModifyRecordsOperation error save = \(String(describing: save))" )
-                    self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
-                }
-            }
-            self.inserted = []
-            self.deleted  = []
-            self.updated  = []
-
-            self.database.add(operation)
-        }
-        self.database.add(fetchOperation)
-
+    init(cloudRecord: CKRecord) {
+        self.init()
+        self.recordID    = cloudRecord.recordID
+        self.cloudRecord = cloudRecord
     }
 }
 
-extension NSManagedObject {
+fileprivate struct UpdatedObject {
+    var object: NSManagedObject?
+    var keys: [String]
+
+    init() {
+        self.object   = nil
+        self.keys     = []
+    }
+
+    init(object: NSManagedObject?) {
+        self.init()
+        self.object = object
+        self.keys   = object?.changedValues().map { $0.key } ?? []
+    }
+}
+
+
+// MARK: - Extensions
+fileprivate extension NSManagedObject {
     var idstr: String? {
         return self.value(forKey: "uuid") as? String
     }
 }
+
+
