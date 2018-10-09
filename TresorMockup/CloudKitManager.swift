@@ -133,11 +133,11 @@ class CloudKitManager: NSObject {
                             }
                         }
                         else if let val = record[key] {
-                            self.log.debug("recordChangedBlock setValue val = \(String(describing: val)) key = \(key)")
-                            obj?.setValue(val, forKey: key)
+                            self.log.debug("recordChangedBlock setPrimitiveValue val = \(String(describing: val)) key = \(key)")
+                            obj?.setPrimitiveValue(val, forKey: key)
                         }
                         else {
-                            obj?.setValue(nil, forKey: key)
+                            obj?.setPrimitiveValue(nil, forKey: key)
                         }
                     }
                     self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: obj))")

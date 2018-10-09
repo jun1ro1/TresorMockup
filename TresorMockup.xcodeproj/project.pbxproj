@@ -10,11 +10,9 @@
 		592F958880EDC3597BCBC738 /* Pods_TresorMockupTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */; };
 		860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */; };
 		CD66B538CEA5298BF975469B /* Pods_TresorMockupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */; };
-		F906C49920DE5F57003DADEC /* log.txt in Resources */ = {isa = PBXBuildFile; fileRef = F906C49820DE5F57003DADEC /* log.txt */; };
 		F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F926350620F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
-		F92A392A216531010073A544 /* log2.txt in Resources */ = {isa = PBXBuildFile; fileRef = F92A3929216531010073A544 /* log2.txt */; };
 		F92E9ADD20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADE20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADF20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
@@ -122,6 +120,8 @@
 		F9D3F352205E97F200878975 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		F9FE4E6C216D1E0300951657 /* log3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log3.txt; sourceTree = "<group>"; };
+		F9FE4E6D216D1E6400951657 /* log4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log4.txt; sourceTree = "<group>"; };
 		F9FE6EA52042E99300F892DC /* TresorMockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresorMockup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FE6EA82042E99300F892DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FE6EAB2042E99300F892DC /* TresorMockup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TresorMockup.xcdatamodel; sourceTree = "<group>"; };
@@ -233,6 +233,8 @@
 				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
 				F98CE01A215D34D6001AEF1A /* Podfile */,
 				F92A3929216531010073A544 /* log2.txt */,
+				F9FE4E6C216D1E0300951657 /* log3.txt */,
+				F9FE4E6D216D1E6400951657 /* log4.txt */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";
@@ -400,8 +402,6 @@
 				F9FE6EB82042E99300F892DC /* LaunchScreen.storyboard in Resources */,
 				F9FE6EB52042E99300F892DC /* Assets.xcassets in Resources */,
 				F9FE6EB32042E99300F892DC /* Main.storyboard in Resources */,
-				F92A392A216531010073A544 /* log2.txt in Resources */,
-				F906C49920DE5F57003DADEC /* log.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
