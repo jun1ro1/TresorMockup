@@ -107,6 +107,7 @@
 		F92A3929216531010073A544 /* log2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
 		F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F92E9AD920D411F9007EE75A /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F930D3B32171B78A005910C6 /* log5.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log5.txt; sourceTree = "<group>"; };
 		F935B37A204A3ACA00B004B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F950E78220676C8600D55557 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
@@ -235,6 +236,7 @@
 				F92A3929216531010073A544 /* log2.txt */,
 				F9FE4E6C216D1E0300951657 /* log3.txt */,
 				F9FE4E6D216D1E6400951657 /* log4.txt */,
+				F930D3B32171B78A005910C6 /* log5.txt */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";

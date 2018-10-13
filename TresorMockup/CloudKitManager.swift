@@ -224,6 +224,48 @@ class CloudKitManager: NSObject {
         }
         self.updated  = []
 
+        var referenced: [String] = []
+        managedObjectCloudRecordRelations.keys.forEach {
+            let mocr = managedObjectCloudRecordRelations[$0]
+            guard let obj  = mocr?.managedObject else {
+                return
+            }
+            mocr?.keys.forEach { (key) in
+                if let val = obj.value(forKey: key) as? NSManagedObject {
+                    let targetid   = val.idstr ?? "NO UUID"
+                    referenced.append(targetid)
+                    self.log.debug("\(key): referenced = \(targetid)")
+                }
+                else if let vals = obj.value(forKey: key) as? NSArray {
+                    vals.forEach {
+                        if let val = $0 as? NSManagedObject {
+                            let targetid   = val.idstr ?? "NO UUID"
+                            referenced.append(targetid)
+                            self.log.debug("\(key): referenced = \(targetid)")
+                        }
+                    }
+                }
+                else if let vals = obj.value(forKey: key) as? NSSet {
+                    vals.allObjects.forEach {
+                        if let val = $0 as? NSManagedObject {
+                            let targetid   = val.idstr ?? "NO UUID"
+                            referenced.append(targetid)
+                            self.log.debug("\(key): referenced = \(targetid)")
+                        }
+                    }
+                }
+            }
+        }
+        referenced.forEach { (ref) in
+            if managedObjectCloudRecordRelations[ref] == nil {
+                let recid   = CKRecord.ID(recordName: ref,
+                                          zoneID: self.zone.zoneID)
+                let mocr = ManagedObjectCloudRecord(recordID: recid)
+                managedObjectCloudRecordRelations[ref] = mocr
+                self.log.debug("reference inserted = \(ref)")
+            }
+        }
+
         let fetchRecordsOperation = CKFetchRecordsOperation(
             recordIDs: managedObjectCloudRecordRelations.values.map { $0.recordID! }
         )
@@ -299,38 +341,55 @@ class CloudKitManager: NSObject {
     func setProperties(record: CKRecord, properties:[String: Any?]) {
         properties.forEach {
             let (key, value) = $0
+            let oldval = record.object(forKey: key)
 
             if (value as? NSNull) != nil {
                 record.setObject(nil, forKey: key)
                 self.log.debug("  \(key): NSNull = \(String(describing: value))")
             }
             else if let val = value as? NSString {
-                record.setObject(val, forKey: key)
-                self.log.debug("  \(key): NSString = \(val)")
+                if oldval == nil || val != oldval as? NSString {
+                    record.setObject(val, forKey: key)
+                    self.log.debug("  \(key): NSString = \(val)")
+                }
             }
             else if let val = value as? NSNumber {
-                record.setObject(val, forKey: key)
-                self.log.debug("  \(key): NSNumber = \(val)")
+                if oldval == nil || val != oldval as? NSNumber {
+                    record.setObject(val, forKey: key)
+                    self.log.debug("  \(key): NSNumber = \(val)")
+                }
             }
             else if let val = value as? NSData {
-                record.setObject(val, forKey: key)
-                self.log.debug("  \(key): NSData = \(val)")
+                if oldval == nil || val != oldval as? NSData {
+                    record.setObject(val, forKey: key)
+                    self.log.debug("  \(key): NSData = \(val)")
+                }
             }
             else if let val = value as? NSDate {
-                record.setObject(val, forKey: key)
-                self.log.debug("  \(key): NSDate = \(val)")
+                if oldval == nil || val != oldval as? NSDate {
+
+                    record.setObject(val, forKey: key)
+                    self.log.debug("  \(key): NSDate = \(val)")
+                }
             }
             else if let val = value as? NSArray {
-                record.setObject(val, forKey: key)
-                self.log.debug("  \(key): NSArray = \(val)")
+                if oldval == nil || val != oldval as? NSArray {
+                    record.setObject(val, forKey: key)
+                    self.log.debug("  \(key): NSArray = \(val)")
+                }
             }
             else if let val = value as? CLLocation {
-                record.setObject(val, forKey: key)
-                self.log.debug("  \(key): CLLocation = \(val)")
+                if oldval == nil || val != oldval as? CLLocation {
+
+                    record.setObject(val, forKey: key)
+                    self.log.debug("  \(key): CLLocation = \(val)")
+                }
             }
             else if let val = value as? CKAsset {
-                record.setObject(val, forKey: key)
-                self.log.debug("  \(key): CKAsset = \(val)")
+                if oldval == nil || val != oldval as? CKAsset {
+                    record.setObject(val, forKey: key)
+                    self.log.debug("  \(key): CKAsset = \(val)")
+                }
             }
             else if let val = value as? NSManagedObject {
                 let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
@@ -402,6 +461,12 @@ fileprivate struct ManagedObjectCloudRecord {
         self.recordID    = cloudRecord.recordID
         self.cloudRecord = cloudRecord
     }
+
+    init(recordID: CKRecord.ID) {
+        self.init()
+        self.recordID = recordID
+    }
+
 }
 
 fileprivate struct UpdatedObject {
