@@ -186,15 +186,15 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     var _fetchedResultsController: NSFetchedResultsController<Site>? = nil
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
+        self.tableView.beginUpdates()
     }
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
         case .insert:
-            tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
         case .delete:
-            tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
+            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         default:
             return
         }
@@ -203,20 +203,26 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+            self.tableView.insertRows(at: [newIndexPath!], with: .automatic)
         case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            self.tableView.deleteRows(at: [indexPath!], with: .automatic)
         case .update:
-            configureCell(tableView.cellForRow(at: indexPath!)!, withSite: anObject as! Site)
-            tableView.reloadRows(at: [indexPath!], with: .automatic)
+            guard let cell = self.tableView.cellForRow(at: indexPath!) else {
+                break
+            }
+            configureCell(cell, withSite: anObject as! Site)
+            self.tableView.reloadRows(at: [indexPath!], with: .automatic)
         case .move:
-            configureCell(tableView.cellForRow(at: indexPath!)!, withSite: anObject as! Site)
-            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+            guard let cell = self.tableView.cellForRow(at: indexPath!) else {
+                break
+            }
+            configureCell(cell, withSite: anObject as! Site)
+            self.tableView.moveRow(at: indexPath!, to: newIndexPath!)
         }
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
+        self.tableView.endUpdates()
     }
 
     /*

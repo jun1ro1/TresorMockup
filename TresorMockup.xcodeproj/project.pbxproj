@@ -103,6 +103,7 @@
 		B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresorMockupUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupTests/Pods-TresorMockupTests.release.xcconfig"; sourceTree = "<group>"; };
 		F906C49820DE5F57003DADEC /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log.txt; sourceTree = "<group>"; };
+		F91D2A0D2175068600A9244C /* log6.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log6.txt; sourceTree = "<group>"; };
 		F926350320F981C700EF7851 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		F92A3929216531010073A544 /* log2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
 		F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -237,6 +238,7 @@
 				F9FE4E6C216D1E0300951657 /* log3.txt */,
 				F9FE4E6D216D1E6400951657 /* log4.txt */,
 				F930D3B32171B78A005910C6 /* log5.txt */,
+				F91D2A0D2175068600A9244C /* log6.txt */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";
@@ -734,13 +736,13 @@
 				CODE_SIGN_ENTITLEMENTS = TresorMockup/TresorMockup.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XLW76U7H2R;
+				DEVELOPMENT_TEAM = K7G5AYFTLJ;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mac.jun1ro1.TresorMockup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -757,13 +759,13 @@
 				CODE_SIGN_ENTITLEMENTS = TresorMockup/TresorMockup.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XLW76U7H2R;
+				DEVELOPMENT_TEAM = K7G5AYFTLJ;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.mac.jun1ro1.TresorMockup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

@@ -85,6 +85,8 @@ class CloudKitManager: NSObject {
     }
 
     func checkUpdates() {
+        return
+        
         let operation = CKFetchDatabaseChangesOperation(previousServerChangeToken: self.changeToken)
         operation.recordZoneWithIDChangedBlock = { (zone) in
             self.zoneIDs.append(zone)
@@ -367,7 +369,6 @@ class CloudKitManager: NSObject {
             }
             else if let val = value as? NSDate {
                 if oldval == nil || val != oldval as? NSDate {
-
                     record.setObject(val, forKey: key)
                     self.log.debug("  \(key): NSDate = \(val)")
                 }
@@ -380,7 +381,6 @@ class CloudKitManager: NSObject {
             }
             else if let val = value as? CLLocation {
                 if oldval == nil || val != oldval as? CLLocation {
-
                     record.setObject(val, forKey: key)
                     self.log.debug("  \(key): CLLocation = \(val)")
                 }
@@ -395,11 +395,11 @@ class CloudKitManager: NSObject {
                 let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
                                              zoneID: self.zone.zoneID)
                 let reference  = CKRecord.Reference(recordID: targetid, action: .deleteSelf)
+                record.setObject(reference, forKey: key)
                 self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
-
             }
-            else if let val = value as? NSArray {
-                let val2 = val.map { (elem: Any) -> (Any) in
+            else if let vals = value as? NSArray {
+                let valsary = vals.map { (elem: Any) -> (Any) in
                     if let val = elem as? NSManagedObject {
                         let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
                                                      zoneID: self.zone.zoneID)
@@ -411,10 +411,10 @@ class CloudKitManager: NSObject {
                         return elem
                     }
                 }
-                record.setObject(val2.isEmpty ? nil : val2 as CKRecordValue, forKey: key)
+                record.setObject(valsary.isEmpty ? nil : valsary as CKRecordValue, forKey: key)
             }
-            else if let val = value as? NSSet {
-                let val2 = val.allObjects.map { (elem: Any) -> (Any) in
+            else if let vals = value as? NSSet {
+                let valsary = vals.allObjects.map { (elem: Any) -> (Any) in
                     if let val = elem as? NSManagedObject {
                         let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
                                                      zoneID: self.zone.zoneID)
@@ -426,7 +426,7 @@ class CloudKitManager: NSObject {
                         return elem
                     }
                 }
-                record.setObject(val2.isEmpty ? nil : val2 as CKRecordValue, forKey: key)
+                record.setObject(valsary.isEmpty ? nil : valsary as CKRecordValue, forKey: key)
             }
             else {
                 self.log.debug("  \(key): UNKNOWN = \(String(describing: value))")
