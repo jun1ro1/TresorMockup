@@ -236,14 +236,14 @@ class CloudKitManager: NSObject {
                 if let val = obj.value(forKey: key) as? NSManagedObject {
                     let targetid   = val.idstr ?? "NO UUID"
                     referenced.append(targetid)
-                    self.log.debug("\(key): referenced = \(targetid)")
+                    self.log.debug("\(val.entity.name ?? "").\(key): referenced = \(targetid)")
                 }
                 else if let vals = obj.value(forKey: key) as? NSArray {
                     vals.forEach {
                         if let val = $0 as? NSManagedObject {
                             let targetid   = val.idstr ?? "NO UUID"
                             referenced.append(targetid)
-                            self.log.debug("\(key): referenced = \(targetid)")
+                            self.log.debug("\(val.entity.name ?? "").\(key): referenced = \(targetid)")
                         }
                     }
                 }
@@ -252,7 +252,7 @@ class CloudKitManager: NSObject {
                         if let val = $0 as? NSManagedObject {
                             let targetid   = val.idstr ?? "NO UUID"
                             referenced.append(targetid)
-                            self.log.debug("\(key): referenced = \(targetid)")
+                            self.log.debug("\(val.entity.name ?? "").\(key): referenced = \(targetid)")
                         }
                     }
                 }
@@ -268,8 +268,15 @@ class CloudKitManager: NSObject {
             }
         }
 
+        managedObjectCloudRecordRelations.keys.forEach {
+            let mocr = managedObjectCloudRecordRelations[$0]
+            self.log.debug("key = \($0)\nmocr = \(String(describing: mocr))\n")
+        }
+
+        let recordIDs = managedObjectCloudRecordRelations.values.map { $0.recordID! }
+        self.log.debug("recordIDs = \(recordIDs)")
         let fetchRecordsOperation = CKFetchRecordsOperation(
-            recordIDs: managedObjectCloudRecordRelations.values.map { $0.recordID! }
+            recordIDs: recordIDs
         )
         fetchRecordsOperation.fetchRecordsCompletionBlock = { (records, error) in
             self.log.debug("CKFetchRecordsOperation error = \(String(describing: error))")
