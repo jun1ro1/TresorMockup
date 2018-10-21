@@ -85,7 +85,6 @@ class CloudKitManager: NSObject {
     }
 
     func checkUpdates() {
-
         let databaseOperation = CKFetchDatabaseChangesOperation(previousServerChangeToken: self.changeToken)
         databaseOperation.recordZoneWithIDChangedBlock = { (zone) in
             self.zoneIDs.append(zone)
@@ -106,28 +105,46 @@ class CloudKitManager: NSObject {
             }
             self.changeToken = token
 
-            var changes: [CKRecord.RecordType: [ManagedObjectCloudRecord]] = [:]
+            var changes: [String: ManagedObjectCloudRecord] = [:]
             let options = CKFetchRecordZoneChangesOperation.ZoneOptions()
             options.previousServerChangeToken = self.fetchChangeToken
             let recordOperation = CKFetchRecordZoneChangesOperation(recordZoneIDs: self.zoneIDs, optionsByRecordZoneID: [self.zoneIDs[0]: options])
             recordOperation.recordChangedBlock = { (record) in
                 self.log.debug("CKFetchRecordZoneChangesOperation record = \(record)")
                 let mocr = ManagedObjectCloudRecord(cloudRecord: record)
-                if changes[record.recordType] == nil {
-                    changes[record.recordType] = [mocr]
-                }
-                else {
-                    changes[record.recordType]!.append(mocr)
-                }
+                changes[(mocr.recordID?.recordName)!] = mocr
             }
             recordOperation.fetchRecordZoneChangesCompletionBlock = { (error) in
                 self.log.debug("fetchRecordZoneChangesCompletionBlock error = \(String(describing: error))")
 
-                for recordType in changes.keys {
-                    guard let mocrs = changes[recordType] else {
+                var refered: [String] = []
+                for mocr in changes.values {
+                    guard let record = mocr.cloudRecord else {
                         continue
                     }
-                    let recordIDs = Array(Set( (mocrs.compactMap { $0.recordID?.recordName }) ) )
+                    for key in record.allKeys() {
+                        if let ref = record[key] as? CKRecord.Reference {
+                            refered.append(ref.recordID.recordName)
+                        }
+                        else if let refs = record[key] as? [CKRecord.Reference] {
+                            refered.append(contentsOf: refs.map { $0.recordID.recordName })
+                        }
+                    }
+                }
+                refered.forEach {
+                    if changes[$0] == nil {
+                        let recordID =  CKRecord.ID(recordName: $0, zoneID: self.zone.zoneID)
+                        changes[$0] = ManagedObjectCloudRecord(recordID: recordID)
+                    }
+                }
+
+                let recordTypes = Set( changes.values.compactMap { $0.cloudRecord?.recordType } )
+                self.log.debug("recordTypes = \(recordTypes)")
+
+                for recordType in recordTypes {
+                    let recordIDs =
+                        changes.values.filter { $0.cloudRecord?.recordType == recordType }
+                            .compactMap { return $0.recordID }
                     self.log.debug("recordType = \(recordType) recordIDs = \(recordIDs)")
 
                     let request  = NSFetchRequest<NSFetchRequestResult>(entityName: recordType)
@@ -135,46 +152,71 @@ class CloudKitManager: NSObject {
 
                     do {
                         self.log.debug("context fetch request = \(request)")
-                        let result = try self.context?.fetch(request)
+                        let result: [NSManagedObject]? = try (self.context?.fetch(request) as? [NSManagedObject])
                         self.log.debug("context fetch result = \(String(describing: result))")
 
-                        /*
-                         var obj: NSManagedObject?
-                         if result == nil || result!.isEmpty {
-                         let entityDesc = NSEntityDescription.entity(forEntityName: record.recordType, in: self.context!)
-                         obj = NSManagedObject(entity: entityDesc!, insertInto: self.context)
-                         }
-                         else {
-                         obj = result![0] as? NSManagedObject
-                         }
-                         record.allKeys().forEach { (key) in
-                         if record[key] is NSArray {
-                         let vals = record[key]! as [CKRecord.Reference]
-                         vals.forEach { (ref) in
-                         self.log.debug("reference = \(ref.recordID)")
-                         }
-                         }
-                         else if let val = record[key] {
-                         self.log.debug("recordChangedBlock setPrimitiveValue val = \(String(describing: val)) key = \(key)")
-                         obj?.setPrimitiveValue(val, forKey: key)
-                         }
-                         else {
-                         obj?.setPrimitiveValue(nil, forKey: key)
-                         }
-                         }
-                         self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: obj))")
-                         */
-                    }
+                        result?.forEach {
+                            guard let idstr = $0.idstr else {
+                                return
+                            }
+                            changes[idstr]?.managedObject = $0
+                        }
+                        recordIDs.forEach {
+                            if changes[$0.recordName]?.managedObject == nil {
+                                let entityDesc = NSEntityDescription.entity(forEntityName: recordType, in: self.context!)
+                                changes[$0.recordName]?.managedObject =
+                                    NSManagedObject(entity: entityDesc!, insertInto: self.context)
+                            }
+                        }
+                     }
                     catch {
                         self.log.debug("fetch error")
                     }
+                }
+                for id in changes.keys {
+                    guard let mocr = changes[id] else {
+                        assertionFailure()
+                        continue
+                    }
+                    guard let record = mocr.cloudRecord else {
+                        assertionFailure()
+                        continue
+                    }
+                    guard let object = mocr.managedObject else {
+                        assertionFailure()
+                        continue
+                    }
 
-                    do {
-                        try self.context!.save()
+                    record.allKeys().forEach { (key) in
+                        if record[key] is [CKRecord.Reference] {
+//                            object.value(forKey: key) is NSSet {
+//                            let refs = (record[key] as! [CKRecord.Reference]).map {
+//                                let recordID = $0.recordID.recordName
+//
+//                            }
+//                            (object.value(forKey: key) as NSSet).addingObjects(from:
+//                            )
+                            let vals = record[key]! as [CKRecord.Reference]
+                            vals.forEach { (ref) in
+                                self.log.debug("reference = \(ref.recordID)")
+                            }
+                        }
+                        else if let val = record[key] {
+                            self.log.debug("recordChangedBlock setPrimitiveValue val = \(String(describing: val)) key = \(key)")
+                            object.setPrimitiveValue(val, forKey: key)
+                        }
+                        else {
+                            object.setPrimitiveValue(nil, forKey: key)
+                        }
                     }
-                    catch {
-                        self.log.debug("context.save error")
-                    }
+                    self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: object ))")
+                }
+
+                do {
+                    try self.context!.save()
+                }
+                catch {
+                    self.log.debug("context.save error")
                 }
             }
             recordOperation.recordZoneChangeTokensUpdatedBlock = { (zoneID, token, data) in
