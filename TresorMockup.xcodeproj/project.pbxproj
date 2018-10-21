@@ -102,7 +102,7 @@
 		A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresorMockup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresorMockupUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupTests/Pods-TresorMockupTests.release.xcconfig"; sourceTree = "<group>"; };
-		F906C49820DE5F57003DADEC /* log.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log.txt; sourceTree = "<group>"; };
+		F906C49820DE5F57003DADEC /* log1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log1.txt; sourceTree = "<group>"; };
 		F91D2A0D2175068600A9244C /* log6.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log6.txt; sourceTree = "<group>"; };
 		F926350320F981C700EF7851 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		F92A3929216531010073A544 /* log2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
@@ -209,6 +209,7 @@
 		F9FE6EA72042E99300F892DC /* TresorMockup */ = {
 			isa = PBXGroup;
 			children = (
+				F98CE01A215D34D6001AEF1A /* Podfile */,
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
 				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
@@ -228,17 +229,16 @@
 				F9E20848204BF0D600543C81 /* Site.swift */,
 				F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */,
 				F950E78220676C8600D55557 /* TextViewController.swift */,
-				F906C49820DE5F57003DADEC /* log.txt */,
-				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
-				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
-				F9FE6EB12042E99300F892DC /* Main.storyboard */,
-				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
-				F98CE01A215D34D6001AEF1A /* Podfile */,
+				F906C49820DE5F57003DADEC /* log1.txt */,
 				F92A3929216531010073A544 /* log2.txt */,
 				F9FE4E6C216D1E0300951657 /* log3.txt */,
 				F9FE4E6D216D1E6400951657 /* log4.txt */,
 				F930D3B32171B78A005910C6 /* log5.txt */,
 				F91D2A0D2175068600A9244C /* log6.txt */,
+				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
+				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
+				F9FE6EB12042E99300F892DC /* Main.storyboard */,
+				F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */,
 			);
 			path = TresorMockup;
 			sourceTree = "<group>";
