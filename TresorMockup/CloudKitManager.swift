@@ -100,7 +100,7 @@ class CloudKitManager: NSObject {
             self.log.debug("fetchDatabaseChangesCompletionBlock error = \(String(describing: error))")
             self.log.debug("fetchDatabaseChangesCompletionBlock token = \(String(describing: token)) more = \(more)")
             guard error == nil && !self.zoneIDs.isEmpty else {
-                assertionFailure()
+                self.log.debug("fetchDatabaseChangesCompletionBlock self.zonIDs is empty")
                 return
             }
             self.changeToken = token
@@ -224,9 +224,6 @@ class CloudKitManager: NSObject {
             }
             recordOperation.recordZoneFetchCompletionBlock = { (zonID, token, data, more, error) in
                 self.log.debug("recordZoneFetchCompletionBlock error = \(String(describing: error))")
-            }
-            recordOperation.fetchRecordZoneChangesCompletionBlock = { (error) in
-                self.log.debug("fetchRecordZoneChangesCompletionBlock error = \(String(describing: error))")
             }
             self.database.add(recordOperation)
         }
@@ -367,7 +364,7 @@ class CloudKitManager: NSObject {
                 else {
                     // a cloud record is not found then create it
                     managedObjectCloudRecordRelations[key]!.cloudRecord =
-                        CKRecord(recordType: mocr.managedObject!.entity.name ?? "UNKOWN NAME",
+                        CKRecord(recordType: mocr.managedObject!.entity.name ?? "UNKNOWN NAME",
                                  recordID: mocr.recordID!)
                 }
             }
