@@ -36,7 +36,6 @@
 		F9610E192055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
-		F96367842132D2BB000E6D03 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F96367832132D2BB000E6D03 /* CloudKit.framework */; };
 		F985628C20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
 		F985628D20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
 		F985628E20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
@@ -56,6 +55,7 @@
 		F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAD2042E99300F892DC /* MasterViewController.swift */; };
 		F9D85C8A206FE14F00317AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
 		F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
+		F9DB5567217DF6D7006C291E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB5566217DF6D7006C291E /* CloudKit.framework */; };
 		F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20849204BF0D600543C81 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E20848204BF0D600543C81 /* Site.swift */; };
@@ -114,12 +114,12 @@
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
 		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
 		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
-		F96367832132D2BB000E6D03 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F985628B20DD438400177F55 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F98B615A20B5CA06008E7048 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		F98CE01A215D34D6001AEF1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
 		F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewController.swift; sourceTree = "<group>"; };
 		F9D3F352205E97F200878975 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
+		F9DB5566217DF6D7006C291E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
 		F9FE4E6C216D1E0300951657 /* log3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log3.txt; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */,
-				F96367842132D2BB000E6D03 /* CloudKit.framework in Frameworks */,
+				F9DB5567217DF6D7006C291E /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,7 +264,7 @@
 		F9FE6EDC2042EB1600F892DC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F96367832132D2BB000E6D03 /* CloudKit.framework */,
+				F9DB5566217DF6D7006C291E /* CloudKit.framework */,
 				A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */,
 				98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */,
 				B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */,
@@ -736,13 +736,13 @@
 				CODE_SIGN_ENTITLEMENTS = TresorMockup/TresorMockup.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7G5AYFTLJ;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mac.jun1ro1.TresorMockup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -759,13 +759,13 @@
 				CODE_SIGN_ENTITLEMENTS = TresorMockup/TresorMockup.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7G5AYFTLJ;
+				DEVELOPMENT_TEAM = XLW76U7H2R;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mac.jun1ro1.TresorMockup;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;

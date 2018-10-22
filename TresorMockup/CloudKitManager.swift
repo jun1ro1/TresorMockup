@@ -254,19 +254,21 @@ class CloudKitManager: NSObject {
     @objc func contextDidSave(notification: Notification) {
         self.log.debug("contextDidSave notification = \(notification)")
 
-        var toDelete: [CKRecord.ID] = []
-        var toSave:   [CKRecord]    = []
+        let toDelete: NSMutableArray = []
+            // [CKRecord.ID] = []
+        let toSave: NSMutableArray = []
+            // [CKRecord]    = []
 
         var managedObjectCloudRecordRelations: [String: ManagedObjectCloudRecord] = [:]
 
         // records to be deleted
-        toDelete = self.deleted.map {
+        toDelete.setArray( self.deleted.map {
             let recid   = CKRecord.ID(recordName: $0.idstr ?? "NO UUID",
                                       zoneID: self.zone.zoneID)
             let rectype = $0.entity.name ?? "UNKOWN NAME"
             self.log.debug("[deleted] id = \(recid): type = \(rectype)")
             return recid
-        }
+            } )
         self.deleted = []
 
         // set managedObjectCloudRecordRelations
@@ -339,14 +341,13 @@ class CloudKitManager: NSObject {
             recordIDs: recordIDs
         )
         fetchRecordsOperation.fetchRecordsCompletionBlock = { (records, error) in
-            self.log.debug("CKFetchRecordsOperation error = \(String(describing: error))")
+            self.log.debug("CKFetchRecordsOperation fetchRecordsCompletionBlock error = \(String(describing: error))")
             guard records != nil else {
                 assertionFailure()
                 return
             }
-            guard !records!.isEmpty else {
-                self.log.info("records = empty")
-                return
+            if records!.isEmpty {
+                self.log.info("CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty")
             }
             for key in managedObjectCloudRecordRelations.keys {
                 guard let mocr = managedObjectCloudRecordRelations[key] else {
@@ -386,22 +387,25 @@ class CloudKitManager: NSObject {
                                    properties: obj.committedValues(forKeys: mocr.keys) )
             }
 
-            toSave = managedObjectCloudRecordRelations.values.compactMap { $0.cloudRecord }
+            toSave.setArray( managedObjectCloudRecordRelations.values.compactMap { $0.cloudRecord } )
 
-            self.log.debug( "CKModifyRecordsOperation save = \(String(describing: toSave))" )
-            self.log.debug( "CKModifyRecordsOperation delete = \(String(describing: toDelete))" )
+            self.log.debug( "fetchRecordsCompletionBlock save = \(String(describing: toSave))" )
+            self.log.debug( "fetchRecordsCompletionBlock delete = \(String(describing: toDelete))" )
         }
 
-        let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: toSave,
-                                                              recordIDsToDelete: toDelete)
+        /* BUG */
+        let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: toSave as? [CKRecord],
+                                                              recordIDsToDelete: toDelete as? [CKRecord.ID])
         modifyRecordsOperation.modifyRecordsCompletionBlock = { (save, delete, error) in
-            self.log.debug("CKModifyRecordsOperation error = \(String(describing: error))")
-            if error != nil {
-                self.log.error( "CKModifyRecordsOperation error save = \(String(describing: save))" )
-                self.log.error( "CKModifyRecordsOperation error delete = \(String(describing: delete))" )
-            }
+            self.log.debug("CKModifyRecordsOperation modifyRecordsCompletionBlock error = \(String(describing: error))")
+            self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error save = \(String(describing: save))" )
+            self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error delete = \(String(describing: delete))" )
+
         }
 
+        modifyRecordsOperation.perRecordCompletionBlock = { (record, error) in
+            self.log.debug("CKModifyRecordsOperation perRecordCompletionBlock record = \(record) error = \(String(describing: error))")
+        }
         modifyRecordsOperation.addDependency(fetchRecordsOperation)
         self.database.add(fetchRecordsOperation)
         self.database.add(modifyRecordsOperation)
