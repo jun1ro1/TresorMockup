@@ -254,21 +254,19 @@ class CloudKitManager: NSObject {
     @objc func contextDidSave(notification: Notification) {
         self.log.debug("contextDidSave notification = \(notification)")
 
-        let toDelete: NSMutableArray = []
-            // [CKRecord.ID] = []
-        let toSave: NSMutableArray = []
-            // [CKRecord]    = []
+        var toDelete: [CKRecord.ID] = []
+        var toSave:   [CKRecord]    = []
 
         var managedObjectCloudRecordRelations: [String: ManagedObjectCloudRecord] = [:]
 
         // records to be deleted
-        toDelete.setArray( self.deleted.map {
+        toDelete = self.deleted.map {
             let recid   = CKRecord.ID(recordName: $0.idstr ?? "NO UUID",
                                       zoneID: self.zone.zoneID)
             let rectype = $0.entity.name ?? "UNKOWN NAME"
             self.log.debug("[deleted] id = \(recid): type = \(rectype)")
             return recid
-            } )
+        }
         self.deleted = []
 
         // set managedObjectCloudRecordRelations
@@ -387,28 +385,28 @@ class CloudKitManager: NSObject {
                                    properties: obj.committedValues(forKeys: mocr.keys) )
             }
 
-            toSave.setArray( managedObjectCloudRecordRelations.values.compactMap { $0.cloudRecord } )
+            toSave = managedObjectCloudRecordRelations.values.compactMap { $0.cloudRecord }
 
             self.log.debug( "fetchRecordsCompletionBlock save = \(String(describing: toSave))" )
             self.log.debug( "fetchRecordsCompletionBlock delete = \(String(describing: toDelete))" )
-        }
 
-        /* BUG */
-        let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: toSave as? [CKRecord],
-                                                              recordIDsToDelete: toDelete as? [CKRecord.ID])
-        modifyRecordsOperation.modifyRecordsCompletionBlock = { (save, delete, error) in
-            self.log.debug("CKModifyRecordsOperation modifyRecordsCompletionBlock error = \(String(describing: error))")
-            self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error save = \(String(describing: save))" )
-            self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error delete = \(String(describing: delete))" )
+            let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: toSave,
+                                                                  recordIDsToDelete: toDelete)
+            modifyRecordsOperation.modifyRecordsCompletionBlock = { (save, delete, error) in
+                self.log.debug("CKModifyRecordsOperation modifyRecordsCompletionBlock error = \(String(describing: error))")
+                self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error save = \(String(describing: save))" )
+                self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error delete = \(String(describing: delete))" )
 
-        }
+            }
 
-        modifyRecordsOperation.perRecordCompletionBlock = { (record, error) in
-            self.log.debug("CKModifyRecordsOperation perRecordCompletionBlock record = \(record) error = \(String(describing: error))")
+            modifyRecordsOperation.perRecordCompletionBlock = { (record, error) in
+                self.log.debug("CKModifyRecordsOperation perRecordCompletionBlock record = \(record) error = \(String(describing: error))")
+            }
+
+            modifyRecordsOperation.addDependency(fetchRecordsOperation)
+            self.database.add(modifyRecordsOperation)
         }
-        modifyRecordsOperation.addDependency(fetchRecordsOperation)
         self.database.add(fetchRecordsOperation)
-        self.database.add(modifyRecordsOperation)
     }
 
     func setProperties(record: CKRecord, properties:[String: Any?]) {
