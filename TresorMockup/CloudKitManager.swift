@@ -387,15 +387,15 @@ class CloudKitManager: NSObject {
 
             toSave = managedObjectCloudRecordRelations.values.compactMap { $0.cloudRecord }
 
-            self.log.debug( "fetchRecordsCompletionBlock save = \(String(describing: toSave))" )
-            self.log.debug( "fetchRecordsCompletionBlock delete = \(String(describing: toDelete))" )
+            self.log.debug( "fetchRecordsCompletionBlock toSave = \(String(describing: toSave))" )
+            self.log.debug( "fetchRecordsCompletionBlock toDelete = \(String(describing: toDelete))" )
 
             let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: toSave,
                                                                   recordIDsToDelete: toDelete)
             modifyRecordsOperation.modifyRecordsCompletionBlock = { (save, delete, error) in
                 self.log.debug("CKModifyRecordsOperation modifyRecordsCompletionBlock error = \(String(describing: error))")
-                self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error save = \(String(describing: save))" )
-                self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock error delete = \(String(describing: delete))" )
+                self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock save = \(String(describing: save))" )
+                self.log.debug( "CKModifyRecordsOperation modifyRecordsCompletionBlock delete = \(String(describing: delete))" )
 
             }
 
@@ -463,7 +463,7 @@ class CloudKitManager: NSObject {
             else if let val = value as? NSManagedObject {
                 let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
                                              zoneID: self.zone.zoneID)
-                let reference  = CKRecord.Reference(recordID: targetid, action: .deleteSelf)
+                let reference  = CKRecord.Reference(recordID: targetid, action: .none)
                 record.setObject(reference, forKey: key)
                 self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
             }
@@ -472,7 +472,7 @@ class CloudKitManager: NSObject {
                     if let val = elem as? NSManagedObject {
                         let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
                                                      zoneID: self.zone.zoneID)
-                        let reference  = CKRecord.Reference(recordID: targetid, action: .deleteSelf)
+                        let reference  = CKRecord.Reference(recordID: targetid, action: .none)
                         self.log.debug("  \(key): CKReference = \(targetid)")
                         return reference
                     }
@@ -487,7 +487,7 @@ class CloudKitManager: NSObject {
                     if let val = elem as? NSManagedObject {
                         let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
                                                      zoneID: self.zone.zoneID)
-                        let reference  = CKRecord.Reference(recordID: targetid, action: .deleteSelf)
+                        let reference  = CKRecord.Reference(recordID: targetid, action: .none)
                         self.log.debug("  \(key): CKReference = \(targetid)")
                         return reference
                     }
