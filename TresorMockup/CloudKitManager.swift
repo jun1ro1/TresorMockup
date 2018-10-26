@@ -142,9 +142,9 @@ class CloudKitManager: NSObject {
                 self.log.debug("recordTypes = \(recordTypes)")
 
                 for recordType in recordTypes {
-                    let recordIDs =
+                    let recordIDs: [String] =
                         changes.values.filter { $0.cloudRecord?.recordType == recordType }
-                            .compactMap { return $0.recordID }
+                            .compactMap { return $0.recordID?.recordName }
                     self.log.debug("recordType = \(recordType) recordIDs = \(recordIDs)")
 
                     let request  = NSFetchRequest<NSFetchRequestResult>(entityName: recordType)
@@ -162,9 +162,9 @@ class CloudKitManager: NSObject {
                             changes[idstr]?.managedObject = $0
                         }
                         recordIDs.forEach {
-                            if changes[$0.recordName]?.managedObject == nil {
+                            if changes[$0]?.managedObject == nil {
                                 let entityDesc = NSEntityDescription.entity(forEntityName: recordType, in: self.context!)
-                                changes[$0.recordName]?.managedObject =
+                                changes[$0]?.managedObject =
                                     NSManagedObject(entity: entityDesc!, insertInto: self.context)
                             }
                         }
@@ -199,6 +199,17 @@ class CloudKitManager: NSObject {
                             let vals = record[key]! as [CKRecord.Reference]
                             vals.forEach { (ref) in
                                 self.log.debug("reference = \(ref.recordID)")
+                            }
+                        }
+                        else if record[key] is CKRecord.Reference {
+                            let ref = record[key] as! CKRecord.Reference
+                            let id  = ref.recordID.recordName
+                            if let obj: NSManagedObject = changes[id]?.managedObject {
+                                self.log.debug("recordChangedBlock setPrimitiveValue refrenced = \(String(describing: obj)) key = \(key)")
+                                object.setPrimitiveValue(obj, forKey: key)
+                            }
+                            else {
+                                self.log.error("recordChangedBlock setPrimitiveValue refrenced not found = \(id)")
                             }
                         }
                         else if let val = record[key] {
