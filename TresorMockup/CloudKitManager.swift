@@ -85,6 +85,7 @@ class CloudKitManager: NSObject {
     }
 
     func checkUpdates() {
+        // MARK:  CKFetchDatabaseChangesOperation
         let databaseOperation = CKFetchDatabaseChangesOperation(previousServerChangeToken: self.changeToken)
         databaseOperation.recordZoneWithIDChangedBlock = { (zone) in
             self.zoneIDs.append(zone)
@@ -108,11 +109,17 @@ class CloudKitManager: NSObject {
             var changes: [String: ManagedObjectCloudRecord] = [:]
             let options = CKFetchRecordZoneChangesOperation.ZoneOptions()
             options.previousServerChangeToken = self.fetchChangeToken
+
+            // MARK: CKFetchRecordZoneChangesOperation
             let recordOperation = CKFetchRecordZoneChangesOperation(recordZoneIDs: self.zoneIDs, optionsByRecordZoneID: [self.zoneIDs[0]: options])
             recordOperation.recordChangedBlock = { (record) in
                 self.log.debug("CKFetchRecordZoneChangesOperation record = \(record)")
                 let mocr = ManagedObjectCloudRecord(cloudRecord: record)
                 changes[(mocr.recordID?.recordName)!] = mocr
+            }
+            recordOperation.recordWithIDWasDeletedBlock = { (recordID, recordType) in
+                self.log.debug("recordWithIDWasDeletedBlock recordID = \(recordID) recordType = \(recordType)")
+
             }
             recordOperation.fetchRecordZoneChangesCompletionBlock = { (error) in
                 self.log.debug("fetchRecordZoneChangesCompletionBlock error = \(String(describing: error))")
@@ -189,18 +196,31 @@ class CloudKitManager: NSObject {
 
                     record.allKeys().forEach { (key) in
                         if record[key] is [CKRecord.Reference] {
-//                            object.value(forKey: key) is NSSet {
-//                            let refs = (record[key] as! [CKRecord.Reference]).map {
-//                                let recordID = $0.recordID.recordName
-//
-//                            }
-//                            (object.value(forKey: key) as NSSet).addingObjects(from:
-//                            )
-                            let vals = record[key]! as [CKRecord.Reference]
-                            vals.forEach { (ref) in
-                                self.log.debug("reference = \(ref.recordID)")
+                            guard object.value(forKey: key) is NSSet else {
+                                self.log.error("Is not Set object = \(object) key = \(key)")
+                                return
                             }
-                        }
+                            let method: String = "add"
+                                + String(key.first!).uppercased()
+                                + String(key.dropFirst())
+                                + ":"
+                            let selector: Selector = Selector(method)
+                            guard object.responds(to: selector) else {
+                                self.log.error("Dose not respond object = \(object) selector = \(method)")
+                                return
+                            }
+                            let refs = record[key] as! [CKRecord.Reference]
+                            let objs: [NSManagedObject]  = refs.compactMap {
+                                let id = $0.recordID.recordName
+                                let obj = changes[id]?.managedObject
+                                if obj == nil {
+                                    self.log.error("referenced ID is not found id = \(id)")
+                                }
+                                return obj
+                            }
+                            let sets: NSSet = NSSet(array: objs)
+                            object.perform(selector, with: sets)
+                         }
                         else if record[key] is CKRecord.Reference {
                             let ref = record[key] as! CKRecord.Reference
                             let id  = ref.recordID.recordName
