@@ -112,15 +112,23 @@ class CloudKitManager: NSObject {
 
             // MARK: CKFetchRecordZoneChangesOperation
             let recordOperation = CKFetchRecordZoneChangesOperation(recordZoneIDs: self.zoneIDs, optionsByRecordZoneID: [self.zoneIDs[0]: options])
+
             recordOperation.recordChangedBlock = { (record) in
                 self.log.debug("CKFetchRecordZoneChangesOperation record = \(record)")
-                let mocr = ManagedObjectCloudRecord(cloudRecord: record)
+                var mocr = ManagedObjectCloudRecord(cloudRecord: record)
+                mocr.mode.insert(.save)
                 changes[(mocr.recordID?.recordName)!] = mocr
             }
+
             recordOperation.recordWithIDWasDeletedBlock = { (recordID, recordType) in
                 self.log.debug("recordWithIDWasDeletedBlock recordID = \(recordID) recordType = \(recordType)")
-
+                let id = recordID.recordName
+                if changes[id] == nil {
+                    changes[id] = ManagedObjectCloudRecord(recordID: recordID)
+                }
+                changes[id]!.mode.insert(.delete)
             }
+
             recordOperation.fetchRecordZoneChangesCompletionBlock = { (error) in
                 self.log.debug("fetchRecordZoneChangesCompletionBlock error = \(String(describing: error))")
 
@@ -170,6 +178,9 @@ class CloudKitManager: NSObject {
                         }
                         recordIDs.forEach {
                             if changes[$0]?.managedObject == nil {
+                                guard changes[$0]?.mode != [.delete] else {
+                                    return
+                                }
                                 let entityDesc = NSEntityDescription.entity(forEntityName: recordType, in: self.context!)
                                 changes[$0]?.managedObject =
                                     NSManagedObject(entity: entityDesc!, insertInto: self.context)
@@ -186,11 +197,9 @@ class CloudKitManager: NSObject {
                         continue
                     }
                     guard let record = mocr.cloudRecord else {
-                        assertionFailure()
                         continue
                     }
                     guard let object = mocr.managedObject else {
-                        assertionFailure()
                         continue
                     }
 
@@ -243,6 +252,14 @@ class CloudKitManager: NSObject {
                     self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: object ))")
                 }
 
+                let dels: [NSManagedObject] = changes.values.compactMap {
+                    $0.mode.contains(.delete) ? $0.managedObject : nil
+                }
+                dels.forEach {
+                    self.log.debug("delete idstr = \(String(describing: $0.idstr))")
+                    self.context!.delete($0)
+                }
+
                 do {
                     try self.context!.save()
                 }
@@ -250,12 +267,15 @@ class CloudKitManager: NSObject {
                     self.log.debug("context.save error")
                 }
             }
+
             recordOperation.recordZoneChangeTokensUpdatedBlock = { (zoneID, token, data) in
                 self.fetchChangeToken = token
             }
+
             recordOperation.recordZoneFetchCompletionBlock = { (zonID, token, data, more, error) in
                 self.log.debug("recordZoneFetchCompletionBlock error = \(String(describing: error))")
             }
+
             self.database.add(recordOperation)
         }
         self.database.add(databaseOperation)
@@ -313,6 +333,7 @@ class CloudKitManager: NSObject {
             var mocr = ManagedObjectCloudRecord(managedObject: obj)
             mocr.recordID = CKRecord.ID(recordName: id, zoneID: self.zone.zoneID)
             mocr.keys     = uobj.keys
+            mocr.mode.insert(.save)
             managedObjectCloudRecordRelations[id] = mocr
         }
         self.updated  = []
@@ -353,7 +374,8 @@ class CloudKitManager: NSObject {
             if managedObjectCloudRecordRelations[ref] == nil {
                 let recid   = CKRecord.ID(recordName: ref,
                                           zoneID: self.zone.zoneID)
-                let mocr = ManagedObjectCloudRecord(recordID: recid)
+                var mocr = ManagedObjectCloudRecord(recordID: recid)
+                mocr.mode.insert(.save)
                 managedObjectCloudRecordRelations[ref] = mocr
                 self.log.debug("reference inserted = \(ref)")
             }
@@ -362,13 +384,17 @@ class CloudKitManager: NSObject {
         managedObjectCloudRecordRelations.keys.forEach {
             let mocr = managedObjectCloudRecordRelations[$0]
             self.log.debug("key = \($0)\nmocr = \(String(describing: mocr))\n")
+            assert(mocr?.mode != [])
         }
 
-        let recordIDs = managedObjectCloudRecordRelations.values.map { $0.recordID! }
+        let recordIDs = managedObjectCloudRecordRelations.values.compactMap {
+            $0.mode.contains(.save) ? $0.recordID! : nil
+        }
         self.log.debug("recordIDs = \(recordIDs)")
         let fetchRecordsOperation = CKFetchRecordsOperation(
             recordIDs: recordIDs
         )
+
         fetchRecordsOperation.fetchRecordsCompletionBlock = { (records, error) in
             self.log.debug("CKFetchRecordsOperation fetchRecordsCompletionBlock error = \(String(describing: error))")
             guard records != nil else {
@@ -538,17 +564,26 @@ class CloudKitManager: NSObject {
 }
 
 // MARK: - Structures
+fileprivate struct OperationMode: OptionSet {
+    let rawValue: Int
+
+    static let save   = OperationMode(rawValue: 1 << 0)
+    static let delete = OperationMode(rawValue: 1 << 1)
+}
+
 fileprivate struct ManagedObjectCloudRecord {
     var recordID:      CKRecord.ID?
     var managedObject: NSManagedObject?
     var keys:          [String]
     var cloudRecord:   CKRecord?
+    var mode:          OperationMode
 
     init() {
         self.recordID      = nil
         self.managedObject = nil
         self.keys          = []
         self.cloudRecord   = nil
+        self.mode          = []
     }
 
     init(managedObject: NSManagedObject) {
