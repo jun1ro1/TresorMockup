@@ -124,7 +124,7 @@ class CloudKitManager: NSObject {
                 self.log.debug("recordWithIDWasDeletedBlock recordID = \(recordID) recordType = \(recordType)")
                 let id = recordID.recordName
                 if changes[id] == nil {
-                    changes[id] = ManagedObjectCloudRecord(recordID: recordID)
+                    changes[id] = ManagedObjectCloudRecord(recordID: recordID, recordType: recordType)
                 }
                 changes[id]!.mode.insert(.delete)
             }
@@ -153,7 +153,7 @@ class CloudKitManager: NSObject {
                     }
                 }
 
-                let recordTypes = Set( changes.values.compactMap { $0.cloudRecord?.recordType } )
+                let recordTypes = Set( changes.values.compactMap { $0.recordType } )
                 self.log.debug("recordTypes = \(recordTypes)")
 
                 for recordType in recordTypes {
@@ -575,14 +575,17 @@ fileprivate struct ManagedObjectCloudRecord {
     var recordID:      CKRecord.ID?
     var managedObject: NSManagedObject?
     var keys:          [String]
-    var cloudRecord:   CKRecord?
+    var _cloudRecord:  CKRecord?
+
+    var recordType:    CKRecord.RecordType
     var mode:          OperationMode
 
     init() {
         self.recordID      = nil
         self.managedObject = nil
         self.keys          = []
-        self.cloudRecord   = nil
+        self._cloudRecord  = nil
+        self.recordType    = "UNKNOWN_RECORD_TYPE"
         self.mode          = []
     }
 
@@ -595,11 +598,28 @@ fileprivate struct ManagedObjectCloudRecord {
         self.init()
         self.recordID    = cloudRecord.recordID
         self.cloudRecord = cloudRecord
+        self.recordType  = cloudRecord.recordType
     }
 
     init(recordID: CKRecord.ID) {
         self.init()
         self.recordID = recordID
+    }
+
+    init(recordID: CKRecord.ID, recordType: CKRecord.RecordType) {
+        self.init()
+        self.recordID   = recordID
+        self.recordType = recordType
+    }
+
+    var cloudRecord:   CKRecord? {
+        get {
+            return self._cloudRecord
+        }
+        set {
+            self._cloudRecord = newValue
+            self.recordType   = newValue?.recordType ?? "UNKNOWN_RECORD_TYPE"
+        }
     }
 
 }
