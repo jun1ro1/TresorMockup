@@ -35,6 +35,13 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         SwiftyBeaver.self.debug("viewDidLoad")
 
+        let center = NotificationCenter.default
+        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+        center.addObserver(self,
+                                               selector: #selector(updateUI(notification:)),
+                                               name: name,
+                                               object: nil)
+
         self.searchBar.delegate = self
     }
 
@@ -42,12 +49,21 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewWillAppear(animated)
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
 
-        SwiftyBeaver.self.debug("viewWillAppear")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @objc
+    func updateUI(notification: Notification) {
+        SwiftyBeaver.self.debug("notification = \(notification)")
+
+        let queue = OperationQueue.main
+        queue.addOperation {
+            self.tableView.reloadData()
+        }
     }
 
     @objc

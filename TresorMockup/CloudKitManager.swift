@@ -5,6 +5,8 @@
 //  Created by OKU Junichirou on 2018/07/14.
 //  Copyright (C) 2018 OKU Junichirou. All rights reserved.
 //
+//  J.D Gauchat "iCloud and CloudKit in iOS"
+//  http://www.formasterminds.com/quick_guides_for_masterminds/guide.php?id=57
 
 import UIKit
 import CoreData
@@ -16,6 +18,10 @@ import SwiftyBeaver
 
 class CloudKitManager: NSObject {
     static      var shared: CloudKitManager = CloudKitManager()
+
+    static      let CLOUDKIT_MANAGER_UPDATE_INTERFACE = "CLOUDKIT_CHANGED_UPDATE_INTERFACE"
+    static      let CLOUDKIT_MANAGER_UPDATED          = "UPDATED"
+    static      let CLOUDKIT_MANAGER_DELETED          = "DELETED"
 
     fileprivate var container: CKContainer
     fileprivate var database:  CKDatabase
@@ -73,7 +79,6 @@ class CloudKitManager: NSObject {
             dispatchGroup.leave()
 
             guard error == nil else {
-                assertionFailure()
                 return
             }
         }
@@ -266,6 +271,18 @@ class CloudKitManager: NSObject {
                 catch {
                     self.log.debug("context.save error")
                 }
+
+                let center = NotificationCenter.default
+                let name   = Notification.Name(rawValue: CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+                let userInfo: [AnyHashable: Any] =
+                    [ CloudKitManager.CLOUDKIT_MANAGER_DELETED:
+                        changes.values.compactMap {
+                            $0.mode.contains(.delete) ? $0.cloudRecord : nil },
+                      CloudKitManager.CLOUDKIT_MANAGER_UPDATED:
+                        changes.values.compactMap {
+                            $0.mode == [.save] ? $0.cloudRecord : nil }
+                        ]
+                center.post(name: name, object: self, userInfo: userInfo)
             }
 
             recordOperation.recordZoneChangeTokensUpdatedBlock = { (zoneID, token, data) in
