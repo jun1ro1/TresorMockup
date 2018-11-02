@@ -163,7 +163,7 @@ class CloudKitManager: NSObject {
 
                 for recordType in recordTypes {
                     let recordIDs: [String] =
-                        changes.values.filter { $0.cloudRecord?.recordType == recordType }
+                        changes.values.filter { $0.recordType == recordType }
                             .compactMap { return $0.recordID?.recordName }
                     self.log.debug("recordType = \(recordType) recordIDs = \(recordIDs)")
 
@@ -444,15 +444,15 @@ class CloudKitManager: NSObject {
 
             for key in managedObjectCloudRecordRelations.keys {
                 guard let mocr = managedObjectCloudRecordRelations[key] else {
-                    assertionFailure()
+//                    assertionFailure()
                     continue
                 }
                 guard let record = mocr.cloudRecord else {
-                    assertionFailure()
+//                    assertionFailure()
                     continue
                 }
                 guard let obj = mocr.managedObject else {
-                    assertionFailure()
+//                    assertionFailure()
                     continue
                 }
                 self.setProperties(record: record,
