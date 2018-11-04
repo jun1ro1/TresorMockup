@@ -119,14 +119,14 @@ class CloudKitManager: NSObject {
             let recordOperation = CKFetchRecordZoneChangesOperation(recordZoneIDs: self.zoneIDs, optionsByRecordZoneID: [self.zoneIDs[0]: options])
 
             recordOperation.recordChangedBlock = { (record) in
-                self.log.debug("CKFetchRecordZoneChangesOperation record = \(record)")
+                self.log.debug("CKFetchRecordZoneChangesOperation recordID = \(record.recordID.recordName)")
                 var mocr = ManagedObjectCloudRecord(cloudRecord: record)
                 mocr.mode.insert(.save)
                 changes[(mocr.recordID?.recordName)!] = mocr
             }
 
             recordOperation.recordWithIDWasDeletedBlock = { (recordID, recordType) in
-                self.log.debug("recordWithIDWasDeletedBlock recordID = \(recordID) recordType = \(recordType)")
+                self.log.debug("recordWithIDWasDeletedBlock recordID = \(recordID.recordName) recordType = \(recordType)")
                 let id = recordID.recordName
                 if changes[id] == nil {
                     changes[id] = ManagedObjectCloudRecord(recordID: recordID, recordType: recordType)
@@ -265,6 +265,16 @@ class CloudKitManager: NSObject {
                     self.context!.delete($0)
                 }
 
+                let debugstr: String = changes.values.map {
+                    return [
+                        $0.recordID!.recordName,
+                        $0.recordType,
+                        $0.mode.String,
+                        ($0.managedObject == nil ? "nil" : "nonnil")
+                        ].reduce("", { $0 + " " + $1})
+                    }.reduce("", { $0 + $1 + "\n" })
+                self.log.debug("changes = \n\(debugstr)")
+
                 do {
                     try self.context!.save()
                 }
@@ -332,7 +342,7 @@ class CloudKitManager: NSObject {
             let recid   = CKRecord.ID(recordName: $0.idstr ?? "NO UUID",
                                       zoneID: self.zone.zoneID)
             let rectype = $0.entity.name ?? "UNKOWN NAME"
-            self.log.debug("[deleted] id = \(recid): type = \(rectype)")
+            self.log.debug("[deleted] id = \(recid.recordName): type = \(rectype)")
             return recid
         }
         self.deleted = []
@@ -363,14 +373,14 @@ class CloudKitManager: NSObject {
             }
             mocr?.keys.forEach { (key) in
                 if let val = obj.value(forKey: key) as? NSManagedObject {
-                    let targetid   = val.idstr ?? "NO UUID"
+                    let targetid: String   = val.idstr ?? "NO UUID"
                     referenced.append(targetid)
                     self.log.debug("\(val.entity.name ?? "").\(key): referenced = \(targetid)")
                 }
                 else if let vals = obj.value(forKey: key) as? NSArray {
                     vals.forEach {
                         if let val = $0 as? NSManagedObject {
-                            let targetid   = val.idstr ?? "NO UUID"
+                            let targetid: String  = val.idstr ?? "NO UUID"
                             referenced.append(targetid)
                             self.log.debug("\(val.entity.name ?? "").\(key): referenced = \(targetid)")
                         }
@@ -379,7 +389,7 @@ class CloudKitManager: NSObject {
                 else if let vals = obj.value(forKey: key) as? NSSet {
                     vals.allObjects.forEach {
                         if let val = $0 as? NSManagedObject {
-                            let targetid   = val.idstr ?? "NO UUID"
+                            let targetid: String  = val.idstr ?? "NO UUID"
                             referenced.append(targetid)
                             self.log.debug("\(val.entity.name ?? "").\(key): referenced = \(targetid)")
                         }
@@ -586,6 +596,16 @@ fileprivate struct OperationMode: OptionSet {
 
     static let save   = OperationMode(rawValue: 1 << 0)
     static let delete = OperationMode(rawValue: 1 << 1)
+
+    public var String: String {
+        var s = ""
+        switch self {
+        case .save:   s = "save"
+        case .delete: s = "delete"
+        default:      s = "UNKNOWN"
+        }
+        return s
+    }
 }
 
 fileprivate struct ManagedObjectCloudRecord {
