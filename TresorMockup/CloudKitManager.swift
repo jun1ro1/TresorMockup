@@ -16,6 +16,8 @@ import SwiftyBeaver
 
 // https://developer.apple.com/library/archive/documentation/DataManagement/Conceptual/CloudKitQuickStart/MaintainingaLocalCacheofCloudKitRecords/MaintainingaLocalCacheofCloudKitRecords.html#//apple_ref/doc/uid/TP40014987-CH12-SW1
 
+// http://app-craft.com/cloudkit-同期（２）/
+
 class CloudKitManager: NSObject {
     static      var shared: CloudKitManager = CloudKitManager()
 
@@ -54,17 +56,27 @@ class CloudKitManager: NSObject {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
 
-        let createZoneOperation =
-            CKModifyRecordZonesOperation(recordZonesToSave: [self.zone], recordZoneIDsToDelete: [])
-        createZoneOperation.modifyRecordZonesCompletionBlock = { (saved, deleted, error) in
-            self.log.debug("CKModifyRecordZonesOperation error = \(String(describing: error))")
+        let fetchZonesOperation = CKFetchRecordZonesOperation(recordZoneIDs: [self.zone.zoneID])
+        fetchZonesOperation.fetchRecordZonesCompletionBlock = { (zoneIDs, error) in
+            self.log.debug("CKFetchRecordZonesOperation error = \(String(describing: error))")
+            self.log.debug("CKFetchRecordZonesOperation zonIDs = \(String(describing: zoneIDs))")
 
-            guard error == nil else {
-                assertionFailure()
-                return
+            if zoneIDs == nil || zoneIDs!.values.isEmpty {
+                let createZoneOperation =
+                    CKModifyRecordZonesOperation(
+                        recordZonesToSave: [self.zone], recordZoneIDsToDelete: [])
+                createZoneOperation.modifyRecordZonesCompletionBlock = {
+                    (saved, deleted, error) in
+                    self.log.debug("CKModifyRecordZonesOperation error = \(String(describing: error))")
+                    guard error == nil else {
+                        assertionFailure()
+                        return
+                    }
+                }
+                self.database.add(createZoneOperation)
             }
         }
-        self.database.add(createZoneOperation)
+        self.database.add(fetchZonesOperation)
 
         // Subscribing to Change Notifications
         let subscription = CKDatabaseSubscription(subscriptionID: self.bundleID)
