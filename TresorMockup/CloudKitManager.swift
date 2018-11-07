@@ -33,6 +33,7 @@ class CloudKitManager: NSObject {
     fileprivate var changeToken: CKServerChangeToken?
     fileprivate var fetchChangeToken: CKServerChangeToken?
     fileprivate var zoneIDs: [CKRecordZone.ID]
+    fileprivate var subscriptionID: CKSubscription.ID
     fileprivate var context: NSManagedObjectContext?
 
     fileprivate var deleted:  [NSManagedObject] = []
@@ -47,6 +48,7 @@ class CloudKitManager: NSObject {
         self.changeToken = nil
         self.fetchChangeToken = nil
         self.zoneIDs   = []
+        self.subscriptionID = self.bundleID
         self.context   = nil
     }
 
@@ -56,7 +58,11 @@ class CloudKitManager: NSObject {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
 
+        // Create a fetch zones operation
         let fetchZonesOperation = CKFetchRecordZonesOperation(recordZoneIDs: [self.zone.zoneID])
+        let fetchSubscriptionOperation = CKFetchSubscriptionsOperation(subscriptionIDs: [self.subscriptionID])
+        fetchSubscriptionOperation.addDependency(fetchZonesOperation)
+
         fetchZonesOperation.fetchRecordZonesCompletionBlock = { (zoneIDs, error) in
             self.log.debug("CKFetchRecordZonesOperation error = \(String(describing: error))")
             self.log.debug("CKFetchRecordZonesOperation zonIDs = \(String(describing: zoneIDs))")
@@ -73,28 +79,38 @@ class CloudKitManager: NSObject {
                         return
                     }
                 }
+                fetchSubscriptionOperation.addDependency(createZoneOperation)
                 self.database.add(createZoneOperation)
             }
         }
         self.database.add(fetchZonesOperation)
 
         // Subscribing to Change Notifications
-        let subscription = CKDatabaseSubscription(subscriptionID: self.bundleID)
-        let notificationInfo = CKSubscription.NotificationInfo()
-        notificationInfo.shouldSendContentAvailable = true
-        subscription.notificationInfo = notificationInfo
-        let subscriptionOperation =
-            CKModifySubscriptionsOperation(subscriptionsToSave: [subscription], subscriptionIDsToDelete: [])
-        subscriptionOperation.modifySubscriptionsCompletionBlock = {
-            (subscriptions, deletedIDs, error) in
-            self.log.debug("CKModifySubscriptionsOperation error = \(String(describing: error))")
-            dispatchGroup.leave()
+        fetchSubscriptionOperation.fetchSubscriptionCompletionBlock = {
+            (subscriptions, error) in
+            self.log.debug("CKFetchSubscriptionsOperation error = \(String(describing: error))")
+            self.log.debug("CKFetchSubscriptionsOperation subscriptions = \(String(describing: subscriptions))")
 
-            guard error == nil else {
-                return
+            if error != nil || subscriptions?[self.subscriptionID] == nil {
+                let subscription = CKDatabaseSubscription(subscriptionID: self.bundleID)
+                subscription.notificationInfo = CKSubscription.NotificationInfo()
+                subscription.notificationInfo?.shouldSendContentAvailable = true
+                let modifySubscriptionOperation =
+                    CKModifySubscriptionsOperation(subscriptionsToSave: [subscription], subscriptionIDsToDelete: [])
+                modifySubscriptionOperation.modifySubscriptionsCompletionBlock = {
+                    (subscriptions, deletedIDs, error) in
+                    self.log.debug("CKModifySubscriptionsOperation error = \(String(describing: error))")
+                    dispatchGroup.leave()
+                }
+
             }
+            else {
+                dispatchGroup.leave()
+            }
+
         }
-        self.database.add(subscriptionOperation)
+        self.database.add(fetchSubscriptionOperation)
+
         dispatchGroup.notify(queue: DispatchQueue.global()) {
             self.log.debug("checkUpdates")
             self.checkUpdates()
