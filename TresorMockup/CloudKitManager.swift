@@ -324,11 +324,16 @@ class CloudKitManager: NSObject {
             }
 
             recordOperation.recordZoneChangeTokensUpdatedBlock = { (zoneID, token, data) in
+                self.log.debug("recordZoneChangeTokensUpdatedBlock token = \(String(describing: token))")
+                self.log.debug("recordZoneChangeTokensUpdatedBlock data = \(String(describing: data))")
                 self.fetchChangeToken = token
             }
 
-            recordOperation.recordZoneFetchCompletionBlock = { (zonID, token, data, more, error) in
+            recordOperation.recordZoneFetchCompletionBlock = { (zoneID, token, data, more, error) in
                 self.log.debug("recordZoneFetchCompletionBlock error = \(String(describing: error))")
+                self.log.debug("recordZoneFetchCompletionBlock token = \(String(describing: token))")
+                self.log.debug("recordZoneFetchCompletionBlock data = \(String(describing: data))")
+                self.fetchChangeToken = token
             }
 
             self.database.add(recordOperation)
@@ -527,8 +532,10 @@ class CloudKitManager: NSObject {
             let oldval = record.object(forKey: key)
 
             if (value as? NSNull) != nil {
-                record.setObject(nil, forKey: key)
-                self.log.debug("  \(key): NSNull = \(String(describing: value))")
+                if oldval != nil {
+                    record.setObject(nil, forKey: key)
+                    self.log.debug("  \(key): NSNull = \(String(describing: value))")
+                }
             }
             else if let val = value as? NSString {
                 if oldval == nil || val != oldval as? NSString {
@@ -573,15 +580,30 @@ class CloudKitManager: NSObject {
                 }
             }
             else if let val = value as? NSManagedObject {
-                let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
-                                             zoneID: self.zone.zoneID)
-                let reference  = CKRecord.Reference(recordID: targetid, action: .none)
-                record.setObject(reference, forKey: key)
-                self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+                let newref = val.idstr ?? "NO UUID"
+                let oldref = (oldval as? CKRecord.Reference)
+                if  oldref == nil || oldref!.recordID.recordName != newref {
+                    let targetid   = CKRecord.ID(recordName: newref,
+                                                 zoneID: self.zone.zoneID)
+                    let reference  = CKRecord.Reference(recordID: targetid, action: .none)
+                    record.setObject(reference, forKey: key)
+                    self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+                }
             }
             else if let vals = value as? NSArray {
                 let valsary = vals.map { (elem: Any) -> (Any) in
                     if let val = elem as? NSManagedObject {
+//                        let newref = val.idstr ?? "NO UUID"
+//                        let oldref = (oldval as? CKRecord.Reference)
+//                        if  oldref == nil || oldref!.recordID.recordName != newref {
+//                            let targetid   = CKRecord.ID(recordName: newref,
+//                                                         zoneID: self.zone.zoneID)
+//                            let reference  = CKRecord.Reference(recordID: targetid, action: .none)
+//                            record.setObject(reference, forKey: key)
+//                            self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+//                        }
+//
+//
                         let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
                                                      zoneID: self.zone.zoneID)
                         let reference  = CKRecord.Reference(recordID: targetid, action: .none)
