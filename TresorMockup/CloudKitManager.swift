@@ -293,14 +293,17 @@ class CloudKitManager: NSObject {
                     self.context!.delete($0)
                 }
 
-                let debugstr: String = changes.values.map {
-                    return [
-                        $0.recordID!.recordName,
-                        $0.recordType,
-                        $0.mode.String,
-                        ($0.managedObject == nil ? "nil" : "nonnil")
-                        ].reduce("", { $0 + " " + $1})
-                    }.reduce("", { $0 + $1 + "\n" })
+                let debugstr: String = {
+                    let values = changes.values.map {
+                        [
+                            $0.recordID!.recordName,
+                            $0.recordType ?? "nil",
+                            $0.mode.String,
+                            ($0.managedObject == nil ? "nil" : "nonnil")
+                            ].reduce("", {$0 + " " + $1})
+                    }
+                    return values.reduce("", { $0 + $1 + "\n" })
+                }()
                 self.log.debug("changes = \n\(debugstr)")
 
                 do {
@@ -526,6 +529,43 @@ class CloudKitManager: NSObject {
         self.database.add(fetchRecordsOperation)
     }
 
+    func compare(_ x: [Any?]?, _ y: [Any?]?) -> Bool {
+        switch (x == nil, y == nil) {
+        case (true, true):
+            return true
+        case (true, false), (false, true):
+            return false
+        default:
+            break
+        }
+        var xary = x!
+        var yary = y!
+        switch (xary.isEmpty, yary.isEmpty) {
+        case (true, true):
+            return true
+        case (true, false), (false,true):
+            return false
+        default:
+            let xfirst = xary.removeFirst()
+            let yfirst = yary.removeFirst()
+            switch (xfirst == nil, yfirst == nil) {
+            case (true, true):
+                return compare(xary, yary)
+            case (true, false), (false, true):
+                return false
+            default:
+                let xref = xfirst as? CKRecord.Reference
+                let yref = yfirst as? CKRecord.Reference
+                if xref != yref {
+                    return false
+                }
+                else {
+                    return compare(xary, yary)
+                }
+            }
+        }
+    }
+
     func setProperties(record: CKRecord, properties:[String: Any?]) {
         properties.forEach {
             let (key, value) = $0
@@ -590,46 +630,28 @@ class CloudKitManager: NSObject {
                     self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
                 }
             }
-            else if let vals = value as? NSArray {
-                let valsary = vals.map { (elem: Any) -> (Any) in
-                    if let val = elem as? NSManagedObject {
-//                        let newref = val.idstr ?? "NO UUID"
-//                        let oldref = (oldval as? CKRecord.Reference)
-//                        if  oldref == nil || oldref!.recordID.recordName != newref {
-//                            let targetid   = CKRecord.ID(recordName: newref,
-//                                                         zoneID: self.zone.zoneID)
-//                            let reference  = CKRecord.Reference(recordID: targetid, action: .none)
-//                            record.setObject(reference, forKey: key)
-//                            self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
-//                        }
-//
-//
-                        let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
-                                                     zoneID: self.zone.zoneID)
-                        let reference  = CKRecord.Reference(recordID: targetid, action: .none)
-                        self.log.debug("  \(key): CKReference = \(targetid)")
-                        return reference
-                    }
-                    else {
-                        return elem
-                    }
-                }
-                record.setObject(valsary.isEmpty ? nil : valsary as CKRecordValue, forKey: key)
-            }
             else if let vals = value as? NSSet {
-                let valsary = vals.allObjects.map { (elem: Any) -> (Any) in
-                    if let val = elem as? NSManagedObject {
-                        let targetid   = CKRecord.ID(recordName: val.idstr ?? "NO UUID",
-                                                     zoneID: self.zone.zoneID)
-                        let reference  = CKRecord.Reference(recordID: targetid, action: .none)
-                        self.log.debug("  \(key): CKReference = \(targetid)")
-                        return reference
+                let valsary = vals.map { (elem: Any) -> (Any?) in
+                    if let newval = elem as? NSManagedObject {
+                        let newref = newval.idstr
+                        if newref == nil {
+                            return nil
+                        }
+                        else {
+                            let targetid   = CKRecord.ID(recordName: newref!,
+                                                         zoneID: self.zone.zoneID)
+                            let reference  = CKRecord.Reference(recordID: targetid, action: .none)
+                            self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+                            return newref
+                        }
                     }
                     else {
                         return elem
                     }
                 }
-                record.setObject(valsary.isEmpty ? nil : valsary as CKRecordValue, forKey: key)
+                if !self.compare(oldval as? [Any?], valsary) {
+                    record.setObject(valsary as CKRecordValue, forKey: key)
+                }
             }
             else {
                 self.log.debug("  \(key): UNKNOWN = \(String(describing: value))")
@@ -664,7 +686,7 @@ fileprivate struct ManagedObjectCloudRecord {
     var keys:          [String]
     var _cloudRecord:  CKRecord?
 
-    var recordType:    CKRecord.RecordType
+    var recordType:    CKRecord.RecordType?
     var mode:          OperationMode
 
     init() {
@@ -672,7 +694,7 @@ fileprivate struct ManagedObjectCloudRecord {
         self.managedObject = nil
         self.keys          = []
         self._cloudRecord  = nil
-        self.recordType    = "UNKNOWN_RECORD_TYPE"
+        self.recordType    = nil
         self.mode          = []
     }
 
@@ -705,7 +727,7 @@ fileprivate struct ManagedObjectCloudRecord {
         }
         set {
             self._cloudRecord = newValue
-            self.recordType   = newValue?.recordType ?? "UNKNOWN_RECORD_TYPE"
+            self.recordType   = newValue?.recordType
         }
     }
 
