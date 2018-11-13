@@ -68,7 +68,7 @@ class CloudKitManager: NSObject {
                            " error = \(String(describing: error))" +
                            " zoneIDs = \(String(describing: zoneIDs))")
 
-            if zoneIDs == nil || zoneIDs!.values.isEmpty {
+            if error != nil || zoneIDs == nil || zoneIDs!.values.isEmpty {
                 let createZoneOperation =
                     CKModifyRecordZonesOperation(
                         recordZonesToSave: [self.zone], recordZoneIDsToDelete: [])
@@ -104,7 +104,7 @@ class CloudKitManager: NSObject {
                     self.log.debug("CKModifySubscriptionsOperation error = \(String(describing: error))")
                     dispatchGroup.leave()
                 }
-
+                self.database.add(modifySubscriptionOperation)
             }
             else {
                 dispatchGroup.leave()
@@ -319,7 +319,8 @@ class CloudKitManager: NSObject {
                     }
                     return values.reduce("", { $0 + $1 + "\n" })
                 }()
-                self.log.debug("changes = recordName recordType mode managedObject\n\(debugstr)")
+                self.log.debug("changes =\n" + "recordName recordType mode managedObject\n" +
+                               "\(debugstr)")
 
                 let dels: [NSManagedObject] = changes.values.compactMap {
                     $0.mode.contains(.delete) ? $0.managedObject : nil
@@ -357,10 +358,12 @@ class CloudKitManager: NSObject {
             }
 
             recordOperation.recordZoneFetchCompletionBlock = { (zoneID, token, data, more, error) in
+                #if DEBUG_DETAIL
                 self.log.debug("recordZoneFetchCompletionBlock" +
                                " error = \(String(describing: error))" +
                                " token = \(String(describing: token))" +
                                " data = \(String(describing: data))")
+                #endif
                 self.fetchChangeToken = token
             }
 

@@ -94,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let log = SwiftyBeaver.self
         log.debug("Receive Remote Notification = \(userInfo)")
         CloudKitManager.shared.checkUpdates()
+        completionHandler(.newData)
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
