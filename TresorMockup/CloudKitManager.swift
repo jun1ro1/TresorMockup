@@ -529,11 +529,7 @@ class CloudKitManager: NSObject {
             }
 
             for key in managedObjectCloudRecordRelations.keys {
-                guard let mocr = managedObjectCloudRecordRelations[key] else {
-//                    assertionFailure()
-                    continue
-                }
-                guard let record = mocr.cloudRecord else {
+                guard var mocr = managedObjectCloudRecordRelations[key] else {
 //                    assertionFailure()
                     continue
                 }
@@ -541,11 +537,13 @@ class CloudKitManager: NSObject {
 //                    assertionFailure()
                     continue
                 }
-                self.setProperties(record: record,
-                                   properties: obj.committedValues(forKeys: mocr.keys) )
+                mocr.set(properties: obj.committedValues(forKeys: mocr.keys) )
+                managedObjectCloudRecordRelations[key] = mocr
             }
 
-            toSave = managedObjectCloudRecordRelations.values.compactMap { $0.cloudRecord }
+            toSave = managedObjectCloudRecordRelations.values.compactMap {
+                $0._cloudChanged ? $0.cloudRecord : nil
+            }
 
             self.log.debug( "fetchRecordsCompletionBlock toSave = \(String(describing: toSave))" )
             self.log.debug( "fetchRecordsCompletionBlock toDelete = \(String(describing: toDelete))" )
@@ -569,6 +567,79 @@ class CloudKitManager: NSObject {
             self.database.add(modifyRecordsOperation)
         }
         self.database.add(fetchRecordsOperation)
+    }
+}
+
+// MARK: - Structures
+fileprivate struct OperationMode: OptionSet {
+    let rawValue: Int
+
+    static let save   = OperationMode(rawValue: 1 << 0)
+    static let delete = OperationMode(rawValue: 1 << 1)
+
+    public var String: String {
+        var s = ""
+        switch self {
+        case .save:   s = "save"
+        case .delete: s = "delete"
+        default:      s = "UNKNOWN"
+        }
+        return s
+    }
+}
+
+fileprivate struct ManagedObjectCloudRecord {
+    var recordID:      CKRecord.ID?
+    var managedObject: NSManagedObject?
+    var keys:          [String]
+    var _cloudRecord:  CKRecord?
+    var _cloudChanged: Bool
+
+    var recordType:    CKRecord.RecordType?
+    var mode:          OperationMode
+
+    init() {
+        self.recordID      = nil
+        self.managedObject = nil
+        self.keys          = []
+        self._cloudRecord  = nil
+        self.recordType    = nil
+        self.mode          = []
+        self._cloudChanged = false
+    }
+
+    init(managedObject: NSManagedObject) {
+        self.init()
+        self.managedObject = managedObject
+    }
+
+    init(cloudRecord: CKRecord) {
+        self.init()
+        self.recordID    = cloudRecord.recordID
+        self.cloudRecord = cloudRecord
+        self.recordType  = cloudRecord.recordType
+    }
+
+    init(recordID: CKRecord.ID) {
+        self.init()
+        self.recordID = recordID
+    }
+
+    init(recordID: CKRecord.ID, recordType: CKRecord.RecordType) {
+        self.init()
+        self.recordID   = recordID
+        self.recordType = recordType
+    }
+
+    var cloudRecord:   CKRecord? {
+        get {
+            return self._cloudRecord
+        }
+        set {
+            self._cloudRecord = newValue
+            self.recordType   = newValue?.recordType
+            self._cloudChanged = false
+        }
     }
 
     func compare(_ x: [Any?]?, _ y: [Any?]?) -> Bool {
@@ -608,14 +679,22 @@ class CloudKitManager: NSObject {
         }
     }
 
-    func setProperties(record: CKRecord, properties:[String: Any?]) {
+    mutating func setRecordValue(_ value: Any?, forKey key: String) {
+        self.cloudRecord?.setObject(value as? __CKRecordObjCValue, forKey: key)
+        self._cloudChanged = true
+    }
+
+    mutating func set(properties:[String: Any?]) {
+        let bundleID  = Bundle.main.bundleIdentifier!
+        let zone = CKRecordZone(zoneName: bundleID + "_Zone")
+
         properties.forEach {
             let (key, value) = $0
-            let oldval = record.object(forKey: key)
+            let oldval = self.cloudRecord?.object(forKey: key)
 
             if (value as? NSNull) != nil {
                 if oldval != nil {
-                    record.setObject(nil, forKey: key)
+                    self.setRecordValue(nil, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): NSNull = \(String(describing: value))")
                     #endif
@@ -623,15 +702,15 @@ class CloudKitManager: NSObject {
             }
             else if let val = value as? NSString {
                 if oldval == nil || val != oldval as? NSString {
-                    record.setObject(val, forKey: key)
+                    self.setRecordValue(val, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): NSString = \(val)")
                     #endif
-               }
+                }
             }
             else if let val = value as? NSNumber {
                 if oldval == nil || val != oldval as? NSNumber {
-                    record.setObject(val, forKey: key)
+                    self.setRecordValue(val, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): NSNumber = \(val)")
                     #endif
@@ -639,7 +718,7 @@ class CloudKitManager: NSObject {
             }
             else if let val = value as? NSData {
                 if oldval == nil || val != oldval as? NSData {
-                    record.setObject(val, forKey: key)
+                    self.setRecordValue(val, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): NSData = \(val)")
                     #endif
@@ -647,7 +726,7 @@ class CloudKitManager: NSObject {
             }
             else if let val = value as? NSDate {
                 if oldval == nil || val != oldval as? NSDate {
-                    record.setObject(val, forKey: key)
+                    self.setRecordValue(val, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): NSDate = \(val)")
                     #endif
@@ -655,15 +734,15 @@ class CloudKitManager: NSObject {
             }
             else if let val = value as? NSArray {
                 if oldval == nil || val != oldval as? NSArray {
-                    record.setObject(val, forKey: key)
+                    self.setRecordValue(val, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): NSArray = \(val)")
                     #endif
-               }
+                }
             }
             else if let val = value as? CLLocation {
                 if oldval == nil || val != oldval as? CLLocation {
-                    record.setObject(val, forKey: key)
+                    self.setRecordValue(val, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): CLLocation = \(val)")
                     #endif
@@ -671,7 +750,7 @@ class CloudKitManager: NSObject {
             }
             else if let val = value as? CKAsset {
                 if oldval == nil || val != oldval as? CKAsset {
-                    record.setObject(val, forKey: key)
+                    self.setRecordValue(val, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): CKAsset = \(val)")
                     #endif
@@ -681,10 +760,9 @@ class CloudKitManager: NSObject {
                 let newref = val.idstr ?? "NO UUID"
                 let oldref = (oldval as? CKRecord.Reference)
                 if  oldref == nil || oldref!.recordID.recordName != newref {
-                    let targetid   = CKRecord.ID(recordName: newref,
-                                                 zoneID: self.zone.zoneID)
+                    let targetid   = CKRecord.ID(recordName: newref, zoneID: zone.zoneID)
                     let reference  = CKRecord.Reference(recordID: targetid, action: .none)
-                    record.setObject(reference, forKey: key)
+                    self.setRecordValue(reference, forKey: key)
                     #if DEBUG_DETAIL
                     self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
                     #endif
@@ -698,11 +776,10 @@ class CloudKitManager: NSObject {
                             return nil
                         }
                         else {
-                            let targetid   = CKRecord.ID(recordName: newref!,
-                                                         zoneID: self.zone.zoneID)
+                            let targetid   = CKRecord.ID(recordName: newref!, zoneID: zone.zoneID)
                             let reference  = CKRecord.Reference(recordID: targetid, action: .none)
                             #if DEBUG_DETAIL
-                            self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+                            SwiftyBeaver.self.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
                             #endif
                             return reference
                         }
@@ -712,84 +789,13 @@ class CloudKitManager: NSObject {
                     }
                 }
                 if !self.compare(oldval as? [Any?], valsary) {
-                    record.setObject(valsary as CKRecordValue, forKey: key)
+                    self.setRecordValue(valsary as CKRecordValue, forKey: key)
                 }
             }
             else {
-                self.log.error("  \(key): UNKNOWN = \(String(describing: value))")
+                SwiftyBeaver.self.error("  \(key): UNKNOWN = \(String(describing: value))")
                 assertionFailure("UNKOWN")
             }
-        }
-    }
-
-}
-
-// MARK: - Structures
-fileprivate struct OperationMode: OptionSet {
-    let rawValue: Int
-
-    static let save   = OperationMode(rawValue: 1 << 0)
-    static let delete = OperationMode(rawValue: 1 << 1)
-
-    public var String: String {
-        var s = ""
-        switch self {
-        case .save:   s = "save"
-        case .delete: s = "delete"
-        default:      s = "UNKNOWN"
-        }
-        return s
-    }
-}
-
-fileprivate struct ManagedObjectCloudRecord {
-    var recordID:      CKRecord.ID?
-    var managedObject: NSManagedObject?
-    var keys:          [String]
-    var _cloudRecord:  CKRecord?
-
-    var recordType:    CKRecord.RecordType?
-    var mode:          OperationMode
-
-    init() {
-        self.recordID      = nil
-        self.managedObject = nil
-        self.keys          = []
-        self._cloudRecord  = nil
-        self.recordType    = nil
-        self.mode          = []
-    }
-
-    init(managedObject: NSManagedObject) {
-        self.init()
-        self.managedObject = managedObject
-    }
-
-    init(cloudRecord: CKRecord) {
-        self.init()
-        self.recordID    = cloudRecord.recordID
-        self.cloudRecord = cloudRecord
-        self.recordType  = cloudRecord.recordType
-    }
-
-    init(recordID: CKRecord.ID) {
-        self.init()
-        self.recordID = recordID
-    }
-
-    init(recordID: CKRecord.ID, recordType: CKRecord.RecordType) {
-        self.init()
-        self.recordID   = recordID
-        self.recordType = recordType
-    }
-
-    var cloudRecord:   CKRecord? {
-        get {
-            return self._cloudRecord
-        }
-        set {
-            self._cloudRecord = newValue
-            self.recordType   = newValue?.recordType
         }
     }
 
