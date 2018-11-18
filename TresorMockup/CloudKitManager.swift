@@ -541,6 +541,11 @@ class CloudKitManager: NSObject {
                 managedObjectCloudRecordRelations[key] = mocr
             }
 
+            managedObjectCloudRecordRelations.keys.forEach {
+                let mocr = managedObjectCloudRecordRelations[$0]
+                self.log.debug("key = \($0)\nmocr = \(String(describing: mocr))\n")
+            }
+
             toSave = managedObjectCloudRecordRelations.values.compactMap {
                 $0._cloudChanged ? $0.cloudRecord : nil
             }
@@ -687,6 +692,7 @@ fileprivate struct ManagedObjectCloudRecord {
     mutating func set(properties:[String: Any?]) {
         let bundleID  = Bundle.main.bundleIdentifier!
         let zone = CKRecordZone(zoneName: bundleID + "_Zone")
+        let log  = SwiftyBeaver.self
 
         properties.forEach {
             let (key, value) = $0
@@ -695,65 +701,65 @@ fileprivate struct ManagedObjectCloudRecord {
             if (value as? NSNull) != nil {
                 if oldval != nil {
                     self.setRecordValue(nil, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): NSNull = \(String(describing: value))")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): NSNull = \(String(describing: value))")
+//                    #endif
                 }
             }
             else if let val = value as? NSString {
                 if oldval == nil || val != oldval as? NSString {
                     self.setRecordValue(val, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): NSString = \(val)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): NSString = \(val)")
+//                    #endif
                 }
             }
             else if let val = value as? NSNumber {
                 if oldval == nil || val != oldval as? NSNumber {
                     self.setRecordValue(val, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): NSNumber = \(val)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): NSNumber = \(val)")
+//                    #endif
                 }
             }
             else if let val = value as? NSData {
                 if oldval == nil || val != oldval as? NSData {
                     self.setRecordValue(val, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): NSData = \(val)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): NSData = \(val)")
+//                    #endif
                 }
             }
             else if let val = value as? NSDate {
                 if oldval == nil || val != oldval as? NSDate {
                     self.setRecordValue(val, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): NSDate = \(val)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): NSDate = \(val)")
+//                    #endif
                 }
             }
             else if let val = value as? NSArray {
                 if oldval == nil || val != oldval as? NSArray {
                     self.setRecordValue(val, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): NSArray = \(val)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): NSArray = \(val)")
+//                    #endif
                 }
             }
             else if let val = value as? CLLocation {
                 if oldval == nil || val != oldval as? CLLocation {
                     self.setRecordValue(val, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): CLLocation = \(val)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): CLLocation = \(val)")
+//                    #endif
                 }
             }
             else if let val = value as? CKAsset {
                 if oldval == nil || val != oldval as? CKAsset {
                     self.setRecordValue(val, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): CKAsset = \(val)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): CKAsset = \(val)")
+//                    #endif
                 }
             }
             else if let val = value as? NSManagedObject {
@@ -763,9 +769,9 @@ fileprivate struct ManagedObjectCloudRecord {
                     let targetid   = CKRecord.ID(recordName: newref, zoneID: zone.zoneID)
                     let reference  = CKRecord.Reference(recordID: targetid, action: .none)
                     self.setRecordValue(reference, forKey: key)
-                    #if DEBUG_DETAIL
-                    self.log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
-                    #endif
+//                    #if DEBUG_DETAIL
+                    log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+//                    #endif
                 }
             }
             else if let vals = value as? NSSet {
@@ -778,9 +784,9 @@ fileprivate struct ManagedObjectCloudRecord {
                         else {
                             let targetid   = CKRecord.ID(recordName: newref!, zoneID: zone.zoneID)
                             let reference  = CKRecord.Reference(recordID: targetid, action: .none)
-                            #if DEBUG_DETAIL
-                            SwiftyBeaver.self.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
-                            #endif
+//                            #if DEBUG_DETAIL
+                            log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+//                            #endif
                             return reference
                         }
                     }
@@ -793,7 +799,7 @@ fileprivate struct ManagedObjectCloudRecord {
                 }
             }
             else {
-                SwiftyBeaver.self.error("  \(key): UNKNOWN = \(String(describing: value))")
+                log.error("  \(key): UNKNOWN = \(String(describing: value))")
                 assertionFailure("UNKOWN")
             }
         }
