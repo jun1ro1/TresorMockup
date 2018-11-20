@@ -785,7 +785,7 @@ fileprivate struct ManagedObjectCloudRecord {
                             let targetid   = CKRecord.ID(recordName: newref!, zoneID: zone.zoneID)
                             let reference  = CKRecord.Reference(recordID: targetid, action: .none)
 //                            #if DEBUG_DETAIL
-                            log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+//                            log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
 //                            #endif
                             return reference
                         }
@@ -796,6 +796,10 @@ fileprivate struct ManagedObjectCloudRecord {
                 }
                 if !self.compare(oldval as? [Any?], valsary) {
                     self.setRecordValue(valsary as CKRecordValue, forKey: key)
+                    //                            #if DEBUG_DETAIL
+                    log.debug("  \(key): CK References = \(valsary)")
+                    //                            #endif
+
                 }
             }
             else {
