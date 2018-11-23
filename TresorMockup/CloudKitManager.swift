@@ -65,8 +65,8 @@ class CloudKitManager: NSObject {
 
         fetchZonesOperation.fetchRecordZonesCompletionBlock = { (zoneIDs, error) in
             self.log.debug("CKFetchRecordZonesOperation" +
-                           " error = \(String(describing: error))" +
-                           " zoneIDs = \(String(describing: zoneIDs))")
+                " error = \(String(describing: error))" +
+                " zoneIDs = \(String(describing: zoneIDs))")
 
             if error != nil || zoneIDs == nil || zoneIDs!.values.isEmpty {
                 let createZoneOperation =
@@ -90,8 +90,8 @@ class CloudKitManager: NSObject {
         fetchSubscriptionOperation.fetchSubscriptionCompletionBlock = {
             (subscriptions, error) in
             self.log.debug("CKFetchSubscriptionsOperation" +
-                           " error = \(String(describing: error))" +
-                           " subscriptions = \(String(describing: subscriptions))")
+                " error = \(String(describing: error))" +
+                " subscriptions = \(String(describing: subscriptions))")
 
             if error != nil || subscriptions?[self.subscriptionID] == nil {
                 let subscription = CKDatabaseSubscription(subscriptionID: self.bundleID)
@@ -141,9 +141,9 @@ class CloudKitManager: NSObject {
 
         databaseOperation.fetchDatabaseChangesCompletionBlock = { (token, more, error) in
             self.log.debug("fetchDatabaseChangesCompletionBlock" +
-                           " error = \(String(describing: error))" +
-                           " token = \(String(describing: token))" +
-                           " more = \(more)")
+                " error = \(String(describing: error))" +
+                " token = \(String(describing: token))" +
+                " more = \(more)")
             guard error == nil && !self.zoneIDs.isEmpty else {
                 self.log.info("fetchDatabaseChangesCompletionBlock self.zonIDs is empty")
                 return
@@ -238,7 +238,7 @@ class CloudKitManager: NSObject {
                                     NSManagedObject(entity: entityDesc!, insertInto: self.context)
                             }
                         }
-                     }
+                    }
                     catch {
                         self.log.error("fetch error")
                     }
@@ -281,7 +281,7 @@ class CloudKitManager: NSObject {
                             }
                             let sets: NSSet = NSSet(array: objs)
                             object.perform(selector, with: sets)
-                         }
+                        }
                         else if record[key] is CKRecord.Reference {
                             let ref = record[key] as! CKRecord.Reference
                             let id  = ref.recordID.recordName
@@ -320,7 +320,7 @@ class CloudKitManager: NSObject {
                     return values.reduce("", { $0 + $1 + "\n" })
                 }()
                 self.log.debug("changes =\n" + "recordName recordType mode managedObject\n" +
-                               "\(debugstr)")
+                    "\(debugstr)")
 
                 let dels: [NSManagedObject] = changes.values.compactMap {
                     $0.mode.contains(.delete) ? $0.managedObject : nil
@@ -330,7 +330,7 @@ class CloudKitManager: NSObject {
                     self.context!.delete($0)
                 }
 
-                 do {
+                do {
                     try self.context!.save()
                 }
                 catch {
@@ -346,23 +346,23 @@ class CloudKitManager: NSObject {
                       CloudKitManager.CLOUDKIT_MANAGER_UPDATED:
                         changes.values.compactMap {
                             $0.mode == [.save] ? $0.cloudRecord : nil }
-                        ]
+                ]
                 center.post(name: name, object: self, userInfo: userInfo)
             }
 
             recordOperation.recordZoneChangeTokensUpdatedBlock = { (zoneID, token, data) in
                 self.log.debug("recordZoneChangeTokensUpdatedBlock" +
-                               " token = \(String(describing: token))" +
-                               " data = \(String(describing: data))")
+                    " token = \(String(describing: token))" +
+                    " data = \(String(describing: data))")
                 self.fetchChangeToken = token
             }
 
             recordOperation.recordZoneFetchCompletionBlock = { (zoneID, token, data, more, error) in
                 #if DEBUG_DETAIL
                 self.log.debug("recordZoneFetchCompletionBlock" +
-                               " error = \(String(describing: error))" +
-                               " token = \(String(describing: token))" +
-                               " data = \(String(describing: data))")
+                    " error = \(String(describing: error))" +
+                    " token = \(String(describing: token))" +
+                    " data = \(String(describing: data))")
                 #endif
                 self.fetchChangeToken = token
             }
@@ -530,11 +530,11 @@ class CloudKitManager: NSObject {
 
             for key in managedObjectCloudRecordRelations.keys {
                 guard var mocr = managedObjectCloudRecordRelations[key] else {
-//                    assertionFailure()
+                    //                    assertionFailure()
                     continue
                 }
                 guard let obj = mocr.managedObject else {
-//                    assertionFailure()
+                    //                    assertionFailure()
                     continue
                 }
                 mocr.set(properties: obj.committedValues(forKeys: mocr.keys) )
@@ -557,9 +557,9 @@ class CloudKitManager: NSObject {
                                                                   recordIDsToDelete: toDelete)
             modifyRecordsOperation.modifyRecordsCompletionBlock = { (save, delete, error) in
                 self.log.debug("CKModifyRecordsOperation modifyRecordsCompletionBlock" +
-                               " error = \(String(describing: error))" +
-                               " save = \(String(describing: save))" +
-                               " delete = \(String(describing: delete))" )
+                    " error = \(String(describing: error))" +
+                    " save = \(String(describing: save))" +
+                    " delete = \(String(describing: delete))" )
             }
 
             modifyRecordsOperation.perRecordCompletionBlock = { (record, error) in
@@ -647,7 +647,20 @@ fileprivate struct ManagedObjectCloudRecord {
         }
     }
 
-    func compare(_ x: [Any?]?, _ y: [Any?]?) -> Bool {
+    fileprivate func sort(_ ary: [CKRecord.Reference?]) -> [CKRecord.Reference?]  {
+        return ary.sorted { (x: CKRecord.Reference?, y: CKRecord.Reference?) in
+            switch (x == nil, y == nil) {
+            case (true, true):
+                return true
+            case (true, false), (false, true):
+                return false
+            default:
+                return x!.recordID.recordName < y!.recordID.recordName
+            }
+        }
+    }
+
+    fileprivate func equal(_ x: [CKRecord.Reference?]?, _ y: [CKRecord.Reference?]?) -> Bool {
         switch (x == nil, y == nil) {
         case (true, true):
             return true
@@ -656,32 +669,33 @@ fileprivate struct ManagedObjectCloudRecord {
         default:
             break
         }
-        var xary = x!
-        var yary = y!
-        switch (xary.isEmpty, yary.isEmpty) {
-        case (true, true):
-            return true
-        case (true, false), (false,true):
-            return false
-        default:
-            let xfirst = xary.removeFirst()
-            let yfirst = yary.removeFirst()
-            switch (xfirst == nil, yfirst == nil) {
+
+        var xary = self.sort(x!)
+        var yary = self.sort(y!)
+        var equal: Bool? = nil
+        while equal == nil {
+            switch (xary.isEmpty, yary.isEmpty) {
             case (true, true):
-                return compare(xary, yary)
-            case (true, false), (false, true):
-                return false
+                equal = true
+            case (true, false), (false,true):
+                equal = false
             default:
-                let xref = xfirst as? CKRecord.Reference
-                let yref = yfirst as? CKRecord.Reference
-                if xref != yref {
-                    return false
-                }
-                else {
-                    return compare(xary, yary)
+                let xfirst = xary.removeFirst()
+                let yfirst = yary.removeFirst()
+                switch (xfirst == nil, yfirst == nil) {
+                case (true, true):
+                    break
+                case (true, false), (false, true):
+                    equal = false
+                    break
+                default:
+                    if xfirst!.recordID.recordName != yfirst!.recordID.recordName {
+                        equal = false
+                    }
                 }
             }
         }
+        return equal!
     }
 
     mutating func setRecordValue(_ value: Any?, forKey key: String) {
@@ -701,65 +715,65 @@ fileprivate struct ManagedObjectCloudRecord {
             if (value as? NSNull) != nil {
                 if oldval != nil {
                     self.setRecordValue(nil, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): NSNull = \(String(describing: value))")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? NSString {
                 if oldval == nil || val != oldval as? NSString {
                     self.setRecordValue(val, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): NSString = \(val)")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? NSNumber {
                 if oldval == nil || val != oldval as? NSNumber {
                     self.setRecordValue(val, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): NSNumber = \(val)")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? NSData {
                 if oldval == nil || val != oldval as? NSData {
                     self.setRecordValue(val, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): NSData = \(val)")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? NSDate {
                 if oldval == nil || val != oldval as? NSDate {
                     self.setRecordValue(val, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): NSDate = \(val)")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? NSArray {
                 if oldval == nil || val != oldval as? NSArray {
                     self.setRecordValue(val, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): NSArray = \(val)")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? CLLocation {
                 if oldval == nil || val != oldval as? CLLocation {
                     self.setRecordValue(val, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): CLLocation = \(val)")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? CKAsset {
                 if oldval == nil || val != oldval as? CKAsset {
                     self.setRecordValue(val, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): CKAsset = \(val)")
-//                    #endif
+                    //                    #endif
                 }
             }
             else if let val = value as? NSManagedObject {
@@ -769,37 +783,29 @@ fileprivate struct ManagedObjectCloudRecord {
                     let targetid   = CKRecord.ID(recordName: newref, zoneID: zone.zoneID)
                     let reference  = CKRecord.Reference(recordID: targetid, action: .none)
                     self.setRecordValue(reference, forKey: key)
-//                    #if DEBUG_DETAIL
+                    //                    #if DEBUG_DETAIL
                     log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
-//                    #endif
+                    //                    #endif
                 }
             }
-            else if let vals = value as? NSSet {
-                let valsary = vals.map { (elem: Any) -> (Any?) in
-                    if let newval = elem as? NSManagedObject {
-                        let newref = newval.idstr
-                        if newref == nil {
-                            return nil
-                        }
-                        else {
-                            let targetid   = CKRecord.ID(recordName: newref!, zoneID: zone.zoneID)
-                            let reference  = CKRecord.Reference(recordID: targetid, action: .none)
-//                            #if DEBUG_DETAIL
-//                            log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
-//                            #endif
-                            return reference
-                        }
+            else if let vals = value as? Set<NSManagedObject?> {
+                let valsary = vals.map { (elem: NSManagedObject?) -> (CKRecord.Reference?) in
+                    guard let newref = elem?.idstr else {
+                        return nil
                     }
-                    else {
-                        return elem
-                    }
+                    let targetid   = CKRecord.ID(recordName: newref, zoneID: zone.zoneID)
+                    let reference  = CKRecord.Reference(recordID: targetid, action: .none)
+                    // #if DEBUG_DETAIL
+                    //   log.debug("  \(key): CKReference = \(targetid) reference = \(reference)")
+                    // #endif
+                    return reference
                 }
-                if !self.compare(oldval as? [Any?], valsary) {
-                    self.setRecordValue(valsary as CKRecordValue, forKey: key)
-                    //                            #if DEBUG_DETAIL
-                    log.debug("  \(key): CK References = \(valsary)")
-                    //                            #endif
 
+                if !self.equal(oldval as? [CKRecord.Reference?], valsary) {
+                    self.setRecordValue(valsary as CKRecordValue, forKey: key)
+                    // #if DEBUG_DETAIL
+                    log.debug("  \(key): CK References = \(valsary)")
+                    // #endif
                 }
             }
             else {
