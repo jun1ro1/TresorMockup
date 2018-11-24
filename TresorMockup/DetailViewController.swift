@@ -119,7 +119,15 @@ class DetailViewController: UITableViewController {
         self.tableView.estimatedRowHeight      = 44.0
         self.tableView.rowHeight               = UITableView.automaticDimension
         self.navigationItem.rightBarButtonItem = editButtonItem
-        configureView()
+
+        let center = NotificationCenter.default
+        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+        center.addObserver(self,
+                           selector: #selector(updateUI(notification:)),
+                           name: name,
+                           object: nil)
+
+        self.configureView()
 
     }
 
@@ -180,6 +188,16 @@ class DetailViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @objc
+    func updateUI(notification: Notification) {
+        SwiftyBeaver.self.debug("notification = \(notification)")
+
+        let queue = OperationQueue.main
+        queue.addOperation {
+            self.tableView.reloadData()
+        }
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {

@@ -788,9 +788,14 @@ fileprivate struct ManagedObjectCloudRecord {
                     //                    #endif
                 }
             }
-            else if let vals = value as? Set<NSManagedObject?> {
-                let valsary = vals.map { (elem: NSManagedObject?) -> (CKRecord.Reference?) in
-                    guard let newref = elem?.idstr else {
+            else if let vals = value as? NSSet {
+                let valsary = vals.compactMap { (elem: Any?) -> (CKRecord.Reference?) in
+                    if elem == nil {
+                        return nil
+                    }
+                    guard let newref = (elem as? NSManagedObject)?.idstr else {
+                        log.error("  \(key): element = \(String(describing: elem)) is not a managed object")
+                        assertionFailure()
                         return nil
                     }
                     let targetid   = CKRecord.ID(recordName: newref, zoneID: zone.zoneID)

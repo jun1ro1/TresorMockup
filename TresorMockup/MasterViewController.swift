@@ -38,9 +38,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let center = NotificationCenter.default
         let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
-                                               selector: #selector(updateUI(notification:)),
-                                               name: name,
-                                               object: nil)
+                           selector: #selector(updateUI(notification:)),
+                           name: name,
+                           object: nil)
 
         self.searchBar.delegate = self
     }
@@ -62,6 +62,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         let queue = OperationQueue.main
         queue.addOperation {
+            NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: self.CACHE_NAME)
             self.tableView.reloadData()
         }
     }

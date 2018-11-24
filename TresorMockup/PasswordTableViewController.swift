@@ -60,6 +60,14 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
 
         eyeButton.titleLabel?.isHidden = false
 
+        let center = NotificationCenter.default
+        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+        center.addObserver(self,
+                           selector: #selector(updateUI(notification:)),
+                           name: name,
+                           object: nil)
+
+
         self.selectedOriginal = self.detailItem?.currentPassword
     }
 
@@ -91,6 +99,15 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    @objc
+    func updateUI(notification: Notification) {
+        let queue = OperationQueue.main
+        queue.addOperation {
+            self.passwordManager?.deleteCache()
+            self.tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
