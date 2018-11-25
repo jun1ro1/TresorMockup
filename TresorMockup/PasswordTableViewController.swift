@@ -106,6 +106,12 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         let queue = OperationQueue.main
         queue.addOperation {
             self.passwordManager?.deleteCache()
+            do {
+                try self.passwordManager!.fetchedResultsController.performFetch()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
             self.tableView.reloadData()
         }
     }
@@ -115,18 +121,24 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         //        return 1
-        return self.passwordManager?.fetchedResultsController.sections?.count ?? 0
+        //        return self.passwordManager?.fetchedResultsController.sections?.count ?? 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //       return self.detailItme?.passwords?.count ?? 0
-        let sectionInfo = self.passwordManager?.fetchedResultsController.sections![section]
-        return sectionInfo?.numberOfObjects ?? 0
+        guard let sections    = self.passwordManager?.fetchedResultsController.sections else {
+            return 0
+        }
+        guard section < sections.count else {
+            return 0
+        }
+        return sections[section].numberOfObjects
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ["Current","History"][section]
+        return ["Current", "History"][section]
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
