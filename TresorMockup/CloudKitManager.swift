@@ -314,7 +314,7 @@ class CloudKitManager: NSObject {
                             $0.recordID!.recordName,
                             $0.recordType ?? "nil",
                             $0.mode.String,
-                            ($0.managedObject == nil ? "nil" : "nonnil")
+                            ($0.managedObject == nil ? "nil" : $0.managedObject!.description)
                             ].reduce("", {$0 + " " + $1})
                     }
                     return values.reduce("", { $0 + $1 + "\n" })
