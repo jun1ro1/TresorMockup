@@ -128,13 +128,22 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //       return self.detailItme?.passwords?.count ?? 0
-        guard let sections    = self.passwordManager?.fetchedResultsController.sections else {
+        guard let objs = self.passwordManager?.fetchedResultsController.fetchedObjects else {
             return 0
         }
-        guard section < sections.count else {
+
+        var currentValue: Bool
+        switch section {
+        case 0: currentValue = true
+        case 1: currentValue = false
+        default:
             return 0
         }
-        return sections[section].numberOfObjects
+        let num = objs.compactMap {
+            let obj = $0
+            return obj.current == currentValue ? 1 : nil
+            }.reduce(0, +)
+        return num
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
