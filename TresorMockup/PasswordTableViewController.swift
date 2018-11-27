@@ -122,28 +122,14 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         // #warning Incomplete implementation, return the number of sections
         //        return 1
         //        return self.passwordManager?.fetchedResultsController.sections?.count ?? 0
-        return 2
+        return self.passwordManager?.fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         //       return self.detailItme?.passwords?.count ?? 0
-        guard let objs = self.passwordManager?.fetchedResultsController.fetchedObjects else {
-            return 0
-        }
-
-        var currentValue: Bool
-        switch section {
-        case 0: currentValue = true
-        case 1: currentValue = false
-        default:
-            return 0
-        }
-        let num = objs.compactMap {
-            let obj = $0
-            return obj.current == currentValue ? 1 : nil
-            }.reduce(0, +)
-        return num
+        let sectionInfo = self.passwordManager?.fetchedResultsController.sections![section]
+        return sectionInfo?.numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -218,13 +204,13 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return indexPath.section != 0
     }
 
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
+        return indexPath.section == 0 ? .none : .delete
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

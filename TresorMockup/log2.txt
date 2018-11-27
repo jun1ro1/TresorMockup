@@ -1,1 +1,2262 @@
+iPad Air
 
+01:15:56.458  💚 DEBUG AppDelegate.application():27 - Application starts
+01:15:56.487  💚 DEBUG MasterViewController.viewDidLoad():36 - viewDidLoad
+01:15:56.779  💚 DEBUG AppDelegate.application():102 - Remote Notification did register
+01:15:57.211 0x280bd6c80 💚 DEBUG CloudKitManager.start():68 - CKFetchRecordZonesOperation error = nil zoneIDs = Optional([<CKRecordZoneID: 0x281e54fc0; ownerName=__defaultOwner__, zoneName=com.gmail.jun1ro1.TresorMockup_Zone>: <CKRecordZone: 0x282c72400; zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__, capabilities=(Atomic,Sync,Share)>])
+01:15:57.585 0x280bd8c00 💚 DEBUG CloudKitManager.start():93 - CKFetchSubscriptionsOperation error = nil subscriptions = Optional(["com.gmail.jun1ro1.TresorMockup": <CKDatabaseSubscription: 0x280bf0440; ; Database Subscription: subscriptionID=com.gmail.jun1ro1.TresorMockup>
+{
+alertBody -> (null)
+alertLocalizationKey -> "(null)
+alertLocalizationArgs -> []
+title -> (null)
+titleLocalizationKey -> "(null)
+titleLocalizationArgs -> []
+subtitle -> (null)
+subtitleLocalizationKey -> "(null)
+subtitleLocalizationArgs -> []
+alertActionLocalizationKey -> (null)
+alertLaunchImage -> (null)
+soundName -> (null)
+desiredKeys -> []
+shouldBadge -> NO
+shouldSendContentAvailable -> YES
+shouldSendMutableContent -> NO
+category -> (null)
+collapseIDKey -> (null)
+
+}])
+01:15:58.029 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():145 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x281c7cbe0; data=AQAAAWdV9F9H>) more = false
+01:15:58.494 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():355 - recordZoneChangeTokensUpdatedBlock token = Optional(<CKServerChangeToken: 0x281c7d9c0; data=AQAAAAAAAACef/////////8AJ9nXvhBHJY0x+uS3IvEf>) data = nil
+01:16:00.391 0x280bd6c80 \360\237\222💚 DEBUG CloudKitManager.checkUpdates():355 - recordZoneChangeTokensUpdatedBlock token = Optional(<CKServerChangeToken: 0x281c7c740; data=AQAAAAAAAAE5f/////////8AJ9nXvhBHJY0x+uS3IvEf>) data = nil
+01:16:00.828 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():181 - fetchRecordZoneChangesCompletionBlock error = nil
+01:16:00.834 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():221 - context fetch request = <NSFetchRequest: 0x283571f80> (entity: Site; predicate: (uuid IN {"ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579", "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4", "799AB253-FA1A-470B-95B2-D7958654719F", "381D844D-73FF-41A1-ADC6-27B4B2A709A6", "3BE02027-328C-45D2-8878-1ABAFCE973CC", "02B8D370-2BAD-494E-87B9-B802207CD18A", "8B57160A-80A8-4C61-860A-54FE47E8141A"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+01:16:00.844 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():223 - context fetch result = Optional([<TresorMockup.Site: 0x283d54190> (entity: Site; id: 0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa1;
+passwords = "<relationship fault: 0x281e5d9e0 'passwords'>";
+selectAt = "2018-11-25 13:13:48 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+}), <TresorMockup.Site: 0x283d541e0> (entity: Site; id: 0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 1FV5foHV;
+passwords = "<relationship fault: 0x281e47220 'passwords'>";
+selectAt = "2018-11-25 13:21:33 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+}), <TresorMockup.Site: 0x283d54230> (entity: Site; id: 0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 12gWC6e6;
+passwords = "<relationship fault: 0x281e47340 'passwords'>";
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+}), <TresorMockup.Site: 0x283d54280> (entity: Site; id: 0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = JaaineoR;
+passwords = "<relationship fault: 0x281e47460 'passwords'>";
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+}), <TresorMockup.Site: 0x283d542d0> (entity: Site; id: 0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa2;
+passwords = "<relationship fault: 0x281e47580 'passwords'>";
+selectAt = "2018-11-25 13:06:18 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+})])
+01:16:00.869 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():221 - context fetch request = <NSFetchRequest: 0x2835640e0> (entity: Password; predicate: (uuid IN {"FB645109-1FCC-4BD6-BDC4-2370A7539C06", "FA5DC270-527B-49B4-BA1B-47290DA91722", "E88AD683-1CE5-497B-87A7-A7E3C60C0934", "733D7D0E-079A-4A03-AC98-C8BDEB9905EA", "D3A53CFB-3BCC-473E-991C-045F93A9E0C0", "20E282A5-58F1-4122-99F1-9E6F104411CB", "99BF42F0-755C-46E5-B004-01FAF7C90699", "9FF0523B-330B-419D-859D-242C748164B3", "467B1F95-8FA5-47C0-9B70-503BF2380926", "E22EDE6B-ADEA-4649-BA43-44F23334D0A5", "7016AB52-2E87-49D0-832C-463E8301CAE3", "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92", "584B95AE-1DE2-4E94-A3DB-50F4A84D019F", "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7", "7224B057-F89B-488E-9C49-526E0A14B168", "5B7C3441-3A4B-4778-A656-4E5305620B9D", "AB17DB58-0D9A-46C6-836D-9DD83B155F1A", "53E43803-ACF7-4F8C-B6F2-813C0007B121", "B99E6D86-67EA-4439-93A6-E4B6578E1B29", "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+01:16:00.884 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():223 - context fetch result = Optional([<TresorMockup.Password: 0x283d52e40> (entity: Password; id: 0xacf04cba4bb17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p1> ; data: <fault>), <TresorMockup.Password: 0x283d52e90> (entity: Password; id: 0xacf04cba4ba17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p5> ; data: <fault>), <TresorMockup.Password: 0x283d52ee0> (entity: Password; id: 0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6> ; data: <fault>), <TresorMockup.Password: 0x283d52f30> (entity: Password; id: 0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7> ; data: <fault>), <TresorMockup.Password: 0x283d52f80> (entity: Password; id: 0xacf04cba4b957a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p8> ; data: <fault>), <TresorMockup.Password: 0x283d52fd0> (entity: Password; id: 0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9> ; data: <fault>), <TresorMockup.Password: 0x283d53020> (entity: Password; id: 0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11> ; data: <fault>), <TresorMockup.Password: 0x283d53070> (entity: Password; id: 0xacf04cba4b817a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p13> ; data: <fault>), <TresorMockup.Password: 0x283d530c0> (entity: Password; id: 0xacf04cba4b8d7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p14> ; data: <fault>), <TresorMockup.Password: 0x283d53110> (entity: Password; id: 0xacf04cba4b897a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p15> ; data: <fault>), <TresorMockup.Password: 0x283d53160> (entity: Password; id: 0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16> ; data: <fault>), <TresorMockup.Password: 0x283d531b0> (entity: Password; id: 0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17> ; data: <fault>), <TresorMockup.Password: 0x283d53200> (entity: Password; id: 0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18> ; data: <fault>), <TresorMockup.Password: 0x283d53250> (entity: Password; id: 0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19> ; data: <fault>), <TresorMockup.Password: 0x283d532a0> (entity: Password; id: 0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20> ; data: <fault>), <TresorMockup.Password: 0x283d532f0> (entity: Password; id: 0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21> ; data: <fault>), <TresorMockup.Password: 0x283d53340> (entity: Password; id: 0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24> ; data: <fault>), <TresorMockup.Password: 0x283d53390> (entity: Password; id: 0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25> ; data: <fault>)])
+01:16:00.906 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d530c0> (entity: Password; id: 0xacf04cba4b8d7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p14> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:35:09 +0000";
+current = 0;
+password = 144FqbET;
+selectedAt = "2018-11-23 14:35:09 +0000";
+site = nil;
+uuid = "FB645109-1FCC-4BD6-BDC4-2370A7539C06";
+})
+01:16:00.913 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x283d541e0> (entity: Site; id: 0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa3;
+passwords =     (
+"0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24>",
+"0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9>",
+"0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25>",
+"0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+})
+01:16:00.918 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d52fd0> (entity: Password; id: 0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:10:56 +0000";
+current = 1;
+password = pa3;
+selectedAt = "2018-11-27 16:11:39 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "FA5DC270-527B-49B4-BA1B-47290DA91722";
+})
+01:16:00.924 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53160> (entity: Password; id: 0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16> ; data: {
+active = 1;
+createdAt = "2018-11-24 01:13:02 +0000";
+current = 1;
+password = 12gWC6e6;
+selectedAt = "2018-11-24 01:13:02 +0000";
+site = "0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11>";
+uuid = "E88AD683-1CE5-497B-87A7-A7E3C60C0934";
+})
+01:16:00.930 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d52e90> (entity: Password; id: 0xacf04cba4ba17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p5> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:15:18 +0000";
+current = 1;
+password = pa7;
+selectedAt = "2018-11-17 16:15:18 +0000";
+site = nil;
+uuid = "733D7D0E-079A-4A03-AC98-C8BDEB9905EA";
+})
+01:16:00.934 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53020> (entity: Password; id: 0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:13:23 +0000";
+current = 0;
+password = fXcnv5Ix;
+selectedAt = "2018-11-23 14:13:23 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "D3A53CFB-3BCC-473E-991C-045F93A9E0C0";
+})
+01:16:00.997 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53250> (entity: Password; id: 0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19> ; data: {
+active = 1;
+createdAt = "2018-11-25 09:38:43 +0000";
+current = 0;
+password = pa66;
+selectedAt = "2018-11-25 09:38:43 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "20E282A5-58F1-4122-99F1-9E6F104411CB";
+})
+01:16:01.069 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d52f30> (entity: Password; id: 0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:23:52 +0000";
+current = 1;
+password = pKlkRUoL;
+selectedAt = "2018-11-27 16:09:29 +0000";
+site = "0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7>";
+uuid = "99BF42F0-755C-46E5-B004-01FAF7C90699";
+})
+01:16:01.079 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x283d54190> (entity: Site; id: 0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7>",
+"0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+})
+01:16:01.084 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d52ee0> (entity: Password; id: 0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:23:11 +0000";
+current = 0;
+password = pa1;
+selectedAt = "2018-11-25 13:13:48 +0000";
+site = "0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7>";
+uuid = "9FF0523B-330B-419D-859D-242C748164B3";
+})
+01:16:01.090 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d52f80> (entity: Password; id: 0xacf04cba4b957a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p8> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:30:58 +0000";
+current = 0;
+password = pa2;
+selectedAt = "2018-11-17 16:30:58 +0000";
+site = nil;
+uuid = "467B1F95-8FA5-47C0-9B70-503BF2380926";
+})
+01:16:01.098 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x283d54230> (entity: Site; id: 0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+})
+01:16:01.100 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d531b0> (entity: Password; id: 0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17> ; data: {
+active = 1;
+createdAt = "2018-11-24 01:15:35 +0000";
+current = 0;
+password = pa6;
+selectedAt = "2018-11-24 01:15:35 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "E22EDE6B-ADEA-4649-BA43-44F23334D0A5";
+})
+01:16:01.114 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53200> (entity: Password; id: 0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18> ; data: {
+active = 1;
+createdAt = "2018-11-24 12:22:33 +0000";
+current = 0;
+password = aiMkud8W;
+selectedAt = "2018-11-24 12:22:33 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "7016AB52-2E87-49D0-832C-463E8301CAE3";
+})
+01:16:01.116 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53340> (entity: Password; id: 0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24> ; data: {
+active = 1;
+createdAt = "2018-11-25 13:20:35 +0000";
+current = 0;
+password = 9vAPQs6x;
+selectedAt = "2018-11-25 13:20:35 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92";
+})
+01:16:01.122 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53070> (entity: Password; id: 0xacf04cba4b817a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p13> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:55:30 +0000";
+current = 0;
+password = PddQp1k4;
+selectedAt = "2018-11-23 14:55:30 +0000";
+site = nil;
+uuid = "584B95AE-1DE2-4E94-A3DB-50F4A84D019F";
+})
+01:16:01.125 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d532f0> (entity: Password; id: 0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21> ; data: {
+active = 1;
+createdAt = "2018-11-25 13:02:14 +0000";
+current = 1;
+password = pa2;
+selectedAt = "2018-11-27 16:10:16 +0000";
+site = "0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14>";
+uuid = "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7";
+})
+01:16:01.128 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53110> (entity: Password; id: 0xacf04cba4b897a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p15> ; data: {
+active = 1;
+createdAt = "2018-11-23 15:22:34 +0000";
+current = 1;
+password = Pm7cRXzA;
+selectedAt = "2018-11-23 15:22:34 +0000";
+site = nil;
+uuid = "5B7C3441-3A4B-4778-A656-4E5305620B9D";
+})
+01:16:01.132 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x283d54280> (entity: Site; id: 0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = JaaineoR;
+passwords =     (
+"0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20>",
+"0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18>",
+"0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19>",
+"0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+})
+01:16:01.141 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d53390> (entity: Password; id: 0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25> ; data: {
+active = 1;
+createdAt = "2018-11-25 13:21:33 +0000";
+current = 0;
+password = 1FV5foHV;
+selectedAt = "2018-11-25 13:21:33 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "53E43803-ACF7-4F8C-B6F2-813C0007B121";
+})
+01:16:01.145 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d532a0> (entity: Password; id: 0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20> ; data: {
+active = 1;
+createdAt = "2018-11-25 12:47:26 +0000";
+current = 1;
+password = JaaineoR;
+selectedAt = "2018-11-25 12:47:26 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "B99E6D86-67EA-4439-93A6-E4B6578E1B29";
+})
+01:16:01.155 0x280bd6c80 ❤️ ERROR CloudKitManager.checkUpdates():295 - recordChangedBlock setPrimitiveValue refrenced not found = B8C239E3-1D29-4BDD-BF0E-4E533E588158
+01:16:01.158 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x283d52e40> (entity: Password; id: 0xacf04cba4bb17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p1> ; data: {
+active = 1;
+createdAt = "2018-11-13 16:45:31 +0000";
+current = 1;
+password = pa1;
+selectedAt = "2018-11-13 16:45:31 +0000";
+site = nil;
+uuid = "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614";
+})
+01:16:01.161 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():308 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x283d542d0> (entity: Site; id: 0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa2;
+passwords =     (
+"0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21>",
+"0xacf04cba4bed7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p22>",
+"0xacf04cba4be97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p23>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+})
+01:16:01.171 0x280bd6c80 💚 DEBUG CloudKitManager.checkUpdates():322 - changes =
+recordName recordType mode managedObject
+FB645109-1FCC-4BD6-BDC4-2370A7539C06 Password save <TresorMockup.Password: 0x283d530c0> (entity: Password; id: 0xacf04cba4b8d7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p14> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:35:09 +0000";
+current = 0;
+password = 144FqbET;
+selectedAt = "2018-11-23 14:35:09 +0000";
+site = nil;
+uuid = "FB645109-1FCC-4BD6-BDC4-2370A7539C06";
+})
+ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579 Site save <TresorMockup.Site: 0x283d541e0> (entity: Site; id: 0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa3;
+passwords =     (
+"0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24>",
+"0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9>",
+"0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25>",
+"0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+})
+FA5DC270-527B-49B4-BA1B-47290DA91722 Password save <TresorMockup.Password: 0x283d52fd0> (entity: Password; id: 0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:10:56 +0000";
+current = 1;
+password = pa3;
+selectedAt = "2018-11-27 16:11:39 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "FA5DC270-527B-49B4-BA1B-47290DA91722";
+})
+E88AD683-1CE5-497B-87A7-A7E3C60C0934 Password save <TresorMockup.Password: 0x283d53160> (entity: Password; id: 0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16> ; data: {
+active = 1;
+createdAt = "2018-11-24 01:13:02 +0000";
+current = 1;
+password = 12gWC6e6;
+selectedAt = "2018-11-24 01:13:02 +0000";
+site = "0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11>";
+uuid = "E88AD683-1CE5-497B-87A7-A7E3C60C0934";
+})
+733D7D0E-079A-4A03-AC98-C8BDEB9905EA Password save <TresorMockup.Password: 0x283d52e90> (entity: Password; id: 0xacf04cba4ba17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p5> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:15:18 +0000";
+current = 1;
+password = pa7;
+selectedAt = "2018-11-17 16:15:18 +0000";
+site = nil;
+uuid = "733D7D0E-079A-4A03-AC98-C8BDEB9905EA";
+})
+D3A53CFB-3BCC-473E-991C-045F93A9E0C0 Password save <TresorMockup.Password: 0x283d53020> (entity: Password; id: 0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:13:23 +0000";
+current = 0;
+password = fXcnv5Ix;
+selectedAt = "2018-11-23 14:13:23 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "D3A53CFB-3BCC-473E-991C-045F93A9E0C0";
+})
+20E282A5-58F1-4122-99F1-9E6F104411CB Password save <TresorMockup.Password: 0x283d53250> (entity: Password; id: 0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19> ; data: {
+active = 1;
+createdAt = "2018-11-25 09:38:43 +0000";
+current = 0;
+password = pa66;
+selectedAt = "2018-11-25 09:38:43 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "20E282A5-58F1-4122-99F1-9E6F104411CB";
+})
+99BF42F0-755C-46E5-B004-01FAF7C90699 Password save <TresorMockup.Password: 0x283d52f30> (entity: Password; id: 0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:23:52 +0000";
+current = 1;
+password = pKlkRUoL;
+selectedAt = "2018-11-27 16:09:29 +0000";
+site = "0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7>";
+uuid = "99BF42F0-755C-46E5-B004-01FAF7C90699";
+})
+AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4 Site save <TresorMockup.Site: 0x283d54190> (entity: Site; id: 0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7>",
+"0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+})
+9FF0523B-330B-419D-859D-242C748164B3 Password save <TresorMockup.Password: 0x283d52ee0> (entity: Password; id: 0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:23:11 +0000";
+current = 0;
+password = pa1;
+selectedAt = "2018-11-25 13:13:48 +0000";
+site = "0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7>";
+uuid = "9FF0523B-330B-419D-859D-242C748164B3";
+})
+467B1F95-8FA5-47C0-9B70-503BF2380926 Password save <TresorMockup.Password: 0x283d52f80> (entity: Password; id: 0xacf04cba4b957a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p8> ; data: {
+active = 1;
+createdAt = "2018-11-17 16:30:58 +0000";
+current = 0;
+password = pa2;
+selectedAt = "2018-11-17 16:30:58 +0000";
+site = nil;
+uuid = "467B1F95-8FA5-47C0-9B70-503BF2380926";
+})
+799AB253-FA1A-470B-95B2-D7958654719F Site save <TresorMockup.Site: 0x283d54230> (entity: Site; id: 0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+})
+E22EDE6B-ADEA-4649-BA43-44F23334D0A5 Password save <TresorMockup.Password: 0x283d531b0> (entity: Password; id: 0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17> ; data: {
+active = 1;
+createdAt = "2018-11-24 01:15:35 +0000";
+current = 0;
+password = pa6;
+selectedAt = "2018-11-24 01:15:35 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "E22EDE6B-ADEA-4649-BA43-44F23334D0A5";
+})
+7016AB52-2E87-49D0-832C-463E8301CAE3 Password save <TresorMockup.Password: 0x283d53200> (entity: Password; id: 0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18> ; data: {
+active = 1;
+createdAt = "2018-11-24 12:22:33 +0000";
+current = 0;
+password = aiMkud8W;
+selectedAt = "2018-11-24 12:22:33 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "7016AB52-2E87-49D0-832C-463E8301CAE3";
+})
+CD2D157E-6321-4A37-8D6E-CA0D3B87FE92 Password save <TresorMockup.Password: 0x283d53340> (entity: Password; id: 0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24> ; data: {
+active = 1;
+createdAt = "2018-11-25 13:20:35 +0000";
+current = 0;
+password = 9vAPQs6x;
+selectedAt = "2018-11-25 13:20:35 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92";
+})
+584B95AE-1DE2-4E94-A3DB-50F4A84D019F Password save <TresorMockup.Password: 0x283d53070> (entity: Password; id: 0xacf04cba4b817a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p13> ; data: {
+active = 1;
+createdAt = "2018-11-23 14:55:30 +0000";
+current = 0;
+password = PddQp1k4;
+selectedAt = "2018-11-23 14:55:30 +0000";
+site = nil;
+uuid = "584B95AE-1DE2-4E94-A3DB-50F4A84D019F";
+})
+017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7 Password save <TresorMockup.Password: 0x283d532f0> (entity: Password; id: 0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21> ; data: {
+active = 1;
+createdAt = "2018-11-25 13:02:14 +0000";
+current = 1;
+password = pa2;
+selectedAt = "2018-11-27 16:10:16 +0000";
+site = "0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14>";
+uuid = "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7";
+})
+7224B057-F89B-488E-9C49-526E0A14B168 Password delete nil
+5B7C3441-3A4B-4778-A656-4E5305620B9D Password save <TresorMockup.Password: 0x283d53110> (entity: Password; id: 0xacf04cba4b897a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p15> ; data: {
+active = 1;
+createdAt = "2018-11-23 15:22:34 +0000";
+current = 1;
+password = Pm7cRXzA;
+selectedAt = "2018-11-23 15:22:34 +0000";
+site = nil;
+uuid = "5B7C3441-3A4B-4778-A656-4E5305620B9D";
+})
+AB17DB58-0D9A-46C6-836D-9DD83B155F1A Password delete nil
+381D844D-73FF-41A1-ADC6-27B4B2A709A6 Site save <TresorMockup.Site: 0x283d54280> (entity: Site; id: 0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = JaaineoR;
+passwords =     (
+"0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20>",
+"0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18>",
+"0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19>",
+"0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+})
+3BE02027-328C-45D2-8878-1ABAFCE973CC Site delete nil
+53E43803-ACF7-4F8C-B6F2-813C0007B121 Password save <TresorMockup.Password: 0x283d53390> (entity: Password; id: 0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25> ; data: {
+active = 1;
+createdAt = "2018-11-25 13:21:33 +0000";
+current = 0;
+password = 1FV5foHV;
+selectedAt = "2018-11-25 13:21:33 +0000";
+site = "0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10>";
+uuid = "53E43803-ACF7-4F8C-B6F2-813C0007B121";
+})
+B99E6D86-67EA-4439-93A6-E4B6578E1B29 Password save <TresorMockup.Password: 0x283d532a0> (entity: Password; id: 0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20> ; data: {
+active = 1;
+createdAt = "2018-11-25 12:47:26 +0000";
+current = 1;
+password = JaaineoR;
+selectedAt = "2018-11-25 12:47:26 +0000";
+site = "0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13>";
+uuid = "B99E6D86-67EA-4439-93A6-E4B6578E1B29";
+})
+8929CEC0-C3A6-40D0-A02B-4CDDAAB76614 Password save <TresorMockup.Password: 0x283d52e40> (entity: Password; id: 0xacf04cba4bb17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p1> ; data: {
+active = 1;
+createdAt = "2018-11-13 16:45:31 +0000";
+current = 1;
+password = pa1;
+selectedAt = "2018-11-13 16:45:31 +0000";
+site = nil;
+uuid = "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614";
+})
+02B8D370-2BAD-494E-87B9-B802207CD18A Site save <TresorMockup.Site: 0x283d542d0> (entity: Site; id: 0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa2;
+passwords =     (
+"0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21>",
+"0xacf04cba4bed7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p22>",
+"0xacf04cba4be97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p23>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+})
+B8C239E3-1D29-4BDD-BF0E-4E533E588158 nil UNKNOWN nil
+8B57160A-80A8-4C61-860A-54FE47E8141A Site delete nil
+01:16:01.264 0x280bd6c80 💚 DEBUG CloudKitManager.contextWillSave():384 - contextWillSave
+01:16:01.265 0x280bd6c80 💚 DEBUG CloudKitManager.contextDidSave():397 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x282170780>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x281e4ca20>, AnyHashable("inserted"): {(
+)}, AnyHashable("updated"): {(
+<TresorMockup.Site: 0x283d542d0> (entity: Site; id: 0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa2;
+passwords =     (
+"0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21>",
+"0xacf04cba4bed7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p22>",
+"0xacf04cba4be97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p23>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+}),
+<TresorMockup.Site: 0x283d54230> (entity: Site; id: 0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+}),
+<TresorMockup.Site: 0x283d54190> (entity: Site; id: 0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7>",
+"0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+}),
+<TresorMockup.Site: 0x283d54280> (entity: Site; id: 0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = JaaineoR;
+passwords =     (
+"0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20>",
+"0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18>",
+"0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19>",
+"0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+}),
+<TresorMockup.Site: 0x283d541e0> (entity: Site; id: 0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa3;
+passwords =     (
+"0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24>",
+"0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9>",
+"0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25>",
+"0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+})
+)}])
+01:16:01.289 0x280bd6c80 💚 DEBUG CloudKitManager.contextDidSave():487 - key = 02B8D370-2BAD-494E-87B9-B802207CD18A
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a6e0; recordName=02B8D370-2BAD-494E-87B9-B802207CD18A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d542d0> (entity: Site; id: 0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa2;
+passwords =     (
+"0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21>",
+"0xacf04cba4bed7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p22>",
+"0xacf04cba4be97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p23>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+})), keys: ["selectAt"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:01.296 0x280bd6c80 💚 DEBUG CloudKitManager.contextDidSave():487 - key = 381D844D-73FF-41A1-ADC6-27B4B2A709A6
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a740; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d54280> (entity: Site; id: 0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = JaaineoR;
+passwords =     (
+"0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20>",
+"0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18>",
+"0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19>",
+"0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+})), keys: [], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:01.306 0x280bd6c80 💚 DEBUG CloudKitManager.contextDidSave():487 - key = AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a700; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d54190> (entity: Site; id: 0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7>",
+"0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+})), keys: ["selectAt"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:01.343 0x280bd6c80 💚 DEBUG CloudKitManager.contextDidSave():487 - key = 799AB253-FA1A-470B-95B2-D7958654719F
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a720; recordName=799AB253-FA1A-470B-95B2-D7958654719F, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d54230> (entity: Site; id: 0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+})), keys: [], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:01.367 0x280bd6c80 💚 DEBUG CloudKitManager.contextDidSave():487 - key = ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a760; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d541e0> (entity: Site; id: 0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa3;
+passwords =     (
+"0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24>",
+"0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9>",
+"0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25>",
+"0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+})), keys: ["selectAt"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:01.409 0x280bd6c80 💚 DEBUG MasterViewController.updateUI():61 - notification = name = CLOUDKIT_CHANGED_UPDATE_INTERFACE, object = Optional(<TresorMockup.CloudKitManager: 0x283069e80>), userInfo = Optional([AnyHashable("UPDATED"): [<CKRecord: 0x15de619e0; recordID=FB645109-1FCC-4BD6-BDC4-2370A7539C06:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9o, values={
+active = 1;
+createdAt = "2018-11-23 14:35:09 +0000";
+current = 0;
+password = 144FqbET;
+selectedAt = "2018-11-23 14:35:09 +0000";
+uuid = "FB645109-1FCC-4BD6-BDC4-2370A7539C06";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e43420; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43a80; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:35:14 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "144FqbET"
+createdAt -> 2018-11-23 14:35:09 +0000
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 14:35:09 +0000
+uuid -> "FB645109-1FCC-4BD6-BDC4-2370A7539C06"
+}, <CKRecord: 0x15de61190; recordID=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bq, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+maxLength = 8;
+passwordCurrent = pa3;
+passwords =     (
+"<CKReference: 0x281e40540; recordID=<CKRecordID: 0x281e439e0; recordName=FA5DC270-527B-49B4-BA1B-47290DA91722, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e40a60; recordID=<CKRecordID: 0x281e42300; recordName=53E43803-ACF7-4F8C-B6F2-813C0007B121, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e421e0; recordID=<CKRecordID: 0x281e42460; recordName=D3A53CFB-3BCC-473E-991C-045F93A9E0C0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e422a0; recordID=<CKRecordID: 0x281e40440; recordName=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42240; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41ee0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:10:29 +0000
+modificationDate -> 2018-11-27 16:11:40 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us3"
+passwordCurrent -> "pa3"
+maxLength -> 8 (type q)
+title -> "t3"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e40540; recordID=<CKRecordID: 0x281e439e0; recordName=FA5DC270-527B-49B4-BA1B-47290DA91722, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e40a60; recordID=<CKRecordID: 0x281e42300; recordName=53E43803-ACF7-4F8C-B6F2-813C0007B121, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e421e0; recordID=<CKRecordID: 0x281e42460; recordName=D3A53CFB-3BCC-473E-991C-045F93A9E0C0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e422a0; recordID=<CKRecordID: 0x281e40440; recordName=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579"
+createdAt -> 2018-11-23 14:10:28 +0000
+selectAt -> 2018-11-27 16:11:39 +0000
+url -> "ur3"
+}, <CKRecord: 0x15de60a70; recordID=FA5DC270-527B-49B4-BA1B-47290DA91722:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bo, values={
+active = 1;
+createdAt = "2018-11-23 14:10:56 +0000";
+current = 1;
+password = pa3;
+selectedAt = "2018-11-27 16:11:39 +0000";
+site = "<CKReference: 0x281e40c20; recordID=<CKRecordID: 0x281e41be0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "FA5DC270-527B-49B4-BA1B-47290DA91722";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40560; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40e00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:11:01 +0000
+modificationDate -> 2018-11-27 16:11:40 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e40c20; recordID=<CKRecordID: 0x281e41be0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa3"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-27 16:11:39 +0000
+uuid -> "FA5DC270-527B-49B4-BA1B-47290DA91722"
+createdAt -> 2018-11-23 14:10:56 +0000
+}, <CKRecord: 0x15de60e00; recordID=E88AD683-1CE5-497B-87A7-A7E3C60C0934:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9y, values={
+active = 1;
+createdAt = "2018-11-24 01:13:02 +0000";
+current = 1;
+password = 12gWC6e6;
+selectedAt = "2018-11-24 01:13:02 +0000";
+site = "<CKReference: 0x281e41fe0; recordID=<CKRecordID: 0x281e42160; recordName=799AB253-FA1A-470B-95B2-D7958654719F, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "E88AD683-1CE5-497B-87A7-A7E3C60C0934";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e41f20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42740; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 01:13:05 +0000
+modificationDate -> 2018-11-24 01:13:05 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e41fe0; recordID=<CKRecordID: 0x281e42160; recordName=799AB253-FA1A-470B-95B2-D7958654719F, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "12gWC6e6"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-24 01:13:02 +0000
+uuid -> "E88AD683-1CE5-497B-87A7-A7E3C60C0934"
+createdAt -> 2018-11-24 01:13:02 +0000
+}, <CKRecord: 0x15dd28400; recordID=733D7D0E-079A-4A03-AC98-C8BDEB9905EA:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1o, values={
+active = 1;
+createdAt = "2018-11-17 16:15:18 +0000";
+current = 1;
+password = pa7;
+selectedAt = "2018-11-17 16:15:18 +0000";
+uuid = "733D7D0E-079A-4A03-AC98-C8BDEB9905EA";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e46180; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e466a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:15:26 +0000
+modificationDate -> 2018-11-17 16:15:46 +0000
+modifiedByDevice -> iPad Air
+password -> "pa7"
+createdAt -> 2018-11-17 16:15:18 +0000
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-17 16:15:18 +0000
+uuid -> "733D7D0E-079A-4A03-AC98-C8BDEB9905EA"
+}, <CKRecord: 0x15de618b0; recordID=D3A53CFB-3BCC-473E-991C-045F93A9E0C0:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=b0, values={
+active = 1;
+createdAt = "2018-11-23 14:13:23 +0000";
+current = 0;
+password = fXcnv5Ix;
+selectedAt = "2018-11-23 14:13:23 +0000";
+site = "<CKReference: 0x281e42080; recordID=<CKRecordID: 0x281e435e0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "D3A53CFB-3BCC-473E-991C-045F93A9E0C0";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42320; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43080; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:13:26 +0000
+modificationDate -> 2018-11-25 13:14:08 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e42080; recordID=<CKRecordID: 0x281e435e0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "fXcnv5Ix"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 14:13:23 +0000
+uuid -> "D3A53CFB-3BCC-473E-991C-045F93A9E0C0"
+createdAt -> 2018-11-23 14:13:23 +0000
+}, <CKRecord: 0x15de61c40; recordID=20E282A5-58F1-4122-99F1-9E6F104411CB:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=ad, values={
+active = 1;
+createdAt = "2018-11-25 09:38:43 +0000";
+current = 0;
+password = pa66;
+selectedAt = "2018-11-25 09:38:43 +0000";
+site = "<CKReference: 0x281e43aa0; recordID=<CKRecordID: 0x281e433c0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "20E282A5-58F1-4122-99F1-9E6F104411CB";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e43c20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43d20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 09:38:44 +0000
+modificationDate -> 2018-11-25 12:47:27 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e43aa0; recordID=<CKRecordID: 0x281e433c0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa66"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 09:38:43 +0000
+uuid -> "20E282A5-58F1-4122-99F1-9E6F104411CB"
+createdAt -> 2018-11-25 09:38:43 +0000
+}, <CKRecord: 0x15de61650; recordID=99BF42F0-755C-46E5-B004-01FAF7C90699:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bc, values={
+active = 1;
+createdAt = "2018-11-17 16:23:52 +0000";
+current = 1;
+password = pKlkRUoL;
+selectedAt = "2018-11-27 16:09:29 +0000";
+site = "<CKReference: 0x281e42540; recordID=<CKRecordID: 0x281e42600; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "99BF42F0-755C-46E5-B004-01FAF7C90699";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e41f60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41de0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:23:56 +0000
+modificationDate -> 2018-11-27 16:09:30 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e42540; recordID=<CKRecordID: 0x281e42600; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pKlkRUoL"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-27 16:09:29 +0000
+uuid -> "99BF42F0-755C-46E5-B004-01FAF7C90699"
+createdAt -> 2018-11-17 16:23:52 +0000
+}, <CKRecord: 0x15de60620; recordID=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bb, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+maxLength = 8;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"<CKReference: 0x281e40760; recordID=<CKRecordID: 0x281e41ae0; recordName=99BF42F0-755C-46E5-B004-01FAF7C90699, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e41bc0; recordID=<CKRecordID: 0x281e40ca0; recordName=9FF0523B-330B-419D-859D-242C748164B3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40600; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40820; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:22:55 +0000
+modificationDate -> 2018-11-27 16:09:30 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us1"
+passwordCurrent -> "pKlkRUoL"
+maxLength -> 8 (type q)
+title -> "t1"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e40760; recordID=<CKRecordID: 0x281e41ae0; recordName=99BF42F0-755C-46E5-B004-01FAF7C90699, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e41bc0; recordID=<CKRecordID: 0x281e40ca0; recordName=9FF0523B-330B-419D-859D-242C748164B3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4"
+createdAt -> 2018-11-17 16:22:54 +0000
+selectAt -> 2018-11-27 16:09:29 +0000
+url -> "ur1"
+}, <CKRecord: 0x15de60cd0; recordID=9FF0523B-330B-419D-859D-242C748164B3:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bd, values={
+active = 1;
+createdAt = "2018-11-17 16:23:11 +0000";
+current = 0;
+password = pa1;
+selectedAt = "2018-11-25 13:13:48 +0000";
+site = "<CKReference: 0x281e427a0; recordID=<CKRecordID: 0x281e414c0; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "9FF0523B-330B-419D-859D-242C748164B3";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40ba0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42560; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:23:29 +0000
+modificationDate -> 2018-11-27 16:09:30 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e427a0; recordID=<CKRecordID: 0x281e414c0; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa1"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 13:13:48 +0000
+uuid -> "9FF0523B-330B-419D-859D-242C748164B3"
+createdAt -> 2018-11-17 16:23:11 +0000
+}, <CKRecord: 0x15de61060; recordID=467B1F95-8FA5-47C0-9B70-503BF2380926:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9p, values={
+active = 1;
+createdAt = "2018-11-17 16:30:58 +0000";
+current = 0;
+password = pa2;
+selectedAt = "2018-11-17 16:30:58 +0000";
+uuid = "467B1F95-8FA5-47C0-9B70-503BF2380926";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e41c60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41960; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:30:59 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "pa2"
+createdAt -> 2018-11-17 16:30:58 +0000
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-17 16:30:58 +0000
+uuid -> "467B1F95-8FA5-47C0-9B70-503BF2380926"
+}, <CKRecord: 0x15de603a0; recordID=799AB253-FA1A-470B-95B2-D7958654719F:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=a2, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+maxLength = 8;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"<CKReference: 0x281e426e0; recordID=<CKRecordID: 0x281e43280; recordName=E88AD683-1CE5-497B-87A7-A7E3C60C0934, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e43260; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43700; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:12:35 +0000
+modificationDate -> 2018-11-24 01:14:17 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us4"
+passwordCurrent -> "12gWC6e6"
+maxLength -> 8 (type q)
+title -> "t4"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e426e0; recordID=<CKRecordID: 0x281e43280; recordName=E88AD683-1CE5-497B-87A7-A7E3C60C0934, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "799AB253-FA1A-470B-95B2-D7958654719F"
+createdAt -> 2018-11-23 14:12:34 +0000
+selectAt -> 2018-11-24 01:13:02 +0000
+url -> "ur4"
+}, <CKRecord: 0x15de61520; recordID=E22EDE6B-ADEA-4649-BA43-44F23334D0A5:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=a9, values={
+active = 1;
+createdAt = "2018-11-24 01:15:35 +0000";
+current = 0;
+password = pa6;
+selectedAt = "2018-11-24 01:15:35 +0000";
+site = "<CKReference: 0x281e420e0; recordID=<CKRecordID: 0x281e42140; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "E22EDE6B-ADEA-4649-BA43-44F23334D0A5";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42580; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41840; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 01:15:37 +0000
+modificationDate -> 2018-11-24 12:22:34 +0000
+modifiedByDevice -> iPad Air
+site -> <CKReference: 0x281e420e0; recordID=<CKRecordID: 0x281e42140; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa6"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-24 01:15:35 +0000
+uuid -> "E22EDE6B-ADEA-4649-BA43-44F23334D0A5"
+createdAt -> 2018-11-24 01:15:35 +0000
+}, <CKRecord: 0x15de60ba0; recordID=7016AB52-2E87-49D0-832C-463E8301CAE3:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=aa, values={
+active = 1;
+createdAt = "2018-11-24 12:22:33 +0000";
+current = 0;
+password = aiMkud8W;
+selectedAt = "2018-11-24 12:22:33 +0000";
+site = "<CKReference: 0x281e40b60; recordID=<CKRecordID: 0x281e409e0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "7016AB52-2E87-49D0-832C-463E8301CAE3";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40f20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40ea0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 12:22:34 +0000
+modificationDate -> 2018-11-25 09:38:44 +0000
+modifiedByDevice -> iPad Air
+site -> <CKReference: 0x281e40b60; recordID=<CKRecordID: 0x281e409e0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "aiMkud8W"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-24 12:22:33 +0000
+uuid -> "7016AB52-2E87-49D0-832C-463E8301CAE3"
+createdAt -> 2018-11-24 12:22:33 +0000
+}, <CKRecord: 0x15de60f30; recordID=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=b6, values={
+active = 1;
+createdAt = "2018-11-25 13:20:35 +0000";
+current = 0;
+password = 9vAPQs6x;
+selectedAt = "2018-11-25 13:20:35 +0000";
+site = "<CKReference: 0x281e423a0; recordID=<CKRecordID: 0x281e42440; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42340; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e425c0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:20:38 +0000
+modificationDate -> 2018-11-25 13:20:47 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e423a0; recordID=<CKRecordID: 0x281e42440; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "9vAPQs6x"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 13:20:35 +0000
+uuid -> "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92"
+createdAt -> 2018-11-25 13:20:35 +0000
+}, <CKRecord: 0x15de61780; recordID=584B95AE-1DE2-4E94-A3DB-50F4A84D019F:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9r, values={
+active = 1;
+createdAt = "2018-11-23 14:55:30 +0000";
+current = 0;
+password = PddQp1k4;
+selectedAt = "2018-11-23 14:55:30 +0000";
+uuid = "584B95AE-1DE2-4E94-A3DB-50F4A84D019F";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42f00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e425a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:55:36 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "PddQp1k4"
+createdAt -> 2018-11-23 14:55:30 +0000
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 14:55:30 +0000
+uuid -> "584B95AE-1DE2-4E94-A3DB-50F4A84D019F"
+}, <CKRecord: 0x15de056e0; recordID=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bj, values={
+active = 1;
+createdAt = "2018-11-25 13:02:14 +0000";
+current = 1;
+password = pa2;
+selectedAt = "2018-11-27 16:10:16 +0000";
+site = "<CKReference: 0x281e402c0; recordID=<CKRecordID: 0x281e434c0; recordName=02B8D370-2BAD-494E-87B9-B802207CD18A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e423e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41580; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:02:21 +0000
+modificationDate -> 2018-11-27 16:10:16 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e402c0; recordID=<CKRecordID: 0x281e434c0; recordName=02B8D370-2BAD-494E-87B9-B802207CD18A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa2"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-27 16:10:16 +0000
+uuid -> "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7"
+createdAt -> 2018-11-25 13:02:14 +0000
+}, <CKRecord: 0x15de60750; recordID=5B7C3441-3A4B-4778-A656-4E5305620B9D:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9q, values={
+active = 1;
+createdAt = "2018-11-23 15:22:34 +0000";
+current = 1;
+password = Pm7cRXzA;
+selectedAt = "2018-11-23 15:22:34 +0000";
+uuid = "5B7C3441-3A4B-4778-A656-4E5305620B9D";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40e20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41120; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 15:22:38 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "Pm7cRXzA"
+createdAt -> 2018-11-23 15:22:34 +0000
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 15:22:34 +0000
+uuid -> "5B7C3441-3A4B-4778-A656-4E5305620B9D"
+}, <CKRecord: 0x15de612c0; recordID=381D844D-73FF-41A1-ADC6-27B4B2A709A6:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=ae, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+maxLength = 8;
+passwordCurrent = JaaineoR;
+passwords =     (
+"<CKReference: 0x281e42b20; recordID=<CKRecordID: 0x281e43840; recordName=E22EDE6B-ADEA-4649-BA43-44F23334D0A5, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e41f40; recordID=<CKRecordID: 0x281e437c0; recordName=7016AB52-2E87-49D0-832C-463E8301CAE3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e40380; recordID=<CKRecordID: 0x281e40300; recordName=B99E6D86-67EA-4439-93A6-E4B6578E1B29, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e41600; recordID=<CKRecordID: 0x281e416c0; recordName=20E282A5-58F1-4122-99F1-9E6F104411CB, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42be0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42400; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 01:15:16 +0000
+modificationDate -> 2018-11-25 12:47:27 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us6"
+passwordCurrent -> "JaaineoR"
+maxLength -> 8 (type q)
+title -> "t6"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e42b20; recordID=<CKRecordID: 0x281e43840; recordName=E22EDE6B-ADEA-4649-BA43-44F23334D0A5, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e41f40; recordID=<CKRecordID: 0x281e437c0; recordName=7016AB52-2E87-49D0-832C-463E8301CAE3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e40380; recordID=<CKRecordID: 0x281e40300; recordName=B99E6D86-67EA-4439-93A6-E4B6578E1B29, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e41600; recordID=<CKRecordID: 0x281e416c0; recordName=20E282A5-58F1-4122-99F1-9E6F104411CB, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "381D844D-73FF-41A1-ADC6-27B4B2A709A6"
+createdAt -> 2018-11-24 01:15:16 +0000
+selectAt -> 2018-11-25 12:47:26 +0000
+url -> "ur6"
+}, <CKRecord: 0x15de61b10; recordID=53E43803-ACF7-4F8C-B6F2-813C0007B121:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bp, values={
+active = 1;
+createdAt = "2018-11-25 13:21:33 +0000";
+current = 0;
+password = 1FV5foHV;
+selectedAt = "2018-11-25 13:21:33 +0000";
+site = "<CKReference: 0x281e43ac0; recordID=<CKRecordID: 0x281e43ae0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "53E43803-ACF7-4F8C-B6F2-813C0007B121";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42f60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43c00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:21:35 +0000
+modificationDate -> 2018-11-27 16:11:40 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e43ac0; recordID=<CKRecordID: 0x281e43ae0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "1FV5foHV"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 13:21:33 +0000
+uuid -> "53E43803-ACF7-4F8C-B6F2-813C0007B121"
+createdAt -> 2018-11-25 13:21:33 +0000
+}, <CKRecord: 0x15de60940; recordID=B99E6D86-67EA-4439-93A6-E4B6578E1B29:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=af, values={
+active = 1;
+createdAt = "2018-11-25 12:47:26 +0000";
+current = 1;
+password = JaaineoR;
+selectedAt = "2018-11-25 12:47:26 +0000";
+site = "<CKReference: 0x281e415e0; recordID=<CKRecordID: 0x281e41740; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "B99E6D86-67EA-4439-93A6-E4B6578E1B29";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e411e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40fa0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 12:47:27 +0000
+modificationDate -> 2018-11-25 12:47:27 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e415e0; recordID=<CKRecordID: 0x281e41740; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "JaaineoR"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 12:47:26 +0000
+uuid -> "B99E6D86-67EA-4439-93A6-E4B6578E1B29"
+createdAt -> 2018-11-25 12:47:26 +0000
+}, <CKRecord: 0x15de58e20; recordID=8929CEC0-C3A6-40D0-A02B-4CDDAAB76614:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=8, values={
+active = 1;
+createdAt = "2018-11-13 16:45:31 +0000";
+current = 1;
+password = pa1;
+selectedAt = "2018-11-13 16:45:31 +0000";
+site = "<CKReference: 0x281e435a0; recordID=<CKRecordID: 0x281e43000; recordName=B8C239E3-1D29-4BDD-BF0E-4E533E588158, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e438c0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41e80; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-13 16:45:35 +0000
+modificationDate -> 2018-11-13 16:45:37 +0000
+modifiedByDevice -> iPad Air
+site -> <CKReference: 0x281e435a0; recordID=<CKRecordID: 0x281e43000; recordName=B8C239E3-1D29-4BDD-BF0E-4E533E588158, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa1"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-13 16:45:31 +0000
+uuid -> "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614"
+createdAt -> 2018-11-13 16:45:31 +0000
+}, <CKRecord: 0x15de613f0; recordID=02B8D370-2BAD-494E-87B9-B802207CD18A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bl, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+maxLength = 8;
+passwordCurrent = pa2;
+passwords =     (
+"<CKReference: 0x281e41fc0; recordID=<CKRecordID: 0x281e42880; recordName=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42420; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42260; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:02:00 +0000
+modificationDate -> 2018-11-27 16:10:46 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us2"
+passwordCurrent -> "pa2"
+maxLength -> 8 (type q)
+title -> "t2"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e41fc0; recordID=<CKRecordID: 0x281e42880; recordName=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "02B8D370-2BAD-494E-87B9-B802207CD18A"
+createdAt -> 2018-11-25 13:01:59 +0000
+selectAt -> 2018-11-27 16:10:16 +0000
+url -> "ur2"
+}], AnyHashable("DELETED"): []])
+01:16:01.788 0x280bd6c80 💚 DEBUG DetailViewController.updateUI():195 - notification = name = CLOUDKIT_CHANGED_UPDATE_INTERFACE, object = Optional(<TresorMockup.CloudKitManager: 0x283069e80>), userInfo = Optional([AnyHashable("UPDATED"): [<CKRecord: 0x15de619e0; recordID=FB645109-1FCC-4BD6-BDC4-2370A7539C06:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9o, values={
+active = 1;
+createdAt = "2018-11-23 14:35:09 +0000";
+current = 0;
+password = 144FqbET;
+selectedAt = "2018-11-23 14:35:09 +0000";
+uuid = "FB645109-1FCC-4BD6-BDC4-2370A7539C06";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e43420; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43a80; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:35:14 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "144FqbET"
+createdAt -> 2018-11-23 14:35:09 +0000
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 14:35:09 +0000
+uuid -> "FB645109-1FCC-4BD6-BDC4-2370A7539C06"
+}, <CKRecord: 0x15de61190; recordID=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bq, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+maxLength = 8;
+passwordCurrent = pa3;
+passwords =     (
+"<CKReference: 0x281e40540; recordID=<CKRecordID: 0x281e439e0; recordName=FA5DC270-527B-49B4-BA1B-47290DA91722, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e40a60; recordID=<CKRecordID: 0x281e42300; recordName=53E43803-ACF7-4F8C-B6F2-813C0007B121, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e421e0; recordID=<CKRecordID: 0x281e42460; recordName=D3A53CFB-3BCC-473E-991C-045F93A9E0C0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e422a0; recordID=<CKRecordID: 0x281e40440; recordName=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42240; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41ee0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:10:29 +0000
+modificationDate -> 2018-11-27 16:11:40 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us3"
+passwordCurrent -> "pa3"
+maxLength -> 8 (type q)
+title -> "t3"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e40540; recordID=<CKRecordID: 0x281e439e0; recordName=FA5DC270-527B-49B4-BA1B-47290DA91722, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e40a60; recordID=<CKRecordID: 0x281e42300; recordName=53E43803-ACF7-4F8C-B6F2-813C0007B121, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e421e0; recordID=<CKRecordID: 0x281e42460; recordName=D3A53CFB-3BCC-473E-991C-045F93A9E0C0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e422a0; recordID=<CKRecordID: 0x281e40440; recordName=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579"
+createdAt -> 2018-11-23 14:10:28 +0000
+selectAt -> 2018-11-27 16:11:39 +0000
+url -> "ur3"
+}, <CKRecord: 0x15de60a70; recordID=FA5DC270-527B-49B4-BA1B-47290DA91722:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bo, values={
+active = 1;
+createdAt = "2018-11-23 14:10:56 +0000";
+current = 1;
+password = pa3;
+selectedAt = "2018-11-27 16:11:39 +0000";
+site = "<CKReference: 0x281e40c20; recordID=<CKRecordID: 0x281e41be0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "FA5DC270-527B-49B4-BA1B-47290DA91722";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40560; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40e00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:11:01 +0000
+modificationDate -> 2018-11-27 16:11:40 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e40c20; recordID=<CKRecordID: 0x281e41be0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa3"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-27 16:11:39 +0000
+uuid -> "FA5DC270-527B-49B4-BA1B-47290DA91722"
+createdAt -> 2018-11-23 14:10:56 +0000
+}, <CKRecord: 0x15de60e00; recordID=E88AD683-1CE5-497B-87A7-A7E3C60C0934:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9y, values={
+active = 1;
+createdAt = "2018-11-24 01:13:02 +0000";
+current = 1;
+password = 12gWC6e6;
+selectedAt = "2018-11-24 01:13:02 +0000";
+site = "<CKReference: 0x281e41fe0; recordID=<CKRecordID: 0x281e42160; recordName=799AB253-FA1A-470B-95B2-D7958654719F, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "E88AD683-1CE5-497B-87A7-A7E3C60C0934";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e41f20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42740; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 01:13:05 +0000
+modificationDate -> 2018-11-24 01:13:05 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e41fe0; recordID=<CKRecordID: 0x281e42160; recordName=799AB253-FA1A-470B-95B2-D7958654719F, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "12gWC6e6"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-24 01:13:02 +0000
+uuid -> "E88AD683-1CE5-497B-87A7-A7E3C60C0934"
+createdAt -> 2018-11-24 01:13:02 +0000
+}, <CKRecord: 0x15dd28400; recordID=733D7D0E-079A-4A03-AC98-C8BDEB9905EA:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=1o, values={
+active = 1;
+createdAt = "2018-11-17 16:15:18 +0000";
+current = 1;
+password = pa7;
+selectedAt = "2018-11-17 16:15:18 +0000";
+uuid = "733D7D0E-079A-4A03-AC98-C8BDEB9905EA";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e46180; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e466a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:15:26 +0000
+modificationDate -> 2018-11-17 16:15:46 +0000
+modifiedByDevice -> iPad Air
+password -> "pa7"
+createdAt -> 2018-11-17 16:15:18 +0000
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-17 16:15:18 +0000
+uuid -> "733D7D0E-079A-4A03-AC98-C8BDEB9905EA"
+}, <CKRecord: 0x15de618b0; recordID=D3A53CFB-3BCC-473E-991C-045F93A9E0C0:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=b0, values={
+active = 1;
+createdAt = "2018-11-23 14:13:23 +0000";
+current = 0;
+password = fXcnv5Ix;
+selectedAt = "2018-11-23 14:13:23 +0000";
+site = "<CKReference: 0x281e42080; recordID=<CKRecordID: 0x281e435e0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "D3A53CFB-3BCC-473E-991C-045F93A9E0C0";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42320; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43080; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:13:26 +0000
+modificationDate -> 2018-11-25 13:14:08 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e42080; recordID=<CKRecordID: 0x281e435e0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "fXcnv5Ix"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 14:13:23 +0000
+uuid -> "D3A53CFB-3BCC-473E-991C-045F93A9E0C0"
+createdAt -> 2018-11-23 14:13:23 +0000
+}, <CKRecord: 0x15de61c40; recordID=20E282A5-58F1-4122-99F1-9E6F104411CB:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=ad, values={
+active = 1;
+createdAt = "2018-11-25 09:38:43 +0000";
+current = 0;
+password = pa66;
+selectedAt = "2018-11-25 09:38:43 +0000";
+site = "<CKReference: 0x281e43aa0; recordID=<CKRecordID: 0x281e433c0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "20E282A5-58F1-4122-99F1-9E6F104411CB";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e43c20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43d20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 09:38:44 +0000
+modificationDate -> 2018-11-25 12:47:27 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e43aa0; recordID=<CKRecordID: 0x281e433c0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa66"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 09:38:43 +0000
+uuid -> "20E282A5-58F1-4122-99F1-9E6F104411CB"
+createdAt -> 2018-11-25 09:38:43 +0000
+}, <CKRecord: 0x15de61650; recordID=99BF42F0-755C-46E5-B004-01FAF7C90699:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bc, values={
+active = 1;
+createdAt = "2018-11-17 16:23:52 +0000";
+current = 1;
+password = pKlkRUoL;
+selectedAt = "2018-11-27 16:09:29 +0000";
+site = "<CKReference: 0x281e42540; recordID=<CKRecordID: 0x281e42600; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "99BF42F0-755C-46E5-B004-01FAF7C90699";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e41f60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41de0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:23:56 +0000
+modificationDate -> 2018-11-27 16:09:30 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e42540; recordID=<CKRecordID: 0x281e42600; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pKlkRUoL"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-27 16:09:29 +0000
+uuid -> "99BF42F0-755C-46E5-B004-01FAF7C90699"
+createdAt -> 2018-11-17 16:23:52 +0000
+}, <CKRecord: 0x15de60620; recordID=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bb, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+maxLength = 8;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"<CKReference: 0x281e40760; recordID=<CKRecordID: 0x281e41ae0; recordName=99BF42F0-755C-46E5-B004-01FAF7C90699, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e41bc0; recordID=<CKRecordID: 0x281e40ca0; recordName=9FF0523B-330B-419D-859D-242C748164B3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40600; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40820; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:22:55 +0000
+modificationDate -> 2018-11-27 16:09:30 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us1"
+passwordCurrent -> "pKlkRUoL"
+maxLength -> 8 (type q)
+title -> "t1"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e40760; recordID=<CKRecordID: 0x281e41ae0; recordName=99BF42F0-755C-46E5-B004-01FAF7C90699, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e41bc0; recordID=<CKRecordID: 0x281e40ca0; recordName=9FF0523B-330B-419D-859D-242C748164B3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4"
+createdAt -> 2018-11-17 16:22:54 +0000
+selectAt -> 2018-11-27 16:09:29 +0000
+url -> "ur1"
+}, <CKRecord: 0x15de60cd0; recordID=9FF0523B-330B-419D-859D-242C748164B3:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bd, values={
+active = 1;
+createdAt = "2018-11-17 16:23:11 +0000";
+current = 0;
+password = pa1;
+selectedAt = "2018-11-25 13:13:48 +0000";
+site = "<CKReference: 0x281e427a0; recordID=<CKRecordID: 0x281e414c0; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "9FF0523B-330B-419D-859D-242C748164B3";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40ba0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42560; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:23:29 +0000
+modificationDate -> 2018-11-27 16:09:30 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e427a0; recordID=<CKRecordID: 0x281e414c0; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa1"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 13:13:48 +0000
+uuid -> "9FF0523B-330B-419D-859D-242C748164B3"
+createdAt -> 2018-11-17 16:23:11 +0000
+}, <CKRecord: 0x15de61060; recordID=467B1F95-8FA5-47C0-9B70-503BF2380926:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9p, values={
+active = 1;
+createdAt = "2018-11-17 16:30:58 +0000";
+current = 0;
+password = pa2;
+selectedAt = "2018-11-17 16:30:58 +0000";
+uuid = "467B1F95-8FA5-47C0-9B70-503BF2380926";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e41c60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41960; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:30:59 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "pa2"
+createdAt -> 2018-11-17 16:30:58 +0000
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-17 16:30:58 +0000
+uuid -> "467B1F95-8FA5-47C0-9B70-503BF2380926"
+}, <CKRecord: 0x15de603a0; recordID=799AB253-FA1A-470B-95B2-D7958654719F:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=a2, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+maxLength = 8;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"<CKReference: 0x281e426e0; recordID=<CKRecordID: 0x281e43280; recordName=E88AD683-1CE5-497B-87A7-A7E3C60C0934, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e43260; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43700; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:12:35 +0000
+modificationDate -> 2018-11-24 01:14:17 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us4"
+passwordCurrent -> "12gWC6e6"
+maxLength -> 8 (type q)
+title -> "t4"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e426e0; recordID=<CKRecordID: 0x281e43280; recordName=E88AD683-1CE5-497B-87A7-A7E3C60C0934, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "799AB253-FA1A-470B-95B2-D7958654719F"
+createdAt -> 2018-11-23 14:12:34 +0000
+selectAt -> 2018-11-24 01:13:02 +0000
+url -> "ur4"
+}, <CKRecord: 0x15de61520; recordID=E22EDE6B-ADEA-4649-BA43-44F23334D0A5:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=a9, values={
+active = 1;
+createdAt = "2018-11-24 01:15:35 +0000";
+current = 0;
+password = pa6;
+selectedAt = "2018-11-24 01:15:35 +0000";
+site = "<CKReference: 0x281e420e0; recordID=<CKRecordID: 0x281e42140; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "E22EDE6B-ADEA-4649-BA43-44F23334D0A5";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42580; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41840; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 01:15:37 +0000
+modificationDate -> 2018-11-24 12:22:34 +0000
+modifiedByDevice -> iPad Air
+site -> <CKReference: 0x281e420e0; recordID=<CKRecordID: 0x281e42140; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa6"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-24 01:15:35 +0000
+uuid -> "E22EDE6B-ADEA-4649-BA43-44F23334D0A5"
+createdAt -> 2018-11-24 01:15:35 +0000
+}, <CKRecord: 0x15de60ba0; recordID=7016AB52-2E87-49D0-832C-463E8301CAE3:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=aa, values={
+active = 1;
+createdAt = "2018-11-24 12:22:33 +0000";
+current = 0;
+password = aiMkud8W;
+selectedAt = "2018-11-24 12:22:33 +0000";
+site = "<CKReference: 0x281e40b60; recordID=<CKRecordID: 0x281e409e0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "7016AB52-2E87-49D0-832C-463E8301CAE3";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40f20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40ea0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 12:22:34 +0000
+modificationDate -> 2018-11-25 09:38:44 +0000
+modifiedByDevice -> iPad Air
+site -> <CKReference: 0x281e40b60; recordID=<CKRecordID: 0x281e409e0; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "aiMkud8W"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-24 12:22:33 +0000
+uuid -> "7016AB52-2E87-49D0-832C-463E8301CAE3"
+createdAt -> 2018-11-24 12:22:33 +0000
+}, <CKRecord: 0x15de60f30; recordID=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=b6, values={
+active = 1;
+createdAt = "2018-11-25 13:20:35 +0000";
+current = 0;
+password = 9vAPQs6x;
+selectedAt = "2018-11-25 13:20:35 +0000";
+site = "<CKReference: 0x281e423a0; recordID=<CKRecordID: 0x281e42440; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42340; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e425c0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:20:38 +0000
+modificationDate -> 2018-11-25 13:20:47 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e423a0; recordID=<CKRecordID: 0x281e42440; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "9vAPQs6x"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 13:20:35 +0000
+uuid -> "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92"
+createdAt -> 2018-11-25 13:20:35 +0000
+}, <CKRecord: 0x15de61780; recordID=584B95AE-1DE2-4E94-A3DB-50F4A84D019F:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9r, values={
+active = 1;
+createdAt = "2018-11-23 14:55:30 +0000";
+current = 0;
+password = PddQp1k4;
+selectedAt = "2018-11-23 14:55:30 +0000";
+uuid = "584B95AE-1DE2-4E94-A3DB-50F4A84D019F";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42f00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e425a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:55:36 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "PddQp1k4"
+createdAt -> 2018-11-23 14:55:30 +0000
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 14:55:30 +0000
+uuid -> "584B95AE-1DE2-4E94-A3DB-50F4A84D019F"
+}, <CKRecord: 0x15de056e0; recordID=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bj, values={
+active = 1;
+createdAt = "2018-11-25 13:02:14 +0000";
+current = 1;
+password = pa2;
+selectedAt = "2018-11-27 16:10:16 +0000";
+site = "<CKReference: 0x281e402c0; recordID=<CKRecordID: 0x281e434c0; recordName=02B8D370-2BAD-494E-87B9-B802207CD18A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e423e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41580; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:02:21 +0000
+modificationDate -> 2018-11-27 16:10:16 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e402c0; recordID=<CKRecordID: 0x281e434c0; recordName=02B8D370-2BAD-494E-87B9-B802207CD18A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa2"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-27 16:10:16 +0000
+uuid -> "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7"
+createdAt -> 2018-11-25 13:02:14 +0000
+}, <CKRecord: 0x15de60750; recordID=5B7C3441-3A4B-4778-A656-4E5305620B9D:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9q, values={
+active = 1;
+createdAt = "2018-11-23 15:22:34 +0000";
+current = 1;
+password = Pm7cRXzA;
+selectedAt = "2018-11-23 15:22:34 +0000";
+uuid = "5B7C3441-3A4B-4778-A656-4E5305620B9D";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e40e20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41120; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 15:22:38 +0000
+modificationDate -> 2018-11-24 01:06:25 +0000
+modifiedByDevice -> iPhone 5s
+password -> "Pm7cRXzA"
+createdAt -> 2018-11-23 15:22:34 +0000
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-23 15:22:34 +0000
+uuid -> "5B7C3441-3A4B-4778-A656-4E5305620B9D"
+}, <CKRecord: 0x15de612c0; recordID=381D844D-73FF-41A1-ADC6-27B4B2A709A6:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=ae, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+maxLength = 8;
+passwordCurrent = JaaineoR;
+passwords =     (
+"<CKReference: 0x281e42b20; recordID=<CKRecordID: 0x281e43840; recordName=E22EDE6B-ADEA-4649-BA43-44F23334D0A5, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e41f40; recordID=<CKRecordID: 0x281e437c0; recordName=7016AB52-2E87-49D0-832C-463E8301CAE3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e40380; recordID=<CKRecordID: 0x281e40300; recordName=B99E6D86-67EA-4439-93A6-E4B6578E1B29, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e41600; recordID=<CKRecordID: 0x281e416c0; recordName=20E282A5-58F1-4122-99F1-9E6F104411CB, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42be0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42400; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 01:15:16 +0000
+modificationDate -> 2018-11-25 12:47:27 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us6"
+passwordCurrent -> "JaaineoR"
+maxLength -> 8 (type q)
+title -> "t6"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e42b20; recordID=<CKRecordID: 0x281e43840; recordName=E22EDE6B-ADEA-4649-BA43-44F23334D0A5, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e41f40; recordID=<CKRecordID: 0x281e437c0; recordName=7016AB52-2E87-49D0-832C-463E8301CAE3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e40380; recordID=<CKRecordID: 0x281e40300; recordName=B99E6D86-67EA-4439-93A6-E4B6578E1B29, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e41600; recordID=<CKRecordID: 0x281e416c0; recordName=20E282A5-58F1-4122-99F1-9E6F104411CB, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "381D844D-73FF-41A1-ADC6-27B4B2A709A6"
+createdAt -> 2018-11-24 01:15:16 +0000
+selectAt -> 2018-11-25 12:47:26 +0000
+url -> "ur6"
+}, <CKRecord: 0x15de61b10; recordID=53E43803-ACF7-4F8C-B6F2-813C0007B121:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bp, values={
+active = 1;
+createdAt = "2018-11-25 13:21:33 +0000";
+current = 0;
+password = 1FV5foHV;
+selectedAt = "2018-11-25 13:21:33 +0000";
+site = "<CKReference: 0x281e43ac0; recordID=<CKRecordID: 0x281e43ae0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "53E43803-ACF7-4F8C-B6F2-813C0007B121";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42f60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e43c00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:21:35 +0000
+modificationDate -> 2018-11-27 16:11:40 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e43ac0; recordID=<CKRecordID: 0x281e43ae0; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "1FV5foHV"
+current -> 0 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 13:21:33 +0000
+uuid -> "53E43803-ACF7-4F8C-B6F2-813C0007B121"
+createdAt -> 2018-11-25 13:21:33 +0000
+}, <CKRecord: 0x15de60940; recordID=B99E6D86-67EA-4439-93A6-E4B6578E1B29:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=af, values={
+active = 1;
+createdAt = "2018-11-25 12:47:26 +0000";
+current = 1;
+password = JaaineoR;
+selectedAt = "2018-11-25 12:47:26 +0000";
+site = "<CKReference: 0x281e415e0; recordID=<CKRecordID: 0x281e41740; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "B99E6D86-67EA-4439-93A6-E4B6578E1B29";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e411e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e40fa0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 12:47:27 +0000
+modificationDate -> 2018-11-25 12:47:27 +0000
+modifiedByDevice -> iPhone 5s
+site -> <CKReference: 0x281e415e0; recordID=<CKRecordID: 0x281e41740; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "JaaineoR"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-25 12:47:26 +0000
+uuid -> "B99E6D86-67EA-4439-93A6-E4B6578E1B29"
+createdAt -> 2018-11-25 12:47:26 +0000
+}, <CKRecord: 0x15de58e20; recordID=8929CEC0-C3A6-40D0-A02B-4CDDAAB76614:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=8, values={
+active = 1;
+createdAt = "2018-11-13 16:45:31 +0000";
+current = 1;
+password = pa1;
+selectedAt = "2018-11-13 16:45:31 +0000";
+site = "<CKReference: 0x281e435a0; recordID=<CKRecordID: 0x281e43000; recordName=B8C239E3-1D29-4BDD-BF0E-4E533E588158, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+uuid = "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614";
+}, recordType=Password>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e438c0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e41e80; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-13 16:45:35 +0000
+modificationDate -> 2018-11-13 16:45:37 +0000
+modifiedByDevice -> iPad Air
+site -> <CKReference: 0x281e435a0; recordID=<CKRecordID: 0x281e43000; recordName=B8C239E3-1D29-4BDD-BF0E-4E533E588158, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+password -> "pa1"
+current -> 1 (type q)
+active -> 1 (type q)
+selectedAt -> 2018-11-13 16:45:31 +0000
+uuid -> "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614"
+createdAt -> 2018-11-13 16:45:31 +0000
+}, <CKRecord: 0x15de613f0; recordID=02B8D370-2BAD-494E-87B9-B802207CD18A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bl, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+maxLength = 8;
+passwordCurrent = pa2;
+passwords =     (
+"<CKReference: 0x281e41fc0; recordID=<CKRecordID: 0x281e42880; recordName=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e42420; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e42260; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:02:00 +0000
+modificationDate -> 2018-11-27 16:10:46 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us2"
+passwordCurrent -> "pa2"
+maxLength -> 8 (type q)
+title -> "t2"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e41fc0; recordID=<CKRecordID: 0x281e42880; recordName=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "02B8D370-2BAD-494E-87B9-B802207CD18A"
+createdAt -> 2018-11-25 13:01:59 +0000
+selectAt -> 2018-11-27 16:10:16 +0000
+url -> "ur2"
+}], AnyHashable("DELETED"): []])
+01:16:02.085 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():502 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+01:16:02.086 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():546 - key = 02B8D370-2BAD-494E-87B9-B802207CD18A
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a6e0; recordName=02B8D370-2BAD-494E-87B9-B802207CD18A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d542d0> (entity: Site; id: 0xacf04cba4b8d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa2;
+passwords =     (
+"0xacf04cba4be17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21>",
+"0xacf04cba4bed7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p22>",
+"0xacf04cba4be97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p23>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+})), keys: ["selectAt"], _cloudRecord: Optional(<CKRecord: 0x15de603a0; recordID=02B8D370-2BAD-494E-87B9-B802207CD18A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bl, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+maxLength = 8;
+passwordCurrent = pa2;
+passwords =     (
+"<CKReference: 0x281e48160; recordID=<CKRecordID: 0x281e48100; recordName=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e48140; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e48240; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-25 13:02:00 +0000
+modificationDate -> 2018-11-27 16:10:46 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us2"
+passwordCurrent -> "pa2"
+maxLength -> 8 (type q)
+title -> "t2"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e48160; recordID=<CKRecordID: 0x281e48100; recordName=017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "02B8D370-2BAD-494E-87B9-B802207CD18A"
+createdAt -> 2018-11-25 13:01:59 +0000
+selectAt -> 2018-11-27 16:10:16 +0000
+url -> "ur2"
+}), _cloudChanged: false, recordType: Optional("Site"), mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:02.096 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():546 - key = 381D844D-73FF-41A1-ADC6-27B4B2A709A6
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a740; recordName=381D844D-73FF-41A1-ADC6-27B4B2A709A6, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d54280> (entity: Site; id: 0xacf04cba4b817a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = JaaineoR;
+passwords =     (
+"0xacf04cba4be57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20>",
+"0xacf04cba4bfd7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18>",
+"0xacf04cba4bf97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19>",
+"0xacf04cba4bf17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+})), keys: [], _cloudRecord: Optional(<CKRecord: 0x15dd01d00; recordID=381D844D-73FF-41A1-ADC6-27B4B2A709A6:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=ae, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+maxLength = 8;
+passwordCurrent = JaaineoR;
+passwords =     (
+"<CKReference: 0x281e30a80; recordID=<CKRecordID: 0x281e30aa0; recordName=E22EDE6B-ADEA-4649-BA43-44F23334D0A5, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e30c40; recordID=<CKRecordID: 0x281e30c80; recordName=7016AB52-2E87-49D0-832C-463E8301CAE3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e30ba0; recordID=<CKRecordID: 0x281e30ce0; recordName=B99E6D86-67EA-4439-93A6-E4B6578E1B29, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e30b80; recordID=<CKRecordID: 0x281e30ca0; recordName=20E282A5-58F1-4122-99F1-9E6F104411CB, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-25 12:47:26 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e30ae0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e30d80; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-24 01:15:16 +0000
+modificationDate -> 2018-11-25 12:47:27 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us6"
+passwordCurrent -> "JaaineoR"
+maxLength -> 8 (type q)
+title -> "t6"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e30a80; recordID=<CKRecordID: 0x281e30aa0; recordName=E22EDE6B-ADEA-4649-BA43-44F23334D0A5, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e30c40; recordID=<CKRecordID: 0x281e30c80; recordName=7016AB52-2E87-49D0-832C-463E8301CAE3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e30ba0; recordID=<CKRecordID: 0x281e30ce0; recordName=B99E6D86-67EA-4439-93A6-E4B6578E1B29, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e30b80; recordID=<CKRecordID: 0x281e30ca0; recordName=20E282A5-58F1-4122-99F1-9E6F104411CB, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "381D844D-73FF-41A1-ADC6-27B4B2A709A6"
+createdAt -> 2018-11-24 01:15:16 +0000
+selectAt -> 2018-11-25 12:47:26 +0000
+url -> "ur6"
+}), _cloudChanged: false, recordType: Optional("Site"), mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:02.109 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():546 - key = AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a700; recordName=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d54190> (entity: Site; id: 0xacf04cba4ba97a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"0xacf04cba4ba97a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7>",
+"0xacf04cba4bad7a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+})), keys: ["selectAt"], _cloudRecord: Optional(<CKRecord: 0x15dd06330; recordID=AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bb, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+maxLength = 8;
+passwordCurrent = pKlkRUoL;
+passwords =     (
+"<CKReference: 0x281e30e00; recordID=<CKRecordID: 0x281e30e20; recordName=99BF42F0-755C-46E5-B004-01FAF7C90699, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e30e40; recordID=<CKRecordID: 0x281e30e60; recordName=9FF0523B-330B-419D-859D-242C748164B3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e30de0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e30f60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-17 16:22:55 +0000
+modificationDate -> 2018-11-27 16:09:30 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us1"
+passwordCurrent -> "pKlkRUoL"
+maxLength -> 8 (type q)
+title -> "t1"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e30e00; recordID=<CKRecordID: 0x281e30e20; recordName=99BF42F0-755C-46E5-B004-01FAF7C90699, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e30e40; recordID=<CKRecordID: 0x281e30e60; recordName=9FF0523B-330B-419D-859D-242C748164B3, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4"
+createdAt -> 2018-11-17 16:22:54 +0000
+selectAt -> 2018-11-27 16:09:29 +0000
+url -> "ur1"
+}), _cloudChanged: false, recordType: Optional("Site"), mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:02.124 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():546 - key = 799AB253-FA1A-470B-95B2-D7958654719F
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a720; recordName=799AB253-FA1A-470B-95B2-D7958654719F, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d54230> (entity: Site; id: 0xacf04cba4b997a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"0xacf04cba4bf57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+})), keys: [], _cloudRecord: Optional(<CKRecord: 0x15de62f50; recordID=799AB253-FA1A-470B-95B2-D7958654719F:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=a2, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+maxLength = 8;
+passwordCurrent = 12gWC6e6;
+passwords =     (
+"<CKReference: 0x281e481a0; recordID=<CKRecordID: 0x281e482e0; recordName=E88AD683-1CE5-497B-87A7-A7E3C60C0934, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e480e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e48420; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:12:35 +0000
+modificationDate -> 2018-11-24 01:14:17 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us4"
+passwordCurrent -> "12gWC6e6"
+maxLength -> 8 (type q)
+title -> "t4"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e481a0; recordID=<CKRecordID: 0x281e482e0; recordName=E88AD683-1CE5-497B-87A7-A7E3C60C0934, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "799AB253-FA1A-470B-95B2-D7958654719F"
+createdAt -> 2018-11-23 14:12:34 +0000
+selectAt -> 2018-11-24 01:13:02 +0000
+url -> "ur4"
+}), _cloudChanged: false, recordType: Optional("Site"), mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:02.140 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():546 - key = ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579
+mocr = Optional(TresorMockup.(unknown context at 0x100922628).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x281e4a760; recordName=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObject: Optional(<TresorMockup.Site: 0x283d541e0> (entity: Site; id: 0xacf04cba4b9d7a75 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa3;
+passwords =     (
+"0xacf04cba4bd57a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24>",
+"0xacf04cba4b917a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9>",
+"0xacf04cba4bd17a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25>",
+"0xacf04cba4b997a77 <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+})), keys: ["selectAt"], _cloudRecord: Optional(<CKRecord: 0x15dd28400; recordID=ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=bq, values={
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+maxLength = 8;
+passwordCurrent = pa3;
+passwords =     (
+"<CKReference: 0x281e31000; recordID=<CKRecordID: 0x281e31040; recordName=FA5DC270-527B-49B4-BA1B-47290DA91722, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e31060; recordID=<CKRecordID: 0x281e31080; recordName=53E43803-ACF7-4F8C-B6F2-813C0007B121, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e48460; recordID=<CKRecordID: 0x281e482c0; recordName=D3A53CFB-3BCC-473E-991C-045F93A9E0C0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+"<CKReference: 0x281e310c0; recordID=<CKRecordID: 0x281e310e0; recordName=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+);
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+}, recordType=Site>
+{
+creatorUserRecordID -> <CKRecordID: 0x281e48320; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+lastModifiedUserRecordID -> <CKRecordID: 0x281e48520; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+creationDate -> 2018-11-23 14:10:29 +0000
+modificationDate -> 2018-11-27 16:11:40 +0000
+modifiedByDevice -> iPhone 5s
+active -> 1 (type q)
+userid -> "us3"
+passwordCurrent -> "pa3"
+maxLength -> 8 (type q)
+title -> "t3"
+charSet -> 136331264 (type q)
+passwords -> [<CKReference: 0x281e31000; recordID=<CKRecordID: 0x281e31040; recordName=FA5DC270-527B-49B4-BA1B-47290DA91722, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e31060; recordID=<CKRecordID: 0x281e31080; recordName=53E43803-ACF7-4F8C-B6F2-813C0007B121, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e48460; recordID=<CKRecordID: 0x281e482c0; recordName=D3A53CFB-3BCC-473E-991C-045F93A9E0C0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x281e310c0; recordID=<CKRecordID: 0x281e310e0; recordName=CD2D157E-6321-4A37-8D6E-CA0D3B87FE92, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+uuid -> "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579"
+createdAt -> 2018-11-23 14:10:28 +0000
+selectAt -> 2018-11-27 16:11:39 +0000
+url -> "ur3"
+}), _cloudChanged: false, recordType: Optional("Site"), mode: TresorMockup.(unknown context at 0x1009225f8).OperationMode(rawValue: 1)))
+01:16:02.154 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():553 - fetchRecordsCompletionBlock toSave = []
+01:16:02.155 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():554 - fetchRecordsCompletionBlock toDelete = []
+01:16:02.156 0x280bb1e00 💚 DEBUG CloudKitManager.contextDidSave():561 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+01:16:28.685  💚 DEBUG CloudKitManager.contextWillSave():384 - contextWillSave
+01:16:28.703  💚 DEBUG CloudKitManager.contextDidSave():397 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x282170780>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x281e5f1a0>, AnyHashable("inserted"): {(
+)}, AnyHashable("updated"): {(
+)}])
+01:16:28.708 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():502 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+01:16:28.710 0x280bd8c00 💙 INFO CloudKitManager.contextDidSave():508 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
+01:16:28.711 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():553 - fetchRecordsCompletionBlock toSave = []
+01:16:28.713 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():554 - fetchRecordsCompletionBlock toDelete = []
+01:16:28.717 0x280bd8c00 💚 DEBUG CloudKitManager.contextDidSave():561 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+01:16:49.765  💚 DEBUG CloudKitManager.contextWillSave():384 - contextWillSave
+01:16:49.784  💚 DEBUG CloudKitManager.contextDidSave():397 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x282170780>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x281e5c400>, AnyHashable("inserted"): {(
+)}, AnyHashable("updated"): {(
+)}])
+01:16:49.790 0x280b90600 💚 DEBUG CloudKitManager.contextDidSave():502 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+01:16:49.792 0x280b90600 💙 INFO CloudKitManager.contextDidSave():508 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
+01:16:49.797 0x280b90600 💚 DEBUG CloudKitManager.contextDidSave():553 - fetchRecordsCompletionBlock toSave = []
+01:16:49.799 0x280b90600 💚 DEBUG CloudKitManager.contextDidSave():554 - fetchRecordsCompletionBlock toDelete = []
+01:16:49.801 0x280b90600 💚 DEBUG CloudKitManager.contextDidSave():561 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+2018-11-28 01:17:24.551633+0900 TresorMockup[375:89247] Returning local object of class NSString
+01:17:25.977  💚 DEBUG CloudKitManager.contextWillSave():384 - contextWillSave
+01:17:26.007  💚 DEBUG CloudKitManager.contextDidSave():397 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x282170780>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x281e39640>, AnyHashable("inserted"): {(
+)}, AnyHashable("updated"): {(
+)}])
+01:17:26.013 0x280b84cc0 💚 DEBUG CloudKitManager.contextDidSave():502 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+01:17:26.015 0x280b84cc0 💙 INFO CloudKitManager.contextDidSave():508 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
+01:17:26.018 0x280b84cc0 💚 DEBUG CloudKitManager.contextDidSave():553 - fetchRecordsCompletionBlock toSave = []
+01:17:26.019 0x280b84cc0 💚 DEBUG CloudKitManager.contextDidSave():554 - fetchRecordsCompletionBlock toDelete = []
+01:17:26.020 0x280b84cc0 💚 DEBUG CloudKitManager.contextDidSave():561 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+01:17:35.050  💚 DEBUG CloudKitManager.contextWillSave():384 - contextWillSave
+01:17:35.063  💚 DEBUG CloudKitManager.contextDidSave():397 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x282170780>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x281e423c0>, AnyHashable("inserted"): {(
+)}, AnyHashable("updated"): {(
+)}])
+01:17:35.067 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():502 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+01:17:35.068 0x280ba9ac0 💙 INFO CloudKitManager.contextDidSave():508 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
+01:17:35.069 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():553 - fetchRecordsCompletionBlock toSave = []
+01:17:35.070 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():554 - fetchRecordsCompletionBlock toDelete = []
+01:17:35.073 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():561 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+01:17:38.691  💚 DEBUG CloudKitManager.contextWillSave():384 - contextWillSave
+01:17:38.702  💚 DEBUG CloudKitManager.contextDidSave():397 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x282170780>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x281e41ae0>, AnyHashable("inserted"): {(
+)}, AnyHashable("updated"): {(
+)}])
+01:17:38.707 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():502 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+01:17:38.711 0x280ba9ac0 💙 INFO CloudKitManager.contextDidSave():508 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
+01:17:38.712 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():553 - fetchRecordsCompletionBlock toSave = []
+01:17:38.715 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():554 - fetchRecordsCompletionBlock toDelete = []
+01:17:38.716 0x280ba9ac0 💚 DEBUG CloudKitManager.contextDidSave():561 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+01:17:40.741  💚 DEBUG CloudKitManager.contextWillSave():384 - contextWillSave
+01:17:40.752  💚 DEBUG CloudKitManager.contextDidSave():397 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x282170780>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x281e4c720>, AnyHashable("inserted"): {(
+)}, AnyHashable("updated"): {(
+)}])
+01:17:40.756 0x280baa1c0 💚 DEBUG CloudKitManager.contextDidSave():502 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+01:17:40.761 0x280baa1c0 💙 INFO CloudKitManager.contextDidSave():508 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
+01:17:40.762 0x280baa1c0 💚 DEBUG CloudKitManager.contextDidSave():553 - fetchRecordsCompletionBlock toSave = []
+01:17:40.764 0x280baa1c0 💚 DEBUG CloudKitManager.contextDidSave():554 - fetchRecordsCompletionBlock toDelete = []
+01:17:40.765 0x280baa1c0 💚 DEBUG CloudKitManager.contextDidSave():561 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+2018-11-28 01:17:50.864917+0900 TresorMockup[375:89247] *** Assertion failure in -[UITableView _endCellAnimationsWithContext:], /BuildRoot/Library/Caches/com.apple.xbs/Sources/UIKitCore/UIKit-3698.93.8/UITableView.m:2062
+2018-11-28 01:17:59.854476+0900 TresorMockup[375:89247] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Invalid update: invalid number of rows in section 0.  The number of rows contained in an existing section after the update (1) must be equal to the number of rows contained in that section before the update (2), plus or minus the number of rows inserted or deleted from that section (1 inserted, 1 deleted) and plus or minus the number of rows moved into or out of that section (0 moved in, 0 moved out).'
+*** First throw call stack:
+(0x1f508aea0 0x1f425ca40 0x1f4fa0c1c 0x1f5a8e140 0x221c49a24 0x221c60a2c 0x221c60bb4 0x1008b6df0 0x1008b75d4 0x1008b7898 0x221beedd4 0x221bf4388 0x221bf5880 0x221bf9c5c 0x221a5a768 0x2214e86d0 0x2214e89f0 0x2214e79f0 0x22166d458 0x221668154 0x221667c34 0x221667a04 0x221a953d4 0x221a746ec 0x221b4057c 0x221b42f74 0x221b3ba64 0x1f501b1cc 0x1f501b14c 0x1f501aa30 0x1f50158fc 0x1f50151cc 0x1f728c584 0x221a59054 0x1008ab3ec 0x1f4ad5bb4)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+(lldb) 
