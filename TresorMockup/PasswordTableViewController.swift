@@ -278,9 +278,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let handler =  {
             (_: UIContextualAction, _: UIView, completion: (Bool) -> Void) -> Void in
-            let oldIndex   = self.passwordManager?.fetchedResultsController.indexPath(forObject: self.selected!)
             self.selected  = self.passwordManager?.fetchedResultsController.object(at: indexPath)
-            let indexPaths = [oldIndex, indexPath].compactMap { $0 }
             self.passwordManager?.select(password: self.selected, for: (self.selected?.site)!)
 
             self.passwordManager?.deleteCache()
@@ -291,10 +289,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
 
-            self.tableView.performBatchUpdates(
-                { self.tableView.reloadRows(at: indexPaths, with: .automatic) },
-                completion: nil
-            )
+            self.tableView.reloadData()
             completion(true)
         }
         let action = UIContextualAction(style: .normal, title: "select", handler: handler)
