@@ -16,6 +16,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     private let CACHE_NAME = "MASTER"
     var detailViewController: DetailViewController? = nil
+    var newItem: Site? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
 
     override func viewDidLoad() {
@@ -77,41 +78,37 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     @objc
     func insertNewObject(_ sender: Any) {
-//        let context = self.fetchedResultsController.managedObjectContext
-        let context = CoreDataManager.shared.managedObjectContext
-
-        // Create a new item
-        let item    = Site(context: context)
-        // Save the context.
-        context.performAndWait {
-            do {
-                try context.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
+        // deselect the old row
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            self.tableView.deselectRow(at: indexPath, animated: true)
         }
 
-        let indexPath = self.fetchedResultsController.indexPath(forObject: item)
-        self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        // Create a new item
+        let context = CoreDataManager.shared.managedObjectContext
+        self.newItem = Site(context: context)
+
         self.performSegue(withIdentifier: "editDetail", sender: nil)
     }
 
     // MARK: - Segues
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let indexPath = self.tableView.indexPathForSelectedRow else {
-            return
-        }
-
-        let object = fetchedResultsController.object(at: indexPath)
         let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+
+        let object = { () -> Site? in
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                return self.fetchedResultsController.object(at: indexPath)
+            }
+            else {
+                let object = self.newItem
+                self.newItem = nil
+                return object
+            }
+        }()
+
         controller.detailItem = object
         controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         controller.navigationItem.leftItemsSupplementBackButton = true
-
 
         switch segue.identifier {
         case "showDetail":
