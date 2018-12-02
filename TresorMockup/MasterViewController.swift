@@ -180,7 +180,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         fetchRequest.fetchBatchSize = 20
 
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: "title", ascending: true, selector:#selector(NSString.localizedStandardCompare))
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         
