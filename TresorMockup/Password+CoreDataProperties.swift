@@ -25,4 +25,8 @@ extension Password {
     @NSManaged public var current: Bool
     @NSManaged public var site: Site?
 
+    // https://qiita.com/color_box/items/fe383fd0896318ed49ee
+    @objc public var section: String {
+        return self.current ? "0" : "1"
+    }
 }

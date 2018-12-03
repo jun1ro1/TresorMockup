@@ -41,10 +41,11 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
 
         // Edit the section name key path and cache name if appropriate.
         // nil for section name key path means "no sections".
+        // https://qiita.com/color_box/items/fe383fd0896318ed49ee
         let aFetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext!,
-            sectionNameKeyPath: "current",
+            sectionNameKeyPath: "section",
             cacheName: CACHE_NAME)
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
