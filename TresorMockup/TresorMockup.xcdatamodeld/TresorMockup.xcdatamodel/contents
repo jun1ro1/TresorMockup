@@ -5,7 +5,7 @@
         <attribute name="createdAt" optional="YES" attributeType="Date">
             <userInfo/>
         </attribute>
-        <attribute name="current" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="current" optional="YES" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="section" optional="YES" transient="YES" attributeType="String" syncable="YES"/>
         <attribute name="selectedAt" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>

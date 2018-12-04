@@ -34,7 +34,27 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         fetchRequest.fetchBatchSize = 20
 
         // Edit the sort key as appropriate.
-        let sortDescriptor1 = NSSortDescriptor(key: "current",    ascending: false)
+//        let sortDescriptor1 =
+//            NSSortDescriptor(key: "current",
+//                             ascending: false,
+//                             comparator: { (x, y) -> ComparisonResult in
+//                                let a = x as? Bool
+//                                let b = y as? Bool
+//                                switch (a, b) {
+//                                case (nil, _?):
+//                                    return .orderedAscending
+//                                case (_?, nil):
+//                                    return .orderedDescending
+//                                case (false, true):
+//                                    return .orderedAscending
+//                                case (true, false):
+//                                    return .orderedDescending
+//                                default:
+//                                    return .orderedSame
+//                                }
+//        })
+
+        let sortDescriptor1 = NSSortDescriptor(key: "current",    ascending: true)
         let sortDescriptor2 = NSSortDescriptor(key: "selectedAt", ascending: false)
 
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
@@ -77,7 +97,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
 
     func deleteObject(password: Password) {
         let site = password.site
-        if password.current {
+        if password.current == 1 {
             site?.selectAt = nil
         }
         site?.removeFromPasswords(password)
@@ -89,12 +109,12 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         let now = (password == nil) ? nil : Date() as NSDate
         password?.selectedAt = now
         site.passwords?.forEach {
-            if ($0 as! Password).current {
-                ($0 as! Password).current = false
+            if ($0 as! Password).current == 1 {
+                ($0 as! Password).current = 0
             }
         }
         site.passwordCurrent = (password?.password ?? "") as NSString
-        password?.current    = true
+        password?.current    = 1
         site.selectAt        = now // invakes observeValue
     }
 

@@ -17,6 +17,6 @@ public class Site: NSManagedObject {
     }
 
     public var currentPassword: Password? {
-        return self.passwords?.first { ($0 as! Password).current } as? Password
+        return self.passwords?.first { ($0 as! Password).current == 1} as? Password
     }
 }

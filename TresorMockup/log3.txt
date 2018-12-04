@@ -1,1 +1,215 @@
+iPad Air
 
+01:59:09.446  💚 DEBUG AppDelegate.application():27 - Application starts
+01:59:09.489  💚 DEBUG MasterViewController.viewDidLoad():37 - viewDidLoad
+01:59:10.611  💚 DEBUG AppDelegate.application():102 - Remote Notification did register
+01:59:11.108 0x281f42240 💚 DEBUG CloudKitManager.start():68 - CKFetchRecordZonesOperation error = nil zoneIDs = Optional([<CKRecordZoneID: 0x280aa6ba0; ownerName=__defaultOwner__, zoneName=com.gmail.jun1ro1.TresorMockup_Zone>: <CKRecordZone: 0x28388cfc0; zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__, capabilities=(Atomic,Sync,Share)>])
+01:59:11.338 0x281f43440 💚 DEBUG CloudKitManager.start():93 - CKFetchSubscriptionsOperation error = nil subscriptions = Optional(["com.gmail.jun1ro1.TresorMockup": <CKDatabaseSubscription: 0x281f42dc0; ; Database Subscription: subscriptionID=com.gmail.jun1ro1.TresorMockup>
+{
+alertBody -> (null)
+alertLocalizationKey -> "(null)
+alertLocalizationArgs -> []
+title -> (null)
+titleLocalizationKey -> "(null)
+titleLocalizationArgs -> []
+subtitle -> (null)
+subtitleLocalizationKey -> "(null)
+subtitleLocalizationArgs -> []
+alertActionLocalizationKey -> (null)
+alertLaunchImage -> (null)
+soundName -> (null)
+desiredKeys -> []
+shouldBadge -> NO
+shouldSendContentAvailable -> YES
+shouldSendMutableContent -> NO
+category -> (null)
+collapseIDKey -> (null)
+
+}])
+01:59:11.570 0x281f47840 💚 DEBUG CloudKitManager.checkUpdates():145 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x280898530; data=AQAAAWd6KHb8>) more = false
+01:59:11.955 0x281f47840 💚 DEBUG CloudKitManager.checkUpdates():355 - recordZoneChangeTokensUpdatedBlock token = Optional(<CKServerChangeToken: 0x280880800; data=AQAAAAAAAACef/////////8AJ9nXvhBHJY0x+uS3IvEf>) data = nil
+01:59:12.324 0x281f47840 💚 DEBUG CloudKitManager.checkUpdates():355 - recordZoneChangeTokensUpdatedBlock token = Optional(<CKServerChangeToken: 0x28088c260; data=AQAAAAAAAAE5f/////////8AJ9nXvhBHJY0x+uS3IvEf>) data = nil
+01:59:12.886 0x281f43440 💚 DEBUG CloudKitManager.checkUpdates():355 - recordZoneChangeTokensUpdatedBlock token = Optional(<CKServerChangeToken: 0x28088eea0; data=AQAAAAAAAAIZf/////////8AJ9nXvhBHJY0x+uS3IvEf>) data = nil
+01:59:13.346 0x281f47840 💚 DEBUG CloudKitManager.checkUpdates():355 - recordZoneChangeTokensUpdatedBlock token = Optional(<CKServerChangeToken: 0x280899a80; data=AQAAAAAAAAK5f/////////8AJ9nXvhBHJY0x+uS3IvEf>) data = nil
+01:59:13.678 0x281f47840 💚 DEBUG CloudKitManager.checkUpdates():355 - recordZoneChangeTokensUpdatedBlock token = Optional(<CKServerChangeToken: 0x280899ae0; data=AQAAAAAAAAN8f/////////8AJ9nXvhBHJY0x+uS3IvEf>) data = nil
+01:59:13.977 0x281f43440 💚 DEBUG CloudKitManager.checkUpdates():181 - fetchRecordZoneChangesCompletionBlock error = nil
+01:59:13.983 0x281f43440 💚 DEBUG CloudKitManager.checkUpdates():221 - context fetch request = <NSFetchRequest: 0x282192e60> (entity: Password; predicate: (uuid IN {"7016AB52-2E87-49D0-832C-463E8301CAE3", "E22EDE6B-ADEA-4649-BA43-44F23334D0A5", "D3A53CFB-3BCC-473E-991C-045F93A9E0C0", "467B1F95-8FA5-47C0-9B70-503BF2380926", "4062436B-CD10-46CE-9D80-4F686E9A363A", "017C1E8D-C7AF-4D1E-BAA1-D4B875AD1DE7", "FB645109-1FCC-4BD6-BDC4-2370A7539C06", "5A940052-F413-4B74-AAEE-5A986BC7FFF7", "7224B057-F89B-488E-9C49-526E0A14B168", "53E43803-ACF7-4F8C-B6F2-813C0007B121", "733D7D0E-079A-4A03-AC98-C8BDEB9905EA", "5B7C3441-3A4B-4778-A656-4E5305620B9D", "A6DFADA5-6A1F-40F7-9427-C001D4820273", "8929CEC0-C3A6-40D0-A02B-4CDDAAB76614", "99BF42F0-755C-46E5-B004-01FAF7C90699", "FA5DC270-527B-49B4-BA1B-47290DA91722", "584B95AE-1DE2-4E94-A3DB-50F4A84D019F", "39E53443-84AB-4962-B163-81D5AD61CA5C", "C564E536-E739-4FB9-94C9-BADC0BFBC9A4", "9FF0523B-330B-419D-859D-242C748164B3", "B99E6D86-67EA-4439-93A6-E4B6578E1B29", "A57132BE-60AE-4011-9AC3-CEEF8A5730EE", "20E282A5-58F1-4122-99F1-9E6F104411CB", "AB17DB58-0D9A-46C6-836D-9DD83B155F1A", "CD2D157E-6321-4A37-8D6E-CA0D3B87FE92", "E88AD683-1CE5-497B-87A7-A7E3C60C0934"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+01:59:13.996 0x281f43440 💚 DEBUG CloudKitManager.checkUpdates():223 - context fetch result = Optional([<TresorMockup.Password: 0x2829a6f30> (entity: Password; id: 0xad92711f2eacfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p1> ; data: <fault>), <TresorMockup.Password: 0x2829a6f80> (entity: Password; id: 0xad92711f2ebcfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p5> ; data: <fault>), <TresorMockup.Password: 0x2829a6fd0> (entity: Password; id: 0xad92711f2eb0fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p6> ; data: <fault>), <TresorMockup.Password: 0x2829a7020> (entity: Password; id: 0xad92711f2eb4fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p7> ; data: <fault>), <TresorMockup.Password: 0x2829a7070> (entity: Password; id: 0xad92711f2e88fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p8> ; data: <fault>), <TresorMockup.Password: 0x2829a70c0> (entity: Password; id: 0xad92711f2e8cfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p9> ; data: <fault>), <TresorMockup.Password: 0x2829a7110> (entity: Password; id: 0xad92711f2e84fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p11> ; data: <fault>), <TresorMockup.Password: 0x2829a7160> (entity: Password; id: 0xad92711f2e9cfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p13> ; data: <fault>), <TresorMockup.Password: 0x2829a71b0> (entity: Password; id: 0xad92711f2e90fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p14> ; data: <fault>), <TresorMockup.Password: 0x2829a7200> (entity: Password; id: 0xad92711f2e94fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p15> ; data: <fault>), <TresorMockup.Password: 0x2829a7250> (entity: Password; id: 0xad92711f2ee8fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p16> ; data: <fault>), <TresorMockup.Password: 0x2829a72a0> (entity: Password; id: 0xad92711f2eecfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p17> ; data: <fault>), <TresorMockup.Password: 0x2829a72f0> (entity: Password; id: 0xad92711f2ee0fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p18> ; data: <fault>), <TresorMockup.Password: 0x2829a7340> (entity: Password; id: 0xad92711f2ee4fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p19> ; data: <fault>), <TresorMockup.Password: 0x2829a7390> (entity: Password; id: 0xad92711f2ef8fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p20> ; data: <fault>), <TresorMockup.Password: 0x2829a73e0> (entity: Password; id: 0xad92711f2efcfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p21> ; data: <fault>), <TresorMockup.Password: 0x2829a7430> (entity: Password; id: 0xad92711f2ec8fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p24> ; data: <fault>), <TresorMockup.Password: 0x2829a7480> (entity: Password; id: 0xad92711f2eccfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p25> ; data: <fault>), <TresorMockup.Password: 0x2829a74d0> (entity: Password; id: 0xad92711f2ec0fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p26> ; data: <fault>), <TresorMockup.Password: 0x2829a7520> (entity: Password; id: 0xad92711f2ec4fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p27> ; data: <fault>), <TresorMockup.Password: 0x2829a7570> (entity: Password; id: 0xad92711f2ed8fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p28> ; data: <fault>), <TresorMockup.Password: 0x2829a75c0> (entity: Password; id: 0xad92711f2edcfa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p29> ; data: <fault>), <TresorMockup.Password: 0x2829a7610> (entity: Password; id: 0xad92711f2ed0fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p30> ; data: <fault>), <TresorMockup.Password: 0x2829a7660> (entity: Password; id: 0xad92711f2ed4fa1e <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Password/p31> ; data: <fault>)])
+01:59:14.022 0x281f43440 💚 DEBUG CloudKitManager.checkUpdates():221 - context fetch request = <NSFetchRequest: 0x28218a680> (entity: Site; predicate: (uuid IN {"45973328-98B6-4D60-975F-A7D6367F55EA", "55522A62-DD1B-491E-A115-1EA075112460", "78C75A43-FF30-4B6E-BCF1-2FDE1C6EE253", "799AB253-FA1A-470B-95B2-D7958654719F", "3BE02027-328C-45D2-8878-1ABAFCE973CC", "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579", "AB3ABDFE-5F71-4F75-BE2E-F3D8537C1CB6", "5D4B99E3-2EC5-4D9F-BD1C-9AE3738D7E8E", "88B85DC4-8116-4829-A5CB-18954E2213A1", "58826522-7B66-41C3-B55A-1A8E9E4934B2", "B392C16A-6B58-4B21-8850-56CE8ED858DF", "ED076CEC-771E-40B8-B61A-C1674A12D272", "B5D61492-E972-4BA4-8979-A4C2695E57BE", "381D844D-73FF-41A1-ADC6-27B4B2A709A6", "8B57160A-80A8-4C61-860A-54FE47E8141A", "02B8D370-2BAD-494E-87B9-B802207CD18A", "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4", "A8A1D418-3113-4DCE-8E78-38D4CAAC0D11", "AF0D3610-DDF1-488E-B81F-8E9C959ED92B"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+2018-12-05 01:59:14.033530+0900 TresorMockup[701:367517] [error] error: Property 'current' is a scalar type on class 'TresorMockup.Password' that does not match its Entity's property's scalar type.  Dynamically generated accessors do not support implicit type coercion.  Cannot generate a getter method for it.
+01:59:14.033 0x281f43440 💚 DEBUG CloudKitManager.checkUpdates():223 - context fetch result = Optional([<TresorMockup.Site: 0x2829b9590> (entity: Site; id: 0xad92711f2eb4fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p7> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-17 16:22:54 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pKlkRUoL;
+passwords = "<relationship fault: 0x280acb200 'passwords'>";
+selectAt = "2018-11-27 16:09:29 +0000";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "AE5794D0-1A3F-4BC7-845D-8FEAE18B41B4";
+}), <TresorMockup.Site: 0x2829b9540> (entity: Site; id: 0xad92711f2e80fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p10> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:10:28 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa3;
+passwords = "<relationship fault: 0x280accca0 'passwords'>";
+selectAt = "2018-11-27 16:11:39 +0000";
+title = t3;
+url = ur3;
+userid = us3;
+uuid = "ECF6A947-AA7E-4C6F-AE9A-8CD20B0D0579";
+}), <TresorMockup.Site: 0x2829b94f0> (entity: Site; id: 0xad92711f2e84fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p11> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-23 14:12:34 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 12gWC6e6;
+passwords = "<relationship fault: 0x280accdc0 'passwords'>";
+selectAt = "2018-11-24 01:13:02 +0000";
+title = t4;
+url = ur4;
+userid = us4;
+uuid = "799AB253-FA1A-470B-95B2-D7958654719F";
+}), <TresorMockup.Site: 0x2829b94a0> (entity: Site; id: 0xad92711f2e9cfa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p13> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-24 01:15:16 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = JaaineoR;
+passwords = "<relationship fault: 0x280acb5e0 'passwords'>";
+selectAt = "2018-12-04 16:53:48 +0000";
+title = t6;
+url = ur6;
+userid = us6;
+uuid = "381D844D-73FF-41A1-ADC6-27B4B2A709A6";
+}), <TresorMockup.Site: 0x2829b9450> (entity: Site; id: 0xad92711f2e90fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p14> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-25 13:01:59 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa2;
+passwords = "<relationship fault: 0x280acb160 'passwords'>";
+selectAt = "2018-11-27 16:10:16 +0000";
+title = t2;
+url = ur2;
+userid = us2;
+uuid = "02B8D370-2BAD-494E-87B9-B802207CD18A";
+}), <TresorMockup.Site: 0x2829b9400> (entity: Site; id: 0xad92711f2e94fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p15> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-27 16:20:32 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = yf2Yp45r;
+passwords = "<relationship fault: 0x280acb440 'passwords'>";
+selectAt = "2018-11-27 16:21:50 +0000";
+title = t7;
+url = 7;
+userid = us;
+uuid = "55522A62-DD1B-491E-A115-1EA075112460";
+}), <TresorMockup.Site: 0x2829b93b0> (entity: Site; id: 0xad92711f2ee8fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p16> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-28 16:26:38 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa11;
+passwords = "<relationship fault: 0x280acce80 'passwords'>";
+selectAt = "2018-11-28 16:27:19 +0000";
+title = t11;
+url = ur11;
+userid = us11;
+uuid = "ED076CEC-771E-40B8-B61A-C1674A12D272";
+}), <TresorMockup.Site: 0x2829b9360> (entity: Site; id: 0xad92711f2eecfa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p17> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-29 16:22:50 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa14;
+passwords = "<relationship fault: 0x280accfa0 'passwords'>";
+selectAt = "2018-11-29 16:23:06 +0000";
+title = t14;
+url = ur14;
+userid = us14;
+uuid = "AB3ABDFE-5F71-4F75-BE2E-F3D8537C1CB6";
+}), <TresorMockup.Site: 0x2829b9310> (entity: Site; id: 0xad92711f2ee0fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p18> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-29 16:27:20 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa15;
+passwords = "<relationship fault: 0x280acd0c0 'passwords'>";
+selectAt = "2018-11-29 16:27:43 +0000";
+title = t15;
+url = ur15;
+userid = us15;
+uuid = "88B85DC4-8116-4829-A5CB-18954E2213A1";
+}), <TresorMockup.Site: 0x2829b92c0> (entity: Site; id: 0xad92711f2efcfa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p21> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-11-29 16:30:25 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = nil;
+passwords = "<relationship fault: 0x280acd1e0 'passwords'>";
+selectAt = nil;
+title = t;
+url = nil;
+userid = nil;
+uuid = "B5D61492-E972-4BA4-8979-A4C2695E57BE";
+}), <TresorMockup.Site: 0x2829b9220> (entity: Site; id: 0xad92711f2ec0fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p26> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-12-01 05:51:43 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa111;
+passwords = "<relationship fault: 0x280acaf20 'passwords'>";
+selectAt = "2018-12-01 05:52:11 +0000";
+title = t111;
+url = ur111;
+userid = us111;
+uuid = "78C75A43-FF30-4B6E-BCF1-2FDE1C6EE253";
+}), <TresorMockup.Site: 0x2829b90e0> (entity: Site; id: 0xad92711f2ec4fa1c <x-coredata://FA6A36BE-60F9-4C09-AFE9-9FE2663AFCE3/Site/p27> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2018-12-01 07:06:33 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = 1GHx5CIm;
+passwords = "<relationship fault: 0x280acade0 'passwords'>";
+selectAt = "2018-12-01 07:06:56 +0000";
+title = t13;
+url = ur13;
+userid = us13;
+uuid = "58826522-7B66-41C3-B55A-1A8E9E4934B2";
+})])
+CoreData: error: Property 'current' is a scalar type on class 'TresorMockup.Password' that does not match its Entity's property's scalar type.  Dynamically generated accessors do not support implicit type coercion.  Cannot generate a getter method for it.
+2018-12-05 01:59:14.052027+0900 TresorMockup[701:367517] -[TresorMockup.Password current]: unrecognized selector sent to instance 0x2829a72f0
+2018-12-05 02:04:50.280397+0900 TresorMockup[701:367517] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[TresorMockup.Password current]: unrecognized selector sent to instance 0x2829a72f0'
+*** First throw call stack:
+(0x1f508aea0 0x1f425ca40 0x1f4fa3d04 0x1f50907b8 0x1f509245c 0x1009cc6ac 0x1009cc63c 0x1f7cd14c4 0x1f7c3c4dc 0x1f7c18e08 0x10175ea88 0x1010a7e68 0x101076d94 0x1009d97a0 0x100c17664 0x100c17134 0x100c16e34 0x1009d4e80 0x1009dae60 0x1ff810214 0x1ff7d5c44 0x1ff7d59bc 0x1ff84d51c 0x101b2b22c 0x101b1cdc8 0x101b24e6c 0x101b25b98 0x101b2fbfc 0x1f4ca70dc 0x1f4ca9cec)
+libc++abi.dylib: terminating with uncaught exception of type NSException
+(lldb) 

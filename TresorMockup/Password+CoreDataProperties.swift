@@ -22,11 +22,11 @@ extension Password {
     @NSManaged public var password: String?
     @NSManaged public var selectedAt: NSDate?
     @NSManaged public var uuid: String?
-    @NSManaged public var current: Bool
+    @NSManaged public var current: Int
     @NSManaged public var site: Site?
 
     // https://qiita.com/color_box/items/fe383fd0896318ed49ee
     @objc public var section: String {
-        return self.current ? "0" : "1"
+        return self.current == 1 ? "0" : "1"
     }
 }
