@@ -22,7 +22,7 @@ extension Password {
     @NSManaged public var password: String?
     @NSManaged public var selectedAt: NSDate?
     @NSManaged public var uuid: String?
-    @NSManaged public var current: Int
+    @NSManaged public var current: Int16
     @NSManaged public var site: Site?
 
     // https://qiita.com/color_box/items/fe383fd0896318ed49ee

@@ -54,7 +54,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
 //                                }
 //        })
 
-        let sortDescriptor1 = NSSortDescriptor(key: "current",    ascending: true)
+        let sortDescriptor1 = NSSortDescriptor(key: "current",    ascending: false)
         let sortDescriptor2 = NSSortDescriptor(key: "selectedAt", ascending: false)
 
         fetchRequest.sortDescriptors = [sortDescriptor1, sortDescriptor2]
