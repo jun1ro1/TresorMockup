@@ -65,7 +65,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         let aFetchedResultsController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: self.managedObjectContext!,
-            sectionNameKeyPath: "section",
+            sectionNameKeyPath: "current",
             cacheName: CACHE_NAME)
         aFetchedResultsController.delegate = self
         _fetchedResultsController = aFetchedResultsController
