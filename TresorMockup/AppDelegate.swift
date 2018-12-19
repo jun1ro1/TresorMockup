@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         PasswordManager.shared.managedObjectContext = CoreDataManager.shared.managedObjectContext
 
         // initialize CloudKitManager
-        CloudKitManager.shared.start()
+        CloudKitManager.shared.start(persistentContainer: CoreDataManager.shared.persistentContainer)
 
         // Listening for Push Notifications
         application.registerForRemoteNotifications()
