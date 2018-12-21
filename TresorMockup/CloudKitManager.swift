@@ -118,7 +118,6 @@ class CloudKitManager: NSObject {
             self.log.debug("checkUpdates")
             #endif
             self.checkUpdates()
-
         }
     }
 
@@ -209,8 +208,9 @@ class CloudKitManager: NSObject {
                 let recordDispatchGroup = DispatchGroup()
 
                 OperationQueue.main.addOperation {
-                    for recordType in recordTypes {
-                        self.persistentContainer?.performBackgroundTask { (context) in
+                    self.persistentContainer?.performBackgroundTask { (context) in
+
+                        for recordType in recordTypes {
                             recordDispatchGroup.enter()
                             let recordIDs: [String] =
                                 changes.values.filter { $0.recordType == recordType }
@@ -241,142 +241,142 @@ class CloudKitManager: NSObject {
                                 changes[idstr]?.managedObjectID = $0.objectID
                             }
                             recordDispatchGroup.leave()
-                        } // self.persistentContainer?.performBackgroundTask
-                    } // for recordType in recordTypes
+                        } // for recordType in recordTypes
+                    } // self.persistentContainer?.performBackgroundTask
                 } // OperationQueue.main.addOperation
 
                 recordDispatchGroup.notify(queue: DispatchQueue.main) {
                     self.persistentContainer?.performBackgroundTask { (context) in
 
-                    for id in changes.keys {
-                        guard let mocr = changes[id] else {
-                            assertionFailure()
-                            continue
-                        }
-                        guard mocr.mode != [.delete] else {
-                            continue
-                        }
-                        guard let record = mocr.cloudRecord else {
-                            continue
-                        }
-                        var object: NSManagedObject
-                        if let objectID = mocr.managedObjectID  {
-                            object = context.object(with: objectID)
-                        }
-                        else {
-                            guard mocr.recordType != nil else {
+                        for id in changes.keys {
+                            guard let mocr = changes[id] else {
                                 assertionFailure()
                                 continue
                             }
+                            guard mocr.mode != [.delete] else {
+                                continue
+                            }
+                            guard let record = mocr.cloudRecord else {
+                                continue
+                            }
+                            var object: NSManagedObject
+                            if let objectID = mocr.managedObjectID  {
+                                object = context.object(with: objectID)
+                            }
+                            else {
+                                guard mocr.recordType != nil else {
+                                    assertionFailure()
+                                    continue
+                                }
 
-                            let entityDesc =
-                                NSEntityDescription.entity(forEntityName: mocr.recordType!, in: context)
-                            object =
-                                NSManagedObject(entity: entityDesc!, insertInto: context)
+                                let entityDesc =
+                                    NSEntityDescription.entity(forEntityName: mocr.recordType!, in: context)
+                                object =
+                                    NSManagedObject(entity: entityDesc!, insertInto: context)
+                            }
+
+                            record.allKeys().forEach { (key) in
+                                if record[key] is [CKRecord.Reference] {
+                                    guard object.value(forKey: key) is NSSet else {
+                                        self.log.error("Is not Set object = \(object) key = \(key)")
+                                        return
+                                    }
+                                    let method: String = "add"
+                                        + String(key.first!).uppercased()
+                                        + String(key.dropFirst())
+                                        + ":"
+                                    let selector: Selector = Selector(method)
+                                    guard object.responds(to: selector) else {
+                                        self.log.error("Dose not respond object = \(object) selector = \(method)")
+                                        return
+                                    }
+                                    let refs = record[key] as! [CKRecord.Reference]
+                                    let objs: [NSManagedObject]  = refs.compactMap {
+                                        let id = $0.recordID.recordName
+                                        guard let objid = changes[id]?.managedObjectID else {
+                                            self.log.error("referenced ID is not found id = \(id)")
+                                            return nil
+                                        }
+                                        let obj = context.object(with: objid)
+                                        return obj
+                                    }
+                                    let sets: NSSet = NSSet(array: objs)
+                                    object.perform(selector, with: sets)
+                                } // if record[key] is [CKRecord.Reference]
+                                else if record[key] is CKRecord.Reference {
+                                    let ref = record[key] as! CKRecord.Reference
+                                    let id  = ref.recordID.recordName
+                                    if let objid: NSManagedObjectID = changes[id]?.managedObjectID {
+                                        let obj = context.object(with: objid)
+                                        #if DEBUG_DETAIL
+                                        self.log.debug("recordChangedBlock setPrimitiveValue refrenced = \(String(describing: obj)) key = \(key)")
+                                        #endif
+                                        object.setPrimitiveValue(obj, forKey: key)
+                                    }
+                                    else {
+                                        self.log.error("recordChangedBlock setPrimitiveValue refrenced not found = \(id)")
+                                    }
+                                } // else if record[key] is CKRecord.Reference
+                                else if let val = record[key] {
+                                    #if DEBUG_DETAIL
+                                    self.log.debug("recordChangedBlock setPrimitiveValue val = \(String(describing: val)) key = \(key)")
+                                    #endif
+                                    object.setPrimitiveValue(val, forKey: key)
+                                } // else if let val = record[key]
+                                else {
+                                    object.setPrimitiveValue(nil, forKey: key)
+                                } // else
+                            } // record.allKeys().forEach
+                            self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: object ))")
+                        } // for id in changes.keys
+
+
+                        let debugstr: String = {
+                            let values = changes.values.map {
+                                [
+                                    $0.recordID!.recordName,
+                                    $0.recordType ?? "nil",
+                                    $0.mode.String,
+                                    //                            ($0.managedObject == nil ? "nil" : $0.managedObject!.description)
+                                    ].reduce("", {$0 + " " + $1})
+                            }
+                            return values.reduce("", { $0 + $1 + "\n" })
+                        }()
+                        self.log.debug("changes =\n" + "recordName recordType mode managedObject\n" +
+                            "\(debugstr)")
+
+                        let dels: [NSManagedObject] = changes.values.compactMap {
+                            guard $0.mode.contains(.delete) else {
+                                return nil
+                            }
+                            guard let objid = $0.managedObjectID else {
+                                return nil
+                            }
+                            return context.object(with: objid)
+                        }
+                        dels.forEach {
+                            self.log.debug("delete idstr = \(String(describing: $0.idstr))")
+                            context.delete($0)
                         }
 
-                       record.allKeys().forEach { (key) in
-                            if record[key] is [CKRecord.Reference] {
-                                guard object.value(forKey: key) is NSSet else {
-                                    self.log.error("Is not Set object = \(object) key = \(key)")
-                                    return
-                                }
-                                let method: String = "add"
-                                    + String(key.first!).uppercased()
-                                    + String(key.dropFirst())
-                                    + ":"
-                                let selector: Selector = Selector(method)
-                                guard object.responds(to: selector) else {
-                                    self.log.error("Dose not respond object = \(object) selector = \(method)")
-                                    return
-                                }
-                                let refs = record[key] as! [CKRecord.Reference]
-                                let objs: [NSManagedObject]  = refs.compactMap {
-                                    let id = $0.recordID.recordName
-                                    guard let objid = changes[id]?.managedObjectID else {
-                                        self.log.error("referenced ID is not found id = \(id)")
-                                        return nil
-                                    }
-                                    let obj = context.object(with: objid)
-                                    return obj
-                                }
-                                let sets: NSSet = NSSet(array: objs)
-                                object.perform(selector, with: sets)
-                            } // if record[key] is [CKRecord.Reference]
-                            else if record[key] is CKRecord.Reference {
-                                let ref = record[key] as! CKRecord.Reference
-                                let id  = ref.recordID.recordName
-                                if let objid: NSManagedObjectID = changes[id]?.managedObjectID {
-                                    let obj = context.object(with: objid)
-                                    #if DEBUG_DETAIL
-                                    self.log.debug("recordChangedBlock setPrimitiveValue refrenced = \(String(describing: obj)) key = \(key)")
-                                    #endif
-                                    object.setPrimitiveValue(obj, forKey: key)
-                                }
-                                else {
-                                    self.log.error("recordChangedBlock setPrimitiveValue refrenced not found = \(id)")
-                                }
-                            } // else if record[key] is CKRecord.Reference
-                            else if let val = record[key] {
-                                #if DEBUG_DETAIL
-                                self.log.debug("recordChangedBlock setPrimitiveValue val = \(String(describing: val)) key = \(key)")
-                                #endif
-                                object.setPrimitiveValue(val, forKey: key)
-                            } // else if let val = record[key]
-                            else {
-                                object.setPrimitiveValue(nil, forKey: key)
-                            } // else
-                        } // record.allKeys().forEach
-                        self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: object ))")
-                    } // for id in changes.keys
+                        do {
+                            try context.save()
+                        }
+                        catch {
+                            self.log.error("context.save error")
+                        }
 
-
-                let debugstr: String = {
-                    let values = changes.values.map {
-                        [
-                            $0.recordID!.recordName,
-                            $0.recordType ?? "nil",
-                            $0.mode.String,
-//                            ($0.managedObject == nil ? "nil" : $0.managedObject!.description)
-                            ].reduce("", {$0 + " " + $1})
-                    }
-                    return values.reduce("", { $0 + $1 + "\n" })
-                }()
-                self.log.debug("changes =\n" + "recordName recordType mode managedObject\n" +
-                    "\(debugstr)")
-
-                let dels: [NSManagedObject] = changes.values.compactMap {
-                    guard $0.mode.contains(.delete) else {
-                        return nil
-                    }
-                    guard let objid = $0.managedObjectID else {
-                        return nil
-                    }
-                    return context.object(with: objid)
-                }
-                dels.forEach {
-                    self.log.debug("delete idstr = \(String(describing: $0.idstr))")
-                    context.delete($0)
-                }
-
-                do {
-                    try context.save()
-                }
-                catch {
-                    self.log.error("context.save error")
-                }
-
-                let center = NotificationCenter.default
-                let name   = Notification.Name(rawValue: CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
-                let userInfo: [AnyHashable: Any] =
-                    [ CloudKitManager.CLOUDKIT_MANAGER_DELETED:
-                        changes.values.compactMap {
-                            $0.mode.contains(.delete) ? $0.cloudRecord : nil },
-                      CloudKitManager.CLOUDKIT_MANAGER_UPDATED:
-                        changes.values.compactMap {
-                            $0.mode == [.save] ? $0.cloudRecord : nil }
-                ]
-                center.post(name: name, object: self, userInfo: userInfo)
+                        let center = NotificationCenter.default
+                        let name   = Notification.Name(rawValue: CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+                        let userInfo: [AnyHashable: Any] =
+                            [ CloudKitManager.CLOUDKIT_MANAGER_DELETED:
+                                changes.values.compactMap {
+                                    $0.mode.contains(.delete) ? $0.cloudRecord : nil },
+                              CloudKitManager.CLOUDKIT_MANAGER_UPDATED:
+                                changes.values.compactMap {
+                                    $0.mode == [.save] ? $0.cloudRecord : nil }
+                        ]
+                        center.post(name: name, object: self, userInfo: userInfo)
                     } // self.persistentContainer?.performBackgroundTask
                 } // recordDispatchGroup.notify(queue: DispatchQueue.main) {
             } // recordOperation.fetchRecordZoneChangesCompletionBlock
@@ -578,7 +578,7 @@ class CloudKitManager: NSObject {
 
             managedObjectCloudRecordRelations.keys.forEach {
                 let mocr = managedObjectCloudRecordRelations[$0]
-                self.log.debug("key = \($0)\nmocr = \(String(describing: mocr))\n")
+                self.log.debug("key = \($0)\nmocr = \(mocr?.description ?? "nil"))\n")
             }
 
             toSave = managedObjectCloudRecordRelations.values.compactMap {
@@ -855,6 +855,19 @@ fileprivate struct ManagedObjectCloudRecord {
         }
     }
 
+    public var description: String {
+        var str = ""
+        str += "recordID = " +
+            (self.recordID?.recordName ?? "nil")
+        str += " " + (self.recordType ?? "UNKNOWN Record Type")
+        str += " [" + self.mode.String + "]\n"
+        str += "managedObjectID =" +
+            (self.managedObjectID?.uriRepresentation().absoluteString ?? "nil") + "\n"
+        str += "cloudRecord =" +
+            (self.cloudRecord?.recordID.recordName ?? "nil") + "\n"
+        str += "keys = " + keys.joined(separator: ", ") + "\n"
+        return str
+    }
 }
 
 fileprivate struct UpdatedObject {

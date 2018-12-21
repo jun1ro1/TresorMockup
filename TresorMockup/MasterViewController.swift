@@ -59,7 +59,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     @objc
     func updateUI(notification: Notification) {
-        SwiftyBeaver.self.debug("notification = \(notification)")
+//        SwiftyBeaver.self.debug("notification = \(notification)")
+        SwiftyBeaver.self.debug("notification received")
 
         let queue = OperationQueue.main
         queue.addOperation {
