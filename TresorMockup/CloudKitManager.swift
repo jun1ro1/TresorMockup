@@ -90,8 +90,8 @@ class CloudKitManager: NSObject {
         fetchSubscriptionOperation.fetchSubscriptionCompletionBlock = {
             (subscriptions, error) in
             self.log.debug("CKFetchSubscriptionsOperation" +
-                " error = \(String(describing: error))" +
-                " subscriptions = \(String(describing: subscriptions))")
+                " error = \(String(describing: error))")
+//                " subscriptions = \(String(describing: subscriptions))")
 
             if error != nil || subscriptions?[self.subscriptionID] == nil {
                 let subscription = CKDatabaseSubscription(subscriptionID: self.bundleID)
@@ -232,14 +232,15 @@ class CloudKitManager: NSObject {
                                     self.log.error("fetch error")
                                 }
                             }
-                            self.log.debug("context fetch result = \(String(describing: result))")
+//                            self.log.debug("context fetch result = \(String(describing: result))")
 
                             result?.forEach {
                                 guard let idstr = $0.idstr else {
                                     return
                                 }
                                 changes[idstr]?.managedObjectID = $0.objectID
-                            }
+                                self.log.debug("context fetch result = \(idstr)")
+                          }
                             recordDispatchGroup.leave()
                         } // for recordType in recordTypes
                     } // self.persistentContainer?.performBackgroundTask
