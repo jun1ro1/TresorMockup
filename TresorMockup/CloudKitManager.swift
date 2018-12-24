@@ -224,13 +224,14 @@ class CloudKitManager: NSObject {
 
                 fetchRecordsDispatchGroup.notify(queue: DispatchQueue.main) {
                     self.persistentContainer?.performBackgroundTask { (context) in
+                        recordDispatchGroup.enter()
+
                         let recordTypes = Set( changes.values.compactMap { $0.recordType } )
                         #if DEBUG_DETAIL
                         self.log.debug("recordTypes = \(recordTypes)")
                         #endif
 
                         for recordType in recordTypes {
-                            recordDispatchGroup.enter()
                             let recordIDs: [String] =
                                 changes.values.filter { $0.recordType == recordType }
                                     .compactMap { return $0.recordID?.recordName }
@@ -260,8 +261,8 @@ class CloudKitManager: NSObject {
                                 changes[idstr]?.managedObjectID = $0.objectID
                                 self.log.debug("context fetch result = \(idstr)")
                             }
-                            recordDispatchGroup.leave()
                         } // for recordType in recordTypes
+                        recordDispatchGroup.leave()
                     } // self.persistentContainer?.performBackgroundTask
                 } // OperationQueue.main.addOperation
 
