@@ -91,7 +91,7 @@ class CloudKitManager: NSObject {
             (subscriptions, error) in
             self.log.debug("CKFetchSubscriptionsOperation" +
                 " error = \(String(describing: error))")
-//                " subscriptions = \(String(describing: subscriptions))")
+            //                " subscriptions = \(String(describing: subscriptions))")
 
             if error != nil || subscriptions?[self.subscriptionID] == nil {
                 let subscription = CKDatabaseSubscription(subscriptionID: self.bundleID)
@@ -193,22 +193,41 @@ class CloudKitManager: NSObject {
                         }
                     }
                 }
+                var recordIDs: [CKRecord.ID] = []
                 refered.forEach {
                     if changes[$0] == nil {
                         let recordID =  CKRecord.ID(recordName: $0, zoneID: self.zone.zoneID)
                         changes[$0] = ManagedObjectCloudRecord(recordID: recordID)
+                        recordIDs.append(recordID)
                     }
                 }
 
-                let recordTypes = Set( changes.values.compactMap { $0.recordType } )
-                #if DEBUG_DETAIL
-                self.log.debug("recordTypes = \(recordTypes)")
-                #endif
+                let fetchRecordsDispatchGroup = DispatchGroup()
+                let fetchRecordsOperation = CKFetchRecordsOperation(recordIDs: recordIDs)
+                fetchRecordsOperation.fetchRecordsCompletionBlock = { (records, error) in
+                    fetchRecordsDispatchGroup.enter()
+                    self.log.debug("CKFetchRecordsOperation = \(String(describing: error))")
+                    records?.forEach {
+                        let (_, record) = $0
+                        let id = record.recordID.recordName
+                        guard changes[id]?.cloudRecord == nil else {
+                            assertionFailure()
+                            return
+                        }
+                        changes[id]?.cloudRecord = record
+                    }
+                    fetchRecordsDispatchGroup.leave()
+                }
+                self.database.add(fetchRecordsOperation)
 
                 let recordDispatchGroup = DispatchGroup()
 
-                OperationQueue.main.addOperation {
+                fetchRecordsDispatchGroup.notify(queue: DispatchQueue.main) {
                     self.persistentContainer?.performBackgroundTask { (context) in
+                        let recordTypes = Set( changes.values.compactMap { $0.recordType } )
+                        #if DEBUG_DETAIL
+                        self.log.debug("recordTypes = \(recordTypes)")
+                        #endif
 
                         for recordType in recordTypes {
                             recordDispatchGroup.enter()
@@ -232,7 +251,7 @@ class CloudKitManager: NSObject {
                                     self.log.error("fetch error")
                                 }
                             }
-//                            self.log.debug("context fetch result = \(String(describing: result))")
+                            //                            self.log.debug("context fetch result = \(String(describing: result))")
 
                             result?.forEach {
                                 guard let idstr = $0.idstr else {
@@ -240,7 +259,7 @@ class CloudKitManager: NSObject {
                                 }
                                 changes[idstr]?.managedObjectID = $0.objectID
                                 self.log.debug("context fetch result = \(idstr)")
-                          }
+                            }
                             recordDispatchGroup.leave()
                         } // for recordType in recordTypes
                     } // self.persistentContainer?.performBackgroundTask
@@ -332,19 +351,27 @@ class CloudKitManager: NSObject {
                         } // for id in changes.keys
 
 
+                        //                        let debugstr: String = {
+                        //                            let values = changes.values.map {
+                        //                                [
+                        //                                    $0.recordID!.recordName,
+                        //                                    $0.recordType ?? "nil",
+                        //                                    $0.mode.String,
+                        //                                    //                            ($0.managedObject == nil ? "nil" : $0.managedObject!.description)
+                        //                                    ].reduce("", {$0 + " " + $1})
+                        //                            }
+                        //                            return values.reduce("", { $0 + $1 + "\n" })
+                        //                        }()
                         let debugstr: String = {
-                            let values = changes.values.map {
-                                [
-                                    $0.recordID!.recordName,
-                                    $0.recordType ?? "nil",
-                                    $0.mode.String,
-                                    //                            ($0.managedObject == nil ? "nil" : $0.managedObject!.description)
-                                    ].reduce("", {$0 + " " + $1})
-                            }
-                            return values.reduce("", { $0 + $1 + "\n" })
+                            return changes.map { (arg) -> String in
+                                let (key, val) = arg
+                                var str = key + ":\n  "
+                                str += val.description
+                                    .replacingOccurrences(of: "\n", with:"\n  ")
+                                return str
+                                }.reduce("", {$0 + "\n" + $1})
                         }()
-                        self.log.debug("changes =\n" + "recordName recordType mode managedObject\n" +
-                            "\(debugstr)")
+                        self.log.debug("changes =\n \(debugstr)")
 
                         let dels: [NSManagedObject] = changes.values.compactMap {
                             guard $0.mode.contains(.delete) else {

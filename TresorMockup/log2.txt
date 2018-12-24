@@ -1,27 +1,32 @@
 iPhone 5s
 
-07:28:16.273  💚 DEBUG AppDelegate.application():27 - Application starts
-07:28:16.311  💚 DEBUG MasterViewController.viewDidLoad():37 - viewDidLoad
-07:28:16.526  💚 DEBUG AppDelegate.application():102 - Remote Notification did register
-07:28:17.518 0x2836bcfc0 💚 DEBUG CloudKitManager.start():68 - CKFetchRecordZonesOperation error = nil zoneIDs = Optional([<CKRecordZoneID: 0x282332540; ownerName=__defaultOwner__, zoneName=com.gmail.jun1ro1.TresorMockup_Zone>: <CKRecordZone: 0x28111a1c0; zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__, capabilities=(Atomic,Sync,Share)>])
-07:28:17.884 0x2836bcfc0 💚 DEBUG CloudKitManager.start():92 - CKFetchSubscriptionsOperation error = nil
-07:28:18.167 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():144 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x282115bb0; data=AQAAAWfS4eH4>) more = false
-07:28:18.510 0x2836bf280 💚 DEBUG CloudKitManager.checkUpdates():180 - fetchRecordZoneChangesCompletionBlock error = nil
-07:28:18.515 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():224 - context fetch request = <NSFetchRequest: 0x280801030> (entity: Password; predicate: (uuid IN {"2D26C708-C9E0-471E-891D-2EE6D7514AB2", "68EFABD1-8544-4081-B17F-C499BAC2C78D", "D92E84ED-FE5A-444E-AB07-14FB29F8AC90", "888E91CB-C103-4EE1-B8A4-4B3A4E8FFC71", "FE23FC6C-ECB2-4DB0-866D-0867F46776F3"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
-07:28:18.525 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = FE23FC6C-ECB2-4DB0-866D-0867F46776F3
-07:28:18.526 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = D92E84ED-FE5A-444E-AB07-14FB29F8AC90
-07:28:18.527 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = D92E84ED-FE5A-444E-AB07-14FB29F8AC90
-07:28:18.528 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 2D26C708-C9E0-471E-891D-2EE6D7514AB2
-07:28:18.530 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 888E91CB-C103-4EE1-B8A4-4B3A4E8FFC71
-07:28:18.533 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 68EFABD1-8544-4081-B17F-C499BAC2C78D
-07:28:18.534 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 888E91CB-C103-4EE1-B8A4-4B3A4E8FFC71
-07:28:18.535 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = D92E84ED-FE5A-444E-AB07-14FB29F8AC90
-07:28:18.540 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 68EFABD1-8544-4081-B17F-C499BAC2C78D
-07:28:18.541 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 2D26C708-C9E0-471E-891D-2EE6D7514AB2
-07:28:18.542 0x2836bf300 💚 DEBUG CloudKitManager.checkUpdates():331 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x28000c410> (entity: Site; id: 0x28230aea0 <x-coredata:///Site/t91C7AC5C-4840-4C5D-BAC7-CCF67D2D52E12> ; data: {
+11:20:27.370  💚 DEBUG AppDelegate.application():27 - Application starts
+11:20:27.408  💚 DEBUG MasterViewController.viewDidLoad():37 - viewDidLoad
+11:20:27.620  💚 DEBUG AppDelegate.application():102 - Remote Notification did register
+11:20:29.385 0x282946740 💚 DEBUG CloudKitManager.start():68 - CKFetchRecordZonesOperation error = nil zoneIDs = Optional([<CKRecordZoneID: 0x283cc9520; ownerName=__defaultOwner__, zoneName=com.gmail.jun1ro1.TresorMockup_Zone>: <CKRecordZone: 0x280ee17a0; zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__, capabilities=(Atomic,Sync,Share)>])
+11:20:29.653 0x282942fc0 💚 DEBUG CloudKitManager.start():92 - CKFetchSubscriptionsOperation error = nil
+11:20:29.857 0x282942fc0 💚 DEBUG CloudKitManager.checkUpdates():144 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x283ee22b0; data=AQAAAWfeAy7J>) more = false
+11:20:30.080 0x2829437c0 💚 DEBUG CloudKitManager.checkUpdates():180 - fetchRecordZoneChangesCompletionBlock error = nil
+11:28:47.343 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():243 - context fetch request = <NSFetchRequest: 0x2817e7100> (entity: Site; predicate: (uuid IN {"99E5F3C5-3B82-438D-8FE5-F55871FA799A"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+11:28:47.357 0x28294ed00 ❤️ ERROR CloudKitManager.checkUpdates():337 - recordChangedBlock setPrimitiveValue refrenced not found = 99E5F3C5-3B82-438D-8FE5-F55871FA799A
+11:28:47.360 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 99E5F3C5-3B82-438D-8FE5-F55871FA799A
+11:28:47.361 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 99E5F3C5-3B82-438D-8FE5-F55871FA799A
+11:28:47.362 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 99E5F3C5-3B82-438D-8FE5-F55871FA799A
+11:28:47.366 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 99E5F3C5-3B82-438D-8FE5-F55871FA799A
+11:28:47.368 0x28294ed00 💚 DEBUG CloudKitManager.checkUpdates():350 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x281fca940> (entity: Password; id: 0x283cc4f60 <x-coredata:///Password/t06581154-E680-4235-9CB5-678B02437DAC2> ; data: {
+active = 1;
+createdAt = "2018-12-24 02:05:56 +0000";
+current = 1;
+password = pa1;
+selectedAt = "2018-12-24 02:05:56 +0000";
+site = nil;
+uuid = "4116335C-DF07-42A8-A566-8DFFC6E6CA8F";
+})
+11:28:47.372 0x28294ed00 ❤️ ERROR CloudKitManager.checkUpdates():317 - referenced ID is not found id = 4116335C-DF07-42A8-A566-8DFFC6E6CA8F
+11:28:47.373 0x28294ed00 💚 DEBUG CloudKitManager.checkUpdates():350 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x281ff5630> (entity: Site; id: 0x8bacab526778cffb <x-coredata://764E2CE4-BE90-4053-B7E6-515AF3C9256F/Site/p4> ; data: {
 active = 1;
 charSet = 136331264;
-createdAt = "2018-12-21 12:52:03 +0000";
+createdAt = "2018-12-24 02:05:40 +0000";
 loginAt = nil;
 maxLength = 8;
 memo = nil;
@@ -29,30 +34,30 @@ passwordCurrent = "";
 passwords =     (
 );
 selectAt = nil;
-title = t10;
-url = ur10;
-userid = us10;
-uuid = "4ED29C50-37EA-4A83-80EC-36F854F113FB";
+title = t1;
+url = ur1;
+userid = us1;
+uuid = "99E5F3C5-3B82-438D-8FE5-F55871FA799A";
 })
-07:28:18.544 0x2836bf300 ❤️ ERROR CloudKitManager.checkUpdates():318 - recordChangedBlock setPrimitiveValue refrenced not found = 1A3353DB-DA84-4B55-BF79-26A5C7CC7FD2
-07:28:18.552 0x2836bf300 💚 DEBUG CloudKitManager.checkUpdates():331 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280032580> (entity: Password; id: 0xcabb8673dcb7b688 <x-coredata://644A2A55-4113-42EC-A7B8-4A8E288DD6C7/Password/p10> ; data: <fault>)
-07:28:18.554 0x2836bf300 ❤️ ERROR CloudKitManager.checkUpdates():318 - recordChangedBlock setPrimitiveValue refrenced not found = 4ED29C50-37EA-4A83-80EC-36F854F113FB
-07:28:18.555 0x2836bf300 💚 DEBUG CloudKitManager.checkUpdates():331 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280032a30> (entity: Password; id: 0xcabb8673dcbbb688 <x-coredata://644A2A55-4113-42EC-A7B8-4A8E288DD6C7/Password/p9> ; data: <fault>)
-07:28:18.556 0x2836bf300 💚 DEBUG CloudKitManager.checkUpdates():331 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280032bc0> (entity: Password; id: 0xcabb8673dcbfb688 <x-coredata://644A2A55-4113-42EC-A7B8-4A8E288DD6C7/Password/p8> ; data: <fault>)
-07:28:18.562 0x2836bf300 💚 DEBUG CloudKitManager.checkUpdates():331 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280032cb0> (entity: Password; id: 0xcabb8673dc83b688 <x-coredata://644A2A55-4113-42EC-A7B8-4A8E288DD6C7/Password/p7> ; data: <fault>)
-07:28:18.564 0x2836bf300 💚 DEBUG CloudKitManager.checkUpdates():331 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280032da0> (entity: Password; id: 0xcabb8673dc9bb688 <x-coredata://644A2A55-4113-42EC-A7B8-4A8E288DD6C7/Password/p1> ; data: <fault>)
-07:28:18.565 0x2836bf300 💚 DEBUG CloudKitManager.checkUpdates():346 - changes =
-recordName recordType mode managedObject
-4ED29C50-37EA-4A83-80EC-36F854F113FB Site save
-2D26C708-C9E0-471E-891D-2EE6D7514AB2 Password save
-50AC4C2E-6B77-4AA3-9142-2A75BE4C6472 Site delete
-1A3353DB-DA84-4B55-BF79-26A5C7CC7FD2 nil UNKNOWN
-68EFABD1-8544-4081-B17F-C499BAC2C78D Password save
-D92E84ED-FE5A-444E-AB07-14FB29F8AC90 Password save
-888E91CB-C103-4EE1-B8A4-4B3A4E8FFC71 Password save
-FE23FC6C-ECB2-4DB0-866D-0867F46776F3 Password save
-07:28:18.569 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():224 - context fetch request = <NSFetchRequest: 0x280804380> (entity: Site; predicate: (uuid IN {"4ED29C50-37EA-4A83-80EC-36F854F113FB", "50AC4C2E-6B77-4AA3-9142-2A75BE4C6472"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
-07:28:18.571 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 4ED29C50-37EA-4A83-80EC-36F854F113FB
-07:28:18.573 0x2836bcfc0 💚 DEBUG CloudKitManager.checkUpdates():242 - context fetch result = 4ED29C50-37EA-4A83-80EC-36F854F113FB
-07:28:18.574 0x2836bf300 💚 DEBUG MasterViewController.updateUI():63 - notification received
+11:28:47.383 0x28294ed00 💚 DEBUG CloudKitManager.checkUpdates():374 - changes =
+
+4116335C-DF07-42A8-A566-8DFFC6E6CA8F:
+recordID = 4116335C-DF07-42A8-A566-8DFFC6E6CA8F Password [save]
+managedObjectID =nil
+cloudRecord =4116335C-DF07-42A8-A566-8DFFC6E6CA8F
+keys =
+
+99E5F3C5-3B82-438D-8FE5-F55871FA799A:
+recordID = 99E5F3C5-3B82-438D-8FE5-F55871FA799A Site [save]
+managedObjectID =x-coredata://764E2CE4-BE90-4053-B7E6-515AF3C9256F/Site/p4
+cloudRecord =99E5F3C5-3B82-438D-8FE5-F55871FA799A
+keys =
+11:28:47.386 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():243 - context fetch request = <NSFetchRequest: 0x2817faa70> (entity: Password; predicate: (uuid IN {"4116335C-DF07-42A8-A566-8DFFC6E6CA8F"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+11:28:47.387 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 4116335C-DF07-42A8-A566-8DFFC6E6CA8F
+11:28:59.486 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 4116335C-DF07-42A8-A566-8DFFC6E6CA8F
+11:28:59.492 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 4116335C-DF07-42A8-A566-8DFFC6E6CA8F
+11:28:59.495 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 4116335C-DF07-42A8-A566-8DFFC6E6CA8F
+11:28:59.498 0x282943d80 💚 DEBUG CloudKitManager.checkUpdates():261 - context fetch result = 4116335C-DF07-42A8-A566-8DFFC6E6CA8F
+11:28:59.501 0x28294ed00 💚 DEBUG MasterViewController.updateUI():63 - notification received
+11:28:59.510 0x282942fc0 💚 DEBUG CloudKitManager.checkUpdates():209 - CKFetchRecordsOperation = nil
 
