@@ -193,25 +193,25 @@ class CloudKitManager: NSObject {
                         }
                     }
                 }
-                var recordIDs: [CKRecord.ID] = []
-                refered.forEach {
-                    if changes[$0] == nil {
-                        let recordID =  CKRecord.ID(recordName: $0, zoneID: self.zone.zoneID)
-                        changes[$0] = ManagedObjectCloudRecord(recordID: recordID)
-                        recordIDs.append(recordID)
-                    }
-                }
 
-                let fetchRecordsDispatchGroup = DispatchGroup()
+                let recordIDs: [CKRecord.ID] =
+                    refered.map {
+                        CKRecord.ID(recordName: $0, zoneID: self.zone.zoneID)
+                }
                 let fetchRecordsOperation = CKFetchRecordsOperation(recordIDs: recordIDs)
+                let fetchRecordsDispatchGroup = DispatchGroup()
+                fetchRecordsDispatchGroup.enter()
                 fetchRecordsOperation.fetchRecordsCompletionBlock = { (records, error) in
-                    fetchRecordsDispatchGroup.enter()
                     self.log.debug("CKFetchRecordsOperation = \(String(describing: error))")
                     records?.forEach {
                         let (_, record) = $0
                         let id = record.recordID.recordName
+                        if changes[id] == nil {
+                            let recordID =  CKRecord.ID(recordName: id, zoneID: self.zone.zoneID)
+                            changes[id] = ManagedObjectCloudRecord(recordID: recordID)
+                        }
                         guard changes[id]?.cloudRecord == nil else {
-                            assertionFailure()
+                            self.log.debug("changes[\(id)] = \(String(describing: changes[id]!.cloudRecord)) :not nil")
                             return
                         }
                         changes[id]?.cloudRecord = record
@@ -221,11 +221,9 @@ class CloudKitManager: NSObject {
                 self.database.add(fetchRecordsOperation)
 
                 let recordDispatchGroup = DispatchGroup()
-
+                recordDispatchGroup.enter()
                 fetchRecordsDispatchGroup.notify(queue: DispatchQueue.main) {
                     self.persistentContainer?.performBackgroundTask { (context) in
-                        recordDispatchGroup.enter()
-
                         let recordTypes = Set( changes.values.compactMap { $0.recordType } )
                         #if DEBUG_DETAIL
                         self.log.debug("recordTypes = \(recordTypes)")
