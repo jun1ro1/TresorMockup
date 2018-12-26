@@ -266,21 +266,16 @@ class CloudKitManager: NSObject {
 
                 recordDispatchGroup.notify(queue: DispatchQueue.main) {
                     self.persistentContainer?.performBackgroundTask { (context) in
-
                         for id in changes.keys {
                             guard let mocr = changes[id] else {
                                 assertionFailure()
                                 continue
                             }
-                            guard mocr.mode != [.delete] else {
-                                continue
-                            }
-                            guard let record = mocr.cloudRecord else {
-                                continue
-                            }
+
                             var object: NSManagedObject
                             if let objectID = mocr.managedObjectID  {
                                 object = context.object(with: objectID)
+                                changes[id]?.managedObject = object
                             }
                             else {
                                 guard mocr.recordType != nil else {
@@ -292,8 +287,23 @@ class CloudKitManager: NSObject {
                                     NSEntityDescription.entity(forEntityName: mocr.recordType!, in: context)
                                 object =
                                     NSManagedObject(entity: entityDesc!, insertInto: context)
+                                changes[id]?.managedObject   = object
+                                changes[id]?.managedObjectID = object.objectID
                             }
+                            self.log.debug("changes[\(id)].managedObject = "
+                                + object.objectID.uriRepresentation().absoluteString)
 
+                        }
+
+                        for id in changes.keys {
+                            guard let object: NSManagedObject = changes[id]?.managedObject else {
+                                assertionFailure()
+                                continue
+                            }
+                            guard let record: CKRecord = changes[id]?.cloudRecord else {
+                                assertionFailure()
+                                continue
+                            }
                             record.allKeys().forEach { (key) in
                                 if record[key] is [CKRecord.Reference] {
                                     guard object.value(forKey: key) is NSSet else {
@@ -656,11 +666,12 @@ fileprivate struct OperationMode: OptionSet {
 }
 
 fileprivate struct ManagedObjectCloudRecord {
-    var recordID:      CKRecord.ID?
+    var recordID:        CKRecord.ID?
     var managedObjectID: NSManagedObjectID?
-    var keys:          [String]
-    var _cloudRecord:  CKRecord?
-    var _cloudChanged: Bool
+    var managedObject:   NSManagedObject?
+    var keys:            [String]
+    var _cloudRecord:    CKRecord?
+    var _cloudChanged:   Bool
 
     var recordType:    CKRecord.RecordType?
     var mode:          OperationMode
@@ -668,6 +679,7 @@ fileprivate struct ManagedObjectCloudRecord {
     init() {
         self.recordID      = nil
         self.managedObjectID = nil
+        self.managedObject = nil
         self.keys          = []
         self._cloudRecord  = nil
         self.recordType    = nil
@@ -890,7 +902,9 @@ fileprivate struct ManagedObjectCloudRecord {
         str += " [" + self.mode.String + "]\n"
         str += "managedObjectID =" +
             (self.managedObjectID?.uriRepresentation().absoluteString ?? "nil") + "\n"
-        str += "cloudRecord =" +
+        str += "managedObject =" +
+            (self.managedObject?.entity.name ?? "nil") + "\n"
+       str += "cloudRecord =" +
             (self.cloudRecord?.recordID.recordName ?? "nil") + "\n"
         str += "keys = " + keys.joined(separator: ", ") + "\n"
         return str
