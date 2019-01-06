@@ -192,6 +192,9 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
             self.passwordManager?.select(password: self.selected, for: self.detailItem!)
         }
         if let context = self.detailItem?.managedObjectContext {
+            guard context.hasChanges else {
+                return
+            }
             do {
                 try context.save()
             }

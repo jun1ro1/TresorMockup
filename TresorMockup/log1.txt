@@ -1,223 +1,2650 @@
-iPad Air
+15:52:24.868  💚 DEBUG AppDelegate.application():27 - Application starts
 
-02:08:32.072  💚 DEBUG AppDelegate.application():27 - Application starts
-02:08:32.108  💚 DEBUG MasterViewController.viewDidLoad():37 - viewDidLoad
-02:08:32.556  💚 DEBUG AppDelegate.application():102 - Remote Notification did register
-02:08:33.399 0x282bc72c0 💚 DEBUG CloudKitManager.start():68 - CKFetchRecordZonesOperation error = Optional(<CKError 0x28301ac40: "Partial Failure" (2/1011); "Failed to fetch some record zones"; uuid = 6CF710E5-9B0B-4BE3-9239-8E1B5C16221B; container ID = "iCloud.com.gmail.jun1ro1.TresorMockup"; partial errors: {
-com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__ = <CKError 0x28301ac10: "Zone Not Found" (26/2036); server message = "Zone 'com.gmail.jun1ro1.TresorMockup_Zone' does not exist"; uuid = 6CF710E5-9B0B-4BE3-9239-8E1B5C16221B>
-}>) zoneIDs = Optional([:])
-02:08:33.969 0x282bc72c0 💚 DEBUG CloudKitManager.start():77 - CKModifyRecordZonesOperation error = nil
-02:08:34.198 0x282bdb800 💚 DEBUG CloudKitManager.start():92 - CKFetchSubscriptionsOperation error = Optional(<CKError 0x283013b70: "Partial Failure" (2/1011); "Failed to fetch some subscriptions"; uuid = C0B1DB02-EB6E-433E-8747-A2FA313C2D62; container ID = "iCloud.com.gmail.jun1ro1.TresorMockup"; partial errors: {
-com.gmail.jun1ro1.TresorMockup = <CKError 0x28301b210: "Unknown Item" (11/2003); server message = "subscription not found"; uuid = C0B1DB02-EB6E-433E-8747-A2FA313C2D62>
-}>)
-02:08:34.476 0x282bdb800 💚 DEBUG CloudKitManager.start():104 - CKModifySubscriptionsOperation error = nil
-02:08:34.768 0x282bed740 💚 DEBUG CloudKitManager.checkUpdates():144 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x283c7d010; data=AQAAAWfrfPa94FnDEAkwEemximgFylxc0A==>) more = false
-02:08:35.040 0x282bedd00 💚 DEBUG CloudKitManager.checkUpdates():180 - fetchRecordZoneChangesCompletionBlock error = nil
-02:08:35.045 0x282bedd00 💚 DEBUG CloudKitManager.checkUpdates():205 - CKFetchRecordsOperation = nil
-02:08:35.046 0x282beef00 💚 DEBUG CloudKitManager.checkUpdates():383 - changes =
-02:08:35.054 0x282beef00 💚 DEBUG MasterViewController.updateUI():63 - notification received
-02:08:35.056 0x282beef00 💚 DEBUG DetailViewController.updateUI():196 - notification received
-2018-12-27 02:09:12.745088+0900 TresorMockup[314:79181] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
-2018-12-27 02:09:13.087093+0900 TresorMockup[314:79181] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /private/var/containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
-2018-12-27 02:09:13.090805+0900 TresorMockup[314:79181] [MC] Reading from public effective user settings.
-changed passwordCurrent = Optional(pa11)
-02:09:32.623  💚 DEBUG CloudKitManager.contextWillSave():452 - contextWillSave
-02:09:32.677  💚 DEBUG CloudKitManager.contextDidSave():465 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x280174870>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x283e20320>, AnyHashable("inserted"): {(
-<TresorMockup.Site: 0x281d50910> (entity: Site; id: 0x9de0063c643a9ada <x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Site/p1> ; data: {
-active = 1;
-charSet = 136331264;
-createdAt = "2018-12-26 17:09:12 +0000";
-loginAt = nil;
-maxLength = 8;
-memo = nil;
-passwordCurrent = pa11;
-passwords =     (
-"0x9de0063c643a9ad8 <x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Password/p1>"
-);
-selectAt = "2018-12-26 17:09:32 +0000";
-title = t11;
-url = ur11;
-userid = us11;
-uuid = "C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA";
-}),
-<TresorMockup.Password: 0x281d391d0> (entity: Password; id: 0x9de0063c643a9ad8 <x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Password/p1> ; data: {
-active = 1;
-createdAt = "2018-12-26 17:09:32 +0000";
-current = 1;
-password = pa11;
-selectedAt = "2018-12-26 17:09:32 +0000";
-site = "0x9de0063c643a9ada <x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Site/p1>";
-uuid = "83EA201C-804F-46C3-8AB5-14F704C76D70";
-})
-)}, AnyHashable("updated"): {(
-)}])
-02:09:32.693  💚 DEBUG CloudKitManager.contextDidSave():556 - key = C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA
-mocr = Optional(TresorMockup.(unknown context at 0x100266428).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x283e20420; recordName=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0x9de0063c643a9ada <x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Site/p1>), managedObject: nil, keys: ["maxLength", "selectAt", "createdAt", "uuid", "passwords", "passwordCurrent", "active", "userid", "title", "url", "charSet"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x1002663f8).OperationMode(rawValue: 1)))
-02:09:32.697  💚 DEBUG CloudKitManager.contextDidSave():556 - key = 83EA201C-804F-46C3-8AB5-14F704C76D70
-mocr = Optional(TresorMockup.(unknown context at 0x100266428).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x283e20100; recordName=83EA201C-804F-46C3-8AB5-14F704C76D70, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0x9de0063c643a9ad8 <x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Password/p1>), managedObject: nil, keys: ["password", "site", "createdAt", "current", "uuid", "active", "selectedAt"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x1002663f8).OperationMode(rawValue: 1)))
-02:09:32.703  💚 DEBUG DetailViewController.save():320 - save
-02:09:33.376 0x28246bfc0 💚 DEBUG CloudKitManager.contextDidSave():571 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = Optional(<CKError 0x283019fb0: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 90761ACB-714A-4F2C-8333-802708037CE2; container ID = "iCloud.com.gmail.jun1ro1.TresorMockup"; partial errors: {
-C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x2830186c0: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 90761ACB-714A-4F2C-8333-802708037CE2>
-83EA201C-804F-46C3-8AB5-14F704C76D70:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x2830f4e70: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 90761ACB-714A-4F2C-8333-802708037CE2>
-}>)
-02:09:33.382 0x28246bfc0 💙 INFO CloudKitManager.contextDidSave():577 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
-02:09:33.384 0x28246bfc0 💚 DEBUG CloudKitManager.set():809 -   maxLength: NSNumber = 8
-02:09:33.385 0x28246bfc0 💚 DEBUG CloudKitManager.set():825 -   selectAt: NSDate = 2018-12-26 17:09:32 +0000
-02:09:33.385 0x28246bfc0 💚 DEBUG CloudKitManager.set():825 -   createdAt: NSDate = 2018-12-26 17:09:12 +0000
-02:09:33.388 0x28246bfc0 💚 DEBUG CloudKitManager.set():801 -   uuid: NSString = C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA
-02:09:33.389 0x28246bfc0 💚 DEBUG CloudKitManager.set():886 -   passwords: CK References = [[<CKReference: 0x283e05b20> recordID="<CKRecordID: 0x283e063a0; recordName=83EA201C-804F-46C3-8AB5-14F704C76D70, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>"]]
-02:09:33.391 0x28246bfc0 💚 DEBUG CloudKitManager.set():801 -   passwordCurrent: NSString = pa11
-02:09:33.392 0x28246bfc0 💚 DEBUG CloudKitManager.set():809 -   active: NSNumber = 1
-02:09:33.393 0x28246bfc0 💚 DEBUG CloudKitManager.set():801 -   userid: NSString = us11
-02:09:33.393 0x28246bfc0 💚 DEBUG CloudKitManager.set():801 -   title: NSString = t11
-02:09:33.394 0x28246bfc0 💚 DEBUG CloudKitManager.set():801 -   url: NSString = ur11
-02:09:33.395 0x28246bfc0 💚 DEBUG CloudKitManager.set():809 -   charSet: NSNumber = 136331264
-02:09:33.396 0x28246bfc0 💚 DEBUG CloudKitManager.set():801 -   password: NSString = pa11
-02:09:33.397 0x28246bfc0 💚 DEBUG CloudKitManager.set():861 -   site: CKReference = <CKRecordID: 0x283ef0080; recordName=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__> reference = <CKReference: 0x283ef0640; recordID=<CKRecordID: 0x283ef0080; recordName=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-02:09:33.401 0x28246bfc0 💚 DEBUG CloudKitManager.set():825 -   createdAt: NSDate = 2018-12-26 17:09:32 +0000
-02:09:33.402 0x28246bfc0 💚 DEBUG CloudKitManager.set():809 -   current: NSNumber = 1
-02:09:33.403 0x28246bfc0 💚 DEBUG CloudKitManager.set():801 -   uuid: NSString = 83EA201C-804F-46C3-8AB5-14F704C76D70
-02:09:33.415 0x28246bfc0 💚 DEBUG CloudKitManager.set():809 -   active: NSNumber = 1
-02:09:33.419 0x28246bfc0 💚 DEBUG CloudKitManager.set():825 -   selectedAt: NSDate = 2018-12-26 17:09:32 +0000
-02:09:33.424 0x28246bfc0 💚 DEBUG CloudKitManager.contextDidSave():618 - key = C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA
-mocr = recordID = C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA Site [save]
-managedObjectID =x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Site/p1
-managedObject =nil
-cloudRecord =C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA
-keys = maxLength, selectAt, createdAt, uuid, passwords, passwordCurrent, active, userid, title, url, charSet
-)
-02:09:33.428 0x28246bfc0 \360\237\222💚 DEBUG CloudKitManager.contextDidSave():618 - key = 83EA201C-804F-46C3-8AB5-14F704C76D70
-mocr = recordID = 83EA201C-804F-46C3-8AB5-14F704C76D70 Password [save]
-managedObjectID =x-coredata://EF39305F-5D90-4601-B171-EA25A3150449/Password/p1
-managedObject =nil
-cloudRecord =83EA201C-804F-46C3-8AB5-14F704C76D70
-keys = password, site, createdAt, current, uuid, active, selectedAt
-)
-02:09:33.446 0x28246bfc0 💚 DEBUG CloudKitManager.contextDidSave():625 - fetchRecordsCompletionBlock toSave = [<CKRecord: 0x10168e030; recordID=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
-active = 1;
-charSet = 136331264;
-createdAt = "2018-12-26 17:09:12 +0000";
-maxLength = 8;
-passwordCurrent = pa11;
-passwords =     (
-"<CKReference: 0x283e05b20; recordID=<CKRecordID: 0x283e063a0; recordName=83EA201C-804F-46C3-8AB5-14F704C76D70, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
-);
-selectAt = "2018-12-26 17:09:32 +0000";
-title = t11;
-url = ur11;
-userid = us11;
-uuid = "C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA";
-}, recordType=Site>
-{
-creatorUserRecordID -> (null)
-lastModifiedUserRecordID -> (null)
-creationDate -> (null)
-modificationDate -> (null)
-active (modified) -> 1 (type c)
-userid (modified) -> "us11"
-passwordCurrent (modified) -> "pa11"
-maxLength (modified) -> 8 (type s)
-title (modified) -> "t11"
-uuid (modified) -> "C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA"
-passwords (modified) -> [<CKReference: 0x283e05b20; recordID=<CKRecordID: 0x283e063a0; recordName=83EA201C-804F-46C3-8AB5-14F704C76D70, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
-charSet (modified) -> 136331264 (type i)
-createdAt (modified) -> 2018-12-26 17:09:12 +0000
-selectAt (modified) -> 2018-12-26 17:09:32 +0000
-url (modified) -> "ur11"
-}, <CKRecord: 0x1016b6770; recordID=83EA201C-804F-46C3-8AB5-14F704C76D70:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
-active = 1;
-createdAt = "2018-12-26 17:09:32 +0000";
-current = 1;
-password = pa11;
-selectedAt = "2018-12-26 17:09:32 +0000";
-site = "<CKReference: 0x283ef0640; recordID=<CKRecordID: 0x283ef0080; recordName=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "83EA201C-804F-46C3-8AB5-14F704C76D70";
-}, recordType=Password>
-{
-creatorUserRecordID -> (null)
-lastModifiedUserRecordID -> (null)
-creationDate -> (null)
-modificationDate -> (null)
-site (modified) -> <CKReference: 0x283ef0640; recordID=<CKRecordID: 0x283ef0080; recordName=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-password (modified) -> "pa11"
-current (modified) -> 1 (type s)
-active (modified) -> 1 (type c)
-selectedAt (modified) -> 2018-12-26 17:09:32 +0000
-uuid (modified) -> "83EA201C-804F-46C3-8AB5-14F704C76D70"
-createdAt (modified) -> 2018-12-26 17:09:32 +0000
+15:52:24.910  💚 DEBUG MasterViewController.viewDidLoad():38 - viewDidLoad
+
+15:52:25.160  💚 DEBUG AppDelegate.application():102 - Remote Notification did register
+
+15:52:25.807 0x283864e40 💚 DEBUG CloudKitManager.start():92 - CKFetchRecordZonesOperation error = nil zoneIDs = Optional([<CKRecordZoneID: 0x282dc3500; ownerName=__defaultOwner__, zoneName=com.gmail.jun1ro1.TresorMockup_Zone>: <CKRecordZone: 0x281fda760; zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__, capabilities=(Atomic,Sync,Share)>])
+
+15:52:26.143 0x283872f80 💚 DEBUG CloudKitManager.start():116 - CKFetchSubscriptionsOperation error = nil
+
+15:52:26.358 0x283872f80 💚 DEBUG CloudKitManager.checkUpdates():168 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x282fd0c50; data=AQAAAWgNVWMA>) more = false
+
+15:52:26.628 0x283864e40 💚 DEBUG CloudKitManager.checkUpdates():204 - fetchRecordZoneChangesCompletionBlock error = nil
+
+15:52:26.632 0x283865680 💚 DEBUG CloudKitManager.checkUpdates():229 - CKFetchRecordsOperation = nil
+
+15:52:26.634 0x283841300 💚 DEBUG CloudKitManager.checkUpdates():398 - changes =
+
+15:52:26.643  💚 DEBUG MasterViewController.updateUI():64 - notification received
+
+15:52:26.651  💚 DEBUG DetailViewController.updateUI():196 - notification received
+
+15:53:58.713  💚 DEBUG AppDelegate.application():95 - Receive Remote Notification = [AnyHashable("ck"): {
+
+ce = 2;
+
+cid = "iCloud.com.gmail.jun1ro1.TresorMockup";
+
+ckuserid = "_1979069eda5ae6d1e5f1842739701a1c";
+
+met =     {
+
+dbs = 1;
+
+sid = "com.gmail.jun1ro1.TresorMockup";
+
+zid = "com.gmail.jun1ro1.TresorMockup_Zone";
+
+zoid = "_1979069eda5ae6d1e5f1842739701a1c";
+
+};
+
+nid = "52ac3f9e-6d5f-48b6-8412-07f7a057f1e2";
+
+}, AnyHashable("aps"): {
+
+"content-available" = 1;
+
 }]
-02:09:33.513 0x28246bfc0 💚 DEBUG CloudKitManager.contextDidSave():626 - fetchRecordsCompletionBlock toDelete = []
-02:09:34.796 0x28246bfc0 💚 DEBUG CloudKitManager.contextDidSave():633 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([<CKRecord: 0x10168e030; recordID=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=3, values={
+
+15:53:59.202 0x2838e2340 💚 DEBUG CloudKitManager.checkUpdates():168 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x282fd8360; data=AQAAAWgNVs2kLb+tIA5bEemynQCM+sEU9A==>) more = false
+
+15:53:59.509 0x2838e2340 💚 DEBUG CloudKitManager.checkUpdates():204 - fetchRecordZoneChangesCompletionBlock error = nil
+
+15:53:59.757 0x283866840 💚 DEBUG CloudKitManager.checkUpdates():229 - CKFetchRecordsOperation = nil
+
+15:53:59.762 0x283866840 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[B777A4A9-366D-40A0-8BB4-F6E7055CC710] = Optional(<CKRecord: 0x105e24b10; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=3, values={
+
 active = 1;
+
 charSet = 136331264;
-createdAt = "2018-12-26 17:09:12 +0000";
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
 maxLength = 8;
-passwordCurrent = pa11;
+
+passwordCurrent = pa6;
+
 passwords =     (
-"<CKReference: 0x283e05b20; recordID=<CKRecordID: 0x283e063a0; recordName=83EA201C-804F-46C3-8AB5-14F704C76D70, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+"<CKReference: 0x282df26c0; recordID=<CKRecordID: 0x282df29a0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
 );
-selectAt = "2018-12-26 17:09:32 +0000";
-title = t11;
-url = ur11;
-userid = us11;
-uuid = "C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA";
+
+selectAt = "2019-01-02 06:53:54 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
 }, recordType=Site>
+
 {
-creatorUserRecordID -> <CKRecordID: 0x283e03ae0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x283e03d80; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2018-12-26 17:09:33 +0000
-modificationDate -> 2018-12-26 17:09:33 +0000
-modifiedByDevice -> iPad Air
-active -> 1 (type c)
-userid -> "us11"
-passwordCurrent -> "pa11"
-maxLength -> 8 (type s)
-title -> "t11"
-uuid -> "C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA"
-passwords -> [<CKReference: 0x283e05b20; recordID=<CKRecordID: 0x283e063a0; recordName=83EA201C-804F-46C3-8AB5-14F704C76D70, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
-charSet -> 136331264 (type i)
-createdAt -> 2018-12-26 17:09:12 +0000
-selectAt -> 2018-12-26 17:09:32 +0000
-url -> "ur11"
-}, <CKRecord: 0x1016b6770; recordID=83EA201C-804F-46C3-8AB5-14F704C76D70:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=4, values={
+
+creatorUserRecordID -> <CKRecordID: 0x282df2be0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282df2780; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:53:57 +0000
+
+modifiedByDevice -> iPhone 5s
+
+active -> 1 (type q)
+
+userid -> "us6"
+
+passwordCurrent -> "pa6"
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282df26c0; recordID=<CKRecordID: 0x282df29a0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+selectAt -> 2019-01-02 06:53:54 +0000
+
+url -> "ur6"
+
+}) :not nil
+
+15:53:59.770 0x283866840 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0] = Optional(<CKRecord: 0x105d59e40; recordID=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=4, values={
+
 active = 1;
-createdAt = "2018-12-26 17:09:32 +0000";
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
 current = 1;
-password = pa11;
-selectedAt = "2018-12-26 17:09:32 +0000";
-site = "<CKReference: 0x283ef0640; recordID=<CKRecordID: 0x283ef0080; recordName=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "83EA201C-804F-46C3-8AB5-14F704C76D70";
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:53:54 +0000";
+
+site = "<CKReference: 0x282deb7a0; recordID=<CKRecordID: 0x282deb7c0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
 }, recordType=Password>
+
 {
-creatorUserRecordID -> <CKRecordID: 0x283e038a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x283e03080; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2018-12-26 17:09:33 +0000
-modificationDate -> 2018-12-26 17:09:33 +0000
+
+creatorUserRecordID -> <CKRecordID: 0x282deb780; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282deb740; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:53:57 +0000
+
+modifiedByDevice -> iPhone 5s
+
+site -> <CKReference: 0x282deb7a0; recordID=<CKRecordID: 0x282deb7c0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "pa6"
+
+current -> 1 (type q)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:53:54 +0000
+
+uuid -> "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0"
+
+createdAt -> 2019-01-02 06:53:54 +0000
+
+}) :not nil
+
+15:53:59.780 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():266 - context fetch request = <NSFetchRequest: 0x2806cea00> (entity: Password; predicate: (uuid IN {"BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+15:53:59.787 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():266 - context fetch request = <NSFetchRequest: 0x2806d23e0> (entity: Site; predicate: (uuid IN {"B777A4A9-366D-40A0-8BB4-F6E7055CC710"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+15:53:59.788 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[B777A4A9-366D-40A0-8BB4-F6E7055CC710].managedObject = x-coredata:///Site/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA2
+
+15:53:59.789 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0].managedObject = x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA3
+
+15:53:59.790 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:53:59.790 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = us6 key = userid
+
+15:53:59.799 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = pa6 key = passwordCurrent
+
+15:53:59.800 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 8 key = maxLength
+
+15:53:59.801 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = t6 key = title
+
+15:53:59.802 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 136331264 key = charSet
+
+15:53:59.803 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = B777A4A9-366D-40A0-8BB4-F6E7055CC710 key = uuid
+
+15:53:59.804 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:39 +0000 key = createdAt
+
+15:53:59.810 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:54 +0000 key = selectAt
+
+15:53:59.812 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = ur6 key = url
+
+15:53:59.814 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x280efccd0> (entity: Site; id: 0x282decbc0 <x-coredata:///Site/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA2> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = pa6;
+
+passwords =     (
+
+"0x282ded400 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA3>"
+
+);
+
+selectAt = "2019-01-02 06:53:54 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+})
+
+15:53:59.816 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():368 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x280efccd0> (entity: Site; id: 0x282decbc0 <x-coredata:///Site/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA2> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = pa6;
+
+passwords =     (
+
+"0x282ded400 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA3>"
+
+);
+
+selectAt = "2019-01-02 06:53:54 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}) key = site
+
+15:53:59.818 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = pa6 key = password
+
+15:53:59.830 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = current
+
+15:53:59.831 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:53:59.832 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:54 +0000 key = selectedAt
+
+15:53:59.832 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0 key = uuid
+
+15:53:59.833 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:54 +0000 key = createdAt
+
+15:53:59.834 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280efed00> (entity: Password; id: 0x282ded400 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA3> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 1;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:53:54 +0000";
+
+site = "0x282decbc0 <x-coredata:///Site/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA2>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+})
+
+15:53:59.837 0x2838a7800 💚 DEBUG CloudKitManager.checkUpdates():398 - changes =
+
+
+
+B777A4A9-366D-40A0-8BB4-F6E7055CC710:
+
+recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata:///Site/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA2
+
+managedObject =Site
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys =
+
+
+
+BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:
+
+recordID = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0 Password [save]
+
+managedObjectID =x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA3
+
+managedObject =Password
+
+cloudRecord =BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+keys =
+
+15:53:59.840  💚 DEBUG MasterViewController.updateUI():64 - notification received
+
+15:53:59.841  💚 DEBUG DetailViewController.updateUI():196 - notification received
+
+2019-01-02 15:54:16.508964+0900 TresorMockup[636:462931] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
+
+changed passwordCurrent = Optional(qQPoaYHP)
+
+15:54:19.894  💚 DEBUG CloudKitManager.contextWillSave():477 - contextWillSave
+
+15:54:19.913  💚 DEBUG CloudKitManager.contextDidSave():490 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x2812d84b0>), userInfo = Optional([AnyHashable("updated"): {(
+
+<TresorMockup.Site: 0x280ec13b0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = qQPoaYHP;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>"
+
+);
+
+selectAt = "2019-01-02 06:54:19 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}),
+
+<TresorMockup.Password: 0x280ef5680> (entity: Password; id: 0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 0;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:53:54 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+})
+
+)}, AnyHashable("inserted"): {(
+
+<TresorMockup.Password: 0x280ef58b0> (entity: Password; id: 0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:54:19 +0000";
+
+current = 1;
+
+password = qQPoaYHP;
+
+selectedAt = "2019-01-02 06:54:19 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9";
+
+})
+
+)}, AnyHashable("managedObjectContext"): <_PFWeakReference: 0x282d9efe0>])
+
+15:54:19.921  💚 DEBUG CloudKitManager.contextDidSave():581 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d9f4a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>), managedObject: nil, keys: ["selectAt", "passwords", "passwordCurrent"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:54:19.935  💚 DEBUG CloudKitManager.contextDidSave():581 - key = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d9f500; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>), managedObject: nil, keys: ["current", "active", "createdAt", "site", "selectedAt", "password", "uuid"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:54:19.945  💚 DEBUG CloudKitManager.contextDidSave():581 - key = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d9f440; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>), managedObject: nil, keys: ["current"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:54:19.948  💚 DEBUG DetailViewController.save():317 - save
+
+15:54:20.414 0x283835d40 💚 DEBUG CloudKitManager.contextDidSave():596 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = Optional(<CKError 0x282358d20: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 4F1A4DFD-EF8D-4702-984E-C96461AD2720; container ID = "iCloud.com.gmail.jun1ro1.TresorMockup"; partial errors: {
+
+4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x2823aaca0: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 4F1A4DFD-EF8D-4702-984E-C96461AD2720>
+
+}>)
+
+15:54:20.417 0x283835d40 💚 DEBUG CloudKitManager.set():850 -   selectAt: NSDate = 2019-01-02 06:54:19 +0000
+
+15:54:20.420 0x283835d40 💚 DEBUG CloudKitManager.set():911 -   passwords: CK References = [[<CKReference: 0x282dc37c0> recordID="<CKRecordID: 0x282dc3860; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>"], [<CKReference: 0x282dc34e0> recordID="<CKRecordID: 0x282dc3600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>"]]
+
+15:54:20.422 0x283835d40 💚 DEBUG CloudKitManager.set():826 -   passwordCurrent: NSString = qQPoaYHP
+
+15:54:20.423 0x283835d40 💚 DEBUG CloudKitManager.set():834 -   current: NSNumber = 1
+
+15:54:20.423 0x283835d40 💚 DEBUG CloudKitManager.set():834 -   active: NSNumber = 1
+
+15:54:20.424 0x283835d40 💚 DEBUG CloudKitManager.set():850 -   createdAt: NSDate = 2019-01-02 06:54:19 +0000
+
+15:54:20.425 0x283835d40 💚 DEBUG CloudKitManager.set():886 -   site: CKReference = <CKRecordID: 0x282dc35a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__> reference = <CKReference: 0x282dc3840; recordID=<CKRecordID: 0x282dc35a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+15:54:20.432 0x283835d40 💚 DEBUG CloudKitManager.set():850 -   selectedAt: NSDate = 2019-01-02 06:54:19 +0000
+
+15:54:20.434 0x283835d40 💚 DEBUG CloudKitManager.set():826 -   password: NSString = qQPoaYHP
+
+15:54:20.435 0x283835d40 💚 DEBUG CloudKitManager.set():826 -   uuid: NSString = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+15:54:20.435 0x283835d40 💚 DEBUG CloudKitManager.set():834 -   current: NSNumber = 0
+
+15:54:20.437 0x283835d40 💚 DEBUG CloudKitManager.contextDidSave():643 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+managedObject =nil
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys = selectAt, passwords, passwordCurrent
+
+)
+
+15:54:20.439 0x283835d40 💚 DEBUG CloudKitManager.contextDidSave():643 - key = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+mocr = recordID = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5
+
+managedObject =nil
+
+cloudRecord =4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+keys = current, active, createdAt, site, selectedAt, password, uuid
+
+)
+
+15:54:20.441 0x283835d40 💚 DEBUG CloudKitManager.contextDidSave():643 - key = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+mocr = recordID = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4
+
+managedObject =nil
+
+cloudRecord =BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+keys = current
+
+)
+
+15:54:20.447 0x283835d40 💚 DEBUG CloudKitManager.contextDidSave():650 - fetchRecordsCompletionBlock toSave = [<CKRecord: 0x105d8b330; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=3, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = qQPoaYHP;
+
+passwords =     (
+
+"<CKReference: 0x282dc37c0; recordID=<CKRecordID: 0x282dc3860; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282dc34e0; recordID=<CKRecordID: 0x282dc3600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+selectAt = "2019-01-02 06:54:19 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282dffc20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282dfd600; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:53:57 +0000
+
+modifiedByDevice -> iPhone 5s
+
+userid -> "us6"
+
+active -> 1 (type q)
+
+passwordCurrent (modified) -> "qQPoaYHP"
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords (modified) -> [<CKReference: 0x282dc37c0; recordID=<CKRecordID: 0x282dc3860; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282dc34e0; recordID=<CKRecordID: 0x282dc3600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+selectAt (modified) -> 2019-01-02 06:54:19 +0000
+
+url -> "ur6"
+
+}, <CKRecord: 0x105d99450; recordID=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:54:19 +0000";
+
+current = 1;
+
+password = qQPoaYHP;
+
+selectedAt = "2019-01-02 06:54:19 +0000";
+
+site = "<CKReference: 0x282dc3840; recordID=<CKRecordID: 0x282dc35a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> (null)
+
+lastModifiedUserRecordID -> (null)
+
+creationDate -> (null)
+
+modificationDate -> (null)
+
+site (modified) -> <CKReference: 0x282dc3840; recordID=<CKRecordID: 0x282dc35a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password (modified) -> "qQPoaYHP"
+
+current (modified) -> 1 (type s)
+
+active (modified) -> 1 (type c)
+
+selectedAt (modified) -> 2019-01-02 06:54:19 +0000
+
+uuid (modified) -> "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9"
+
+createdAt (modified) -> 2019-01-02 06:54:19 +0000
+
+}, <CKRecord: 0x105d95b50; recordID=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=4, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 0;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:53:54 +0000";
+
+site = "<CKReference: 0x282dfca20; recordID=<CKRecordID: 0x282dff860; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282dfcb20; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282dffbc0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:53:57 +0000
+
+modifiedByDevice -> iPhone 5s
+
+site -> <CKReference: 0x282dfca20; recordID=<CKRecordID: 0x282dff860; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "pa6"
+
+current (modified) -> 0 (type s)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:53:54 +0000
+
+uuid -> "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0"
+
+createdAt -> 2019-01-02 06:53:54 +0000
+
+}]
+
+15:54:20.480 0x283835d40 💚 DEBUG CloudKitManager.contextDidSave():651 - fetchRecordsCompletionBlock toDelete = []
+
+15:54:20.860 0x2838360c0 💚 DEBUG CloudKitManager.contextDidSave():658 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([<CKRecord: 0x105d8b330; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=5, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = qQPoaYHP;
+
+passwords =     (
+
+"<CKReference: 0x282dc37c0; recordID=<CKRecordID: 0x282dc3860; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282dc34e0; recordID=<CKRecordID: 0x282dc3600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+selectAt = "2019-01-02 06:54:19 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282def1e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282dee620; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:54:20 +0000
+
 modifiedByDevice -> iPad Air
-site -> <CKReference: 0x283ef0640; recordID=<CKRecordID: 0x283ef0080; recordName=C59017A1-F5BA-48CF-8D30-5BC7FCBFF9DA, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-password -> "pa11"
+
+userid -> "us6"
+
+active -> 1 (type q)
+
+passwordCurrent -> "qQPoaYHP"
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282dc37c0; recordID=<CKRecordID: 0x282dc3860; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282dc34e0; recordID=<CKRecordID: 0x282dc3600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+selectAt -> 2019-01-02 06:54:19 +0000
+
+url -> "ur6"
+
+}, <CKRecord: 0x105d99450; recordID=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=6, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:54:19 +0000";
+
+current = 1;
+
+password = qQPoaYHP;
+
+selectedAt = "2019-01-02 06:54:19 +0000";
+
+site = "<CKReference: 0x282dc3840; recordID=<CKRecordID: 0x282dc35a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282dee480; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282defc00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:54:20 +0000
+
+modificationDate -> 2019-01-02 06:54:20 +0000
+
+modifiedByDevice -> iPad Air
+
+site -> <CKReference: 0x282dc3840; recordID=<CKRecordID: 0x282dc35a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "qQPoaYHP"
+
 current -> 1 (type s)
+
 active -> 1 (type c)
-selectedAt -> 2018-12-26 17:09:32 +0000
-uuid -> "83EA201C-804F-46C3-8AB5-14F704C76D70"
-createdAt -> 2018-12-26 17:09:32 +0000
+
+selectedAt -> 2019-01-02 06:54:19 +0000
+
+uuid -> "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9"
+
+createdAt -> 2019-01-02 06:54:19 +0000
+
+}, <CKRecord: 0x105d95b50; recordID=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=7, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 0;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:53:54 +0000";
+
+site = "<CKReference: 0x282dfca20; recordID=<CKRecordID: 0x282dff860; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d9b6e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d9b640; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:54:20 +0000
+
+modifiedByDevice -> iPad Air
+
+site -> <CKReference: 0x282dfca20; recordID=<CKRecordID: 0x282dff860; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "pa6"
+
+current -> 0 (type s)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:53:54 +0000
+
+uuid -> "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0"
+
+createdAt -> 2019-01-02 06:53:54 +0000
+
 }]) delete = Optional([])
-02:09:56.293  💚 DEBUG CloudKitManager.contextWillSave():452 - contextWillSave
-02:09:56.312  💚 DEBUG CloudKitManager.contextDidSave():465 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x280174870>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x283e16cc0>, AnyHashable("inserted"): {(
-)}, AnyHashable("updated"): {(
-)}])
-02:09:56.319 0x282bba640 💚 DEBUG CloudKitManager.contextDidSave():571 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
-02:09:56.323 0x282bba640 💙 INFO CloudKitManager.contextDidSave():577 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
-02:09:56.325 0x282bba640 💚 DEBUG CloudKitManager.contextDidSave():625 - fetchRecordsCompletionBlock toSave = []
-02:09:56.327 0x282bba640 💚 DEBUG CloudKitManager.contextDidSave():626 - fetchRecordsCompletionBlock toDelete = []
-02:09:56.329 0x282beea80 💚 DEBUG CloudKitManager.contextDidSave():633 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
-02:10:00.722  💚 DEBUG CloudKitManager.contextWillSave():452 - contextWillSave
-02:10:00.740  💚 DEBUG CloudKitManager.contextDidSave():465 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x280174870>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x283e44a60>, AnyHashable("inserted"): {(
-)}, AnyHashable("updated"): {(
-)}])
-02:10:00.747 0x282bcf500 💚 DEBUG CloudKitManager.contextDidSave():571 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
-02:10:00.751 0x282bcf500 💙 INFO CloudKitManager.contextDidSave():577 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
-02:10:00.753 0x282bcf500 💚 DEBUG CloudKitManager.contextDidSave():625 - fetchRecordsCompletionBlock toSave = []
-02:10:00.755 0x282bcf500 💚 DEBUG CloudKitManager.contextDidSave():626 - fetchRecordsCompletionBlock toDelete = []
-02:10:00.757 0x282bcf500 💚 DEBUG CloudKitManager.contextDidSave():633 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+
+15:55:23.921  💚 DEBUG AppDelegate.application():95 - Receive Remote Notification = [AnyHashable("ck"): {
+
+ce = 2;
+
+cid = "iCloud.com.gmail.jun1ro1.TresorMockup";
+
+ckuserid = "_1979069eda5ae6d1e5f1842739701a1c";
+
+met =     {
+
+dbs = 1;
+
+sid = "com.gmail.jun1ro1.TresorMockup";
+
+zid = "com.gmail.jun1ro1.TresorMockup_Zone";
+
+zoid = "_1979069eda5ae6d1e5f1842739701a1c";
+
+};
+
+nid = "d67be484-9f10-44c2-be08-98057cad0134";
+
+}, AnyHashable("aps"): {
+
+"content-available" = 1;
+
+}]
+
+15:55:24.678 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():168 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x282fcc550; data=AQAAAWgNWBs7YIXgMA5bEemJIKBCPzR4Lg==>) more = false
+
+15:55:24.964 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():204 - fetchRecordZoneChangesCompletionBlock error = nil
+
+15:55:25.287 0x2838360c0 💚 DEBUG CloudKitManager.checkUpdates():229 - CKFetchRecordsOperation = nil
+
+15:55:25.289 0x2838360c0 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[B777A4A9-366D-40A0-8BB4-F6E7055CC710] = Optional(<CKRecord: 0x105da5ee0; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = 2Gfwj5L4;
+
+passwords =     (
+
+"<CKReference: 0x282d90bc0; recordID=<CKRecordID: 0x282d91480; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282d908a0; recordID=<CKRecordID: 0x282d905c0; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282d90480; recordID=<CKRecordID: 0x282d90120; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+selectAt = "2019-01-02 06:55:16 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d91f40; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d92400; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:55:23 +0000
+
+modifiedByDevice -> iPhone 5s
+
+active -> 1 (type q)
+
+userid -> "us6"
+
+passwordCurrent -> "2Gfwj5L4"
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282d90bc0; recordID=<CKRecordID: 0x282d91480; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282d908a0; recordID=<CKRecordID: 0x282d905c0; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282d90480; recordID=<CKRecordID: 0x282d90120; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+selectAt -> 2019-01-02 06:55:16 +0000
+
+url -> "ur6"
+
+}) :not nil
+
+15:55:25.303 0x2838360c0 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9] = Optional(<CKRecord: 0x105e7fb20; recordID=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=a, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:54:19 +0000";
+
+current = 0;
+
+password = qQPoaYHP;
+
+selectedAt = "2019-01-02 06:54:19 +0000";
+
+site = "<CKReference: 0x282d94020; recordID=<CKRecordID: 0x282d96ae0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d95740; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d96980; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:54:20 +0000
+
+modificationDate -> 2019-01-02 06:55:23 +0000
+
+modifiedByDevice -> iPhone 5s
+
+site -> <CKReference: 0x282d94020; recordID=<CKRecordID: 0x282d96ae0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "qQPoaYHP"
+
+current -> 0 (type q)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:54:19 +0000
+
+uuid -> "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9"
+
+createdAt -> 2019-01-02 06:54:19 +0000
+
+}) :not nil
+
+15:55:25.314 0x2838360c0 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0] = Optional(<CKRecord: 0x105e21cb0; recordID=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=7, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 0;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:53:54 +0000";
+
+site = "<CKReference: 0x282d96900; recordID=<CKRecordID: 0x282d96940; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d94520; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d94420; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:54:20 +0000
+
+modifiedByDevice -> iPad Air
+
+site -> <CKReference: 0x282d96900; recordID=<CKRecordID: 0x282d96940; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "pa6"
+
+current -> 0 (type q)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:53:54 +0000
+
+uuid -> "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0"
+
+createdAt -> 2019-01-02 06:53:54 +0000
+
+}) :not nil
+
+15:55:25.330 0x2838360c0 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[B1DC5506-8A14-40EC-90AC-D1E1ADBCB069] = Optional(<CKRecord: 0x105d9a460; recordID=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=8, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:55:16 +0000";
+
+current = 1;
+
+password = 2Gfwj5L4;
+
+selectedAt = "2019-01-02 06:55:16 +0000";
+
+site = "<CKReference: 0x282d907a0; recordID=<CKRecordID: 0x282d924a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d90840; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d92640; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:55:23 +0000
+
+modificationDate -> 2019-01-02 06:55:23 +0000
+
+modifiedByDevice -> iPhone 5s
+
+site -> <CKReference: 0x282d907a0; recordID=<CKRecordID: 0x282d924a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "2Gfwj5L4"
+
+current -> 1 (type q)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:55:16 +0000
+
+uuid -> "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069"
+
+createdAt -> 2019-01-02 06:55:16 +0000
+
+}) :not nil
+
+15:55:25.340 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():266 - context fetch request = <NSFetchRequest: 0x2806c6290> (entity: Site; predicate: (uuid IN {"B777A4A9-366D-40A0-8BB4-F6E7055CC710"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+15:55:25.341 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():284 - context fetch result = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+15:55:25.348 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():266 - context fetch request = <NSFetchRequest: 0x2806c6370> (entity: Password; predicate: (uuid IN {"4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9", "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0", "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+15:55:25.350 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():284 - context fetch result = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+15:55:25.351 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():284 - context fetch result = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+15:55:25.352 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[B777A4A9-366D-40A0-8BB4-F6E7055CC710].managedObject = x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+15:55:25.353 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9].managedObject = x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5
+
+15:55:25.364 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0].managedObject = x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4
+
+15:55:25.368 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[B1DC5506-8A14-40EC-90AC-D1E1ADBCB069].managedObject = x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA5
+
+15:55:25.369 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:55:25.370 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = us6 key = userid
+
+15:55:25.371 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2Gfwj5L4 key = passwordCurrent
+
+15:55:25.373 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 8 key = maxLength
+
+15:55:25.375 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = t6 key = title
+
+15:55:25.382 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 136331264 key = charSet
+
+15:55:25.386 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = B777A4A9-366D-40A0-8BB4-F6E7055CC710 key = uuid
+
+15:55:25.387 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:39 +0000 key = createdAt
+
+15:55:25.388 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:55:16 +0000 key = selectAt
+
+15:55:25.389 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = ur6 key = url
+
+15:55:25.390 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x280ee8820> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = 2Gfwj5L4;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>",
+
+"0x282d927c0 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA5>"
+
+);
+
+selectAt = "2019-01-02 06:55:16 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+})
+
+15:55:25.402 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():368 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x280ee8820> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = 2Gfwj5L4;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>",
+
+"0x282d927c0 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA5>"
+
+);
+
+selectAt = "2019-01-02 06:55:16 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}) key = site
+
+15:55:25.405 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = qQPoaYHP key = password
+
+15:55:25.407 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 0 key = current
+
+15:55:25.408 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:55:25.413 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:54:19 +0000 key = selectedAt
+
+15:55:25.415 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9 key = uuid
+
+15:55:25.417 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:54:19 +0000 key = createdAt
+
+15:55:25.418 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280ee8b90> (entity: Password; id: 0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:54:19 +0000";
+
+current = 0;
+
+password = qQPoaYHP;
+
+selectedAt = "2019-01-02 06:54:19 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9";
+
+})
+
+15:55:25.420 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():368 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x280ee8820> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = 2Gfwj5L4;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>",
+
+"0x282d927c0 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA5>"
+
+);
+
+selectAt = "2019-01-02 06:55:16 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}) key = site
+
+15:55:25.424 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = pa6 key = password
+
+15:55:25.425 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 0 key = current
+
+15:55:25.428 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:55:25.429 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:54 +0000 key = selectedAt
+
+15:55:25.431 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0 key = uuid
+
+15:55:25.433 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:54 +0000 key = createdAt
+
+15:55:25.434 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280ee8a50> (entity: Password; id: 0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 0;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:53:54 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+})
+
+15:55:25.438 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():368 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x280ee8820> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = 2Gfwj5L4;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>",
+
+"0x282d927c0 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA5>"
+
+);
+
+selectAt = "2019-01-02 06:55:16 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}) key = site
+
+15:55:25.443 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2Gfwj5L4 key = password
+
+15:55:25.444 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = current
+
+15:55:25.445 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:55:25.447 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:55:16 +0000 key = selectedAt
+
+15:55:25.449 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069 key = uuid
+
+15:55:25.450 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:55:16 +0000 key = createdAt
+
+15:55:25.452 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280ee87d0> (entity: Password; id: 0x282d927c0 <x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA5> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:55:16 +0000";
+
+current = 1;
+
+password = 2Gfwj5L4;
+
+selectedAt = "2019-01-02 06:55:16 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069";
+
+})
+
+15:55:25.455 0x28382c440 💚 DEBUG CloudKitManager.checkUpdates():398 - changes =
+
+
+
+B777A4A9-366D-40A0-8BB4-F6E7055CC710:
+
+recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+managedObject =Site
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys =
+
+
+
+4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9:
+
+recordID = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5
+
+managedObject =Password
+
+cloudRecord =4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+keys =
+
+
+
+BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:
+
+recordID = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4
+
+managedObject =Password
+
+cloudRecord =BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+keys =
+
+
+
+B1DC5506-8A14-40EC-90AC-D1E1ADBCB069:
+
+recordID = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069 Password [save]
+
+managedObjectID =x-coredata:///Password/t0482DAE1-EE5D-4ACD-B483-7EF223CB85AA5
+
+managedObject =Password
+
+cloudRecord =B1DC5506-8A14-40EC-90AC-D1E1ADBCB069
+
+keys =
+
+15:55:25.460  💚 DEBUG MasterViewController.updateUI():64 - notification received
+
+15:55:25.461  💚 DEBUG DetailViewController.updateUI():196 - notification received
+
+15:55:25.463  💚 DEBUG DetailViewController.updateUI():196 - notification received
+
+15:55:30.483  💚 DEBUG CloudKitManager.contextWillSave():477 - contextWillSave
+
+15:55:30.499  💚 DEBUG CloudKitManager.contextDidSave():490 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x2812d84b0>), userInfo = Optional([AnyHashable("updated"): {(
+
+<TresorMockup.Password: 0x280efa530> (entity: Password; id: 0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:54:19 +0000";
+
+current = 0;
+
+password = qQPoaYHP;
+
+selectedAt = "2019-01-02 06:54:19 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9";
+
+}),
+
+<TresorMockup.Password: 0x280efa4e0> (entity: Password; id: 0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:55:16 +0000";
+
+current = 0;
+
+password = 2Gfwj5L4;
+
+selectedAt = "2019-01-02 06:55:16 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069";
+
+}),
+
+<TresorMockup.Site: 0x280ec13b0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>"
+
+);
+
+selectAt = nil;
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+})
+
+)}, AnyHashable("inserted"): {(
+
+)}, AnyHashable("managedObjectContext"): <_PFWeakReference: 0x282d90880>])
+
+15:55:30.515  💚 DEBUG CloudKitManager.contextDidSave():581 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d96a60; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>), managedObject: nil, keys: ["selectAt", "passwordCurrent"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:55:30.517  💚 DEBUG CloudKitManager.contextDidSave():581 - key = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d94480; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>), managedObject: nil, keys: ["current"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:55:30.528  💚 DEBUG CloudKitManager.contextDidSave():581 - key = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d94400; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>), managedObject: nil, keys: ["current"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:55:31.260 0x283824400 💚 DEBUG CloudKitManager.contextDidSave():596 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+
+15:55:31.262 0x283824400 💚 DEBUG CloudKitManager.set():826 -   passwordCurrent: NSString =
+
+15:55:31.263 0x283824400 💚 DEBUG CloudKitManager.set():818 -   selectAt: NSNull = Optional(<null>)
+
+15:55:31.264 0x283824400 💚 DEBUG CloudKitManager.set():834 -   current: NSNumber = 0
+
+15:55:31.265 0x283824400 💚 DEBUG CloudKitManager.contextDidSave():643 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+managedObject =nil
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys = selectAt, passwordCurrent
+
+)
+
+15:55:31.267 0x283824400 💚 DEBUG CloudKitManager.contextDidSave():643 - key = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069
+
+mocr = recordID = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6
+
+managedObject =nil
+
+cloudRecord =B1DC5506-8A14-40EC-90AC-D1E1ADBCB069
+
+keys = current
+
+)
+
+15:55:31.277 0x283824400 💚 DEBUG CloudKitManager.contextDidSave():643 - key = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+mocr = recordID = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5
+
+managedObject =nil
+
+cloudRecord =4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+keys = current
+
+)
+
+15:55:31.282 0x283824400 💚 DEBUG CloudKitManager.contextDidSave():650 - fetchRecordsCompletionBlock toSave = [<CKRecord: 0x105d37800; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=9, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"<CKReference: 0x282d95260; recordID=<CKRecordID: 0x282d94600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282d94580; recordID=<CKRecordID: 0x282d94680; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282d94660; recordID=<CKRecordID: 0x282d95fa0; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d96140; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d96000; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:55:23 +0000
+
+modifiedByDevice -> iPhone 5s
+
+userid -> "us6"
+
+active -> 1 (type q)
+
+passwordCurrent (modified) -> ""
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282d95260; recordID=<CKRecordID: 0x282d94600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282d94580; recordID=<CKRecordID: 0x282d94680; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282d94660; recordID=<CKRecordID: 0x282d95fa0; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+url -> "ur6"
+
+}, <CKRecord: 0x105d6f350; recordID=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=8, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:55:16 +0000";
+
+current = 0;
+
+password = 2Gfwj5L4;
+
+selectedAt = "2019-01-02 06:55:16 +0000";
+
+site = "<CKReference: 0x282d95f20; recordID=<CKRecordID: 0x282d960a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d96060; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d97c40; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:55:23 +0000
+
+modificationDate -> 2019-01-02 06:55:23 +0000
+
+modifiedByDevice -> iPhone 5s
+
+site -> <CKReference: 0x282d95f20; recordID=<CKRecordID: 0x282d960a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "2Gfwj5L4"
+
+current (modified) -> 0 (type s)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:55:16 +0000
+
+uuid -> "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069"
+
+createdAt -> 2019-01-02 06:55:16 +0000
+
+}]
+
+15:55:31.299 0x283824400 💚 DEBUG CloudKitManager.contextDidSave():651 - fetchRecordsCompletionBlock toDelete = []
+
+15:55:32.837 0x2838360c0 💚 DEBUG CloudKitManager.contextDidSave():658 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([<CKRecord: 0x105d37800; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=b, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"<CKReference: 0x282d95260; recordID=<CKRecordID: 0x282d94600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282d94580; recordID=<CKRecordID: 0x282d94680; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282d94660; recordID=<CKRecordID: 0x282d95fa0; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d94b00; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d96140; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:55:31 +0000
+
+modifiedByDevice -> iPad Air
+
+userid -> "us6"
+
+active -> 1 (type q)
+
+passwordCurrent -> ""
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282d95260; recordID=<CKRecordID: 0x282d94600; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282d94580; recordID=<CKRecordID: 0x282d94680; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282d94660; recordID=<CKRecordID: 0x282d95fa0; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+url -> "ur6"
+
+}, <CKRecord: 0x105d6f350; recordID=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=c, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:55:16 +0000";
+
+current = 0;
+
+password = 2Gfwj5L4;
+
+selectedAt = "2019-01-02 06:55:16 +0000";
+
+site = "<CKReference: 0x282d95f20; recordID=<CKRecordID: 0x282d960a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282d97220; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282d96060; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:55:23 +0000
+
+modificationDate -> 2019-01-02 06:55:31 +0000
+
+modifiedByDevice -> iPad Air
+
+site -> <CKReference: 0x282d95f20; recordID=<CKRecordID: 0x282d960a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "2Gfwj5L4"
+
+current -> 0 (type s)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:55:16 +0000
+
+uuid -> "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069"
+
+createdAt -> 2019-01-02 06:55:16 +0000
+
+}]) delete = Optional([])
+
+15:55:45.097  💚 DEBUG CloudKitManager.contextWillSave():477 - contextWillSave
+
+15:55:45.110  💚 DEBUG CloudKitManager.contextDidSave():490 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x2812d84b0>), userInfo = Optional([AnyHashable("updated"): {(
+
+<TresorMockup.Site: 0x280ec13b0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>"
+
+);
+
+selectAt = nil;
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+})
+
+)}, AnyHashable("inserted"): {(
+
+)}, AnyHashable("managedObjectContext"): <_PFWeakReference: 0x282d95b00>])
+
+15:55:45.115  💚 DEBUG CloudKitManager.contextDidSave():581 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d969a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>), managedObject: nil, keys: [], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:55:45.477 0x283815b80 💚 DEBUG CloudKitManager.contextDidSave():596 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+
+15:55:45.478 0x283815b80 💚 DEBUG CloudKitManager.contextDidSave():643 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+managedObject =nil
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys =
+
+)
+
+15:55:45.480 0x283815b80 💚 DEBUG CloudKitManager.contextDidSave():650 - fetchRecordsCompletionBlock toSave = []
+
+15:55:45.481 0x283815b80 💚 DEBUG CloudKitManager.contextDidSave():651 - fetchRecordsCompletionBlock toDelete = []
+
+15:55:45.484 0x283815b80 💚 DEBUG CloudKitManager.contextDidSave():658 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+
+15:55:55.064  💚 DEBUG CloudKitManager.contextWillSave():477 - contextWillSave
+
+15:55:55.080  💚 DEBUG CloudKitManager.contextDidSave():490 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x2812d84b0>), userInfo = Optional([AnyHashable("updated"): {(
+
+<TresorMockup.Site: 0x280ec13b0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>"
+
+);
+
+selectAt = nil;
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+})
+
+)}, AnyHashable("inserted"): {(
+
+)}, AnyHashable("managedObjectContext"): <_PFWeakReference: 0x282de05c0>])
+
+15:55:55.085  💚 DEBUG CloudKitManager.contextDidSave():581 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282d91a00; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>), managedObject: nil, keys: [], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:55:55.482 0x2838360c0 💚 DEBUG CloudKitManager.contextDidSave():596 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+
+15:55:55.484 0x2838360c0 💚 DEBUG CloudKitManager.contextDidSave():643 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+managedObject =nil
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys =
+
+)
+
+15:55:55.486 0x2838360c0 💚 DEBUG CloudKitManager.contextDidSave():650 - fetchRecordsCompletionBlock toSave = []
+
+15:55:55.487 0x2838360c0 💚 DEBUG CloudKitManager.contextDidSave():651 - fetchRecordsCompletionBlock toDelete = []
+
+15:55:55.491 0x2838360c0 💚 DEBUG CloudKitManager.contextDidSave():658 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([]) delete = Optional([])
+
+15:56:21.271  💚 DEBUG AppDelegate.application():95 - Receive Remote Notification = [AnyHashable("ck"): {
+
+ce = 2;
+
+cid = "iCloud.com.gmail.jun1ro1.TresorMockup";
+
+ckuserid = "_1979069eda5ae6d1e5f1842739701a1c";
+
+met =     {
+
+dbs = 1;
+
+sid = "com.gmail.jun1ro1.TresorMockup";
+
+zid = "com.gmail.jun1ro1.TresorMockup_Zone";
+
+zoid = "_1979069eda5ae6d1e5f1842739701a1c";
+
+};
+
+nid = "14519f49-11e3-4a83-afba-068e85cbe788";
+
+}, AnyHashable("aps"): {
+
+"content-available" = 1;
+
+}]
+
+15:56:21.759 0x28382a000 💚 DEBUG CloudKitManager.checkUpdates():168 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x282fc8570; data=AQAAAWgNWPp6gr19IA5bEemK5WgFyk0xQA==>) more = false
+
+15:56:22.079 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():204 - fetchRecordZoneChangesCompletionBlock error = nil
+
+15:56:22.488 0x28382a000 💚 DEBUG CloudKitManager.checkUpdates():229 - CKFetchRecordsOperation = nil
+
+15:56:22.490 0x28382a000 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[B777A4A9-366D-40A0-8BB4-F6E7055CC710] = Optional(<CKRecord: 0x105d42ee0; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=d, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = pa6;
+
+passwords =     (
+
+"<CKReference: 0x282df2b80; recordID=<CKRecordID: 0x282df34a0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282df1fa0; recordID=<CKRecordID: 0x282df25e0; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282df1ca0; recordID=<CKRecordID: 0x282df1380; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+selectAt = "2019-01-02 06:56:20 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282df32a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282df05e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:56:20 +0000
+
+modifiedByDevice -> iPhone 5s
+
+active -> 1 (type q)
+
+userid -> "us6"
+
+passwordCurrent -> "pa6"
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282df2b80; recordID=<CKRecordID: 0x282df34a0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282df1fa0; recordID=<CKRecordID: 0x282df25e0; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282df1ca0; recordID=<CKRecordID: 0x282df1380; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+selectAt -> 2019-01-02 06:56:20 +0000
+
+url -> "ur6"
+
+}) :not nil
+
+15:56:22.507 0x28382a000 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0] = Optional(<CKRecord: 0x105db1c00; recordID=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=e, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 1;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:56:20 +0000";
+
+site = "<CKReference: 0x282df18e0; recordID=<CKRecordID: 0x282df2660; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282df35c0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282df38c0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:56:20 +0000
+
+modifiedByDevice -> iPhone 5s
+
+site -> <CKReference: 0x282df18e0; recordID=<CKRecordID: 0x282df2660; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "pa6"
+
+current -> 1 (type q)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:56:20 +0000
+
+uuid -> "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0"
+
+createdAt -> 2019-01-02 06:53:54 +0000
+
+}) :not nil
+
+15:56:22.519 0x28382a000 💚 DEBUG CloudKitManager.checkUpdates():238 - changes[B1DC5506-8A14-40EC-90AC-D1E1ADBCB069] = Optional(<CKRecord: 0x105d97400; recordID=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=c, values={
+
+active = 1;
+
+createdAt = "2019-01-02 06:55:16 +0000";
+
+current = 0;
+
+password = 2Gfwj5L4;
+
+selectedAt = "2019-01-02 06:55:16 +0000";
+
+site = "<CKReference: 0x282df1260; recordID=<CKRecordID: 0x282df1d20; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
+
+uuid = "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069";
+
+}, recordType=Password>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282df1bc0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282df3480; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:55:23 +0000
+
+modificationDate -> 2019-01-02 06:55:31 +0000
+
+modifiedByDevice -> iPad Air
+
+site -> <CKReference: 0x282df1260; recordID=<CKRecordID: 0x282df1d20; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
+
+password -> "2Gfwj5L4"
+
+current -> 0 (type q)
+
+active -> 1 (type q)
+
+selectedAt -> 2019-01-02 06:55:16 +0000
+
+uuid -> "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069"
+
+createdAt -> 2019-01-02 06:55:16 +0000
+
+}) :not nil
+
+15:56:22.535 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():266 - context fetch request = <NSFetchRequest: 0x2806c7330> (entity: Site; predicate: (uuid IN {"B777A4A9-366D-40A0-8BB4-F6E7055CC710"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+15:56:22.541 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():284 - context fetch result = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+15:56:22.542 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():266 - context fetch request = <NSFetchRequest: 0x2806c5d50> (entity: Password; predicate: (uuid IN {"B1DC5506-8A14-40EC-90AC-D1E1ADBCB069", "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0", "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9"}); sortDescriptors: ((null)); type: NSManagedObjectResultType; )
+
+15:56:22.544 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():284 - context fetch result = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+15:56:22.553 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():284 - context fetch result = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+15:56:22.554 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():284 - context fetch result = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069
+
+15:56:22.554 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[B777A4A9-366D-40A0-8BB4-F6E7055CC710].managedObject = x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+15:56:22.556 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[B1DC5506-8A14-40EC-90AC-D1E1ADBCB069].managedObject = x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6
+
+15:56:22.557 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0].managedObject = x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4
+
+15:56:22.558 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():318 - changes[4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9].managedObject = x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5
+
+15:56:22.560 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:56:22.566 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = us6 key = userid
+
+15:56:22.567 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = pa6 key = passwordCurrent
+
+15:56:22.568 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 8 key = maxLength
+
+15:56:22.569 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = t6 key = title
+
+15:56:22.570 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 136331264 key = charSet
+
+15:56:22.571 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = B777A4A9-366D-40A0-8BB4-F6E7055CC710 key = uuid
+
+15:56:22.580 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:39 +0000 key = createdAt
+
+15:56:22.582 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:56:20 +0000 key = selectAt
+
+15:56:22.583 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = ur6 key = url
+
+15:56:22.584 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Site: 0x280ef77a0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = pa6;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>"
+
+);
+
+selectAt = "2019-01-02 06:56:20 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+})
+
+15:56:22.587 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():368 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x280ef77a0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = pa6;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>"
+
+);
+
+selectAt = "2019-01-02 06:56:20 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}) key = site
+
+15:56:22.591 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2Gfwj5L4 key = password
+
+15:56:22.592 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 0 key = current
+
+15:56:22.594 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:56:22.597 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:55:16 +0000 key = selectedAt
+
+15:56:22.598 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069 key = uuid
+
+15:56:22.601 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:55:16 +0000 key = createdAt
+
+15:56:22.602 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280ef4b40> (entity: Password; id: 0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:55:16 +0000";
+
+current = 0;
+
+password = 2Gfwj5L4;
+
+selectedAt = "2019-01-02 06:55:16 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "B1DC5506-8A14-40EC-90AC-D1E1ADBCB069";
+
+})
+
+15:56:22.607 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():368 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x280ef77a0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = pa6;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>"
+
+);
+
+selectAt = "2019-01-02 06:56:20 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}) key = site
+
+15:56:22.612 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = pa6 key = password
+
+15:56:22.613 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = current
+
+15:56:22.614 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:56:22.617 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:56:20 +0000 key = selectedAt
+
+15:56:22.618 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0 key = uuid
+
+15:56:22.620 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:53:54 +0000 key = createdAt
+
+15:56:22.622 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280ef7160> (entity: Password; id: 0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:53:54 +0000";
+
+current = 1;
+
+password = pa6;
+
+selectedAt = "2019-01-02 06:56:20 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0";
+
+})
+
+15:56:22.626 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():368 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x280ef77a0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = pa6;
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>"
+
+);
+
+selectAt = "2019-01-02 06:56:20 +0000";
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}) key = site
+
+15:56:22.631 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = qQPoaYHP key = password
+
+15:56:22.632 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 0 key = current
+
+15:56:22.634 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 1 key = active
+
+15:56:22.635 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:54:19 +0000 key = selectedAt
+
+15:56:22.637 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9 key = uuid
+
+15:56:22.638 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():378 - recordChangedBlock setPrimitiveValue val = 2019-01-02 06:54:19 +0000 key = createdAt
+
+15:56:22.640 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():386 - CKFetchRecordZoneChangesOperation obj = <TresorMockup.Password: 0x280ef58b0> (entity: Password; id: 0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5> ; data: {
+
+active = 1;
+
+createdAt = "2019-01-02 06:54:19 +0000";
+
+current = 0;
+
+password = qQPoaYHP;
+
+selectedAt = "2019-01-02 06:54:19 +0000";
+
+site = "0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>";
+
+uuid = "4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9";
+
+})
+
+15:56:22.644 0x28382be00 💚 DEBUG CloudKitManager.checkUpdates():398 - changes =
+
+
+
+B777A4A9-366D-40A0-8BB4-F6E7055CC710:
+
+recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+managedObject =Site
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys =
+
+
+
+B1DC5506-8A14-40EC-90AC-D1E1ADBCB069:
+
+recordID = B1DC5506-8A14-40EC-90AC-D1E1ADBCB069 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6
+
+managedObject =Password
+
+cloudRecord =B1DC5506-8A14-40EC-90AC-D1E1ADBCB069
+
+keys =
+
+
+
+BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0:
+
+recordID = BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0 Password [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4
+
+managedObject =Password
+
+cloudRecord =BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0
+
+keys =
+
+
+
+4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9:
+
+recordID = 4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9 Password [UNKNOWN]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5
+
+managedObject =Password
+
+cloudRecord =4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9
+
+keys =
+
+15:56:22.649  💚 DEBUG MasterViewController.updateUI():64 - notification received
+
+15:56:22.650  💚 DEBUG DetailViewController.updateUI():196 - notification received
+
+15:56:22.651  💚 DEBUG DetailViewController.updateUI():196 - notification received
+
+15:56:25.425  💚 DEBUG CloudKitManager.contextWillSave():477 - contextWillSave
+
+15:56:25.441  💚 DEBUG CloudKitManager.contextDidSave():490 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x2812d84b0>), userInfo = Optional([AnyHashable("updated"): {(
+
+<TresorMockup.Site: 0x280ec13b0> (entity: Site; id: 0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4> ; data: {
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+loginAt = nil;
+
+maxLength = 8;
+
+memo = nil;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"0xa68414127a3b065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p5>",
+
+"0xa68414127a37065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p6>",
+
+"0xa68414127a3f065c <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Password/p4>"
+
+);
+
+selectAt = nil;
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+})
+
+)}, AnyHashable("inserted"): {(
+
+)}, AnyHashable("managedObjectContext"): <_PFWeakReference: 0x282d92140>])
+
+15:56:25.449  💚 DEBUG CloudKitManager.contextDidSave():581 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = Optional(TresorMockup.(unknown context at 0x100cea458).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x282df07a0; recordName=B777A4A9-366D-40A0-8BB4-F6E7055CC710, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xa68414127a3f065e <x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4>), managedObject: nil, keys: ["selectAt", "passwordCurrent"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at 0x100cea428).OperationMode(rawValue: 1)))
+
+15:56:25.866 0x28380fa80 💚 DEBUG CloudKitManager.contextDidSave():596 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = nil
+
+15:56:25.867 0x28380fa80 💚 DEBUG CloudKitManager.set():826 -   passwordCurrent: NSString =
+
+15:56:25.870 0x28380fa80 💚 DEBUG CloudKitManager.set():818 -   selectAt: NSNull = Optional(<null>)
+
+15:56:25.875 0x28380fa80 💚 DEBUG CloudKitManager.contextDidSave():643 - key = B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+mocr = recordID = B777A4A9-366D-40A0-8BB4-F6E7055CC710 Site [save]
+
+managedObjectID =x-coredata://F3070F1D-B9DB-4E4B-A2B5-6A9CFAED70A1/Site/p4
+
+managedObject =nil
+
+cloudRecord =B777A4A9-366D-40A0-8BB4-F6E7055CC710
+
+keys = selectAt, passwordCurrent
+
+)
+
+15:56:25.878 0x28380fa80 💚 DEBUG CloudKitManager.contextDidSave():650 - fetchRecordsCompletionBlock toSave = [<CKRecord: 0x105e641c0; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=d, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"<CKReference: 0x282df37c0; recordID=<CKRecordID: 0x282df0ec0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282df17a0; recordID=<CKRecordID: 0x282df1700; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282df0ae0; recordID=<CKRecordID: 0x282df2d00; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282df3640; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282df0f60; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:56:20 +0000
+
+modifiedByDevice -> iPhone 5s
+
+userid -> "us6"
+
+active -> 1 (type q)
+
+passwordCurrent (modified) -> ""
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282df37c0; recordID=<CKRecordID: 0x282df0ec0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282df17a0; recordID=<CKRecordID: 0x282df1700; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282df0ae0; recordID=<CKRecordID: 0x282df2d00; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+url -> "ur6"
+
+}]
+
+15:56:25.888 0x28380fa80 💚 DEBUG CloudKitManager.contextDidSave():651 - fetchRecordsCompletionBlock toDelete = []
+
+15:56:26.192 0x28380fa80 💚 DEBUG CloudKitManager.contextDidSave():658 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([<CKRecord: 0x105e641c0; recordID=B777A4A9-366D-40A0-8BB4-F6E7055CC710:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=f, values={
+
+active = 1;
+
+charSet = 136331264;
+
+createdAt = "2019-01-02 06:53:39 +0000";
+
+maxLength = 8;
+
+passwordCurrent = "";
+
+passwords =     (
+
+"<CKReference: 0x282df37c0; recordID=<CKRecordID: 0x282df0ec0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282df17a0; recordID=<CKRecordID: 0x282df1700; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
+
+"<CKReference: 0x282df0ae0; recordID=<CKRecordID: 0x282df2d00; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
+
+);
+
+title = t6;
+
+url = ur6;
+
+userid = us6;
+
+uuid = "B777A4A9-366D-40A0-8BB4-F6E7055CC710";
+
+}, recordType=Site>
+
+{
+
+creatorUserRecordID -> <CKRecordID: 0x282df0b40; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+lastModifiedUserRecordID -> <CKRecordID: 0x282df3640; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
+
+creationDate -> 2019-01-02 06:53:57 +0000
+
+modificationDate -> 2019-01-02 06:56:26 +0000
+
+modifiedByDevice -> iPad Air
+
+userid -> "us6"
+
+active -> 1 (type q)
+
+passwordCurrent -> ""
+
+maxLength -> 8 (type q)
+
+title -> "t6"
+
+charSet -> 136331264 (type q)
+
+passwords -> [<CKReference: 0x282df37c0; recordID=<CKRecordID: 0x282df0ec0; recordName=BC1817F7-DB76-4D40-AFFF-E429CBB2C9F0, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282df17a0; recordID=<CKRecordID: 0x282df1700; recordName=4C255BBB-3739-4A3E-82AC-7ACD08E9A6D9, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x282df0ae0; recordID=<CKRecordID: 0x282df2d00; recordName=B1DC5506-8A14-40EC-90AC-D1E1ADBCB069, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
+
+uuid -> "B777A4A9-366D-40A0-8BB4-F6E7055CC710"
+
+createdAt -> 2019-01-02 06:53:39 +0000
+
+url -> "ur6"
+
+}]) delete = Optional([])
 

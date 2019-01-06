@@ -32,28 +32,28 @@ class CoreDataManager: NSObject {
         }
         self._managedObjectContext = self.persistentContainer.viewContext
 
-        CloudKitManager.shared.addObserver(managedObjectContext: self._managedObjectContext)
+//        CloudKitManager.shared.addObserver(managedObjectContext: self._managedObjectContext)
 
         return self._managedObjectContext!
     }()
 
-    private var _managedObjectModel: NSManagedObjectModel? = nil
-    lazy var managedObjectModel: NSManagedObjectModel = {
-        if self._managedObjectModel != nil {
-            return self._managedObjectModel!
-        }
-        //        let bundles = [Bundle(for: type(of: self))]
-        //        print("bundles = \(bundles)")
-        //        self._managedObjectModel = NSManagedObjectModel.mergedModel(from: bundles)
-
-        let bundle = Bundle.main
-        let modelURL = bundle.url(forResource: "TresorMockup", withExtension: "momd")
-        self._managedObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
-
-        //        print("_managedObjectModel = \(String(describing: self._managedObjectModel))")
-
-        return self._managedObjectModel!
-    }()
+//    private var _managedObjectModel: NSManagedObjectModel? = nil
+//    lazy var managedObjectModel: NSManagedObjectModel = {
+//        if self._managedObjectModel != nil {
+//            return self._managedObjectModel!
+//        }
+//        //        let bundles = [Bundle(for: type(of: self))]
+//        //        print("bundles = \(bundles)")
+//        //        self._managedObjectModel = NSManagedObjectModel.mergedModel(from: bundles)
+//
+//        let bundle = Bundle.main
+//        let modelURL = bundle.url(forResource: "TresorMockup", withExtension: "momd")
+//        self._managedObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
+//
+//        //        print("_managedObjectModel = \(String(describing: self._managedObjectModel))")
+//
+//        return self._managedObjectModel!
+//    }()
 
 
     lazy var persistentContainer: NSPersistentContainer = {

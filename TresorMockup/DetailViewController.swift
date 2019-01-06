@@ -195,10 +195,7 @@ class DetailViewController: UITableViewController {
 //        SwiftyBeaver.self.debug("notification = \(notification)")
         SwiftyBeaver.self.debug("notification received")
 
-        let queue = OperationQueue.main
-        queue.addOperation {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()    
     }
 
     override func setEditing(_ editing: Bool, animated: Bool) {

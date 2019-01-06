@@ -115,7 +115,7 @@ class PasswordManager: NSObject, NSFetchedResultsControllerDelegate {
         }
         site.passwordCurrent = (password?.password ?? "") as NSString
         password?.current    = 1
-        site.selectAt        = now // invakes observeValue
+        site.selectAt        = now // invokes observeValue
     }
 
     func deleteCache() {

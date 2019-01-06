@@ -24,13 +24,26 @@ class CloudKitManager: NSObject {
     static      let CLOUDKIT_MANAGER_UPDATE_INTERFACE = "CLOUDKIT_CHANGED_UPDATE_INTERFACE"
     static      let CLOUDKIT_MANAGER_UPDATED          = "UPDATED"
     static      let CLOUDKIT_MANAGER_DELETED          = "DELETED"
+    static      let DEFAULTS_PREVIOUS_SERVER_CHANGE_TOKEN = "serverChangeToken"
 
     fileprivate var container: CKContainer
     fileprivate var database:  CKDatabase
     fileprivate var zone:      CKRecordZone
     fileprivate var bundleID:  String
     fileprivate var log = SwiftyBeaver.self
-    fileprivate var changeToken: CKServerChangeToken?
+    // http://app-craft.com/cloudkit-同期（２）/
+    fileprivate var changeToken: CKServerChangeToken? {
+        didSet {
+            let data: Data? = try?
+                NSKeyedArchiver.archivedData(withRootObject: changeToken as Any,
+                                             requiringSecureCoding: false)
+            guard data != nil else { return }
+            UserDefaults.standard.set(data,
+                                      forKey:
+                CloudKitManager.DEFAULTS_PREVIOUS_SERVER_CHANGE_TOKEN)
+        }
+    }
+
     fileprivate var fetchChangeToken: CKServerChangeToken?
     fileprivate var zoneIDs: [CKRecordZone.ID]
     fileprivate var subscriptionID: CKSubscription.ID
@@ -45,7 +58,15 @@ class CloudKitManager: NSObject {
         self.container = CKContainer.default()
         self.database  = self.container.privateCloudDatabase
         self.zone      = CKRecordZone(zoneName: self.bundleID + "_Zone")
+        self.changeToken = {
+            guard let data = UserDefaults.standard.object(forKey:
+                CloudKitManager.DEFAULTS_PREVIOUS_SERVER_CHANGE_TOKEN) as? Data else {
+                return nil
+            }
+            return NSKeyedUnarchiver.unarchiveObject(with: data) as? CKServerChangeToken
+        }()
         self.changeToken = nil
+
         self.fetchChangeToken = nil
         self.zoneIDs   = []
         self.subscriptionID = self.bundleID
@@ -54,9 +75,12 @@ class CloudKitManager: NSObject {
 
     func start(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
+        self.persistentContainer?.viewContext.automaticallyMergesChangesFromParent = true
         // Create a custom zone
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
+
+        self.addObserver(managedObjectContext: self.persistentContainer?.viewContext)
 
         // Create a fetch zones operation
         let fetchZonesOperation = CKFetchRecordZonesOperation(recordZoneIDs: [self.zone.zoneID])
@@ -300,6 +324,9 @@ class CloudKitManager: NSObject {
                                 assertionFailure()
                                 continue
                             }
+
+                            let _ = object.idstr
+                            
                             guard let record: CKRecord = changes[id]?.cloudRecord else {
                                 assertionFailure()
                                 continue
@@ -337,9 +364,9 @@ class CloudKitManager: NSObject {
                                     let id  = ref.recordID.recordName
                                     if let objid: NSManagedObjectID = changes[id]?.managedObjectID {
                                         let obj = context.object(with: objid)
-                                        #if DEBUG_DETAIL
+//                                        #if DEBUG_DETAIL
                                         self.log.debug("recordChangedBlock setPrimitiveValue refrenced = \(String(describing: obj)) key = \(key)")
-                                        #endif
+//                                        #endif
                                         object.setPrimitiveValue(obj, forKey: key)
                                     }
                                     else {
@@ -347,9 +374,9 @@ class CloudKitManager: NSObject {
                                     }
                                 } // else if record[key] is CKRecord.Reference
                                 else if let val = record[key] {
-                                    #if DEBUG_DETAIL
+//                                    #if DEBUG_DETAIL
                                     self.log.debug("recordChangedBlock setPrimitiveValue val = \(String(describing: val)) key = \(key)")
-                                    #endif
+//                                    #endif
                                     object.setPrimitiveValue(val, forKey: key)
                                 } // else if let val = record[key]
                                 else {
@@ -359,18 +386,6 @@ class CloudKitManager: NSObject {
                             self.log.debug("CKFetchRecordZoneChangesOperation obj = \(String(describing: object ))")
                         } // for id in changes.keys
 
-
-                        //                        let debugstr: String = {
-                        //                            let values = changes.values.map {
-                        //                                [
-                        //                                    $0.recordID!.recordName,
-                        //                                    $0.recordType ?? "nil",
-                        //                                    $0.mode.String,
-                        //                                    //                            ($0.managedObject == nil ? "nil" : $0.managedObject!.description)
-                        //                                    ].reduce("", {$0 + " " + $1})
-                        //                            }
-                        //                            return values.reduce("", { $0 + $1 + "\n" })
-                        //                        }()
                         let debugstr: String = {
                             return changes.map { (arg) -> String in
                                 let (key, val) = arg
@@ -403,17 +418,27 @@ class CloudKitManager: NSObject {
                             self.log.error("context.save error")
                         }
 
-                        let center = NotificationCenter.default
-                        let name   = Notification.Name(rawValue: CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
-                        let userInfo: [AnyHashable: Any] =
-                            [ CloudKitManager.CLOUDKIT_MANAGER_DELETED:
-                                changes.values.compactMap {
-                                    $0.mode.contains(.delete) ? $0.cloudRecord : nil },
-                              CloudKitManager.CLOUDKIT_MANAGER_UPDATED:
-                                changes.values.compactMap {
-                                    $0.mode == [.save] ? $0.cloudRecord : nil }
-                        ]
-                        center.post(name: name, object: self, userInfo: userInfo)
+                        OperationQueue.main.addOperation {
+//                            let context = self.persistentContainer?.viewContext
+//                            do {
+//                                try context?.save()
+//                            }
+//                            catch {
+//                                self.log.error("context.save error")
+//                            }
+
+                            let center = NotificationCenter.default
+                            let name   = Notification.Name(rawValue: CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+                            let userInfo: [AnyHashable: Any] =
+                                [ CloudKitManager.CLOUDKIT_MANAGER_DELETED:
+                                    changes.values.compactMap {
+                                        $0.mode.contains(.delete) ? $0.cloudRecord : nil },
+                                  CloudKitManager.CLOUDKIT_MANAGER_UPDATED:
+                                    changes.values.compactMap {
+                                        $0.mode == [.save] ? $0.cloudRecord : nil }
+                            ]
+                            center.post(name: name, object: self, userInfo: userInfo)
+                        }
                     } // self.persistentContainer?.performBackgroundTask
                 } // recordDispatchGroup.notify(queue: DispatchQueue.main) {
             } // recordOperation.fetchRecordZoneChangesCompletionBlock
@@ -441,7 +466,7 @@ class CloudKitManager: NSObject {
     }
 
 
-    func addObserver( managedObjectContext moc: NSManagedObjectContext?) {
+    func addObserver(managedObjectContext moc: NSManagedObjectContext?) {
         NotificationCenter.default.addObserver(self, selector: #selector(contextWillSave(notification:)), name: NSNotification.Name.NSManagedObjectContextWillSave, object: moc)
 
         NotificationCenter.default.addObserver(self, selector: #selector(contextDidSave(notification:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: moc)
@@ -904,9 +929,19 @@ fileprivate struct ManagedObjectCloudRecord {
             (self.managedObjectID?.uriRepresentation().absoluteString ?? "nil") + "\n"
         str += "managedObject =" +
             (self.managedObject?.entity.name ?? "nil") + "\n"
-       str += "cloudRecord =" +
+        str += {
+            guard self.managedObject != nil else {
+                return ""
+            }
+            return self.managedObject!.committedValues(forKeys: nil).map { arg in
+                let (key, val) = arg
+                let s = (val is NSManagedObject) ? (val as! NSManagedObject).entity.name : String(describing: val)
+                return "  " + key + ":" + (s ?? "") + "\n"
+            }.joined(separator: "")
+        }()
+        str += "cloudRecord =" +
             (self.cloudRecord?.recordID.recordName ?? "nil") + "\n"
-        str += "keys = " + keys.joined(separator: ", ") + "\n"
+        str += "keys = " + self.keys.joined(separator: ", ") + "\n"
         return str
     }
 }
