@@ -69,6 +69,7 @@
 		F9E45C5221E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5121E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png */; };
 		F9E45C5421E50A700060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5321E50A6F0060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png */; };
 		F9E45C5621E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5521E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png */; };
+		F9E45C5821E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5721E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png */; };
 		F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
 		F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */; };
 		F9FE6EAE2042E99300F892DC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAD2042E99300F892DC /* MasterViewController.swift */; };
@@ -132,6 +133,7 @@
 		F9E45C5121E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.41.12.png"; sourceTree = "<group>"; };
 		F9E45C5321E50A6F0060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.41.51.png"; sourceTree = "<group>"; };
 		F9E45C5521E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.44.59.png"; sourceTree = "<group>"; };
+		F9E45C5721E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.46.30.png"; sourceTree = "<group>"; };
 		F9FE4E6C216D1E0300951657 /* log3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log3.txt; sourceTree = "<group>"; };
 		F9FE4E6D216D1E6400951657 /* log4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log4.txt; sourceTree = "<group>"; };
 		F9FE6EA52042E99300F892DC /* TresorMockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresorMockup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +204,7 @@
 				F9E45C5121E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png */,
 				F9E45C5321E50A6F0060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png */,
 				F9E45C5521E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png */,
+				F9E45C5721E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png */,
 			);
 			path = ScreenShot;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				F9E45C5221E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png in Resources */,
 				F9E45C5621E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png in Resources */,
 				F9FE6EB82042E99300F892DC /* LaunchScreen.storyboard in Resources */,
+				F9E45C5821E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png in Resources */,
 				F9FE6EB52042E99300F892DC /* Assets.xcassets in Resources */,
 				F9FE6EB32042E99300F892DC /* Main.storyboard in Resources */,
 			);
