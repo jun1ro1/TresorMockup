@@ -61,7 +61,7 @@ class CloudKitManager: NSObject {
         self.changeToken = {
             guard let data = UserDefaults.standard.object(forKey:
                 CloudKitManager.DEFAULTS_PREVIOUS_SERVER_CHANGE_TOKEN) as? Data else {
-                return nil
+                    return nil
             }
             return NSKeyedUnarchiver.unarchiveObject(with: data) as? CKServerChangeToken
         }()
@@ -364,9 +364,9 @@ class CloudKitManager: NSObject {
                                     let id  = ref.recordID.recordName
                                     if let objid: NSManagedObjectID = changes[id]?.managedObjectID {
                                         let obj = context.object(with: objid)
-//                                        #if DEBUG_DETAIL
+                                        //                                        #if DEBUG_DETAIL
                                         self.log.debug("recordChangedBlock setPrimitiveValue refrenced = \(String(describing: obj)) key = \(key)")
-//                                        #endif
+                                        //                                        #endif
                                         object.setPrimitiveValue(obj, forKey: key)
                                     }
                                     else {
@@ -374,9 +374,9 @@ class CloudKitManager: NSObject {
                                     }
                                 } // else if record[key] is CKRecord.Reference
                                 else if let val = record[key] {
-//                                    #if DEBUG_DETAIL
+                                    //                                    #if DEBUG_DETAIL
                                     self.log.debug("recordChangedBlock setPrimitiveValue val = \(String(describing: val)) key = \(key)")
-//                                    #endif
+                                    //                                    #endif
                                     object.setPrimitiveValue(val, forKey: key)
                                 } // else if let val = record[key]
                                 else {
@@ -411,21 +411,23 @@ class CloudKitManager: NSObject {
                             context.delete($0)
                         }
 
-                        do {
-                            try context.save()
-                        }
-                        catch {
-                            self.log.error("context.save error")
+                        context.performAndWait {
+                            do {
+                                try context.save()
+                            }
+                            catch {
+                                self.log.error("context.save error")
+                            }
                         }
 
                         OperationQueue.main.addOperation {
-//                            let context = self.persistentContainer?.viewContext
-//                            do {
-//                                try context?.save()
-//                            }
-//                            catch {
-//                                self.log.error("context.save error")
-//                            }
+                            //                            let context = self.persistentContainer?.viewContext
+                            //                            do {
+                            //                                try context?.save()
+                            //                            }
+                            //                            catch {
+                            //                                self.log.error("context.save error")
+                            //                            }
 
                             let center = NotificationCenter.default
                             let name   = Notification.Name(rawValue: CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
@@ -937,8 +939,8 @@ fileprivate struct ManagedObjectCloudRecord {
                 let (key, val) = arg
                 let s = (val is NSManagedObject) ? (val as! NSManagedObject).entity.name : String(describing: val)
                 return "  " + key + ":" + (s ?? "") + "\n"
-            }.joined(separator: "")
-        }()
+                }.joined(separator: "")
+            }()
         str += "cloudRecord =" +
             (self.cloudRecord?.recordID.recordName ?? "nil") + "\n"
         str += "keys = " + self.keys.joined(separator: ", ") + "\n"
