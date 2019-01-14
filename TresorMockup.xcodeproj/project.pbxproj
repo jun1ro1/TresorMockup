@@ -10,6 +10,8 @@
 		592F958880EDC3597BCBC738 /* Pods_TresorMockupTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */; };
 		860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */; };
 		CD66B538CEA5298BF975469B /* Pods_TresorMockupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */; };
+		F920892421ECF702001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png in Resources */ = {isa = PBXBuildFile; fileRef = F920892321ECF701001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png */; };
+		F920892621ECF782001F28DD /* Screen Shot 2019-01-15 at 1.59.33.png in Resources */ = {isa = PBXBuildFile; fileRef = F920892521ECF782001F28DD /* Screen Shot 2019-01-15 at 1.59.33.png */; };
 		F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F926350620F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
@@ -64,12 +66,6 @@
 		F9E2084D204BF14F00543C81 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2084C204BF14F00543C81 /* Password.swift */; };
 		F9E2084E204BF14F00543C81 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2084C204BF14F00543C81 /* Password.swift */; };
 		F9E2084F204BF14F00543C81 /* Password.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E2084C204BF14F00543C81 /* Password.swift */; };
-		F9E45C4E21E508250060D4DC /* Screen Shot 2019-01-09 at 1.29.54.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C4D21E508250060D4DC /* Screen Shot 2019-01-09 at 1.29.54.png */; };
-		F9E45C5021E509410060D4DC /* Screen Shot 2019-01-09 at 1.36.47.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C4F21E509410060D4DC /* Screen Shot 2019-01-09 at 1.36.47.png */; };
-		F9E45C5221E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5121E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png */; };
-		F9E45C5421E50A700060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5321E50A6F0060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png */; };
-		F9E45C5621E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5521E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png */; };
-		F9E45C5821E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png in Resources */ = {isa = PBXBuildFile; fileRef = F9E45C5721E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png */; };
 		F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
 		F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAA2042E99300F892DC /* TresorMockup.xcdatamodeld */; };
 		F9FE6EAE2042E99300F892DC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAD2042E99300F892DC /* MasterViewController.swift */; };
@@ -110,6 +106,8 @@
 		E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupTests/Pods-TresorMockupTests.release.xcconfig"; sourceTree = "<group>"; };
 		F906C49820DE5F57003DADEC /* log1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log1.txt; sourceTree = "<group>"; };
 		F91D2A0D2175068600A9244C /* log6.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log6.txt; sourceTree = "<group>"; };
+		F920892321ECF701001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png"; sourceTree = "<group>"; };
+		F920892521ECF782001F28DD /* Screen Shot 2019-01-15 at 1.59.33.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-15 at 1.59.33.png"; sourceTree = "<group>"; };
 		F926350320F981C700EF7851 /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		F92A3929216531010073A544 /* log2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
 		F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -128,12 +126,6 @@
 		F9DB5566217DF6D7006C291E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
-		F9E45C4D21E508250060D4DC /* Screen Shot 2019-01-09 at 1.29.54.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.29.54.png"; sourceTree = "<group>"; };
-		F9E45C4F21E509410060D4DC /* Screen Shot 2019-01-09 at 1.36.47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.36.47.png"; sourceTree = "<group>"; };
-		F9E45C5121E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.41.12.png"; sourceTree = "<group>"; };
-		F9E45C5321E50A6F0060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.41.51.png"; sourceTree = "<group>"; };
-		F9E45C5521E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.44.59.png"; sourceTree = "<group>"; };
-		F9E45C5721E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2019-01-09 at 1.46.30.png"; sourceTree = "<group>"; };
 		F9FE4E6C216D1E0300951657 /* log3.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log3.txt; sourceTree = "<group>"; };
 		F9FE4E6D216D1E6400951657 /* log4.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log4.txt; sourceTree = "<group>"; };
 		F9FE6EA52042E99300F892DC /* TresorMockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresorMockup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,12 +191,8 @@
 		F9E45C4C21E507F80060D4DC /* ScreenShot */ = {
 			isa = PBXGroup;
 			children = (
-				F9E45C4D21E508250060D4DC /* Screen Shot 2019-01-09 at 1.29.54.png */,
-				F9E45C4F21E509410060D4DC /* Screen Shot 2019-01-09 at 1.36.47.png */,
-				F9E45C5121E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png */,
-				F9E45C5321E50A6F0060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png */,
-				F9E45C5521E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png */,
-				F9E45C5721E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png */,
+				F920892321ECF701001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png */,
+				F920892521ECF782001F28DD /* Screen Shot 2019-01-15 at 1.59.33.png */,
 			);
 			path = ScreenShot;
 			sourceTree = "<group>";
@@ -428,14 +416,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F9E45C5021E509410060D4DC /* Screen Shot 2019-01-09 at 1.36.47.png in Resources */,
-				F9E45C4E21E508250060D4DC /* Screen Shot 2019-01-09 at 1.29.54.png in Resources */,
 				F98CE01B215D34D8001AEF1A /* Podfile in Resources */,
-				F9E45C5421E50A700060D4DC /* Screen Shot 2019-01-09 at 1.41.51.png in Resources */,
-				F9E45C5221E50A310060D4DC /* Screen Shot 2019-01-09 at 1.41.12.png in Resources */,
-				F9E45C5621E50B120060D4DC /* Screen Shot 2019-01-09 at 1.44.59.png in Resources */,
+				F920892621ECF782001F28DD /* Screen Shot 2019-01-15 at 1.59.33.png in Resources */,
 				F9FE6EB82042E99300F892DC /* LaunchScreen.storyboard in Resources */,
-				F9E45C5821E50B6D0060D4DC /* Screen Shot 2019-01-09 at 1.46.30.png in Resources */,
+				F920892421ECF702001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png in Resources */,
 				F9FE6EB52042E99300F892DC /* Assets.xcassets in Resources */,
 				F9FE6EB32042E99300F892DC /* Main.storyboard in Resources */,
 			);

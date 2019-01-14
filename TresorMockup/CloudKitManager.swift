@@ -406,12 +406,13 @@ class CloudKitManager: NSObject {
                             }
                             return context.object(with: objid)
                         }
-                        dels.forEach {
-                            self.log.debug("delete idstr = \(String(describing: $0.idstr))")
-                            context.delete($0)
-                        }
 
                         context.performAndWait {
+                            dels.forEach {
+                                self.log.debug("delete idstr = \(String(describing: $0.idstr))")
+                                context.delete($0)
+                            }
+
                             do {
                                 try context.save()
                             }
@@ -421,14 +422,6 @@ class CloudKitManager: NSObject {
                         }
 
                         OperationQueue.main.addOperation {
-                            //                            let context = self.persistentContainer?.viewContext
-                            //                            do {
-                            //                                try context?.save()
-                            //                            }
-                            //                            catch {
-                            //                                self.log.error("context.save error")
-                            //                            }
-
                             let center = NotificationCenter.default
                             let name   = Notification.Name(rawValue: CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
                             let userInfo: [AnyHashable: Any] =

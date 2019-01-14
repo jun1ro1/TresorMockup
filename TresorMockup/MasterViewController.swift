@@ -40,7 +40,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let center = NotificationCenter.default
         let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
-                           selector: #selector(updateUI(notification:)),
+                           selector: #selector(viewUpdate(notification:)),
                            name: name,
                            object: nil)
         
@@ -59,7 +59,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     @objc
-    func updateUI(notification: Notification) {
+    func viewUpdate(notification: Notification) {
         //        SwiftyBeaver.self.debug("notification = \(notification)")
         SwiftyBeaver.self.debug("notification received")
         

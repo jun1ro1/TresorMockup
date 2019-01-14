@@ -63,7 +63,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         let center = NotificationCenter.default
         let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
-                           selector: #selector(updateUI(notification:)),
+                           selector: #selector(viewUpdate(notification:)),
                            name: name,
                            object: nil)
 
@@ -102,7 +102,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     }
 
     @objc
-    func updateUI(notification: Notification) {
+    func viewUpdate(notification: Notification) {
         let queue = OperationQueue.main
         queue.addOperation {
             self.passwordManager?.deleteCache()
@@ -191,7 +191,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         if self.selected == nil || self.selected != self.selectedOriginal {
             self.passwordManager?.select(password: self.selected, for: self.detailItem!)
         }
-        if let context = self.detailItem?.managedObjectContext {
+        if let context = self.passwordManager?.fetchedResultsController.managedObjectContext {
             guard context.hasChanges else {
                 return
             }
