@@ -8,6 +8,10 @@
 //  J.D Gauchat "iCloud and CloudKit in iOS"
 //  http://www.formasterminds.com/quick_guides_for_masterminds/guide.php?id=57
 
+// https://stackoverflow.com/questions/40065550/cannot-get-nsmanagedobject-automaticallymergeschangesfromparent-to-work
+// http://eugeneovchynnykov.com/coredata/ios/swift/swift3/2016/12/25/core-data-ios-10-swift-swift.html
+// https://stackoverflow.com/questions/46806505/ios-core-data-merge-policy-nsmergebypropertystoretrumpmergepolicy
+
 import UIKit
 import CoreData
 import CoreLocation
@@ -73,9 +77,11 @@ class CloudKitManager: NSObject {
         self.persistentContainer   = nil
     }
 
+    // MARK: - Start
     func start(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
         self.persistentContainer?.viewContext.automaticallyMergesChangesFromParent = true
+        self.persistentContainer?.viewContext.mergePolicy = NSMergePolicy.overwrite
         // Create a custom zone
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
@@ -248,6 +254,9 @@ class CloudKitManager: NSObject {
                 recordDispatchGroup.enter()
                 fetchRecordsDispatchGroup.notify(queue: DispatchQueue.main) {
                     self.persistentContainer?.performBackgroundTask { (context) in
+                        context.automaticallyMergesChangesFromParent = true
+                        context.mergePolicy = NSMergePolicy.overwrite
+
                         let recordTypes = Set( changes.values.compactMap { $0.recordType } )
                         #if DEBUG_DETAIL
                         self.log.debug("recordTypes = \(recordTypes)")
@@ -290,6 +299,9 @@ class CloudKitManager: NSObject {
 
                 recordDispatchGroup.notify(queue: DispatchQueue.main) {
                     self.persistentContainer?.performBackgroundTask { (context) in
+                        context.automaticallyMergesChangesFromParent = true
+                        context.mergePolicy = NSMergePolicy.overwrite
+
                         for id in changes.keys {
                             guard let mocr = changes[id] else {
                                 assertionFailure()
