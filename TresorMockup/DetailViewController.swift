@@ -467,7 +467,7 @@ class DetailViewController: UITableViewController {
             cl.charsStepper?.minimumValue  = 0.0
             cl.charsStepper?.maximumValue  = Double(charsArray.count - 1)
             cl.charsStepper?.value         = Double(
-                (charsArray.index {$0.rawValue >= chars.rawValue} ?? 0) )
+                (charsArray.firstIndex {$0.rawValue >= chars.rawValue} ?? 0) )
             cl.charsStepper?.isContinuous  = true
             cl.charsStepper?.tag           = TAG_STEPPER_CHARS
             cl.charsStepper?.addTarget(self,

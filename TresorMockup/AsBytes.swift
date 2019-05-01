@@ -15,7 +15,7 @@ extension Data {
     var isZero: Bool { return self.first(where: {$0 != 0}) == nil }
     
     mutating func zerosuppressed() -> Data {
-        if let idx = self.index(where: {$0 != 0}) {
+        if let idx = self.firstIndex(where: {$0 != 0}) {
             self.removeFirst(Int(idx))
         }
         else {

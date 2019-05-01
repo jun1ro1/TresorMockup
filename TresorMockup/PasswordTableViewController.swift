@@ -268,6 +268,8 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
             }
             self.configureCell(cell, with: anObject as? Password)
             tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError()
         }
     }
 
