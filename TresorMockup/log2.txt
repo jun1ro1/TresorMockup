@@ -1,1 +1,103 @@
+(lldb) po self.detailItem
+▿ Optional<Site>
+- some : <TresorMockup.Site: 0x282dd5d60> (entity: Site; id: 0x964917507eb5ed7c <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2019-05-01 01:04:24 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = "";
+passwords = "<relationship fault: 0x280efe6a0 'passwords'>";
+selectAt = nil;
+title = "t1_2";
+url = "ur1_1";
+userid = us1;
+uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
+})
 
+
+---
+(lldb) po self.detailItem
+▿ Optional<Site>
+- some : <TresorMockup.Site: 0x282dd5d60> (entity: Site; id: 0x964917507eb5ed7c <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2019-05-01 01:04:24 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = "";
+passwords = "<relationship fault: 0x280efcee0 'passwords'>";
+selectAt = nil;
+title = "t1_2";
+url = "ur1_2";
+userid = us1;
+uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
+})
+
+---
+21:34:44.178 0x281b04340 💚 DEBUG CloudKitManager.checkUpdates():381 - recordChangedBlock setPrimitiveValue refrenced = <TresorMockup.Site: 0x282de5ea0> (entity: Site; id: 0x964917507eb5ed7c <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2019-05-01 01:04:24 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa1;
+passwords =     (
+"0x964917507ebded7e <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Password/p3>",
+"0x964917507eb5ed7e <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Password/p1>",
+"0x964917507ea1ed7e <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Password/p4>",
+"0x964917507ea5ed7e <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Password/p5>",
+"0x964917507eb9ed7e <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Password/p2>"
+);
+selectAt = "2019-05-12 12:34:35 +0000";
+title = "t1_2";
+
+url = "ur1_2";
+userid = us1;
+uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
+}) key = site
+21:34:44.182 0x281b04340 💚 DEBUG CloudKitManager.checkUpdates():391 - recordChangedBlock setPrimitiveValue val = 2dC6Nkvt key = password
+21:34:44.183 0x281b04340 💚 DEBUG CloudKitManager.checkUpdates():391 - recordChangedBlock setPrimitiveValue val = 0 key = current
+21:34:44.184 0x281b04340 💚 DEBUG CloudKitManager.checkUpdates():391 - recordChangedBlock setPrimitiveValue val = 1 key = active
+21:34:44.185 0x281b04340 💚 DEBUG CloudKitManager.checkUpdates():391 - recordChangedBlock setPrimitiveValue val = 2019-05-11 15:56:25 +0000 key = selectedAt
+(lldb) po self.detailItem
+▿ Optional<Site>
+- some : <TresorMockup.Site: 0x282dd5d60> (entity: Site; id: 0x964917507eb5ed7c <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2019-05-01 01:04:24 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa1;
+passwords = "<relationship fault: 0x280efebc0 'passwords'>";
+selectAt = "2019-05-12 12:34:35 +0000";
+title = "t1_2";
+url = "ur1_2";
+userid = us1;
+uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
+})
+
+21:37:02.944 0x281b04340 💚 DEBUG CloudKitManager.checkUpdates():391 - recordChangedBlock setPrimitiveValue val = pa1 key = password
+(lldb) po self.detailItem
+▿ Optional<Site>
+- some : <TresorMockup.Site: 0x282dd5d60> (entity: Site; id: 0x964917507eb5ed7c <x-coredata://7D3F469D-4BC3-4291-BBD1-9D7FA30C0BF9/Site/p1> ; data: {
+active = 1;
+charSet = 136331264;
+createdAt = "2019-05-01 01:04:24 +0000";
+loginAt = nil;
+maxLength = 8;
+memo = nil;
+passwordCurrent = pa1;
+passwords = "<relationship fault: 0x280efebc0 'passwords'>";
+selectAt = "2019-05-12 12:34:35 +0000";
+title = "t1_2";
+url = "ur1_2";
+userid = us1;
+uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
+})
+
+(lldb) 
