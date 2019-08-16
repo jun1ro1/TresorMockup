@@ -61,10 +61,10 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         eyeButton.titleLabel?.isHidden = false
 
         let center = NotificationCenter.default
-        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+//        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
                            selector: #selector(viewUpdate(notification:)),
-                           name: name,
+                           name: .didFindRelevantTransactions,
                            object: nil)
 
 

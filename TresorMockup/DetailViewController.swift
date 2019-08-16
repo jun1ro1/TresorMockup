@@ -121,10 +121,10 @@ class DetailViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = editButtonItem
 
         let center = NotificationCenter.default
-        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+//        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
                            selector: #selector(viewUpdate(notification:)),
-                           name: name,
+                           name: .didFindRelevantTransactions,
                            object: nil)
 
         self.configureView()

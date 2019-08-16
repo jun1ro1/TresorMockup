@@ -38,10 +38,10 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         SwiftyBeaver.self.debug("viewDidLoad")
         
         let center = NotificationCenter.default
-        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+//        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
                            selector: #selector(viewUpdate(notification:)),
-                           name: name,
+                           name: .didFindRelevantTransactions,
                            object: nil)
         
         self.searchBar.delegate = self
@@ -239,6 +239,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             }
             configureCell(cell, withSite: anObject as! Site)
             self.tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        @unknown default:
+            fatalError()
         }
     }
     

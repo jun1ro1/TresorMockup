@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,9 +12,6 @@
 		CD66B538CEA5298BF975469B /* Pods_TresorMockupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */; };
 		F920892421ECF702001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png in Resources */ = {isa = PBXBuildFile; fileRef = F920892321ECF701001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png */; };
 		F920892621ECF782001F28DD /* Screen Shot 2019-01-15 at 1.59.33.png in Resources */ = {isa = PBXBuildFile; fileRef = F920892521ECF782001F28DD /* Screen Shot 2019-01-15 at 1.59.33.png */; };
-		F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
-		F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
-		F926350620F981C700EF7851 /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F926350320F981C700EF7851 /* CloudKitManager.swift */; };
 		F92E9ADD20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADE20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
 		F92E9ADF20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */; };
@@ -188,6 +185,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F90921F1230673E800F9FD35 /* old */ = {
+			isa = PBXGroup;
+			children = (
+				F926350320F981C700EF7851 /* CloudKitManager.swift */,
+			);
+			path = old;
+			sourceTree = "<group>";
+		};
 		F9E45C4C21E507F80060D4DC /* ScreenShot */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +227,7 @@
 		F9FE6EA72042E99300F892DC /* TresorMockup */ = {
 			isa = PBXGroup;
 			children = (
+				F90921F1230673E800F9FD35 /* old */,
 				F9E45C4C21E507F80060D4DC /* ScreenShot */,
 				F98CE01A215D34D6001AEF1A /* Podfile */,
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
@@ -229,7 +235,6 @@
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
 				F9D3F352205E97F200878975 /* AppKey.swift */,
 				F9610E182055864C00A97F0E /* AsBytes.swift */,
-				F926350320F981C700EF7851 /* CloudKitManager.swift */,
 				F985628B20DD438400177F55 /* CoreDataManager.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
 				F935B37A204A3ACA00B004B2 /* Extensions.swift */,
@@ -392,7 +397,7 @@
 				};
 			};
 			buildConfigurationList = F9FE6EA02042E99300F892DC /* Build configuration list for PBXProject "TresorMockup" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -531,7 +536,6 @@
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
 				F9C3C5BA20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F92E9AE320D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,
-				F926350420F981C700EF7851 /* CloudKitManager.swift in Sources */,
 				F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F92E9ADD20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */,
 				F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */,
@@ -556,7 +560,6 @@
 				F9D85C86206FE11100317AFD /* AppKey.swift in Sources */,
 				F985628D20DD438400177F55 /* CoreDataManager.swift in Sources */,
 				F92E9AE420D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,
-				F926350520F981C700EF7851 /* CloudKitManager.swift in Sources */,
 				F9E2084A204BF0D600543C81 /* Site.swift in Sources */,
 				F950E78420676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */,
@@ -582,7 +585,6 @@
 				F9D85C87206FE11200317AFD /* AppKey.swift in Sources */,
 				F985628E20DD438400177F55 /* CoreDataManager.swift in Sources */,
 				F92E9AE520D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,
-				F926350620F981C700EF7851 /* CloudKitManager.swift in Sources */,
 				F9E2084B204BF0D600543C81 /* Site.swift in Sources */,
 				F950E78520676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */,
@@ -681,7 +683,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -735,7 +737,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -754,11 +756,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7G5AYFTLJ;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -777,11 +780,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7G5AYFTLJ;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gmail.jun1ro1.TresorMockup2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

@@ -351,7 +351,7 @@ public class RandomData {
             throw RandomDataError.outOfRange
         }
         
-        var charArray: [Character] = charSet.string.map { $0 }
+        let charArray: [Character] = charSet.string.map { $0 }
         let charCount = charArray.count
         let indexTotalCount: Int = {
             var b = 1
