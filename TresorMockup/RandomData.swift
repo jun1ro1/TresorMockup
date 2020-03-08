@@ -331,8 +331,8 @@ public class RandomData {
         
         // generate a random data and write to the buffer
         var error: OSStatus = errSecSuccess
-        data.withUnsafeMutableBytes { bytes in
-            error = SecRandomCopyBytes(kSecRandomDefault, count, bytes)
+        data.withUnsafeMutableBytes { (bytes) in
+            error = SecRandomCopyBytes(kSecRandomDefault, count, bytes.baseAddress!)
         }
         guard error == errSecSuccess else {
             throw RandomDataError.OSError(error: error)

@@ -19,7 +19,7 @@ class CoreDataManager {
     private static var _manager: CoreDataManager? = nil
     private var log = SwiftyBeaver.self
     
-    private static var appTransactionAuthorName = "TresorMockup"
+    static var appTransactionAuthorName = "TresorMockup"
 
     static var shared: CoreDataManager = {
         if _manager == nil {
@@ -39,17 +39,17 @@ class CoreDataManager {
         }
     }
 
-    private var _managedObjectContext: NSManagedObjectContext? = nil
-    lazy var managedObjectContext: NSManagedObjectContext = {
-        if self._managedObjectContext != nil {
-            return self._managedObjectContext!
-        }
-        self._managedObjectContext = self.persistentContainer.viewContext
-
-//        CloudKitManager.shared.addObserver(managedObjectContext: self._managedObjectContext)
-
-        return self._managedObjectContext!
-    }()
+//    private var _managedObjectContext: NSManagedObjectContext? = nil
+//    lazy var managedObjectContext: NSManagedObjectContext = {
+//        if self._managedObjectContext != nil {
+//            return self._managedObjectContext!
+//        }
+//        self._managedObjectContext = self.persistentContainer.viewContext
+//
+////        CloudKitManager.shared.addObserver(managedObjectContext: self._managedObjectContext)
+//
+//        return self._managedObjectContext!
+//    }()
 
 //    private var _managedObjectModel: NSManagedObjectModel? = nil
 //    lazy var managedObjectModel: NSManagedObjectModel = {
@@ -176,6 +176,8 @@ extension CoreDataManager {
     @objc
     func storeRemoteChange(_ notification: Notification) {
         print("###\(#function): Merging changes from the other persistent store coordinator.")
+        self.log.debug("Merging changes from the other persistent store coordinator = \(notification)")
+
         
         // Process persistent history to merge changes from other coordinators.
         self.historyQueue.addOperation {
@@ -226,3 +228,10 @@ extension CoreDataManager {
     }
 }
 
+extension NSPersistentContainer {
+    func backgroundContext() -> NSManagedObjectContext {
+        let context = newBackgroundContext()
+        context.transactionAuthor = CoreDataManager.appTransactionAuthorName
+        return context
+    }
+}

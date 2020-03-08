@@ -37,8 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 //        controller.managedObjectContext = self.persistentContainer.viewContext
 //        PasswordManager.shared.managedObjectContext = self.persistentContainer.viewContext
 
-        controller.managedObjectContext = CoreDataManager.shared.managedObjectContext
-        PasswordManager.shared.managedObjectContext = CoreDataManager.shared.managedObjectContext
+        controller.managedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
+        PasswordManager.shared.managedObjectContext = CoreDataManager.shared.persistentContainer.viewContext
 
 //        // initialize CloudKitManager
 //        CloudKitManager.shared.start(persistentContainer: CoreDataManager.shared.persistentContainer)
@@ -143,7 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func saveContext () {
 //        let context = persistentContainer.viewContext
 
-        let context = CoreDataManager.shared.managedObjectContext
+        let context = CoreDataManager.shared.persistentContainer.viewContext
         context.performAndWait {
             if context.hasChanges {
                 do {

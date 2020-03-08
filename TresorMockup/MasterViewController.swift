@@ -40,7 +40,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         let center = NotificationCenter.default
 //        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
-                           selector: #selector(viewUpdate(notification:)),
+                           selector: #selector(viewUpdate(_ :)),
                            name: .didFindRelevantTransactions,
                            object: nil)
         
@@ -51,6 +51,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         super.viewWillAppear(animated)
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         
+        _ = AuthenticationManger.shared.authenticate()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,7 +60,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     @objc
-    func viewUpdate(notification: Notification) {
+    func viewUpdate(_ notification: Notification) {
         //        SwiftyBeaver.self.debug("notification = \(notification)")
         SwiftyBeaver.self.debug("notification received")
         
@@ -83,7 +84,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         
         // Create a new item
-        let context = CoreDataManager.shared.managedObjectContext
+        let context = CoreDataManager.shared.persistentContainer.viewContext
         self.newItem = Site(context: context)
         
         self.performSegue(withIdentifier: "editDetail", sender: nil)
