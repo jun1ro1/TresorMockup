@@ -29,12 +29,6 @@
 		F9610E1120552FEA00A97F0E /* Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E1020552FEA00A97F0E /* Layouter.swift */; };
 		F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E1020552FEA00A97F0E /* Layouter.swift */; };
 		F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E1020552FEA00A97F0E /* Layouter.swift */; };
-		F9610E152055862900A97F0E /* RandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E142055862800A97F0E /* RandomData.swift */; };
-		F9610E162055862900A97F0E /* RandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E142055862800A97F0E /* RandomData.swift */; };
-		F9610E172055862900A97F0E /* RandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E142055862800A97F0E /* RandomData.swift */; };
-		F9610E192055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
-		F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
-		F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E182055864C00A97F0E /* AsBytes.swift */; };
 		F961686B24152C500084C3BB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961686A24152C500084C3BB /* AuthenticationManager.swift */; };
 		F961686C24152C500084C3BB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961686A24152C500084C3BB /* AuthenticationManager.swift */; };
 		F985628C20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
@@ -74,6 +68,10 @@
 		F9FE6EB82042E99300F892DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */; };
 		F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EC22042E99300F892DC /* TresorMockupTests.swift */; };
 		F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6ECD2042E99400F892DC /* TresorMockupUITests.swift */; };
+		F9FEFDAC24F102CB00D1A2FD /* Cryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FEFDA824F102CA00D1A2FD /* Cryptor.swift */; };
+		F9FEFDAD24F102CB00D1A2FD /* RandomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FEFDA924F102CA00D1A2FD /* RandomData.swift */; };
+		F9FEFDAE24F102CB00D1A2FD /* CryptorCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FEFDAA24F102CB00D1A2FD /* CryptorCore.swift */; };
+		F9FEFDAF24F102CB00D1A2FD /* AsBytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FEFDAB24F102CB00D1A2FD /* AsBytes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,12 +113,10 @@
 		F935B37A204A3ACA00B004B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F950E78220676C8600D55557 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
-		F9610E142055862800A97F0E /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
-		F9610E182055864C00A97F0E /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
 		F961686A24152C500084C3BB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		F985628B20DD438400177F55 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F98B615A20B5CA06008E7048 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
-		F98CE01A215D34D6001AEF1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		F98CE01A215D34D6001AEF1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTableViewController.swift; sourceTree = "<group>"; };
 		F9D3F352205E97F200878975 /* AppKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKey.swift; sourceTree = "<group>"; };
 		F9DB5566217DF6D7006C291E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -144,6 +140,10 @@
 		F9FE6ECD2042E99400F892DC /* TresorMockupUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TresorMockupUITests.swift; sourceTree = "<group>"; };
 		F9FE6ECF2042E99400F892DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TresorMockup.entitlements; sourceTree = "<group>"; };
+		F9FEFDA824F102CA00D1A2FD /* Cryptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cryptor.swift; sourceTree = "<group>"; };
+		F9FEFDA924F102CA00D1A2FD /* RandomData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomData.swift; sourceTree = "<group>"; };
+		F9FEFDAA24F102CB00D1A2FD /* CryptorCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptorCore.swift; sourceTree = "<group>"; };
+		F9FEFDAB24F102CB00D1A2FD /* AsBytes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsBytes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +205,17 @@
 			path = ScreenShot;
 			sourceTree = "<group>";
 		};
+		F9F6AE6424F00BF800F70204 /* Cryptor */ = {
+			isa = PBXGroup;
+			children = (
+				F9FEFDAB24F102CB00D1A2FD /* AsBytes.swift */,
+				F9FEFDA824F102CA00D1A2FD /* Cryptor.swift */,
+				F9FEFDAA24F102CB00D1A2FD /* CryptorCore.swift */,
+				F9FEFDA924F102CA00D1A2FD /* RandomData.swift */,
+			);
+			path = Cryptor;
+			sourceTree = "<group>";
+		};
 		F9FE6E9C2042E99300F892DC = {
 			isa = PBXGroup;
 			children = (
@@ -230,25 +241,24 @@
 		F9FE6EA72042E99300F892DC /* TresorMockup */ = {
 			isa = PBXGroup;
 			children = (
+				F9F6AE6424F00BF800F70204 /* Cryptor */,
 				F90921F1230673E800F9FD35 /* old */,
 				F9E45C4C21E507F80060D4DC /* ScreenShot */,
 				F98CE01A215D34D6001AEF1A /* Podfile */,
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
 				F9FE6EB92042E99300F892DC /* Info.plist */,
-				F961686A24152C500084C3BB /* AuthenticationManager.swift */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
 				F9D3F352205E97F200878975 /* AppKey.swift */,
-				F9610E182055864C00A97F0E /* AsBytes.swift */,
 				F985628B20DD438400177F55 /* CoreDataManager.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
 				F935B37A204A3ACA00B004B2 /* Extensions.swift */,
 				F9610E1020552FEA00A97F0E /* Layouter.swift */,
 				F9FE6EAD2042E99300F892DC /* MasterViewController.swift */,
+				F961686A24152C500084C3BB /* AuthenticationManager.swift */,
 				F9E2084C204BF14F00543C81 /* Password.swift */,
 				F92E9AD920D411F9007EE75A /* Password+CoreDataProperties.swift */,
 				F98B615A20B5CA06008E7048 /* PasswordManager.swift */,
 				F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */,
-				F9610E142055862800A97F0E /* RandomData.swift */,
 				F9E20848204BF0D600543C81 /* Site.swift */,
 				F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */,
 				F950E78220676C8600D55557 /* TextViewController.swift */,
@@ -533,20 +543,22 @@
 			files = (
 				F9610E1120552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D3F353205E97F200878975 /* AppKey.swift in Sources */,
+				F9FEFDAF24F102CB00D1A2FD /* AsBytes.swift in Sources */,
 				F9E20849204BF0D600543C81 /* Site.swift in Sources */,
 				F961686B24152C500084C3BB /* AuthenticationManager.swift in Sources */,
 				F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */,
 				F985628C20DD438400177F55 /* CoreDataManager.swift in Sources */,
+				F9FEFDAD24F102CB00D1A2FD /* RandomData.swift in Sources */,
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
+				F9FEFDAE24F102CB00D1A2FD /* CryptorCore.swift in Sources */,
+				F9FEFDAC24F102CB00D1A2FD /* Cryptor.swift in Sources */,
 				F9C3C5BA20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F92E9AE320D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,
 				F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */,
 				F92E9ADD20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */,
 				F9FE6EAC2042E99300F892DC /* TresorMockup.xcdatamodeld in Sources */,
-				F9610E152055862900A97F0E /* RandomData.swift in Sources */,
 				F9FE6EAE2042E99300F892DC /* MasterViewController.swift in Sources */,
 				F9FE6EB02042E99300F892DC /* DetailViewController.swift in Sources */,
-				F9610E192055864D00A97F0E /* AsBytes.swift in Sources */,
 				F950E78320676C8600D55557 /* TextViewController.swift in Sources */,
 				F98B615B20B5CA06008E7048 /* PasswordManager.swift in Sources */,
 			);
@@ -569,9 +581,7 @@
 				F9610E1220552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D85C8A206FE14F00317AFD /* AppDelegate.swift in Sources */,
 				F9D85C88206FE14400317AFD /* MasterViewController.swift in Sources */,
-				F9610E162055862900A97F0E /* RandomData.swift in Sources */,
 				F9C3C5BB20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
-				F9610E1A2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F92E9ADE20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */,
 				F9FE6EC32042E99300F892DC /* TresorMockupTests.swift in Sources */,
 			);
@@ -595,9 +605,7 @@
 				F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */,
 				F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */,
-				F9610E172055862900A97F0E /* RandomData.swift in Sources */,
 				F9C3C5BC20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
-				F9610E1B2055864D00A97F0E /* AsBytes.swift in Sources */,
 				F92E9ADF20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */,
 				F9FE6ECE2042E99400F892DC /* TresorMockupUITests.swift in Sources */,
 			);

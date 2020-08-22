@@ -216,7 +216,7 @@ class DetailViewController: UITableViewController {
                 print("changed passwordCurrent = \(String(describing: self.detailItem?.passwordCurrent))")
                 if let str = self.detailItem?.passwordCurrent as String?,
                     let password = self.passwordManager?.newObject(for: self.detailItem!) {
-                    password.password = str
+                    password.password = str  // ***ENCRYPT***
                     self.passwordManager?.select(password: password, for: self.detailItem!)
                     self.save(force: false)
                 }
@@ -408,7 +408,7 @@ class DetailViewController: UITableViewController {
         case .password:
             if self.isEditing {
                 let tf = (cell as! SecretTextViewCell).textField
-                tf?.text = (self.detailItem?.passwordCurrent as String?) ?? ""
+                tf?.text = (self.detailItem?.passwordCurrent as String?) ?? "" // ***DECRYPT***
                 tf?.tag  = TAG_TEXTFIELD_PASSWORD
                 tf?.placeholder = "Password".localized
                 tf?.accessibilityIdentifier = "textFieldPassword"
@@ -430,7 +430,7 @@ class DetailViewController: UITableViewController {
             }
             else {
                 let label    = (cell as! PasswordCell).label
-                label?.value = (self.detailItem?.passwordCurrent as String?) ?? ""
+                label?.value = (self.detailItem?.passwordCurrent as String?) ?? "" // ***DECRYPT***
                 label?.tag   = TAG_LABEL_PASSWORD
                 label?.secret(true)
                 let button   = (cell as! PasswordCell).eyeButton
@@ -542,7 +542,7 @@ class DetailViewController: UITableViewController {
             let len   = self.detailItem!.forMaxLength
             let chars = self.detailItem!.forCharSet
             if let val = try? RandomData.shared.get(count: len, in: chars) {
-                self.detailItem?.passwordCurrent = val as NSString
+                self.detailItem?.passwordCurrent = val as NSString  // ***ENCRYPT***
                 self.passTextField?.text = val
 //                if let password = self.passwordManager?.newObject(for: self.detailItem!) {
 //                    password.password = val
@@ -660,7 +660,7 @@ extension DetailViewController: UITextFieldDelegate {
 
         case TAG_TEXTFIELD_PASSWORD:
             if let str = textField.text {
-                setStr( self.detailItem, "passwordCurrent", str )
+                setStr( self.detailItem, "passwordCurrent", str ) // ***DECRYPT***
             }
 
 //                if str == "" && (self.detailItem?.passwordCurrent as String?) == nil {

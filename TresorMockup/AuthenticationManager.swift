@@ -40,27 +40,129 @@ class AuthenticationManger {
         
     }
     
-    func authenticate() -> Bool {
+    
+    // https://stackoverflow.com/questions/24158062/how-to-use-touch-id-sensor-in-ios-8/40612228
+    func authenticate(_ viewController: UIViewController) {
         let context = LAContext()
         let reason  = "This app uses Touch ID / Facd ID to secure your data."
         var authError: NSError? = nil
+        var authed = false
+        
+        if !Cryptor.isPrepared  {
+            
+        }
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
                 if success {
-                    self.authenticated = true
+                    authed = true
                 }
                 else {
                     print("Authenticaion Error \(error!)")
                     SwiftyBeaver.self.error("Authenticaion Error \(error!)")
+                    authed = false
                 }
             }
         }
         else {
-            print("Authenticaion Error \(authError!)")
             SwiftyBeaver.self.error("Authenticaion Error \(authError!)")
-            
+            DialogManager.shared.showSetPassword(viewController) {
+                (password) in
+                #if DEBUG
+                SwiftyBeaver.self.debug("password = \(password ?? "nil")")
+                #endif
+            }
         }
-        return true
+        //        if authed {
+        //            self.authenticated = true
+        //        }
     }
 }
+
+fileprivate class DialogManager {
+    private static var _manager: DialogManager? = nil
+    static var shared: DialogManager = {
+        if _manager == nil {
+            _manager = DialogManager()
+        }
+        return _manager!
+    }()
+    
+    let MAKE_PASSWORD_PASS    = 11
+    let MAKE_PASSWORD_CONFIRM = 12
+    
+    private var handler: ((String?) -> Void)?
+    
+    init() {}
+    
+    private     var _setPassword: UIAlertController? = nil
+    fileprivate func setPassword( _ handler: @escaping (String?)->Void ) -> UIAlertController? {
+        if self._setPassword == nil {
+            let alert = UIAlertController(title: "Set App password",
+                                          message: "Enter Password",
+                                          preferredStyle: .alert)
+            alert.addTextField()
+            alert.addTextField()
+            let passTextField    = alert.textFields![0]
+            let confirmTextField = alert.textFields![1]
+            
+//            passTextField.isEnabled    = true
+            passTextField.tag          = MAKE_PASSWORD_PASS
+            //            passTextField.delegate     = self
+            
+//            confirmTextField.isEnabled = true
+            confirmTextField.tag       = MAKE_PASSWORD_CONFIRM
+            //            confirmTextField.delegate  = self
+            
+            alert.addAction(
+                UIAlertAction(title: "OK", style: .default) { Void in
+                    let password = self._setPassword?.textFields?.first?.text
+                    #if DEBUG
+                    SwiftyBeaver.self.debug("password = \(password ?? "nil")")
+                    #endif
+                    self.handler?(password)
+                }
+            )
+            alert.addAction(
+                UIAlertAction(title: "Cancel", style: .cancel) { Void in
+                    #if DEBUG
+                    SwiftyBeaver.self.debug("password = nil")
+                    #endif
+                    self.handler?(nil)
+                }
+            )
+            self._setPassword = alert
+        }
+        return self._setPassword
+    }
+    
+    func showSetPassword(_ viewController: UIViewController,
+                         _ handler: @escaping (String?)->Void) {
+        self.handler = handler
+        if let alert = self.setPassword(handler) {
+            viewController.present(alert, animated: true)
+        }
+    }
+}
+
+//
+//func showEnterPasswordDialogue(_ viewController: UIViewController,
+//                               _ handler: (String?) -> Void) {
+//    let alert = UIAlertController(title: "Unlock App", message: "Enter Password", preferredStyle: .alert)
+//    alert.addTextField()
+//    let okAction = UIAlertAction(title: "OK", style: .default) {
+//        Void in
+//        let password = alert.textFields?.first?.text
+//        #if DEBUG
+//        SwiftyBeaver.self.debug("password = \(password ?? "nil")")
+//        #endif
+//        handler(password)
+//    }
+//    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+//        handler(nil)
+//    }
+//    alert.addAction(okAction)
+//    alert.addAction(cancelAction)
+//    viewController.present(alert, animated: true)
+//}
+

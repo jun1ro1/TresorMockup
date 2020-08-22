@@ -30,7 +30,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         navigationItem.rightBarButtonItem = addButton
         navigationItem.rightBarButtonItem?.accessibilityIdentifier = "addButton"
         
-        if let split = splitViewController {
+        if let split = self.splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
@@ -50,8 +50,11 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
-        
-        _ = AuthenticationManger.shared.authenticate()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        AuthenticationManger.shared.authenticate(self)
     }
     
     override func didReceiveMemoryWarning() {
