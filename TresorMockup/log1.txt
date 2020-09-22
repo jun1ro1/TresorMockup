@@ -1,97 +1,430 @@
-23:20:37.885  💙 INFO AppDelegate.application():27 - Application starts
-23:20:37.888  💙 INFO com.application():28 - bundleIdentifier =
-CoreData: debug: CoreData+CloudKit: -[PFCloudKitOptionsValidator validateOptions:andStoreOptions:error:](35): Validating options: <NSCloudKitMirroringDelegateOptions: 0x600003d89ab0> containerIdentifier:iCloud.com.gmail.jun1ro1.TresorMockup2 ckAssetThresholdBytes:<null> operationMemoryThresholdBytes:<null> useEncryptedStorage:NO automaticallyDownloadFileBackedFutures:NO automaticallyScheduleImportAndExportOperations:YES skipCloudKitSetup:NO preserveLegacyRecordMetadataBehavior:NO useDaemon:YES apsConnectionMachServiceName:<null> containerProvider:<PFCloudKitContainerProvider: 0x60000148ad50> storeMonitorProvider:<PFCloudKitStoreMonitorProvider: 0x60000148ad80> scheduler:<null> notificationListener:<null> containerOptions:<null>
+iPhone 8
+
+02:01:29.401  💙 INFO AppDelegate.application():27 - Application starts
+02:01:29.404  💙 INFO com.application():28 - bundleIdentifier =
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitOptionsValidator validateOptions:andStoreOptions:error:](35): Validating options: <NSCloudKitMirroringDelegateOptions: 0x6000013acd20> containerIdentifier:iCloud.com.gmail.jun1ro1.TresorMockup2 ckAssetThresholdBytes:<null> operationMemoryThresholdBytes:<null> useEncryptedStorage:NO automaticallyDownloadFileBackedFutures:NO automaticallyScheduleImportAndExportOperations:YES skipCloudKitSetup:NO preserveLegacyRecordMetadataBehavior:NO useDaemon:YES apsConnectionMachServiceName:<null> containerProvider:<PFCloudKitContainerProvider: 0x600003ab83e0> storeMonitorProvider:<PFCloudKitStoreMonitorProvider: 0x600003ab8410> scheduler:<null> notificationListener:<null> containerOptions:<null>
 storeOptions: {
     NSInferMappingModelAutomaticallyOption = 1;
     NSMigratePersistentStoresAutomaticallyOption = 1;
-    NSPersistentCloudKitContainerOptionsKey = "<NSPersistentCloudKitContainerOptions: 0x6000016c63c0>";
+    NSPersistentCloudKitContainerOptionsKey = "<NSPersistentCloudKitContainerOptions: 0x6000038be0a0>";
     NSPersistentHistoryTrackingKey = 1;
     NSPersistentStoreMirroringOptionsKey =     {
-        NSPersistentStoreMirroringDelegateOptionKey = "<NSCloudKitMirroringDelegate: 0x60000278ae40>";
+        NSPersistentStoreMirroringDelegateOptionKey = "<NSCloudKitMirroringDelegate: 0x6000009a6a80>";
     };
     NSPersistentStoreRemoteChangeNotificationOptionKey = 1;
 }
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _setUpCloudKitIntegration](365): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Successfully enqueued setup request.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringDelegateSetupRequest: 0x6000018961c0> 0E19E803-718E-4DAC-90E7-F12D9DE12686
-CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkUserIdentity:]_block_invoke(722): <PFCloudKitSetupAssistant: 0x6000035a81e0>: CKIdentity record matches store: <CKRecordID: 0x6000016bac20; recordName=_496f656cb88b35c6dcc6e9b3f3120848, zoneID=_defaultZone:__defaultOwner__>
-CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performSetupRequest:]_block_invoke(808): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Successfully set up CloudKit integration for store: <NSSQLCore: 0x6000029982d0> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/026DEFCF-1DCF-49FE-B35C-CB8AA3CA0580/data/Containers/Data/Application/944283E9-91EE-4890-8382-0A20D84FC807/Library/Application%20Support/TresorMockup.sqlite)
-23:20:38.038  💚 DEBUG MasterViewController.viewDidLoad():38 - viewDidLoad
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges](508): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Scheduling post-setup export
-CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessary:]_block_invoke(2219): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking to see if an automated import should be scheduled.
-CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessary:]_block_invoke(2252): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Scheduling automated import with activity: <CKSchedulerActivity: 0x6000035d6df0; additionalXPCActivityCriteria={
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _setUpCloudKitIntegration](365): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Successfully enqueued setup request.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Executing: <NSCloudKitMirroringDelegateSetupRequest: 0x6000036c4660> 5962636B-02C9-4222-8327-32D92CD73E74
+02:01:29.858  💚 DEBUG MasterViewController.viewDidLoad():38 - viewDidLoad
+02:01:29.957  💚 DEBUG SecureStore.delete():148 - label = CryptorSeed SecItemDelete = -25300
+02:01:29.958  💚 DEBUG SecureStore.delete():148 - label = Validator SecItemDelete = -25300
+02:01:41.440  💚 DEBUG SecureStore.read():60 - label = CryptorSeed SecItemCopyMatching = -25300
+02:01:44.680  ❤️ ERROR SecureStore.read():64 - label = CryptorSeed SecItemCopyMatching = -25300
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performSetupRequest:]_block_invoke(808): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Successfully set up CloudKit integration for store: <NSSQLCore: 0x6000007bc690> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/026DEFCF-1DCF-49FE-B35C-CB8AA3CA0580/data/Containers/Data/Application/204BD5D2-E0C5-4EE4-9F33-C1124CD9847B/Library/Application%20Support/TresorMockup.sqlite)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges](508): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Scheduling post-setup export
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessary:]_block_invoke(2219): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking to see if an automated import should be scheduled.
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessary:]_block_invoke(2252): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Scheduling automated import with activity: <CKSchedulerActivity: 0x600001b9eb70; additionalXPCActivityCriteria={
     Priority = Utility;
-}, containerID=<CKContainerID: 0x6000016ccba0; containerIdentifier=iCloud.com.gmail.jun1ro1.TresorMockup2, containerEnvironment="Sandbox">, identifier=com.apple.coredata.cloudkit.activity.import, priority=2>
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringDelegateSetupRequest: 0x6000018961c0> 0E19E803-718E-4DAC-90E7-F12D9DE12686 with result: <NSCloudKitMirroringResult: 0x60000168ec80> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x60000278ae40>: No more requests to execute.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2304): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
-23:20:38.122  💚 DEBUG SecureStore.delete():143 - label = CryptorSeed SecItemDelete = 0
-23:20:38.123  💚 DEBUG SecureStore.read():59 - label = CryptorSeed SecItemCopyMatching = -25300
-23:20:38.123  ❤️ ERROR SecureStore.read():63 - label = CryptorSeed SecItemCopyMatching = -25300
-CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter databaseFetchFinishWithContext:error:completion:]_block_invoke(169): <PFCloudKitImporter: 0x600001808630>: Import request finished with no work to do: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA with result: <NSCloudKitMirroringResult: 0x6000016bab60> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_3(537): Finished sandbox scheduled import: <NSCloudKitMirroringResult: 0x6000016bab60> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
-CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessaryWithCompletion:]_block_invoke_2(128): <PFCloudKitExporter: 0x600000352540>: Exporting changes since (0): <NSPersistentHistoryToken - {
-    "D45AC367-27CD-40B1-B198-714C49324D98" = 11;
-}>
-CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performExportWithRequest:]_block_invoke_2(934): Finished export: <PFCloudKitExporter: 0x600000352540>
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF with result: <NSCloudKitMirroringResult: 0x600001612060> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(523): Finished sandbox scheduled export: <NSCloudKitMirroringResult: 0x600001612060> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x60000278ae40>: No more requests to execute.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke(472): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Beginning automated import in response to activity:
-<CKSchedulerActivity: 0x6000035befd0; additionalXPCActivityCriteria={
+}, containerID=<CKContainerID: 0x6000038e0700; containerIdentifier=iCloud.com.gmail.jun1ro1.TresorMockup2, containerEnvironment="Sandbox">, identifier=com.apple.coredata.cloudkit.activity.import, priority=2>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringDelegateSetupRequest: 0x6000036c4660> 5962636B-02C9-4222-8327-32D92CD73E74 with result: <NSCloudKitMirroringResult: 0x600003820d20> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x60000367ebb0> 40746681-0579-4F73-9034-B44F03570805
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x60000367ebe0> 0690ACE2-66A1-4B36-85DB-E74FF1B001D9
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x60000367ebb0> 40746681-0579-4F73-9034-B44F03570805
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringExportRequest: 0x60000367ebb0> 40746681-0579-4F73-9034-B44F03570805
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x60000367ebe0> 0690ACE2-66A1-4B36-85DB-E74FF1B001D9
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringImportRequest: 0x60000367ebe0> 0690ACE2-66A1-4B36-85DB-E74FF1B001D9
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Executing: <NSCloudKitMirroringImportRequest: 0x60000367ebe0> 0690ACE2-66A1-4B36-85DB-E74FF1B001D9
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2304): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x60000367ebe0> 0690ACE2-66A1-4B36-85DB-E74FF1B001D9
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](250): <PFCloudKitImporter: 0x60000366cb40>: Processing work items: (
+    "<PFCloudKitImporterZoneChangedWorkItem: 0x600001389c00> {\n(\n    \"<CKRecordZoneID: 0x6000038be160; ownerName=__defaultOwner__, zoneName=com.apple.coredata.cloudkit.zone>\"\n)\n}"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImporterZoneChangedWorkItem newMirroringResultByApplyingAccumulatedChanges:]_block_invoke_2(243): <PFCloudKitImporterZoneChangedWorkItem: 0x600001389c00> {
+(
+    "<CKRecordZoneID: 0x6000038be160; ownerName=__defaultOwner__, zoneName=com.apple.coredata.cloudkit.zone>"
+)
+} - Importing updated records:
+(
+    "<CKRecord: 0x7fd380d06ad0; recordID=E10A7823-6921-4251-9AEB-CF34EAC3305F:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=18, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2020-08-15 13:31:12 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa44;\n    \"CD_selectAt\" = \"2020-08-15 13:31:26 +0000\";\n    \"CD_title\" = t444;\n    \"CD_userid\" = us44;\n    \"CD_uuid\" = \"7080457E-E37D-472C-AA07-00F71711CF4A\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d079e0; recordID=C1D7ED89-68B0-4997-B4A0-7AA1F900E3C1:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=m, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-09-07 14:52:30 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa5;\n    \"CD_selectAt\" = \"2019-09-07 14:52:43 +0000\";\n    \"CD_title\" = t5;\n    \"CD_url\" = ur5;\n    \"CD_userid\" = us5;\n    \"CD_uuid\" = \"C2331314-EAE5-4694-A1FC-49EFD8B5EC8E\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d015f0; recordID=481B4D87-2896-446C-805F-D50A75FA804D:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=13, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-14 04:51:57 +0000\";\n    \"CD_current\" = 0;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = 5BSrRFUxdj36b8herUe;\n    \"CD_selectedAt\" = \"2019-09-14 04:51:57 +0000\";\n    \"CD_site\" = \"440063DB-98EA-4BCD-A4B5-37BA07022915\";\n    \"CD_uuid\" = \"5DE04F84-9117-463F-87EB-ABCD7CC1149A\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d1a120; recordID=85ED02A3-5DCD-449F-8BAE-0F2C54E4E714:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=j, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-09-06 05:22:19 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa3;\n    \"CD_selectAt\" = \"2019-09-06 05:22:29 +0000\";\n    \"CD_title\" = t33;\n    \"CD_url\" = u33;\n    \"CD_userid\" = us3;\n    \"CD_uuid\" = \"29916D48-7F38-402C-8E4A-A43FF4061BE8\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d09df0; recordID=440063DB-98EA-4BCD-A4B5-37BA07022915:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1f, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-09-14 04:11:42 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 16;\n    \"CD_passwordCurrent\" = 1WJCkKk4TqeazAla;\n    \"CD_selectAt\" = \"2020-08-17 11:51:59 +0000\";\n    \"CD_title\" = t2;\n    \"CD_url\" = \"ur2.com\";\n    \"CD_userid\" = us2;\n    \"CD_uuid\" = \"A50A8883-0D47-4F22-B3D9-AA8E7DAC0C82\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d498c0; recordID=CB5B0D44-C614-438D-8952-347045B7DDD2:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=r, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-07 15:02:04 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa7;\n    \"CD_selectedAt\" = \"2019-09-07 15:02:04 +0000\";\n    \"CD_site\" = \"F47E7111-2DF2-4CAD-AC75-FF5337AD4871\";\n    \"CD_uuid\" = \"7DA3F896-416E-40CA-A2D6-B938ED808D5B\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d004e0; recordID=CB3484B0-7FB8-4325-BE17-F38A432E1566:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=8, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-08-16 06:51:58 +0000\";\n    \"CD_current\" = 0;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa2;\n    \"CD_selectedAt\" = \"2019-08-16 06:51:58 +0000\";\n    \"CD_site\" = \"00C48101-C61B-4A71-B3D1-80ECB967B2AE\";\n    \"CD_uuid\" = \"95FB0062-5B00-471E-8D2F-3FEA9D626A16\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d35c70; recordID=3D92269A-C206-4FAA-89EB-88E75EF7DBF2:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1c, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-14 04:11:52 +0000\";\n    \"CD_current\" = 0;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa2;\n    \"CD_selectedAt\" = \"2019-09-14 04:52:32 +0000\";\n    \"CD_site\" = \"440063DB-98EA-4BCD-A4B5-37BA07022915\";\n    \"CD_uuid\" = \"ED919B5A-85A0-4EBC-8D67-9A748D8EB9A4\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d36820; recordID=5B1B4162-5D91-41BE-90AB-6F8BD8A8B7DF:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=o, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-09-07 14:56:13 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa6;\n    \"CD_selectAt\" = \"2019-09-07 14:56:25 +0000\";\n    \"CD_title\" = t6;\n    \"CD_url\" = ur6;\n    \"CD_userid\" = us6;\n    \"CD_uuid\" = \"863212A5-85EF-4A55-A81B-88C7654216BD\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d36950; recordID=D74F65BE-0C3C-43B3-8A7C-EC4E271A5B54:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=17, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-09-14 04:11:18 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa1;\n    \"CD_selectAt\" = \"2019-09-14 04:11:34 +0000\";\n    \"CD_title\" = t11;\n    \"CD_url\" = ur1;\n    \"CD_userid\" = us1;\n    \"CD_uuid\" = \"7FD425CE-26C6-40A7-BB3D-B6B0526B122C\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd3830018e0; recordID=8869FEF3-C396-4C8B-A752-835F4180D0A6:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=l, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-07 14:40:18 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa4;\n    \"CD_selectedAt\" = \"2019-09-07 14:40:18 +0000\";\n    \"CD_site\" = \"2D4F2535-158C-46D1-A286-690BE00C51AF\";\n    \"CD_uuid\" = \"550F07A1-3645-4BE5-A834-54EB7C7A4A28\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d379c0; recordID=460C7A3A-D9F7-4B9D-809A-A215F4CCF902:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=w, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-08-16 06:51:27 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa1;\n    \"CD_selectedAt\" = \"2019-08-16 06:51:27 +0000\";\n    \"CD_site\" = \"EA5B7FA7-E28F-450F-BC7B-96896A6A0822\";\n    \"CD_uuid\" = \"D908F6DE-9753-4D7E-8B60-2D517E92AA52\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d37af0; recordID=C3747C86-86BA-4C0E-9C5C-8CC2A98B380E:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=i, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-06 05:22:29 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa3;\n    \"CD_selectedAt\" = \"2019-09-06 05:22:29 +0000\";\n    \"CD_site\" = \"85ED02A3-5DCD-449F-8BAE-0F2C54E4E714\";\n    \"CD_uuid\" = \"F04C2B80-D420-4F9E-AB8E-7D2982A44256\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d27550; recordID=275B7D4E-8210-4C27-87B1-2875E8891C5E:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1e, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2020-08-17 11:51:59 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = 1WJCkKk4TqeazAla;\n    \"CD_selectedAt\" = \"2020-08-17 11:51:59 +0000\";\n    \"CD_site\" = \"440063DB-98EA-4BCD-A4B5-37BA07022915\";\n    \"CD_uuid\" = \"F32A3A08-254F-44F3-B9B8-4722C15E63AE\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d27680; recordID=F47E7111-2DF2-4CAD-AC75-FF5337AD4871:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=q, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-09-07 15:01:54 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa7;\n    \"CD_selectAt\" = \"2019-09-07 15:02:04 +0000\";\n    \"CD_title\" = t7;\n    \"CD_url\" = ur7;\n    \"CD_userid\" = us7;\n    \"CD_uuid\" = \"56028FEF-55D2-488C-97B1-7D76CD280A02\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d3d900; recordID=A5674C2D-E4CE-47BF-B2B9-CBA1ED0B9D07:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=7, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-08-16 06:53:46 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa22;\n    \"CD_selectedAt\" = \"2019-08-16 06:53:46 +0000\";\n    \"CD_site\" = \"00C48101-C61B-4A71-B3D1-80ECB967B2AE\";\n    \"CD_uuid\" = \"C8C9FD54-74D3-4A33-A200-D78B682E595A\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d3da30; recordID=1E5A12C7-F172-4609-A2E6-EE9363B1342C:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=19, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2020-08-15 13:31:26 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa44;\n    \"CD_selectedAt\" = \"2020-08-15 13:31:26 +0000\";\n    \"CD_site\" = \"E10A7823-6921-4251-9AEB-CF34EAC3305F\";\n    \"CD_uuid\" = \"EE70702B-C0D1-4E1B-9511-770C91D6469E\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d26b70; recordID=31B4162A-14BD-4D07-B1F8-7ECD550DA307:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=n, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-07 14:52:43 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa5;\n    \"CD_selectedAt\" = \"2019-09-07 14:52:43 +0000\";\n    \"CD_site\" = \"C1D7ED89-68B0-4997-B4A0-7AA1F900E3C1\";\n    \"CD_uuid\" = \"AE459B32-8490-43BE-A5B0-FA6F04948CB0\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d26ca0; recordID=4A46CBDF-5260-46FB-9411-5CEAEB329BF2:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=16, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-14 04:52:19 +0000\";\n    \"CD_current\" = 0;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = \"-bHsO+BWa^RWO2Z4JVRv\";\n    \"CD_selectedAt\" = \"2019-09-14 04:52:19 +0000\";\n    \"CD_site\" = \"440063DB-98EA-4BCD-A4B5-37BA07022915\";\n    \"CD_uuid\" = \"6F531950-514A-4E00-A019-F3726570E0C6\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d48c90; recordID=2D4F2535-158C-46D1-A286-690BE00C51AF:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=k, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-09-07 14:40:08 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa4;\n    \"CD_selectAt\" = \"2019-09-07 14:40:18 +0000\";\n    \"CD_title\" = t4;\n    \"CD_url\" = u4;\n    \"CD_userid\" = us4;\n    \"CD_uuid\" = \"90AF6F99-AF7D-4FDC-9A7E-98E5DF96642D\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d48dc0; recordID=6E1DDD50-19E4-4BAF-8F22-C6C5E7E1B2AA:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=s, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-14 04:11:34 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa1;\n    \"CD_selectedAt\" = \"2019-09-14 04:11:34 +0000\";\n    \"CD_site\" = \"D74F65BE-0C3C-43B3-8A7C-EC4E271A5B54\";\n    \"CD_uuid\" = \"1CE79DA5-1B15-4D79-9FA5-0E33186DDFE3\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d48ef0; recordID=00C48101-C61B-4A71-B3D1-80ECB967B2AE:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=b, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2019-08-16 06:51:50 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = pa22;\n    \"CD_selectAt\" = \"2019-08-16 06:53:46 +0000\";\n    \"CD_title\" = t222;\n    \"CD_url\" = u22;\n    \"CD_userid\" = us22;\n    \"CD_uuid\" = \"0B45734D-7BD7-49A2-866C-80F6AD7CCCCA\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380d25ee0; recordID=24542693-5165-4907-9A9E-B644F9786B01:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1d, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2020-08-16 15:34:23 +0000\";\n    \"CD_current\" = 0;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = \"@T3p5b0b!@tX$zCL\";\n    \"CD_selectedAt\" = \"2020-08-16 15:34:23 +0000\";\n    \"CD_site\" = \"440063DB-98EA-4BCD-A4B5-37BA07022915\";\n    \"CD_uuid\" = \"5BDACEA8-4C3D-42DA-8A3C-D6832C810107\";\n}, recordType=CD_Password>",
+    "<CKRecord: 0x7fd380d26010; recordID=BC1415EC-7315-4367-B107-D0C9B1672226:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=p, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2019-09-07 14:56:25 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = pa6;\n    \"CD_selectedAt\" = \"2019-09-07 14:56:25 +0000\";\n    \"CD_site\" = \"5B1B4162-5D91-41BE-90AB-6F8BD8A8B7DF\";\n    \"CD_uuid\" = \"E8FF8C2D-E926-4434-8CDC-39D21050FF49\";\n}, recordType=CD_Password>"
+)
+Deleted RecordIDs:
+{
+    "CD_Site" =     (
+        "<CKRecordID: 0x600003821080; recordName=EA5B7FA7-E28F-450F-BC7B-96896A6A0822, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+    );
+}
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext initializeCachesWithManagedObjectContext:andObservedStore:error:]_block_invoke(190): Deleting record with id (CD_Site): <CKRecordID: 0x600003821080; recordName=EA5B7FA7-E28F-450F-BC7B-96896A6A0822, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038c66c0 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE96> to <NSCKRecordMetadata: 0x600001b918b0> (entity: NSCKRecordMetadata; id: 0x6000038910a0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE95>; data: {
+    ckRecordName = "E10A7823-6921-4251-9AEB-CF34EAC3305F";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038c6d00 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE98> to <NSCKRecordMetadata: 0x600001bda260> (entity: NSCKRecordMetadata; id: 0x6000038c6d60 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE97>; data: {
+    ckRecordName = "C1D7ED89-68B0-4997-B4A0-7AA1F900E3C1";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038259e0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE910> to <NSCKRecordMetadata: 0x600001bdd450> (entity: NSCKRecordMetadata; id: 0x600003824320 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE99>; data: {
+    ckRecordName = "481B4D87-2896-446C-805F-D50A75FA804D";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x600003820c60; recordName=481B4D87-2896-446C-805F-D50A75FA804D, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 440063DB-98EA-4BCD-A4B5-37BA07022915 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x600003890fc0 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE912> to <NSCKRecordMetadata: 0x600001b90370> (entity: NSCKRecordMetadata; id: 0x600003890e40 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE911>; data: {
+    ckRecordName = "85ED02A3-5DCD-449F-8BAE-0F2C54E4E714";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x600003820f20 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE914> to <NSCKRecordMetadata: 0x600001bd0e60> (entity: NSCKRecordMetadata; id: 0x600003821320 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE913>; data: {
+    ckRecordName = "440063DB-98EA-4BCD-A4B5-37BA07022915";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038e66c0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE916> to <NSCKRecordMetadata: 0x600001b9c050> (entity: NSCKRecordMetadata; id: 0x6000038e67c0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE915>; data: {
+    ckRecordName = "CB5B0D44-C614-438D-8952-347045B7DDD2";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038c6d80; recordName=CB5B0D44-C614-438D-8952-347045B7DDD2, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to F47E7111-2DF2-4CAD-AC75-FF5337AD4871 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x60000382a8a0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE918> to <NSCKRecordMetadata: 0x600001bd7cf0> (entity: NSCKRecordMetadata; id: 0x60000382a820 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE917>; data: {
+    ckRecordName = "CB3484B0-7FB8-4325-BE17-F38A432E1566";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038c6e40; recordName=CB3484B0-7FB8-4325-BE17-F38A432E1566, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 00C48101-C61B-4A71-B3D1-80ECB967B2AE by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x600003825ee0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE920> to <NSCKRecordMetadata: 0x600001bde210> (entity: NSCKRecordMetadata; id: 0x600003825de0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE919>; data: {
+    ckRecordName = "3D92269A-C206-4FAA-89EB-88E75EF7DBF2";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038c6ac0; recordName=3D92269A-C206-4FAA-89EB-88E75EF7DBF2, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 440063DB-98EA-4BCD-A4B5-37BA07022915 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038e6be0 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE922> to <NSCKRecordMetadata: 0x600001b9f5c0> (entity: NSCKRecordMetadata; id: 0x6000038e6c40 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE921>; data: {
+    ckRecordName = "5B1B4162-5D91-41BE-90AB-6F8BD8A8B7DF";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x60000382adc0 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE924> to <NSCKRecordMetadata: 0x600001be4000> (entity: NSCKRecordMetadata; id: 0x60000382aac0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE923>; data: {
+    ckRecordName = "D74F65BE-0C3C-43B3-8A7C-EC4E271A5B54";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038216a0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE926> to <NSCKRecordMetadata: 0x600001bd19f0> (entity: NSCKRecordMetadata; id: 0x600003821520 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE925>; data: {
+    ckRecordName = "8869FEF3-C396-4C8B-A752-835F4180D0A6";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x600003821860; recordName=8869FEF3-C396-4C8B-A752-835F4180D0A6, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 2D4F2535-158C-46D1-A286-690BE00C51AF by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x600003821940 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE928> to <NSCKRecordMetadata: 0x600001bd21c0> (entity: NSCKRecordMetadata; id: 0x600003821b80 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE927>; data: {
+    ckRecordName = "460C7A3A-D9F7-4B9D-809A-A215F4CCF902";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x600003825e20; recordName=460C7A3A-D9F7-4B9D-809A-A215F4CCF902, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to EA5B7FA7-E28F-450F-BC7B-96896A6A0822 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x600003820c80 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE930> to <NSCKRecordMetadata: 0x600001bd2440> (entity: NSCKRecordMetadata; id: 0x600003821cc0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE929>; data: {
+    ckRecordName = "C3747C86-86BA-4C0E-9C5C-8CC2A98B380E";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038912e0; recordName=C3747C86-86BA-4C0E-9C5C-8CC2A98B380E, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 85ED02A3-5DCD-449F-8BAE-0F2C54E4E714 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038262a0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE932> to <NSCKRecordMetadata: 0x600001bde490> (entity: NSCKRecordMetadata; id: 0x6000038261a0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE931>; data: {
+    ckRecordName = "275B7D4E-8210-4C27-87B1-2875E8891C5E";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038e6e00; recordName=275B7D4E-8210-4C27-87B1-2875E8891C5E, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 440063DB-98EA-4BCD-A4B5-37BA07022915 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038912a0 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE934> to <NSCKRecordMetadata: 0x600001b91ea0> (entity: NSCKRecordMetadata; id: 0x6000038908a0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE933>; data: {
+    ckRecordName = "F47E7111-2DF2-4CAD-AC75-FF5337AD4871";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038213c0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE936> to <NSCKRecordMetadata: 0x600001be4460> (entity: NSCKRecordMetadata; id: 0x60000382a840 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE935>; data: {
+    ckRecordName = "A5674C2D-E4CE-47BF-B2B9-CBA1ED0B9D07";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038916c0; recordName=A5674C2D-E4CE-47BF-B2B9-CBA1ED0B9D07, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 00C48101-C61B-4A71-B3D1-80ECB967B2AE by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x600003826340 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE938> to <NSCKRecordMetadata: 0x600001b959f0> (entity: NSCKRecordMetadata; id: 0x600003894c00 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE937>; data: {
+    ckRecordName = "1E5A12C7-F172-4609-A2E6-EE9363B1342C";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x60000382b100; recordName=1E5A12C7-F172-4609-A2E6-EE9363B1342C, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to E10A7823-6921-4251-9AEB-CF34EAC3305F by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038e6a00 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE940> to <NSCKRecordMetadata: 0x600001b9fac0> (entity: NSCKRecordMetadata; id: 0x6000038e6d40 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE939>; data: {
+    ckRecordName = "31B4162A-14BD-4D07-B1F8-7ECD550DA307";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038e7440; recordName=31B4162A-14BD-4D07-B1F8-7ECD550DA307, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to C1D7ED89-68B0-4997-B4A0-7AA1F900E3C1 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038261e0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE942> to <NSCKRecordMetadata: 0x600001bdd950> (entity: NSCKRecordMetadata; id: 0x600003826100 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE941>; data: {
+    ckRecordName = "4A46CBDF-5260-46FB-9411-5CEAEB329BF2";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x600003826000; recordName=4A46CBDF-5260-46FB-9411-5CEAEB329BF2, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 440063DB-98EA-4BCD-A4B5-37BA07022915 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038c95a0 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE944> to <NSCKRecordMetadata: 0x600001bda850> (entity: NSCKRecordMetadata; id: 0x6000038ca000 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE943>; data: {
+    ckRecordName = "2D4F2535-158C-46D1-A286-690BE00C51AF";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x60000382b320 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE946> to <NSCKRecordMetadata: 0x600001be5040> (entity: NSCKRecordMetadata; id: 0x60000382b380 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE945>; data: {
+    ckRecordName = "6E1DDD50-19E4-4BAF-8F22-C6C5E7E1B2AA";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x600003820c40; recordName=6E1DDD50-19E4-4BAF-8F22-C6C5E7E1B2AA, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to D74F65BE-0C3C-43B3-8A7C-EC4E271A5B54 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x6000038c88e0 <x-coredata:///Site/tFF78E1FC-AB4D-47F9-9A42-15584578EEE948> to <NSCKRecordMetadata: 0x600001bdadf0> (entity: NSCKRecordMetadata; id: 0x6000038c8920 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE947>; data: {
+    ckRecordName = "00C48101-C61B-4A71-B3D1-80ECB967B2AE";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x60000382b6c0 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE950> to <NSCKRecordMetadata: 0x600001bea760> (entity: NSCKRecordMetadata; id: 0x60000382b5e0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE949>; data: {
+    ckRecordName = "24542693-5165-4907-9A9E-B644F9786B01";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x600003821a80; recordName=24542693-5165-4907-9A9E-B644F9786B01, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 440063DB-98EA-4BCD-A4B5-37BA07022915 by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext registerObject:forInsertedRecord:withMetadata:](484): Linking 0x60000382af60 <x-coredata:///Password/tFF78E1FC-AB4D-47F9-9A42-15584578EEE952> to <NSCKRecordMetadata: 0x600001be8230> (entity: NSCKRecordMetadata; id: 0x60000382b2a0 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/tFF78E1FC-AB4D-47F9-9A42-15584578EEE951>; data: {
+    ckRecordName = "BC1415EC-7315-4367-B107-D0C9B1672226";
+    ckRecordSystemFields = nil;
+    ckShare = nil;
+    entityId = nil;
+    entityPK = nil;
+    recordZone = "0xd0f359c611c195d4 <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordZoneMetadata/p1>";
+})
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x6000038c9bc0; recordName=BC1415EC-7315-4367-B107-D0C9B1672226, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to 5B1B4162-5D91-41BE-90AB-6F8BD8A8B7DF by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext populateUnresolvedIDsInStore:withManagedObjectContext:error:]_block_invoke(538): Populating unresolved relationships:
+{
+    Site =     (
+        "<CKRecordID: 0x600003820cc0; recordName=440063DB-98EA-4BCD-A4B5-37BA07022915, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+        "<CKRecordID: 0x6000038c7160; recordName=F47E7111-2DF2-4CAD-AC75-FF5337AD4871, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+        "<CKRecordID: 0x6000038c6f20; recordName=00C48101-C61B-4A71-B3D1-80ECB967B2AE, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+        "<CKRecordID: 0x6000038218e0; recordName=2D4F2535-158C-46D1-A286-690BE00C51AF, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+        "<CKRecordID: 0x600003825560; recordName=EA5B7FA7-E28F-450F-BC7B-96896A6A0822, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>",
+        "<CKRecordID: 0x600003891820; recordName=00C48101-C61B-4A71-B3D1-80ECB967B2AE, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+    );
+}
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036e2b80>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x600003820c60; recordName=481B4D87-2896-446C-805F-D50A75FA804D, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x600003820cc0; recordName=440063DB-98EA-4BCD-A4B5-37BA07022915, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036e69a0>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038c6d80; recordName=CB5B0D44-C614-438D-8952-347045B7DDD2, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x6000038c7160; recordName=F47E7111-2DF2-4CAD-AC75-FF5337AD4871, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036d8540>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038c6e40; recordName=CB3484B0-7FB8-4325-BE17-F38A432E1566, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x6000038c6f20; recordName=00C48101-C61B-4A71-B3D1-80ECB967B2AE, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x600003608450>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038c6ac0; recordName=3D92269A-C206-4FAA-89EB-88E75EF7DBF2, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x6000038c7040; recordName=440063DB-98EA-4BCD-A4B5-37BA07022915, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x60000366a370>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x600003821860; recordName=8869FEF3-C396-4C8B-A752-835F4180D0A6, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x6000038218e0; recordName=2D4F2535-158C-46D1-A286-690BE00C51AF, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x60000361c000>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](430): Couldn't find related object to link for object with record name <CKRecordID: 0x600003825e20; recordName=460C7A3A-D9F7-4B9D-809A-A215F4CCF902, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x600003825560; recordName=EA5B7FA7-E28F-450F-BC7B-96896A6A0822, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036dcea0>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038912e0; recordName=C3747C86-86BA-4C0E-9C5C-8CC2A98B380E, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x600003891560; recordName=85ED02A3-5DCD-449F-8BAE-0F2C54E4E714, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036c4660>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038e6e00; recordName=275B7D4E-8210-4C27-87B1-2875E8891C5E, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x6000038e66e0; recordName=440063DB-98EA-4BCD-A4B5-37BA07022915, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036de7f0>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038916c0; recordName=A5674C2D-E4CE-47BF-B2B9-CBA1ED0B9D07, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x600003891820; recordName=00C48101-C61B-4A71-B3D1-80ECB967B2AE, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x600003675050>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x60000382b100; recordName=1E5A12C7-F172-4609-A2E6-EE9363B1342C, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x60000382a740; recordName=E10A7823-6921-4251-9AEB-CF34EAC3305F, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x600003610000>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038e7440; recordName=31B4162A-14BD-4D07-B1F8-7ECD550DA307, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x6000038e7340; recordName=C1D7ED89-68B0-4997-B4A0-7AA1F900E3C1, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036da430>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x600003826000; recordName=4A46CBDF-5260-46FB-9411-5CEAEB329BF2, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x600003826400; recordName=440063DB-98EA-4BCD-A4B5-37BA07022915, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036e72d0>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x600003820c40; recordName=6E1DDD50-19E4-4BAF-8F22-C6C5E7E1B2AA, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x600003821a00; recordName=D74F65BE-0C3C-43B3-8A7C-EC4E271A5B54, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x60000366b330>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x600003821a80; recordName=24542693-5165-4907-9A9E-B644F9786B01, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x600003821dc0; recordName=440063DB-98EA-4BCD-A4B5-37BA07022915, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036dee20>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x6000038c9bc0; recordName=BC1415EC-7315-4367-B107-D0C9B1672226, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x6000038c9320; recordName=5B1B4162-5D91-41BE-90AB-6F8BD8A8B7DF, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitImporterZoneChangedWorkItem newMirroringResultByApplyingAccumulatedChanges:]_block_invoke(330): Finished importing changes for request: <NSCloudKitMirroringImportRequest: 0x60000367ebe0> 0690ACE2-66A1-4B36-85DB-E74FF1B001D9
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](250): <PFCloudKitImporter: 0x60000366cb40>: Processing work items: (
+)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringImportRequest: 0x60000367ebe0> 0690ACE2-66A1-4B36-85DB-E74FF1B001D9 with result: <NSCloudKitMirroringResult: 0x60000382ab20> success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_3(537): Finished sandbox scheduled import: <NSCloudKitMirroringResult: 0x60000382ab20> success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Executing: <NSCloudKitMirroringExportRequest: 0x60000367ebb0> 40746681-0579-4F73-9034-B44F03570805
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessaryWithCompletion:]_block_invoke_2(128): <PFCloudKitExporter: 0x600002d053c0>: Exporting changes since (0): (null)
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitExporter exportOperationFinished:withSavedRecords:deletedRecordIDs:operationError:completion:](364): Modify records finished: (
+    "<CKRecord: 0x7fd380c34820; recordID=C5E0513D-32C4-43CD-8722-D89676EDB28F:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1g, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2020-09-12 14:06:53 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = password;\n    \"CD_selectAt\" = \"2020-09-12 14:07:09 +0000\";\n    \"CD_title\" = title;\n    \"CD_url\" = url;\n    \"CD_userid\" = userid;\n    \"CD_uuid\" = \"F69BB1EC-DA26-496F-8F46-A39E3401F7C6\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380c48080; recordID=AAFB69E9-83FC-4FC1-9F20-1ECAF51FE6ED:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1h, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2020-09-12 14:07:09 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = password;\n    \"CD_selectedAt\" = \"2020-09-12 14:07:09 +0000\";\n    \"CD_site\" = \"C5E0513D-32C4-43CD-8722-D89676EDB28F\";\n    \"CD_uuid\" = \"A4541844-E41D-4373-8121-A81E0AEF0632\";\n}, recordType=CD_Password>"
+)
+(
+)
+(null)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitExportContext modifyRecordsOperationWithID:finishedForStore:withSavedRecord:deletedRecordIDs:operationError:managedObjectContext:error:]_block_invoke(366): <PFCloudKitExportContext: 0x6000013882a0>: Set system fields (1692) on object with ID: 0xd0f359c6110d95da <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/p50> from record with recordID: <CKRecordID: 0x60000382cfc0; recordName=C5E0513D-32C4-43CD-8722-D89676EDB28F, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitExportContext modifyRecordsOperationWithID:finishedForStore:withSavedRecord:deletedRecordIDs:operationError:managedObjectContext:error:]_block_invoke(366): <PFCloudKitExportContext: 0x6000013882a0>: Set system fields (1696) on object with ID: 0xd0f359c6110995da <x-coredata://D45AC367-27CD-40B1-B198-714C49324D98/NSCKRecordMetadata/p51> from record with recordID: <CKRecordID: 0x60000382c820; recordName=AAFB69E9-83FC-4FC1-9F20-1ECAF51FE6ED, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performExportWithRequest:]_block_invoke_2(934): Finished export: <PFCloudKitExporter: 0x600002d053c0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringExportRequest: 0x60000367ebb0> 40746681-0579-4F73-9034-B44F03570805 with result: <NSCloudKitMirroringResult: 0x60000382c940> success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(523): Finished sandbox scheduled export: <NSCloudKitMirroringResult: 0x60000382c940> success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke(472): <NSCloudKitMirroringDelegate: 0x6000009a6a80> - Beginning automated import in response to activity:
+<CKSchedulerActivity: 0x600001ba29e0; additionalXPCActivityCriteria={
     Priority = Utility;
-}, containerID=<CKContainerID: 0x6000016de360; containerIdentifier=iCloud.com.gmail.jun1ro1.TresorMockup2, containerEnvironment="Sandbox">, identifier=com.apple.coredata.cloudkit.activity.import, priority=2>
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke(445): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Beginning automated export.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2304): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
-CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter databaseFetchFinishWithContext:error:completion:]_block_invoke(169): <PFCloudKitImporter: 0x600001839f80>: Import request finished with no work to do: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6 with result: <NSCloudKitMirroringResult: 0x60000161d020> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(478): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Finished automatic import with result: <NSCloudKitMirroringResult: 0x60000161d020> success: 1 madeChanges: 0 error: (null)
-CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](2338): Finished request '<NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6' with result: <NSCloudKitMirroringResult: 0x60000161d020> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
-CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessaryWithCompletion:]_block_invoke_2(128): <PFCloudKitExporter: 0x600000358c80>: Exporting changes since (0): <NSPersistentHistoryToken - {
-    "D45AC367-27CD-40B1-B198-714C49324D98" = 11;
+}, containerID=<CKContainerID: 0x60000389dd40; containerIdentifier=iCloud.com.gmail.jun1ro1.TresorMockup2, containerEnvironment="Sandbox">, identifier=com.apple.coredata.cloudkit.activity.import, priority=2>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Executing: <NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke(445): <NSCloudKitMirroringDelegate: 0x6000009a6a80> - Beginning automated export.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x600003610ed0> F9190406-E171-48C6-A2F8-42B12A2BF0FE
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x600003610ed0> F9190406-E171-48C6-A2F8-42B12A2BF0FE
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringExportRequest: 0x600003610ed0> F9190406-E171-48C6-A2F8-42B12A2BF0FE
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2304): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](250): <PFCloudKitImporter: 0x6000036e4720>: Processing work items: (
+    "<PFCloudKitImporterZoneChangedWorkItem: 0x6000013a56c0> {\n(\n    \"<CKRecordZoneID: 0x6000038be160; ownerName=__defaultOwner__, zoneName=com.apple.coredata.cloudkit.zone>\"\n)\n}"
+)
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImporterZoneChangedWorkItem newMirroringResultByApplyingAccumulatedChanges:]_block_invoke_2(243): <PFCloudKitImporterZoneChangedWorkItem: 0x6000013a56c0> {
+(
+    "<CKRecordZoneID: 0x6000038be160; ownerName=__defaultOwner__, zoneName=com.apple.coredata.cloudkit.zone>"
+)
+} - Importing updated records:
+(
+    "<CKRecord: 0x7fd380c1f040; recordID=C5E0513D-32C4-43CD-8722-D89676EDB28F:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1g, values={\n    \"CD_active\" = 1;\n    \"CD_charSet\" = 136331264;\n    \"CD_createdAt\" = \"2020-09-12 14:06:53 +0000\";\n    \"CD_entityName\" = Site;\n    \"CD_maxLength\" = 8;\n    \"CD_passwordCurrent\" = password;\n    \"CD_selectAt\" = \"2020-09-12 14:07:09 +0000\";\n    \"CD_title\" = title;\n    \"CD_url\" = url;\n    \"CD_userid\" = userid;\n    \"CD_uuid\" = \"F69BB1EC-DA26-496F-8F46-A39E3401F7C6\";\n}, recordType=CD_Site>",
+    "<CKRecord: 0x7fd380c2f400; recordID=AAFB69E9-83FC-4FC1-9F20-1ECAF51FE6ED:(com.apple.coredata.cloudkit.zone:__defaultOwner__), recordChangeTag=1h, values={\n    \"CD_active\" = 1;\n    \"CD_createdAt\" = \"2020-09-12 14:07:09 +0000\";\n    \"CD_current\" = 1;\n    \"CD_entityName\" = Password;\n    \"CD_password\" = password;\n    \"CD_selectedAt\" = \"2020-09-12 14:07:09 +0000\";\n    \"CD_site\" = \"C5E0513D-32C4-43CD-8722-D89676EDB28F\";\n    \"CD_uuid\" = \"A4541844-E41D-4373-8121-A81E0AEF0632\";\n}, recordType=CD_Password>"
+)
+Deleted RecordIDs:
+{
+}
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer updateAttributes:andRelationships:onManagedObject:fromRecord:withRecordMetadata:importContext:](1096): Adding mirrored relationship to link for record <CKRecordID: 0x60000382b7e0; recordName=AAFB69E9-83FC-4FC1-9F20-1ECAF51FE6ED, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> related to C5E0513D-32C4-43CD-8722-D89676EDB28F by site
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitImportZoneContext populateUnresolvedIDsInStore:withManagedObjectContext:error:]_block_invoke(538): Populating unresolved relationships:
+{
+    "CD_Password" =     (
+        "<CKRecordID: 0x600003821640; recordName=460C7A3A-D9F7-4B9D-809A-A215F4CCF902, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+    );
+    "CD_Site" =     (
+        "<CKRecordID: 0x600003821340; recordName=EA5B7FA7-E28F-450F-BC7B-96896A6A0822, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__>"
+    );
+}
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitSerializer applyUpdatedRecords:deletedRecordIDs:toStore:inManagedObjectContext:onlyUpdatingAttributes:andRelationships:error:]_block_invoke(671): Updating relationship: <PFMirroredOneToManyRelationship: 0x6000036762e0>
+CoreData: debug: CoreData+CloudKit: -[PFMirroredOneToManyRelationship updateRelationshipValueUsingImportContext:andManagedObjectContext:error:](424): Linking object with record name <CKRecordID: 0x60000382b7e0; recordName=AAFB69E9-83FC-4FC1-9F20-1ECAF51FE6ED, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> to <CKRecordID: 0x60000382bb80; recordName=C5E0513D-32C4-43CD-8722-D89676EDB28F, zoneID=com.apple.coredata.cloudkit.zone:__defaultOwner__> via site
+CoreData: warning: CoreData+CloudKit: -[PFCloudKitImporterZoneChangedWorkItem newMirroringResultByApplyingAccumulatedChanges:]_block_invoke(330): Finished importing changes for request: <NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter processWorkItemsWithCompletion:](250): <PFCloudKitImporter: 0x6000036e4720>: Processing work items: (
+)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4 with result: <NSCloudKitMirroringResult: 0x60000382c460> success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(478): <NSCloudKitMirroringDelegate: 0x6000009a6a80> - Finished automatic import with result: <NSCloudKitMirroringResult: 0x60000382c460> success: 1 madeChanges: 1 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](2338): Finished request '<NSCloudKitMirroringImportRequest: 0x6000036dd3b0> 71643E02-0DD4-4AE2-899D-932570EF87C4' with result: <NSCloudKitMirroringResult: 0x60000382c460> success: 1 madeChanges: 1 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Executing: <NSCloudKitMirroringExportRequest: 0x600003610ed0> F9190406-E171-48C6-A2F8-42B12A2BF0FE
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessaryWithCompletion:]_block_invoke_2(128): <PFCloudKitExporter: 0x600002d6b5c0>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "D45AC367-27CD-40B1-B198-714C49324D98" = 17;
 }>
-CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performExportWithRequest:]_block_invoke_2(934): Finished export: <PFCloudKitExporter: 0x600000358c80>
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE with result: <NSCloudKitMirroringResult: 0x6000016de6c0> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(451): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Finished automatic export with result: <NSCloudKitMirroringResult: 0x6000016de6c0> success: 1 madeChanges: 0 error: (null)
-CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](2338): Finished request '<NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE' with result: <NSCloudKitMirroringResult: 0x6000016de6c0> success: 1 madeChanges: 0 error: (null)
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
-CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x60000278ae40>: No more requests to execute.
-23:20:55.057  💚 DEBUG SecureStore.read():59 - label = CryptorSeed SecItemCopyMatching = -25300
-23:20:55.058  ❤️ ERROR SecureStore.read():63 - label = CryptorSeed SecItemCopyMatching = -25300
-thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.CryptorCore getKEK(password:seed:) CCKeyDerivationPBKDF status= 0
-thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.CryptorCore getKEK(password:seed:) KEK   = {length = 32, bytes = 0xc70345ce 27f115b8 422054d1 875222c9 ... 65f5808f 0581e54b }
-thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.Validator init(key:) mark   = {length = 16, bytes = 0x6849d5da5be5ad15e313a6fc3e62b40d}
-thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.Validator init(key:) hshMark= {length = 32, bytes = 0xf6c9d9c7 1a46a9d4 df32a957 39579715 ... 2d29d160 cf1e4c4a }
-thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.Validator init(key:) encryptedMark= {length = 32, bytes = 0x3ab21e91 4d557b07 028230bb 56f95f40 ... 68681e27 525816c5 }
-23:20:55.119  💚 DEBUG CryptorCore.encrypt():120 - CCCrypt(Encrypt) status = 0
-23:20:55.120  💚 DEBUG CryptorCore.encrypt():120 - CCCrypt(Encrypt) status = 0
-23:20:55.122  💚 DEBUG SecureStore.write():104 - label = CryptorSeed SecItemAdd = 0
-23:20:55.124  💚 DEBUG SecureStore.write():104 - label = Validator SecItemAdd = -25299
-23:20:55.124  ❤️ ERROR SecureStore.write():108 - label = Validator SecItemAdd = -25299
-23:20:55.124  ❤️ ERROR AuthenticationManager.pressed():266 - Cryptor.prepare error = SecItemError(error: -25299)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performExportWithRequest:]_block_invoke_2(934): Finished export: <PFCloudKitExporter: 0x600002d6b5c0>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringExportRequest: 0x600003610ed0> F9190406-E171-48C6-A2F8-42B12A2BF0FE with result: <NSCloudKitMirroringResult: 0x60000383a6a0> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(451): <NSCloudKitMirroringDelegate: 0x6000009a6a80> - Finished automatic export with result: <NSCloudKitMirroringResult: 0x60000383a6a0> success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](2338): Finished request '<NSCloudKitMirroringExportRequest: 0x600003610ed0> F9190406-E171-48C6-A2F8-42B12A2BF0FE' with result: <NSCloudKitMirroringResult: 0x60000383a6a0> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x6000009a6a80>: No more requests to execute.
+2020-09-23 02:01:56.800790+0900 TresorMockup[4710:221310] invalid mode 'kCFRunLoopCommonModes' provided to CFRunLoopRunSpecific - break on _CFRunLoopError_RunCalledWithInvalidMode to debug. This message will only appear once per execution.
+02:01:58.487  💚 DEBUG SecureStore.read():60 - label = CryptorSeed SecItemCopyMatching = -25300
+02:01:58.488  ❤️ ERROR SecureStore.read():64 - label = CryptorSeed SecItemCopyMatching = -25300
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.CryptorCore getKEK(password:seed:) CCKeyDerivationPBKDF status= 0
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.CryptorCore getKEK(password:seed:) KEK   = {length = 32, bytes = 0xf4410ac9 0aff0b7f 00347ce7 27e8ae2a ... 8b648505 6de8e04c }
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.Validator init(key:) mark   = {length = 16, bytes = 0x7506ec21fd3d167a3459cddbb29c34c5}
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.Validator init(key:) hshMark= {length = 32, bytes = 0x28a36313 38a35597 7feb0fa7 a32a8c94 ... cad3a90d f6de17e7 }
+02:01:58.552  💚 DEBUG CryptorCore.encrypt():120 - CCCrypt(Encrypt) status = 0
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.Validator init(key:) encryptedMark= {length = 32, bytes = 0xf1b8b9a4 f19c0501 dcea0f92 a7962043 ... 5baac489 0278abe2 }
+02:01:58.553  💚 DEBUG CryptorCore.encrypt():120 - CCCrypt(Encrypt) status = 0
+02:01:58.556  💚 DEBUG SecureStore.write():107 - label = CryptorSeed SecItemAdd = 0
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.CryptorCore prepare(password:) salt  = {length = 16, bytes = 0xf0add62e60dcca26cc6dab0558c873a9}
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.CryptorCore prepare(password:) kek   = {length = 32, bytes = 0xf4410ac9 0aff0b7f 00347ce7 27e8ae2a ... 8b648505 6de8e04c }
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.CryptorCore prepare(password:) cek   = {length = 32, bytes = 0x7df15b40 1039df39 bc69caec d36c5e12 ... 372c1369 26c63fda }
+thread=<NSThread: 0x600002daca80>{number = 1, name = main} TresorMockup.CryptorCore prepare(password:) cekEnc= {length = 48, bytes = 0x5d34556a dda4f894 d6b245b2 b1bcec44 ... 9ff68670 e39686d0 }
+02:01:58.557  💚 DEBUG SecureStore.write():107 - label = Validator SecItemAdd = 0
+02:01:58.587  💚 DEBUG SecureStore.write():107 - label = PASS SecItemAdd = 0
 

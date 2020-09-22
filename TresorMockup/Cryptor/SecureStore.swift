@@ -27,7 +27,6 @@ internal class SecureStore {
     private func prepare(label: String) {
         self.query = [
             kSecClass              as String: kSecClassGenericPassword,
-            kSecAttrSynchronizable as String: kCFBooleanTrue!,
             kSecAttrAccount        as String: label,
         ]
         let prefix = Bundle.main.bundleIdentifier ?? ""
@@ -38,7 +37,7 @@ internal class SecureStore {
         #endif
     }
 
-    func read(label: String) throws -> Data? {
+    func read(label: String, synchronize: Bool = true) throws -> Data? {
         guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
             SwiftyBeaver.error("label = \(label) mutex lock time out")
             throw CryptorError.timeOut
@@ -46,6 +45,8 @@ internal class SecureStore {
         defer { self.mutex.unlock() }
 
         self.prepare(label: label)
+        self.query[ kSecAttrSynchronizable as String ] =
+            synchronize ? kCFBooleanTrue! : kCFBooleanFalse
         self.query[ kSecReturnData       as String] = kCFBooleanTrue
         self.query[ kSecMatchLimit       as String] = kSecMatchLimitOne
         self.query[ kSecReturnAttributes as String] = kCFBooleanTrue
@@ -90,12 +91,14 @@ internal class SecureStore {
         return data
     }
 
-    func write(label: String, _ data: Data) throws {
+    func write(label: String, _ data: Data, synchronize: Bool = true) throws {
         guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
             SwiftyBeaver.error("label = \(label) mutex lock time out")
             throw CryptorError.timeOut
         }
         self.prepare(label: label)
+        self.query[ kSecAttrSynchronizable as String ] =
+            synchronize ? kCFBooleanTrue! : kCFBooleanFalse
         self.query[kSecValueData  as String] = data
         let status = SecItemAdd(self.query as CFDictionary, nil)
         self.mutex.unlock()
@@ -110,12 +113,14 @@ internal class SecureStore {
         }
     }
 
-    func update(label: String, _ data: Data) throws {
+    func update(label: String, _ data: Data, synchronize: Bool = true) throws {
         guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
             SwiftyBeaver.error("label = \(label) mutex lock time out")
             throw CryptorError.timeOut
         }
         self.prepare(label: label)
+        self.query[ kSecAttrSynchronizable as String ] =
+            synchronize ? kCFBooleanTrue! : kCFBooleanFalse
         let attr: [String: AnyObject] = [kSecValueData as String: data as AnyObject]
         let status = SecItemUpdate(self.query as CFDictionary, attr as CFDictionary)
         self.mutex.unlock()

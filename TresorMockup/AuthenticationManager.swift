@@ -69,10 +69,30 @@ class AuthenticationManger {
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
                     if success {
+                        guard var data =
+                            try? SecureStore.shared.read(label: "PASS",synchronize: false) else {
+                            SwiftyBeaver.self.error("SecureStore read pass Error \(error!)")
+                            return
+                        }
+
+                        // get a CryptorSeed string value from SecItem
+                        guard var pass = String(data: data, encoding: .utf8) else {
+                            SwiftyBeaver.self.error("SecureStore read pass Broken \(error!)")
+                            return
+                        }
+                        defer{ pass = "" }
+                        
+                        do {
+                            try Cryptor.prepare(password: pass)
+                        }
+                        catch (let error) {
+                            SwiftyBeaver.error("Cryptor.prepare error = \(error)")
+                          }
                     }
                     else {
                         print("Authenticaion Error \(error!)")
                         SwiftyBeaver.self.error("Authenticaion Error \(error!)")
+                        return
                     }
                 }
             }
@@ -147,6 +167,18 @@ class SetPasswordViewController: UIViewController, UITextFieldDelegate {
             catch (let error) {
                 SwiftyBeaver.error("Cryptor.prepare error = \(error)")
             }
+            guard let data = password1.data(using: .utf8) else {
+                SwiftyBeaver.self.error("SecureStore write pass \(password1)")
+                return
+            }
+            do {
+                try SecureStore.shared.write(label: "PASS", data, synchronize: false)
+            }
+            catch(let error) {
+                SwiftyBeaver.self.error("SecureStore write pass Error \(error)")
+                return
+            }
+
             self.dismiss(animated: true)
         }
     }

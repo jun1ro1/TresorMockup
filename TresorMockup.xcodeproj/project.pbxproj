@@ -127,6 +127,7 @@
 		F9DB5566217DF6D7006C291E /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		F9E20848204BF0D600543C81 /* Site.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site.swift; sourceTree = "<group>"; };
 		F9E2084C204BF14F00543C81 /* Password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Password.swift; sourceTree = "<group>"; };
+		F9FB81C1251A65D10024361A /* log2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log2.txt; sourceTree = "<group>"; };
 		F9FE6EA52042E99300F892DC /* TresorMockup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TresorMockup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9FE6EA82042E99300F892DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F9FE6EAB2042E99300F892DC /* TresorMockup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TresorMockup.xcdatamodel; sourceTree = "<group>"; };
@@ -270,6 +271,7 @@
 				F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */,
 				F950E78220676C8600D55557 /* TextViewController.swift */,
 				F906C49820DE5F57003DADEC /* log1.txt */,
+				F9FB81C1251A65D10024361A /* log2.txt */,
 				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
 				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
 				F9FE6EB12042E99300F892DC /* Main.storyboard */,
