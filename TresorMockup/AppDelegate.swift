@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let console = ConsoleDestination()  // log to Xcode Console
         console.format = "$DHH:mm:ss.SSS$d $T $C$L$c $N.$F:$l - $M"
         log.addDestination(console)
-        log.debug("Application starts")
+        log.info("Application starts")
+        log.info("bundleIdentifier = ", Bundle.main.bundleIdentifier ?? "nil")
 
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController

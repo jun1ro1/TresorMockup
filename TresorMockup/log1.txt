@@ -1,439 +1,97 @@
-iPhone 5s
-
-10:03:59.924  💚 DEBUG AppDelegate.application():27 - Application starts
-10:03:59.985  💚 DEBUG MasterViewController.viewDidLoad():38 - viewDidLoad
-10:04:00.105  💚 DEBUG AppDelegate.application():107 - Remote Notification did fail to register error = Error Domain=NSCocoaErrorDomain Code=3010 "remote notifications are not supported in the simulator" UserInfo={NSLocalizedDescription=remote notifications are not supported in the simulator}
-10:04:00.769 0x600001b8ff00 💚 DEBUG CloudKitManager.start():98 - CKFetchRecordZonesOperation error = nil zoneIDs = Optional([<CKRecordZoneID: 0x600000e482a0; ownerName=__defaultOwner__, zoneName=com.gmail.jun1ro1.TresorMockup_Zone>: <CKRecordZone: 0x600003c04a20; zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__, capabilities=(Atomic,Sync,Share)>])
-10:04:00.941 0x600001b8ff00 💚 DEBUG CloudKitManager.start():122 - CKFetchSubscriptionsOperation error = nil
-10:04:01.104 0x600001b8ff00 💚 DEBUG CloudKitManager.checkUpdates():174 - fetchDatabaseChangesCompletionBlock error = nil token = Optional(<CKServerChangeToken: 0x600000c28610; data=AQAAAWpw6yoL>) more = false
-10:04:01.300 0x600001b8ff00 💚 DEBUG CloudKitManager.checkUpdates():210 - fetchRecordZoneChangesCompletionBlock error = nil
-10:04:01.301 0x600001b82900 💚 DEBUG CloudKitManager.checkUpdates():235 - CKFetchRecordsOperation = nil
-10:04:01.302 0x600001b82900 💚 DEBUG CloudKitManager.checkUpdates():410 - changes =
-10:04:01.306  💚 DEBUG MasterViewController.viewUpdate():64 - notification received
-2019-05-01 10:04:24.778928+0900 TresorMockup[3042:97100] [Warning] Warning once only: Detected a case where constraints ambiguously suggest a height of zero for a tableview cell's content view. We're considering the collapse unintentional and using standard height instead.
-2019-05-01 10:04:26.319763+0900 TresorMockup[3042:97100] [MC] System group container for systemgroup.com.apple.configurationprofiles path is /Users/jun1ro1/Library/Developer/CoreSimulator/Devices/0F52AC87-BDC9-4B3B-9D67-1AA588A0461A/data/Containers/Shared/SystemGroup/systemgroup.com.apple.configurationprofiles
-2019-05-01 10:04:26.321997+0900 TresorMockup[3042:97100] [MC] Reading from private effective user settings.
-changed passwordCurrent = Optional(pa1)
-10:04:37.314  💚 DEBUG CloudKitManager.contextWillSave():484 - contextWillSave
-10:04:37.372  💚 DEBUG CloudKitManager.contextDidSave():497 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x6000031284b0>), userInfo = Optional([AnyHashable("managedObjectContext"): <_PFWeakReference: 0x600000e8e5a0>, AnyHashable("updated"): {(
-)}, AnyHashable("inserted"): {(
-<TresorMockup.Site: 0x600002d6cc30> (entity: Site; id: 0xec70df8a6538f1ae <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1> ; data: {
-active = 1;
-charSet = 136331264;
-createdAt = "2019-05-01 01:04:24 +0000";
-loginAt = nil;
-maxLength = 8;
-memo = nil;
-passwordCurrent = pa1;
-passwords =     (
-"0xec70df8a6538f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1>"
-);
-selectAt = "2019-05-01 01:04:34 +0000";
-title = t1;
-url = ur1;
-userid = us1;
-uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
-}),
-<TresorMockup.Password: 0x600002d70c80> (entity: Password; id: 0xec70df8a6538f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1> ; data: {
-active = 1;
-createdAt = "2019-05-01 01:04:34 +0000";
-current = 1;
-password = pa1;
-selectedAt = "2019-05-01 01:04:34 +0000";
-site = "0xec70df8a6538f1ae <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1>";
-uuid = "313EB0C0-2EE3-4D6E-9992-42121042C506";
-})
-)}])
-10:04:37.375  💚 DEBUG CloudKitManager.contextDidSave():588 - key = 313EB0C0-2EE3-4D6E-9992-42121042C506
-mocr = Optional(TresorMockup.(unknown context at $1094080f4).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x600000ea2c80; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xec70df8a6538f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1>), managedObject: nil, keys: ["uuid", "password", "selectedAt", "current", "site", "createdAt", "active"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at $109408068).OperationMode(rawValue: 1)))
-10:04:37.375  💚 DEBUG CloudKitManager.contextDidSave():588 - key = B9A3BEBC-6130-404A-9E18-DD81C0205B5A
-mocr = Optional(TresorMockup.(unknown context at $1094080f4).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x600000ea0800; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xec70df8a6538f1ae <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1>), managedObject: nil, keys: ["uuid", "maxLength", "passwordCurrent", "url", "passwords", "charSet", "userid", "createdAt", "active", "selectAt", "title"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at $109408068).OperationMode(rawValue: 1)))
-10:04:37.375  💚 DEBUG DetailViewController.save():317 - save
-10:04:37.865 0x600001b82900 💚 DEBUG CloudKitManager.contextDidSave():603 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = Optional(<CKError 0x6000000b26a0: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = D7647BC6-4891-4A2C-BFF5-881C5EE20BDB; container ID = "iCloud.com.gmail.jun1ro1.TresorMockup"; partial errors: {
-B9A3BEBC-6130-404A-9E18-DD81C0205B5A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x600000074690: "Unknown Item" (11/2003); server message = "Record not found"; uuid = D7647BC6-4891-4A2C-BFF5-881C5EE20BDB>
-313EB0C0-2EE3-4D6E-9992-42121042C506:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x6000000702d0: "Unknown Item" (11/2003); server message = "Record not found"; uuid = D7647BC6-4891-4A2C-BFF5-881C5EE20BDB>
-}>)
-10:04:37.865 0x600001b82900 💙 INFO CloudKitManager.contextDidSave():609 - CKFetchRecordsOperation fetchRecordsCompletionBlock records = empty
-10:04:37.867 0x600001b82900 💚 DEBUG CloudKitManager.set():841 -   current: NSNumber = 1
-10:04:37.867 0x600001b82900 💚 DEBUG CloudKitManager.set():833 -   password: NSString = pa1
-10:04:37.867 0x600001b82900 💚 DEBUG CloudKitManager.set():833 -   uuid: NSString = 313EB0C0-2EE3-4D6E-9992-42121042C506
-10:04:37.868 0x600001b82900 💚 DEBUG CloudKitManager.set():857 -   selectedAt: NSDate = 2019-05-01 01:04:34 +0000
-10:04:37.869 0x600001b82900 💚 DEBUG CloudKitManager.set():893 -   site: CKReference = <CKRecordID: 0x600000e019a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__> reference = <CKReference: 0x600000e01ac0; recordID=<CKRecordID: 0x600000e019a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-10:04:37.869 0x600001b82900 💚 DEBUG CloudKitManager.set():857 -   createdAt: NSDate = 2019-05-01 01:04:34 +0000
-10:04:37.869 0x600001b82900 💚 DEBUG CloudKitManager.set():841 -   active: NSNumber = 1
-10:04:37.877 0x600001b82900 💚 DEBUG CloudKitManager.set():841 -   maxLength: NSNumber = 8
-10:04:37.877 0x600001b82900 💚 DEBUG CloudKitManager.set():918 -   passwords: CK References = [[<CKReference: 0x600000e85160> recordID="<CKRecordID: 0x600000e84d40; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>"]]
-10:04:37.878 0x600001b82900 💚 DEBUG CloudKitManager.set():857 -   createdAt: NSDate = 2019-05-01 01:04:24 +0000
-10:04:37.878 0x600001b82900 💚 DEBUG CloudKitManager.set():857 -   selectAt: NSDate = 2019-05-01 01:04:34 +0000
-10:04:37.878 0x600001b82900 💚 DEBUG CloudKitManager.set():833 -   title: NSString = t1
-10:04:37.878 0x600001b82900 💚 DEBUG CloudKitManager.set():841 -   active: NSNumber = 1
-10:04:37.878 0x600001b82900 💚 DEBUG CloudKitManager.set():841 -   charSet: NSNumber = 136331264
-10:04:37.879 0x600001b82900 💚 DEBUG CloudKitManager.set():833 -   userid: NSString = us1
-10:04:37.879 0x600001b82900 💚 DEBUG CloudKitManager.set():833 -   passwordCurrent: NSString = pa1
-10:04:37.879 0x600001b82900 💚 DEBUG CloudKitManager.set():833 -   url: NSString = ur1
-10:04:37.879 0x600001b82900 💚 DEBUG CloudKitManager.set():833 -   uuid: NSString = B9A3BEBC-6130-404A-9E18-DD81C0205B5A
-10:04:37.879 0x600001b82900 💚 DEBUG CloudKitManager.contextDidSave():650 - key = 313EB0C0-2EE3-4D6E-9992-42121042C506
-mocr = recordID = 313EB0C0-2EE3-4D6E-9992-42121042C506 Password [save]
-managedObjectID =x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1
-managedObject =nil
-cloudRecord =313EB0C0-2EE3-4D6E-9992-42121042C506
-keys = uuid, password, selectedAt, current, site, createdAt, active
-)
-10:04:37.880 0x600001b82900 💚 DEBUG CloudKitManager.contextDidSave():650 - key = B9A3BEBC-6130-404A-9E18-DD81C0205B5A
-mocr = recordID = B9A3BEBC-6130-404A-9E18-DD81C0205B5A Site [save]
-managedObjectID =x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1
-managedObject =nil
-cloudRecord =B9A3BEBC-6130-404A-9E18-DD81C0205B5A
-keys = uuid, maxLength, passwordCurrent, url, passwords, charSet, userid, createdAt, active, selectAt, title
-)
-10:04:37.880 0x600001b82900 💚 DEBUG CloudKitManager.contextDidSave():657 - fetchRecordsCompletionBlock toSave = [<CKRecord: 0x7fc53147bd40; recordID=313EB0C0-2EE3-4D6E-9992-42121042C506:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
-active = 1;
-createdAt = "2019-05-01 01:04:34 +0000";
-current = 1;
-password = pa1;
-selectedAt = "2019-05-01 01:04:34 +0000";
-site = "<CKReference: 0x600000e01ac0; recordID=<CKRecordID: 0x600000e019a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "313EB0C0-2EE3-4D6E-9992-42121042C506";
-}, recordType=Password>
-{
-creatorUserRecordID -> (null)
-lastModifiedUserRecordID -> (null)
-creationDate -> (null)
-modificationDate -> (null)
-site (modified) -> <CKReference: 0x600000e01ac0; recordID=<CKRecordID: 0x600000e019a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-password (modified) -> "pa1"
-current (modified) -> 1 (type s)
-selectedAt (modified) -> 2019-05-01 01:04:34 +0000
-active (modified) -> 1 (type c)
-uuid (modified) -> "313EB0C0-2EE3-4D6E-9992-42121042C506"
-createdAt (modified) -> 2019-05-01 01:04:34 +0000
-}, <CKRecord: 0x7fc536001f00; recordID=B9A3BEBC-6130-404A-9E18-DD81C0205B5A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
-active = 1;
-charSet = 136331264;
-createdAt = "2019-05-01 01:04:24 +0000";
-maxLength = 8;
-passwordCurrent = pa1;
-passwords =     (
-"<CKReference: 0x600000e85160; recordID=<CKRecordID: 0x600000e84d40; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
-);
-selectAt = "2019-05-01 01:04:34 +0000";
-title = t1;
-url = ur1;
-userid = us1;
-uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
-}, recordType=Site>
-{
-creatorUserRecordID -> (null)
-lastModifiedUserRecordID -> (null)
-creationDate -> (null)
-modificationDate -> (null)
-active (modified) -> 1 (type c)
-userid (modified) -> "us1"
-passwordCurrent (modified) -> "pa1"
-maxLength (modified) -> 8 (type s)
-title (modified) -> "t1"
-charSet (modified) -> 136331264 (type i)
-passwords (modified) -> [<CKReference: 0x600000e85160; recordID=<CKRecordID: 0x600000e84d40; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
-uuid (modified) -> "B9A3BEBC-6130-404A-9E18-DD81C0205B5A"
-createdAt (modified) -> 2019-05-01 01:04:24 +0000
-selectAt (modified) -> 2019-05-01 01:04:34 +0000
-url (modified) -> "ur1"
-}]
-10:04:37.881 0x600001b82900 💚 DEBUG CloudKitManager.contextDidSave():658 - fetchRecordsCompletionBlock toDelete = []
-10:04:39.108 0x60000143f080 💚 DEBUG CloudKitManager.contextDidSave():665 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([<CKRecord: 0x7fc53147bd40; recordID=313EB0C0-2EE3-4D6E-9992-42121042C506:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=3, values={
-active = 1;
-createdAt = "2019-05-01 01:04:34 +0000";
-current = 1;
-password = pa1;
-selectedAt = "2019-05-01 01:04:34 +0000";
-site = "<CKReference: 0x600000e01ac0; recordID=<CKRecordID: 0x600000e019a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "313EB0C0-2EE3-4D6E-9992-42121042C506";
-}, recordType=Password>
-{
-creatorUserRecordID -> <CKRecordID: 0x600000e8ed40; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x600000e8e3e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2019-05-01 01:04:38 +0000
-modificationDate -> 2019-05-01 01:04:38 +0000
-modifiedByDevice -> iPhone Xʀ
-site -> <CKReference: 0x600000e01ac0; recordID=<CKRecordID: 0x600000e019a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-password -> "pa1"
-current -> 1 (type s)
-selectedAt -> 2019-05-01 01:04:34 +0000
-active -> 1 (type c)
-uuid -> "313EB0C0-2EE3-4D6E-9992-42121042C506"
-createdAt -> 2019-05-01 01:04:34 +0000
-}, <CKRecord: 0x7fc536001f00; recordID=B9A3BEBC-6130-404A-9E18-DD81C0205B5A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=4, values={
-active = 1;
-charSet = 136331264;
-createdAt = "2019-05-01 01:04:24 +0000";
-maxLength = 8;
-passwordCurrent = pa1;
-passwords =     (
-"<CKReference: 0x600000e85160; recordID=<CKRecordID: 0x600000e84d40; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
-);
-selectAt = "2019-05-01 01:04:34 +0000";
-title = t1;
-url = ur1;
-userid = us1;
-uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
-}, recordType=Site>
-{
-creatorUserRecordID -> <CKRecordID: 0x600000e5a540; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x600000e5b000; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2019-05-01 01:04:38 +0000
-modificationDate -> 2019-05-01 01:04:38 +0000
-modifiedByDevice -> iPhone Xʀ
-active -> 1 (type c)
-userid -> "us1"
-passwordCurrent -> "pa1"
-maxLength -> 8 (type s)
-title -> "t1"
-charSet -> 136331264 (type i)
-passwords -> [<CKReference: 0x600000e85160; recordID=<CKRecordID: 0x600000e84d40; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
-uuid -> "B9A3BEBC-6130-404A-9E18-DD81C0205B5A"
-createdAt -> 2019-05-01 01:04:24 +0000
-selectAt -> 2019-05-01 01:04:34 +0000
-url -> "ur1"
-}]) delete = Optional([])
-changed passwordCurrent = Optional(pa11)
-2019-05-01 10:07:26.422103+0900 TresorMockup[3042:97100] [error] error:  API Misuse: Attempt to serialize store access on non-owning coordinator (PSC = 0x600001bad180, store PSC = 0x0)
-CoreData: error:  API Misuse: Attempt to serialize store access on non-owning coordinator (PSC = 0x600001bad180, store PSC = 0x0)
-10:07:26.962  💚 DEBUG CloudKitManager.contextWillSave():484 - contextWillSave
-10:07:26.974  💚 DEBUG CloudKitManager.contextDidSave():497 - contextDidSave notification = name = NSManagingContextDidSaveChangesNotification, object = Optional(<NSManagedObjectContext: 0x6000031284b0>), userInfo = Optional([AnyHashable("inserted"): {(
-<TresorMockup.Password: 0x600002d43f20> (entity: Password; id: 0xec70df8a6534f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p2> ; data: {
-active = 1;
-createdAt = "2019-05-01 01:07:24 +0000";
-current = 1;
-password = pa11;
-selectedAt = "2019-05-01 01:07:24 +0000";
-site = "0xec70df8a6538f1ae <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1>";
-uuid = "AE5D8A25-638E-4E1F-A207-880A4E674F68";
-})
-)}, AnyHashable("updated"): {(
-<TresorMockup.Site: 0x600002d6cc30> (entity: Site; id: 0xec70df8a6538f1ae <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1> ; data: {
-active = 1;
-charSet = 136331264;
-createdAt = "2019-05-01 01:04:24 +0000";
-loginAt = nil;
-maxLength = 8;
-memo = nil;
-passwordCurrent = pa11;
-passwords =     (
-"0xec70df8a6538f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1>",
-"0xec70df8a6534f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p2>"
-);
-selectAt = "2019-05-01 01:07:24 +0000";
-title = t1;
-url = ur1;
-userid = us1;
-uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
-}),
-<TresorMockup.Password: 0x600002d70c80> (entity: Password; id: 0xec70df8a6538f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1> ; data: {
-active = 1;
-createdAt = "2019-05-01 01:04:34 +0000";
-current = 0;
-password = pa1;
-selectedAt = "2019-05-01 01:04:34 +0000";
-site = "0xec70df8a6538f1ae <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1>";
-uuid = "313EB0C0-2EE3-4D6E-9992-42121042C506";
-})
-)}, AnyHashable("managedObjectContext"): <_PFWeakReference: 0x600000e94420>])
-10:07:26.974  💚 DEBUG CloudKitManager.contextDidSave():588 - key = B9A3BEBC-6130-404A-9E18-DD81C0205B5A
-mocr = Optional(TresorMockup.(unknown context at $1094080f4).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x600000ea14e0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xec70df8a6538f1ae <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1>), managedObject: nil, keys: ["passwordCurrent", "passwords", "selectAt"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at $109408068).OperationMode(rawValue: 1)))
-10:07:26.975  💚 DEBUG CloudKitManager.contextDidSave():588 - key = 313EB0C0-2EE3-4D6E-9992-42121042C506
-mocr = Optional(TresorMockup.(unknown context at $1094080f4).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x600000ea2100; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xec70df8a6538f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1>), managedObject: nil, keys: ["current"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at $109408068).OperationMode(rawValue: 1)))
-10:07:26.975  💚 DEBUG CloudKitManager.contextDidSave():588 - key = AE5D8A25-638E-4E1F-A207-880A4E674F68
-mocr = Optional(TresorMockup.(unknown context at $1094080f4).ManagedObjectCloudRecord(recordID: Optional(<CKRecordID: 0x600000ea1cc0; recordName=AE5D8A25-638E-4E1F-A207-880A4E674F68, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>), managedObjectID: Optional(0xec70df8a6534f1ac <x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p2>), managedObject: nil, keys: ["createdAt", "selectedAt", "password", "active", "current", "uuid", "site"], _cloudRecord: nil, _cloudChanged: false, recordType: nil, mode: TresorMockup.(unknown context at $109408068).OperationMode(rawValue: 1)))
-10:07:26.975  💚 DEBUG DetailViewController.save():317 - save
-10:07:27.272 0x600001bc56c0 💚 DEBUG CloudKitManager.contextDidSave():603 - CKFetchRecordsOperation fetchRecordsCompletionBlock error = Optional(<CKError 0x6000000e6820: "Partial Failure" (2/1011); "Failed to fetch some records"; uuid = 189CA958-F849-4096-B64D-95C3504CE340; container ID = "iCloud.com.gmail.jun1ro1.TresorMockup"; partial errors: {
-AE5D8A25-638E-4E1F-A207-880A4E674F68:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__) = <CKError 0x6000000e2580: "Unknown Item" (11/2003); server message = "Record not found"; uuid = 189CA958-F849-4096-B64D-95C3504CE340>
-}>)
-10:07:27.273 0x600001bc56c0 💚 DEBUG CloudKitManager.set():833 -   passwordCurrent: NSString = pa11
-10:07:27.273 0x600001bc56c0 💚 DEBUG CloudKitManager.set():857 -   selectAt: NSDate = 2019-05-01 01:07:24 +0000
-10:07:27.275 0x600001bc56c0 💚 DEBUG CloudKitManager.set():918 -   passwords: CK References = [[<CKReference: 0x600000ea01a0> recordID="<CKRecordID: 0x600000ea2b80; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>"], [<CKReference: 0x600000ea0c80> recordID="<CKRecordID: 0x600000ea02a0; recordName=AE5D8A25-638E-4E1F-A207-880A4E674F68, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>"]]
-10:07:27.275 0x600001bc56c0 💚 DEBUG CloudKitManager.set():841 -   current: NSNumber = 0
-10:07:27.275 0x600001bc56c0 💚 DEBUG CloudKitManager.set():833 -   password: NSString = pa11
-10:07:27.275 0x600001bc56c0 💚 DEBUG CloudKitManager.set():841 -   active: NSNumber = 1
-10:07:27.275 0x600001bc56c0 💚 DEBUG CloudKitManager.set():833 -   uuid: NSString = AE5D8A25-638E-4E1F-A207-880A4E674F68
-10:07:27.275 0x600001bc56c0 💚 DEBUG CloudKitManager.set():857 -   createdAt: NSDate = 2019-05-01 01:07:24 +0000
-10:07:27.276 0x600001bc56c0 💚 DEBUG CloudKitManager.set():857 -   selectedAt: NSDate = 2019-05-01 01:07:24 +0000
-10:07:27.285 0x600001bc56c0 💚 DEBUG CloudKitManager.set():893 -   site: CKReference = <CKRecordID: 0x600000e99160; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__> reference = <CKReference: 0x600000e98d00; recordID=<CKRecordID: 0x600000e99160; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-10:07:27.285 0x600001bc56c0 💚 DEBUG CloudKitManager.set():841 -   current: NSNumber = 1
-10:07:27.285 0x600001bc56c0 💚 DEBUG CloudKitManager.contextDidSave():650 - key = B9A3BEBC-6130-404A-9E18-DD81C0205B5A
-mocr = recordID = B9A3BEBC-6130-404A-9E18-DD81C0205B5A Site [save]
-managedObjectID =x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Site/p1
-managedObject =nil
-cloudRecord =B9A3BEBC-6130-404A-9E18-DD81C0205B5A
-keys = passwordCurrent, passwords, selectAt
-)
-10:07:27.286 0x600001bc56c0 💚 DEBUG CloudKitManager.contextDidSave():650 - key = 313EB0C0-2EE3-4D6E-9992-42121042C506
-mocr = recordID = 313EB0C0-2EE3-4D6E-9992-42121042C506 Password [save]
-managedObjectID =x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p1
-managedObject =nil
-cloudRecord =313EB0C0-2EE3-4D6E-9992-42121042C506
-keys = current
-)
-10:07:27.286 0x600001bc56c0 💚 DEBUG CloudKitManager.contextDidSave():650 - key = AE5D8A25-638E-4E1F-A207-880A4E674F68
-mocr = recordID = AE5D8A25-638E-4E1F-A207-880A4E674F68 Password [save]
-managedObjectID =x-coredata://44223454-30D3-4854-8BEE-7ECB8488EA02/Password/p2
-managedObject =nil
-cloudRecord =AE5D8A25-638E-4E1F-A207-880A4E674F68
-keys = createdAt, selectedAt, password, active, current, uuid, site
-)
-10:07:27.286 0x600001bc56c0 💚 DEBUG CloudKitManager.contextDidSave():657 - fetchRecordsCompletionBlock toSave = [<CKRecord: 0x7fc53147ed40; recordID=B9A3BEBC-6130-404A-9E18-DD81C0205B5A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=4, values={
-active = 1;
-charSet = 136331264;
-createdAt = "2019-05-01 01:04:24 +0000";
-maxLength = 8;
-passwordCurrent = pa11;
-passwords =     (
-"<CKReference: 0x600000ea01a0; recordID=<CKRecordID: 0x600000ea2b80; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
-"<CKReference: 0x600000ea0c80; recordID=<CKRecordID: 0x600000ea02a0; recordName=AE5D8A25-638E-4E1F-A207-880A4E674F68, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
-);
-selectAt = "2019-05-01 01:07:24 +0000";
-title = t1;
-url = ur1;
-userid = us1;
-uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
-}, recordType=Site>
-{
-creatorUserRecordID -> <CKRecordID: 0x600000e992c0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x600000e98e40; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2019-05-01 01:04:38 +0000
-modificationDate -> 2019-05-01 01:04:38 +0000
-modifiedByDevice -> iPhone Xʀ
-active -> 1 (type q)
-userid -> "us1"
-passwordCurrent (modified) -> "pa11"
-maxLength -> 8 (type q)
-title -> "t1"
-charSet -> 136331264 (type q)
-passwords (modified) -> [<CKReference: 0x600000ea01a0; recordID=<CKRecordID: 0x600000ea2b80; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x600000ea0c80; recordID=<CKRecordID: 0x600000ea02a0; recordName=AE5D8A25-638E-4E1F-A207-880A4E674F68, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
-uuid -> "B9A3BEBC-6130-404A-9E18-DD81C0205B5A"
-createdAt -> 2019-05-01 01:04:24 +0000
-selectAt (modified) -> 2019-05-01 01:07:24 +0000
-url -> "ur1"
-}, <CKRecord: 0x7fc531521780; recordID=313EB0C0-2EE3-4D6E-9992-42121042C506:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=3, values={
-active = 1;
-createdAt = "2019-05-01 01:04:34 +0000";
-current = 0;
-password = pa1;
-selectedAt = "2019-05-01 01:04:34 +0000";
-site = "<CKReference: 0x600000ea0780; recordID=<CKRecordID: 0x600000ea15a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "313EB0C0-2EE3-4D6E-9992-42121042C506";
-}, recordType=Password>
-{
-creatorUserRecordID -> <CKRecordID: 0x600000ea2c40; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x600000ea0920; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2019-05-01 01:04:38 +0000
-modificationDate -> 2019-05-01 01:04:38 +0000
-modifiedByDevice -> iPhone Xʀ
-site -> <CKReference: 0x600000ea0780; recordID=<CKRecordID: 0x600000ea15a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-password -> "pa1"
-current (modified) -> 0 (type s)
-active -> 1 (type q)
-selectedAt -> 2019-05-01 01:04:34 +0000
-uuid -> "313EB0C0-2EE3-4D6E-9992-42121042C506"
-createdAt -> 2019-05-01 01:04:34 +0000
-}, <CKRecord: 0x7fc531522bc0; recordID=AE5D8A25-638E-4E1F-A207-880A4E674F68:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), values={
-active = 1;
-createdAt = "2019-05-01 01:07:24 +0000";
-current = 1;
-password = pa11;
-selectedAt = "2019-05-01 01:07:24 +0000";
-site = "<CKReference: 0x600000e98d00; recordID=<CKRecordID: 0x600000e99160; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "AE5D8A25-638E-4E1F-A207-880A4E674F68";
-}, recordType=Password>
-{
-creatorUserRecordID -> (null)
-lastModifiedUserRecordID -> (null)
-creationDate -> (null)
-modificationDate -> (null)
-active (modified) -> 1 (type c)
-password (modified) -> "pa11"
-selectedAt (modified) -> 2019-05-01 01:07:24 +0000
-site (modified) -> <CKReference: 0x600000e98d00; recordID=<CKRecordID: 0x600000e99160; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-current (modified) -> 1 (type s)
-uuid (modified) -> "AE5D8A25-638E-4E1F-A207-880A4E674F68"
-createdAt (modified) -> 2019-05-01 01:07:24 +0000
-}]
-10:07:27.287 0x600001bc56c0 💚 DEBUG CloudKitManager.contextDidSave():658 - fetchRecordsCompletionBlock toDelete = []
-10:07:27.614 0x600001bef080 💚 DEBUG CloudKitManager.contextDidSave():665 - CKModifyRecordsOperation modifyRecordsCompletionBlock error = nil save = Optional([<CKRecord: 0x7fc53147ed40; recordID=B9A3BEBC-6130-404A-9E18-DD81C0205B5A:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=5, values={
-active = 1;
-charSet = 136331264;
-createdAt = "2019-05-01 01:04:24 +0000";
-maxLength = 8;
-passwordCurrent = pa11;
-passwords =     (
-"<CKReference: 0x600000ea01a0; recordID=<CKRecordID: 0x600000ea2b80; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>",
-"<CKReference: 0x600000ea0c80; recordID=<CKRecordID: 0x600000ea02a0; recordName=AE5D8A25-638E-4E1F-A207-880A4E674F68, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>"
-);
-selectAt = "2019-05-01 01:07:24 +0000";
-title = t1;
-url = ur1;
-userid = us1;
-uuid = "B9A3BEBC-6130-404A-9E18-DD81C0205B5A";
-}, recordType=Site>
-{
-creatorUserRecordID -> <CKRecordID: 0x600000ea1960; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x600000ea31e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2019-05-01 01:04:38 +0000
-modificationDate -> 2019-05-01 01:07:27 +0000
-modifiedByDevice -> iPhone Xʀ
-active -> 1 (type q)
-userid -> "us1"
-passwordCurrent -> "pa11"
-maxLength -> 8 (type q)
-title -> "t1"
-charSet -> 136331264 (type q)
-passwords -> [<CKReference: 0x600000ea01a0; recordID=<CKRecordID: 0x600000ea2b80; recordName=313EB0C0-2EE3-4D6E-9992-42121042C506, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>, <CKReference: 0x600000ea0c80; recordID=<CKRecordID: 0x600000ea02a0; recordName=AE5D8A25-638E-4E1F-A207-880A4E674F68, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>]
-uuid -> "B9A3BEBC-6130-404A-9E18-DD81C0205B5A"
-createdAt -> 2019-05-01 01:04:24 +0000
-selectAt -> 2019-05-01 01:07:24 +0000
-url -> "ur1"
-}, <CKRecord: 0x7fc531521780; recordID=313EB0C0-2EE3-4D6E-9992-42121042C506:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=6, values={
-active = 1;
-createdAt = "2019-05-01 01:04:34 +0000";
-current = 0;
-password = pa1;
-selectedAt = "2019-05-01 01:04:34 +0000";
-site = "<CKReference: 0x600000ea0780; recordID=<CKRecordID: 0x600000ea15a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "313EB0C0-2EE3-4D6E-9992-42121042C506";
-}, recordType=Password>
-{
-creatorUserRecordID -> <CKRecordID: 0x600000e788a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x600000e787e0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2019-05-01 01:04:38 +0000
-modificationDate -> 2019-05-01 01:07:27 +0000
-modifiedByDevice -> iPhone Xʀ
-site -> <CKReference: 0x600000ea0780; recordID=<CKRecordID: 0x600000ea15a0; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-password -> "pa1"
-current -> 0 (type s)
-active -> 1 (type q)
-selectedAt -> 2019-05-01 01:04:34 +0000
-uuid -> "313EB0C0-2EE3-4D6E-9992-42121042C506"
-createdAt -> 2019-05-01 01:04:34 +0000
-}, <CKRecord: 0x7fc531522bc0; recordID=AE5D8A25-638E-4E1F-A207-880A4E674F68:(com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__), recordChangeTag=7, values={
-active = 1;
-createdAt = "2019-05-01 01:07:24 +0000";
-current = 1;
-password = pa11;
-selectedAt = "2019-05-01 01:07:24 +0000";
-site = "<CKReference: 0x600000e98d00; recordID=<CKRecordID: 0x600000e99160; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>";
-uuid = "AE5D8A25-638E-4E1F-A207-880A4E674F68";
-}, recordType=Password>
-{
-creatorUserRecordID -> <CKRecordID: 0x600000ea2c40; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-lastModifiedUserRecordID -> <CKRecordID: 0x600000ea14a0; recordName=__defaultOwner__, zoneID=_defaultZone:__defaultOwner__>
-creationDate -> 2019-05-01 01:07:27 +0000
-modificationDate -> 2019-05-01 01:07:27 +0000
-modifiedByDevice -> iPhone Xʀ
-active -> 1 (type c)
-password -> "pa11"
-selectedAt -> 2019-05-01 01:07:24 +0000
-site -> <CKReference: 0x600000e98d00; recordID=<CKRecordID: 0x600000e99160; recordName=B9A3BEBC-6130-404A-9E18-DD81C0205B5A, zoneID=com.gmail.jun1ro1.TresorMockup_Zone:__defaultOwner__>>
-current -> 1 (type s)
-uuid -> "AE5D8A25-638E-4E1F-A207-880A4E674F68"
-createdAt -> 2019-05-01 01:07:24 +0000
-}]) delete = Optional([])
+23:20:37.885  💙 INFO AppDelegate.application():27 - Application starts
+23:20:37.888  💙 INFO com.application():28 - bundleIdentifier =
+CoreData: debug: CoreData+CloudKit: -[PFCloudKitOptionsValidator validateOptions:andStoreOptions:error:](35): Validating options: <NSCloudKitMirroringDelegateOptions: 0x600003d89ab0> containerIdentifier:iCloud.com.gmail.jun1ro1.TresorMockup2 ckAssetThresholdBytes:<null> operationMemoryThresholdBytes:<null> useEncryptedStorage:NO automaticallyDownloadFileBackedFutures:NO automaticallyScheduleImportAndExportOperations:YES skipCloudKitSetup:NO preserveLegacyRecordMetadataBehavior:NO useDaemon:YES apsConnectionMachServiceName:<null> containerProvider:<PFCloudKitContainerProvider: 0x60000148ad50> storeMonitorProvider:<PFCloudKitStoreMonitorProvider: 0x60000148ad80> scheduler:<null> notificationListener:<null> containerOptions:<null>
+storeOptions: {
+    NSInferMappingModelAutomaticallyOption = 1;
+    NSMigratePersistentStoresAutomaticallyOption = 1;
+    NSPersistentCloudKitContainerOptionsKey = "<NSPersistentCloudKitContainerOptions: 0x6000016c63c0>";
+    NSPersistentHistoryTrackingKey = 1;
+    NSPersistentStoreMirroringOptionsKey =     {
+        NSPersistentStoreMirroringDelegateOptionKey = "<NSCloudKitMirroringDelegate: 0x60000278ae40>";
+    };
+    NSPersistentStoreRemoteChangeNotificationOptionKey = 1;
+}
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _setUpCloudKitIntegration](365): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Successfully enqueued setup request.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringDelegateSetupRequest: 0x6000018961c0> 0E19E803-718E-4DAC-90E7-F12D9DE12686
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitSetupAssistant _checkUserIdentity:]_block_invoke(722): <PFCloudKitSetupAssistant: 0x6000035a81e0>: CKIdentity record matches store: <CKRecordID: 0x6000016bac20; recordName=_496f656cb88b35c6dcc6e9b3f3120848, zoneID=_defaultZone:__defaultOwner__>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performSetupRequest:]_block_invoke(808): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Successfully set up CloudKit integration for store: <NSSQLCore: 0x6000029982d0> (URL: file:///Users/jun1ro1/Library/Developer/CoreSimulator/Devices/026DEFCF-1DCF-49FE-B35C-CB8AA3CA0580/data/Containers/Data/Application/944283E9-91EE-4890-8382-0A20D84FC807/Library/Application%20Support/TresorMockup.sqlite)
+23:20:38.038  💚 DEBUG MasterViewController.viewDidLoad():38 - viewDidLoad
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges](508): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Scheduling post-setup export
+CoreData: debug: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessary:]_block_invoke(2219): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking to see if an automated import should be scheduled.
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndScheduleImportIfNecessary:]_block_invoke(2252): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Scheduling automated import with activity: <CKSchedulerActivity: 0x6000035d6df0; additionalXPCActivityCriteria={
+    Priority = Utility;
+}, containerID=<CKContainerID: 0x6000016ccba0; containerIdentifier=iCloud.com.gmail.jun1ro1.TresorMockup2, containerEnvironment="Sandbox">, identifier=com.apple.coredata.cloudkit.activity.import, priority=2>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringDelegateSetupRequest: 0x6000018961c0> 0E19E803-718E-4DAC-90E7-F12D9DE12686 with result: <NSCloudKitMirroringResult: 0x60000168ec80> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x60000278ae40>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2304): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
+23:20:38.122  💚 DEBUG SecureStore.delete():143 - label = CryptorSeed SecItemDelete = 0
+23:20:38.123  💚 DEBUG SecureStore.read():59 - label = CryptorSeed SecItemCopyMatching = -25300
+23:20:38.123  ❤️ ERROR SecureStore.read():63 - label = CryptorSeed SecItemCopyMatching = -25300
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter databaseFetchFinishWithContext:error:completion:]_block_invoke(169): <PFCloudKitImporter: 0x600001808630>: Import request finished with no work to do: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringImportRequest: 0x6000018c7120> E3949440-CEFD-4793-8383-03CC357254CA with result: <NSCloudKitMirroringResult: 0x6000016bab60> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_3(537): Finished sandbox scheduled import: <NSCloudKitMirroringResult: 0x6000016bab60> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessaryWithCompletion:]_block_invoke_2(128): <PFCloudKitExporter: 0x600000352540>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "D45AC367-27CD-40B1-B198-714C49324D98" = 11;
+}>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performExportWithRequest:]_block_invoke_2(934): Finished export: <PFCloudKitExporter: 0x600000352540>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringExportRequest: 0x6000018c6310> 3FD446AE-239C-4BF3-B754-970E815E0FEF with result: <NSCloudKitMirroringResult: 0x600001612060> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(523): Finished sandbox scheduled export: <NSCloudKitMirroringResult: 0x600001612060> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x60000278ae40>: No more requests to execute.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke(472): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Beginning automated import in response to activity:
+<CKSchedulerActivity: 0x6000035befd0; additionalXPCActivityCriteria={
+    Priority = Utility;
+}, containerID=<CKContainerID: 0x6000016de360; containerIdentifier=iCloud.com.gmail.jun1ro1.TresorMockup2, containerEnvironment="Sandbox">, identifier=com.apple.coredata.cloudkit.activity.import, priority=2>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke(445): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Beginning automated export.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate executeMirroringRequest:error:](677): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Asked to execute request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke(709): <NSCloudKitMirroringDelegate: 0x60000278ae40>: enqueuing request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _enqueueRequest:]_block_invoke_2(716): Enqueued request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2304): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Deferring additional work. There is still an active request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitImporter databaseFetchFinishWithContext:error:completion:]_block_invoke(169): <PFCloudKitImporter: 0x600001839f80>: Import request finished with no work to do: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6 with result: <NSCloudKitMirroringResult: 0x60000161d020> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(478): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Finished automatic import with result: <NSCloudKitMirroringResult: 0x60000161d020> success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](2338): Finished request '<NSCloudKitMirroringImportRequest: 0x6000018f3120> 8712F590-4CCF-424A-AC51-9E419A743FC6' with result: <NSCloudKitMirroringResult: 0x60000161d020> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2308): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Executing: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE
+CoreData: CloudKit: CoreData+CloudKit: -[PFCloudKitExporter exportIfNecessaryWithCompletion:]_block_invoke_2(128): <PFCloudKitExporter: 0x600000358c80>: Exporting changes since (0): <NSPersistentHistoryToken - {
+    "D45AC367-27CD-40B1-B198-714C49324D98" = 11;
+}>
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _performExportWithRequest:]_block_invoke_2(934): Finished export: <PFCloudKitExporter: 0x600000358c80>
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _finishedRequest:withResult:](2325): Finished request: <NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE with result: <NSCloudKitMirroringResult: 0x6000016de6c0> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate _beginWatchingForChanges]_block_invoke_2(451): <NSCloudKitMirroringDelegate: 0x60000278ae40> - Finished automatic export with result: <NSCloudKitMirroringResult: 0x6000016de6c0> success: 1 madeChanges: 0 error: (null)
+CoreData: warning: CoreData+CloudKit: -[NSCloudKitMirroringDelegate finishedAutomatedRequestWithResult:](2338): Finished request '<NSCloudKitMirroringExportRequest: 0x600001839c20> 54F3C260-AD64-4911-B461-D7451292BEDE' with result: <NSCloudKitMirroringResult: 0x6000016de6c0> success: 1 madeChanges: 0 error: (null)
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest](2296): <NSCloudKitMirroringDelegate: 0x60000278ae40>: Checking for pending requests.
+CoreData: CloudKit: CoreData+CloudKit: -[NSCloudKitMirroringDelegate checkAndExecuteNextRequest]_block_invoke(2311): <NSCloudKitMirroringDelegate: 0x60000278ae40>: No more requests to execute.
+23:20:55.057  💚 DEBUG SecureStore.read():59 - label = CryptorSeed SecItemCopyMatching = -25300
+23:20:55.058  ❤️ ERROR SecureStore.read():63 - label = CryptorSeed SecItemCopyMatching = -25300
+thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.CryptorCore getKEK(password:seed:) CCKeyDerivationPBKDF status= 0
+thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.CryptorCore getKEK(password:seed:) KEK   = {length = 32, bytes = 0xc70345ce 27f115b8 422054d1 875222c9 ... 65f5808f 0581e54b }
+thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.Validator init(key:) mark   = {length = 16, bytes = 0x6849d5da5be5ad15e313a6fc3e62b40d}
+thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.Validator init(key:) hshMark= {length = 32, bytes = 0xf6c9d9c7 1a46a9d4 df32a957 39579715 ... 2d29d160 cf1e4c4a }
+thread=<NSThread: 0x6000003950c0>{number = 1, name = main} TresorMockup.Validator init(key:) encryptedMark= {length = 32, bytes = 0x3ab21e91 4d557b07 028230bb 56f95f40 ... 68681e27 525816c5 }
+23:20:55.119  💚 DEBUG CryptorCore.encrypt():120 - CCCrypt(Encrypt) status = 0
+23:20:55.120  💚 DEBUG CryptorCore.encrypt():120 - CCCrypt(Encrypt) status = 0
+23:20:55.122  💚 DEBUG SecureStore.write():104 - label = CryptorSeed SecItemAdd = 0
+23:20:55.124  💚 DEBUG SecureStore.write():104 - label = Validator SecItemAdd = -25299
+23:20:55.124  ❤️ ERROR SecureStore.write():108 - label = Validator SecItemAdd = -25299
+23:20:55.124  ❤️ ERROR AuthenticationManager.pressed():266 - Cryptor.prepare error = SecItemError(error: -25299)
 

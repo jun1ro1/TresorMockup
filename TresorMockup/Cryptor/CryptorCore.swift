@@ -11,6 +11,7 @@
 
 import Foundation
 import CommonCrypto
+import SwiftyBeaver
 
 typealias CryptorKeyType = Data
 
@@ -116,14 +117,14 @@ fileprivate extension Data {
                 }
         }
         #if DEBUG
-            print("thread=\(Thread.current)", String(reflecting: type(of: self)),
-                "\(#function) CCCrypt(Encrypt) status=", status)
+        SwiftyBeaver.self.debug("CCCrypt(Encrypt) status = \(status)")
         #endif
         if status == kCCSuccess {
             cipher.removeSubrange(dataOutMoved..<cipher.count)
             return cipher
         }
         else {
+            SwiftyBeaver.self.error("CCCrypt(Encrypt) status = \(status)")
             throw CryptorError.CCCryptError(error: status)
         }
     }
@@ -152,14 +153,15 @@ fileprivate extension Data {
                 }
         }
         #if DEBUG
-            print("thread=\(Thread.current)", String(reflecting: type(of: self)),
-                  "\(#function) CCCrypt(Decrypt) status=", status)
+        SwiftyBeaver.self.debug("CCCrypt(Decrypt) status = \(status)")
         #endif
+
         if status == kCCSuccess {
             plain.removeSubrange(dataOutMoved..<plain.count)
             return plain
         }
         else {
+            SwiftyBeaver.self.error("CCCrypt(Encrypt) status = \(status)")
             throw CryptorError.CCCryptError(error: status)
         }
     }
@@ -185,6 +187,7 @@ fileprivate extension Data {
 fileprivate extension String {
     func decrypt(with key: CryptorKeyType) throws -> CryptorKeyType {
         guard let data = CryptorKeyType(base64Encoded: self, options: .ignoreUnknownCharacters) else {
+            SwiftyBeaver.self.error("Invalid Character = ", self)
             throw CryptorError.invalidCharacter
         }
         return try data.decrypt(with: key)
@@ -192,6 +195,7 @@ fileprivate extension String {
 
     func encrypt(with key: CryptorKeyType) throws -> String {
         guard let data = self.data(using: .utf8, allowLossyConversion: false) else {
+            SwiftyBeaver.self.error("Invalid Character = ", self)
             throw CryptorError.invalidCharacter
         }
         return try data.encrypt(with: key).base64EncodedString()
@@ -199,6 +203,7 @@ fileprivate extension String {
 
     func decrypt(with key: CryptorKeyType) throws -> String {
         guard var data = Data(base64Encoded: self, options: []) else {
+            SwiftyBeaver.self.error("Invalid Character = ", self)
             throw CryptorError.invalidCharacter
         }
         defer { data.reset() }
@@ -206,146 +211,6 @@ fileprivate extension String {
     }
 } // extension String
 
-
-// MARK: -
-internal class SecureStore {
-    private var mutex: NSLock = NSLock()
-    private var query: [String: Any]
-    private var dateCreated:  Date?
-    private var dateModified: Date?
-
-    private init() {
-        self.query = [:]
-        self.dateCreated  = nil
-        self.dateModified = nil
-    }
-
-    static var shared = SecureStore()
-
-    private func prepare(label: String) {
-        self.query = [
-            kSecClass              as String: kSecClassGenericPassword,
-            kSecAttrSynchronizable as String: kCFBooleanTrue!,
-            kSecAttrAccount        as String: label,
-        ]
-        #if DEBUG
-            self.query[kSecAttrService as String] = "PasswortTresorTEST"
-        #else
-            self.query[kSecAttrService as String] = "PasswortTresor"
-        #endif
-    }
-
-    func read(label: String) throws -> Data? {
-        guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            throw CryptorError.timeOut
-        }
-        defer { self.mutex.unlock() }
-
-        self.prepare(label: label)
-        self.query[ kSecReturnData       as String] = kCFBooleanTrue
-        self.query[ kSecMatchLimit       as String] = kSecMatchLimitOne
-        self.query[ kSecReturnAttributes as String] = kCFBooleanTrue
-        self.query[ kSecReturnData       as String] = kCFBooleanTrue
-
-        var result: AnyObject?
-        let status = withUnsafeMutablePointer(to: &result) {
-            SecItemCopyMatching(self.query as CFDictionary, UnsafeMutablePointer($0))
-        }
-
-        #if DEBUG
-            print("thread=\(Thread.current)", String(reflecting: type(of: self)),
-                  "\(#function) SecItemCopyMatching = \(status)")
-        #endif
-
-        guard status != errSecItemNotFound else {
-            return nil
-        }
-        guard status == noErr else {
-            throw CryptorError.SecItemError(error: status)
-        }
-        guard let items = result as? Dictionary<String, AnyObject> else {
-            throw CryptorError.SecItemBroken
-        }
-        guard let data = items[kSecValueData as String] as? Data else {
-            throw CryptorError.SecItemBroken
-        }
-
-        #if DEBUG
-            print("thread=\(Thread.current)", String(reflecting: type(of: self)),
-                  "\(#function) kSecValueData = ", data as NSData)
-        #endif
-
-        self.dateCreated  = items[kSecAttrCreationDate     as String] as? Date
-        self.dateModified = items[kSecAttrModificationDate as String] as? Date
-
-        return data
-    }
-
-    func write(label: String, _ data: Data) throws {
-        guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            throw CryptorError.timeOut
-        }
-        self.prepare(label: label)
-        self.query[kSecValueData  as String] = data
-        let status = SecItemAdd(self.query as CFDictionary, nil)
-        self.mutex.unlock()
-
-        #if DEBUG
-            print("thread=\(Thread.current)", String(reflecting: type(of: self)),
-                  "\(#function) SecItemAdd = \(status)")
-        #endif
-        guard status == noErr else {
-            throw CryptorError.SecItemError(error: status)
-        }
-    }
-
-    func update(label: String, _ data: Data) throws {
-        guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            throw CryptorError.timeOut
-        }
-        self.prepare(label: label)
-        let attr: [String: AnyObject] = [kSecValueData as String: data as AnyObject]
-        let status = SecItemUpdate(self.query as CFDictionary, attr as CFDictionary)
-        self.mutex.unlock()
-
-        #if DEBUG
-            print("thread=\(Thread.current)", String(reflecting: type(of: self)),
-                  "\(#function) SecItemUpdate = \(status)")
-        #endif
-        guard status == noErr else {
-            throw CryptorError.SecItemError(error: status)
-        }
-    }
-
-    func delete(label: String) throws {
-        guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            throw CryptorError.timeOut
-        }
-        self.prepare(label: label)
-        let status = SecItemDelete(self.query as NSDictionary)
-        self.mutex.unlock()
-
-        #if DEBUG
-            print("thread=\(Thread.current)", String(reflecting: type(of: self)),
-                  "\(#function) SecItemDelete = \(status)")
-        #endif
-        guard status == noErr || status == errSecItemNotFound else {
-            throw CryptorError.SecItemError(error: status)
-        }
-    }
-
-    var created : Date? {
-        self.mutex.lock()
-        defer { self.mutex.unlock() }
-        return self.dateCreated
-    }
-
-    var modified : Date? {
-        self.mutex.lock()
-        defer { self.mutex.unlock() }
-        return self.dateModified
-    }
-}
 
 // MARK: -
 internal struct CryptorSeed {
@@ -586,9 +451,9 @@ internal class CryptorCore {
     static var shared = CryptorCore()
 
     var isPrepared: Bool {
-        return (try? CryptorSeed.read()) != nil
+        let seed = try? CryptorSeed.read()
+        return seed != nil
     }
-
 
     private init() {
     }

@@ -38,7 +38,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         SwiftyBeaver.self.debug("viewDidLoad")
         
         let center = NotificationCenter.default
-//        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
+        //        let name   = Notification.Name(CloudKitManager.CLOUDKIT_MANAGER_UPDATE_INTERFACE)
         center.addObserver(self,
                            selector: #selector(viewUpdate(_ :)),
                            name: .didFindRelevantTransactions,
@@ -54,7 +54,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        AuthenticationManger.shared.authenticate(self)
+        //        AuthenticationManger.shared.authenticate(self)
+
+         AuthenticationManger.shared.authenticate(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -96,32 +98,34 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Segues
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-        
-        let object = { () -> Site? in
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                return self.fetchedResultsController.object(at: indexPath)
+        if let controller =
+            (segue.destination as? UINavigationController)?.topViewController
+                as? DetailViewController {
+            
+            let object = { () -> Site? in
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    return self.fetchedResultsController.object(at: indexPath)
+                }
+                else {
+                    let object = self.newItem
+                    self.newItem = nil
+                    return object
+                }
+            }()
+            
+            controller.detailItem = object
+            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+            
+            switch segue.identifier {
+            case "showDetail":
+                break
+            case "editDetail":
+                controller.setEditing(true, animated: false)
+            default:
+                assertionFailure()
             }
-            else {
-                let object = self.newItem
-                self.newItem = nil
-                return object
-            }
-        }()
-        
-        controller.detailItem = object
-        controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        controller.navigationItem.leftItemsSupplementBackButton = true
-        
-        switch segue.identifier {
-        case "showDetail":
-            break
-        case "editDetail":
-            controller.setEditing(true, animated: false)
-        default:
-            assertionFailure()
         }
-        
     }
     
     // MARK: - Table View

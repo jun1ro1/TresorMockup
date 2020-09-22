@@ -7,15 +7,21 @@
 //
 
 // https://swift-ios.keicode.com/ios/touchid-faceid-auth.php
+// https://medium.com/@alx.gridnev/ios-keychain-using-secure-enclave-stored-keys-8f7c81227f4
+// https://medium.com/flawless-app-stories/ios-security-tutorial-part-2-c481036170ca
+
 import Foundation
 import LocalAuthentication
 import SwiftyBeaver
 
 class AuthenticationManger {
     private static var _manager: AuthenticationManger? = nil
+    private static var _calledFirst = false
+    
     static var shared: AuthenticationManger = {
         if _manager == nil {
-            _manager = AuthenticationManger()
+            _manager     = AuthenticationManger()
+            _calledFirst = true
         }
         return _manager!
     }()
@@ -43,186 +49,201 @@ class AuthenticationManger {
         let context = LAContext()
         let reason  = "This app uses Touch ID / Facd ID to secure your data."
         var authError: NSError? = nil
-        var authed = false
+        
+        if type(of: self)._calledFirst {
+            type(of: self)._calledFirst = false
+            #if DEBUG
+            try? CryptorSeed.delete()
+            try? Validator.delete()
+            #endif
+        }
         
         if !Cryptor.isPrepared  {
-            
-        }
-        
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
-                if success {
-                    authed = true
-                }
-                else {
-                    print("Authenticaion Error \(error!)")
-                    SwiftyBeaver.self.error("Authenticaion Error \(error!)")
-                    authed = false
-                }
-            }
+            let vc =
+                (viewController.storyboard?.instantiateViewController(identifier: "SetPasswordViewController"))!
+            vc.modalPresentationStyle = .pageSheet
+            vc.modalTransitionStyle   = .coverVertical
+            viewController.navigationController?.present(vc, animated: true)
         }
         else {
-            SwiftyBeaver.self.error("Authenticaion Error \(authError!)")
-            DialogManager.shared.showSetPassword(viewController) {
-                (password) in
-                #if DEBUG
-                SwiftyBeaver.self.debug("password = \(password ?? "nil")")
-                #endif
+            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
+                    if success {
+                    }
+                    else {
+                        print("Authenticaion Error \(error!)")
+                        SwiftyBeaver.self.error("Authenticaion Error \(error!)")
+                    }
+                }
+            }
+            else {
+                SwiftyBeaver.self.error("Authenticaion Error \(authError!)")
+                let vc =
+                     (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))!
+                 vc.modalPresentationStyle = .pageSheet
+                 vc.modalTransitionStyle   = .coverVertical
+                 viewController.navigationController?.present(vc, animated: true)
             }
         }
-        //        if authed {
-        //            self.authenticated = true
-        //        }
     }
 }
 
-fileprivate class DialogManager {
-    private static var _manager: DialogManager? = nil
-    static var shared: DialogManager = {
-        if _manager == nil {
-            _manager = DialogManager()
-        }
-        return _manager!
-    }()
+
+// MARK: -
+
+class SetPasswordViewController: UIViewController, UITextFieldDelegate {
     
-    let MAKE_PASSWORD_PASS    = 11
-    let MAKE_PASSWORD_CONFIRM = 12
+    @IBOutlet var showPasswordSwitch: UISwitch!
+    @IBOutlet var passwordTextField1: UITextField!
+    @IBOutlet var passwordTextField2: UITextField!
+    @IBOutlet var okButton:  UIButton!
     
-    private var handler: ((String?) -> Void)?
+    //    private var password1: String? = nil
+    //    private var password2: String? = nil
     
-    init() {}
-    
-    private enum setPasswordState {
-        case initial
-        case password1
-        case password2
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.passwordTextField1.delegate = self
+        self.passwordTextField2.delegate = self
+        self.showPasswordSwitch.isOn = false
+        self.passwordTextField1.isSecureTextEntry = true
+        self.passwordTextField2.isSecureTextEntry = true
     }
-    private     var _setPassword: UIAlertController? = nil
-    fileprivate func setPassword( _ handler: @escaping (String?)->Void ) -> UIAlertController? {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.passwordTextField1.becomeFirstResponder()
+        self.okButton.isEnabled = true
+    }
+    
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        let on = sender.isOn
+        self.passwordTextField1.isSecureTextEntry = !on
+        self.passwordTextField2.isSecureTextEntry = !on
+    }
+    
+    @IBAction func pressed(_ sender: Any) {
+        let password1 = self.passwordTextField1.text ?? ""
+        let password2 = self.passwordTextField2.text ?? ""
         
-        if self._setPassword == nil {
-            let alert = UIAlertController(title: "Set App password",
-                                          message: "Enter Password",
+        if password1 == "" || password2 == "" {
+            let alert = UIAlertController(title: "Password Empty",
+                                          message: "Please enter again",
                                           preferredStyle: .alert)
-            alert.addTextField()
-            alert.addTextField()
-            let passTextField    = alert.textFields![0]
-            let confirmTextField = alert.textFields![1]
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
             
-            //            passTextField.isEnabled    = true
-            passTextField.tag          = MAKE_PASSWORD_PASS
-            //            passTextField.delegate     = self
-            
-            //            confirmTextField.isEnabled = true
-            confirmTextField.tag       = MAKE_PASSWORD_CONFIRM
-            //            confirmTextField.delegate  = self
-            
-            alert.addAction(
-                UIAlertAction(title: "OK", style: .default) { Void in
-                    let password = self._setPassword?.textFields?.first?.text
-                    #if DEBUG
-                    SwiftyBeaver.self.debug("password = \(password ?? "nil")")
-                    #endif
-                    self.handler?(password)
-                }
-            )
-            alert.addAction(
-                UIAlertAction(title: "Cancel", style: .cancel) { Void in
-                    #if DEBUG
-                    SwiftyBeaver.self.debug("password = nil")
-                    #endif
-                    self.handler?(nil)
-                }
-            )
-            self._setPassword = alert
         }
-        return self._setPassword
+        else if password1 != password2 {
+            let alert = UIAlertController(title: "Not Match",
+                                          message: "Please enter again",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
+        else {
+            do {
+                try Cryptor.prepare(password: password1)
+            }
+            catch (let error) {
+                SwiftyBeaver.error("Cryptor.prepare error = \(error)")
+            }
+            self.dismiss(animated: true)
+        }
     }
     
-    func showSetPassword(_ viewController: UIViewController,
-                         _ handler: @escaping (String?)->Void) {
-        
-        let alert1 = UIAlertController(title: "Set App password",
-                                      message: "Enter Password",
-                                      preferredStyle: .alert)
-        let alert2 = UIAlertController(title: "Set App password",
-                                      message: "Re-enter Password",
-                                      preferredStyle: .alert)
-        alert1.addTextField()
-        alert2.addTextField()
-
-        var password1: String? = nil
-        var password2: String? = nil
-        
-        let handler1: (String?)->Void = { pass in
-            viewController.present(alert2, animated: true)
+    //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    //        if self.passwordTextField1.isFirstResponder {
+    //            password1 = self.passwordTextField1.text
+    //            #if DEBUG
+    //            SwiftyBeaver.self.debug("password1 = \(password1 ?? "nil")")
+    //            #endif
+    //        }
+    //        else if self.passwordTextField2.isFirstResponder {
+    //            password2 = self.passwordTextField2.text
+    //            #if DEBUG
+    //            SwiftyBeaver.self.debug("password2 = \(password2 ?? "nil")")
+    //            #endif
+    //        }
+    //        return true
+    //    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if self.passwordTextField1.isFirstResponder {
+            self.passwordTextField2.becomeFirstResponder()
         }
-        
-        alert1.addAction(
-            UIAlertAction(title: "OK", style: .default) { Void in
-                password1 = alert1.textFields?.first?.text
-                #if DEBUG
-                SwiftyBeaver.self.debug("password1 = \(password1 ?? "nil")")
-                #endif
-                handler1(password1)
-            }
-        )
-        alert1.addAction(
-            UIAlertAction(title: "Cancel", style: .cancel) { Void in
-                password1 = nil
-                #if DEBUG
-                SwiftyBeaver.self.debug("password = nil")
-                #endif
-            }
-        )
-        
-        alert2.addAction(
-            UIAlertAction(title: "OK", style: .default) { Void in
-                password2 = alert2.textFields?.first?.text
-                #if DEBUG
-                SwiftyBeaver.self.debug("password2 = \(password2 ?? "nil")")
-                #endif
-                if password1 == password2 {
-                    handler(password2)
-                }
-                else {
-                    alert2.message = "not match password, re-enter"
-                    viewController.present(alert2, animated: true)
-                }
-            }
-        )
-        alert2.addAction(
-            UIAlertAction(title: "Cancel", style: .cancel) { Void in
-                password2 = nil
-                #if DEBUG
-                SwiftyBeaver.self.debug("password = nil")
-                #endif
-                handler(nil)
-            }
-        )
-
-       viewController.present(alert1, animated: true)
+        else if self.passwordTextField2.isFirstResponder {
+            self.passwordTextField1.becomeFirstResponder()
+        }
+        return true
     }
+    
+    //    func textFieldDidEndEditing(_ textField: UITextField) {
+    //        if self.passwordTextField1.isFirstResponder {
+    //            password1 = self.passwordTextField1.text
+    //            #if DEBUG
+    //            SwiftyBeaver.self.debug("password1 = \(password1 ?? "nil")")
+    //            #endif
+    //        }
+    //        else if self.passwordTextField2.isFirstResponder {
+    //            password2 = self.passwordTextField2.text
+    //            #if DEBUG
+    //            SwiftyBeaver.self.debug("password2 = \(password2 ?? "nil")")
+    //            #endif
+    //        }
+    //    }
 }
 
-//
-//func showEnterPasswordDialogue(_ viewController: UIViewController,
-//                               _ handler: (String?) -> Void) {
-//    let alert = UIAlertController(title: "Unlock App", message: "Enter Password", preferredStyle: .alert)
-//    alert.addTextField()
-//    let okAction = UIAlertAction(title: "OK", style: .default) {
-//        Void in
-//        let password = alert.textFields?.first?.text
-//        #if DEBUG
-//        SwiftyBeaver.self.debug("password = \(password ?? "nil")")
-//        #endif
-//        handler(password)
-//    }
-//    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
-//        handler(nil)
-//    }
-//    alert.addAction(okAction)
-//    alert.addAction(cancelAction)
-//    viewController.present(alert, animated: true)
-//}
-
+// MARK: -
+class PasswordViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet var showPasswordSwitch: UISwitch!
+    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var okButton:  UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.passwordTextField.delegate = self
+        self.showPasswordSwitch.isOn = false
+        self.passwordTextField.isSecureTextEntry = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.passwordTextField.becomeFirstResponder()
+        self.okButton.isEnabled = true
+    }
+    
+    @IBAction func switchChanged(_ sender: UISwitch) {
+        let on = sender.isOn
+        self.passwordTextField.isSecureTextEntry = !on
+    }
+    
+    @IBAction func pressed(_ sender: Any) {
+        let password1 = self.passwordTextField.text ?? ""
+        
+        if password1 == "" {
+            let alert = UIAlertController(title: "Password Empty",
+                                          message: "Please enter again",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true)
+        }
+        else {
+            do {
+                try Cryptor.prepare(password: password1)
+            }
+            catch (let error) {
+                SwiftyBeaver.error("Cryptor.prepare error = \(error)")
+                let alert = UIAlertController(title: "Wrong Password",
+                                               message: "Please enter again",
+                                               preferredStyle: .alert)
+                 alert.addAction(UIAlertAction(title: "OK", style: .default))
+                 self.present(alert, animated: true)
+            }
+            self.dismiss(animated: true)
+        }
+    }
+    
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+ }
