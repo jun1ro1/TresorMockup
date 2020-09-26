@@ -53,8 +53,8 @@ class AuthenticationManger {
         if type(of: self)._calledFirst {
             type(of: self)._calledFirst = false
             #if DEBUG
-            try? CryptorSeed.delete()
-            try? Validator.delete()
+            // try? CryptorSeed.delete()
+            // try? Validator.delete()
             #endif
         }
         
@@ -69,12 +69,12 @@ class AuthenticationManger {
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
                     if success {
-                        guard var data =
-                            try? SecureStore.shared.read(label: "PASS",synchronize: false) else {
+                        guard let data =
+                                try? SecureStore.shared.read(label: "PASS", iCloud: false) else {
                             SwiftyBeaver.self.error("SecureStore read pass Error \(error!)")
                             return
                         }
-
+                        
                         // get a CryptorSeed string value from SecItem
                         guard var pass = String(data: data, encoding: .utf8) else {
                             SwiftyBeaver.self.error("SecureStore read pass Broken \(error!)")
@@ -87,7 +87,7 @@ class AuthenticationManger {
                         }
                         catch (let error) {
                             SwiftyBeaver.error("Cryptor.prepare error = \(error)")
-                          }
+                        }
                     }
                     else {
                         print("Authenticaion Error \(error!)")
@@ -99,10 +99,10 @@ class AuthenticationManger {
             else {
                 SwiftyBeaver.self.error("Authenticaion Error \(authError!)")
                 let vc =
-                     (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))!
-                 vc.modalPresentationStyle = .pageSheet
-                 vc.modalTransitionStyle   = .coverVertical
-                 viewController.navigationController?.present(vc, animated: true)
+                    (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))!
+                vc.modalPresentationStyle = .pageSheet
+                vc.modalTransitionStyle   = .coverVertical
+                viewController.navigationController?.present(vc, animated: true)
             }
         }
     }
@@ -166,19 +166,20 @@ class SetPasswordViewController: UIViewController, UITextFieldDelegate {
             }
             catch (let error) {
                 SwiftyBeaver.error("Cryptor.prepare error = \(error)")
+                return
             }
             guard let data = password1.data(using: .utf8) else {
                 SwiftyBeaver.self.error("SecureStore write pass \(password1)")
                 return
             }
             do {
-                try SecureStore.shared.write(label: "PASS", data, synchronize: false)
+                try SecureStore.shared.write(label: "PASS", data, iCloud: false)
             }
             catch(let error) {
                 SwiftyBeaver.self.error("SecureStore write pass Error \(error)")
                 return
             }
-
+            
             self.dismiss(animated: true)
         }
     }
@@ -266,16 +267,17 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
             catch (let error) {
                 SwiftyBeaver.error("Cryptor.prepare error = \(error)")
                 let alert = UIAlertController(title: "Wrong Password",
-                                               message: "Please enter again",
-                                               preferredStyle: .alert)
-                 alert.addAction(UIAlertAction(title: "OK", style: .default))
-                 self.present(alert, animated: true)
+                                              message: "Please enter again",
+                                              preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default))
+                self.present(alert, animated: true)
+                return
             }
             self.dismiss(animated: true)
         }
     }
     
-   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
- }
+}

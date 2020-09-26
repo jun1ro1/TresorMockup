@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
@@ -25,7 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         console.format = "$DHH:mm:ss.SSS$d $T $C$L$c $N.$F:$l - $M"
         log.addDestination(console)
         log.info("Application starts")
-        log.info("bundleIdentifier = ", Bundle.main.bundleIdentifier ?? "nil")
+        log.info("bundleIdentifier=\(Bundle.main.bundleIdentifier ?? "nil")")
+        log.info("device=\(UIDevice.current.name)")
+
 
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController

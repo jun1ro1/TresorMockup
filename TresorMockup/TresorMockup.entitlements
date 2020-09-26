@@ -6,7 +6,7 @@
 	<string>development</string>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.$(CFBundleIdentifier)</string>
+		<string>iCloud.com.gmail.jun1ro1.TresorMockup</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>
@@ -16,5 +16,9 @@
 	<true/>
 	<key>com.apple.security.network.client</key>
 	<true/>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.gmail.jun1ro1.TresorMockup2</string>
+	</array>
 </dict>
 </plist>

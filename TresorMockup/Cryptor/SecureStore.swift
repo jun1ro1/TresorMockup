@@ -9,6 +9,10 @@
 import Foundation
 import SwiftyBeaver
 
+// https://github.com/iosengineer/BMCredentials#RequirementsiCloudKeychain
+// https://github.com/kishikawakatsumi/KeychainAccess
+// https://stackoverflow.com/questions/41862997/ios-simulator-view-content-of-keychain
+
 // MARK: -
 internal class SecureStore {
     private var mutex: NSLock = NSLock()
@@ -24,29 +28,68 @@ internal class SecureStore {
 
     static var shared = SecureStore()
 
-    private func prepare(label: String) {
+    private var queryString: String {
+        return self.query.map { $0 + ":" + ($1 as AnyObject).description }.joined(separator: ", ")
+    }
+    
+    private func errorString(_ status: OSStatus) -> String {
+        let str = SecCopyErrorMessageString(status, nil) as String? ?? ""
+        return String(status) + ":" + str
+    }
+    
+    private func prepare(label: String, iCloud: Bool) {
         self.query = [
             kSecClass              as String: kSecClassGenericPassword,
-            kSecAttrAccount        as String: label,
+            kSecAttrService        as String: Bundle.main.bundleIdentifier ?? "PasswortTresorTEST",
         ]
-        let prefix = Bundle.main.bundleIdentifier ?? ""
-        #if DEBUG
-            self.query[kSecAttrService as String] = prefix + "." + "PasswortTresorTEST"
-        #else
-            self.query[kSecAttrService as String] = prefix + "." + "PasswortTresor"
-        #endif
+        self.query[ kSecAttrSynchronizable as String ] =
+            iCloud ? kCFBooleanTrue! : kCFBooleanFalse!
+        self.query[kSecAttrAccount as String] = label
     }
-
-    func read(label: String, synchronize: Bool = true) throws -> Data? {
+    
+    func doseExist(label: String, iCloud: Bool = true) throws -> Bool {
         guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            SwiftyBeaver.error("label = \(label) mutex lock time out")
+            SwiftyBeaver.error("label=\(label) mutex lock time out")
             throw CryptorError.timeOut
         }
         defer { self.mutex.unlock() }
 
-        self.prepare(label: label)
-        self.query[ kSecAttrSynchronizable as String ] =
-            synchronize ? kCFBooleanTrue! : kCFBooleanFalse
+        self.prepare(label: label, iCloud: iCloud)
+        self.query[ kSecReturnData       as String] = kCFBooleanTrue
+        self.query[ kSecMatchLimit       as String] = kSecMatchLimitOne
+        self.query[ kSecReturnAttributes as String] = kCFBooleanTrue
+        self.query[ kSecReturnData       as String] = kCFBooleanTrue
+
+        var result: AnyObject?
+        let status = withUnsafeMutablePointer(to: &result) {
+            SecItemCopyMatching(self.query as CFDictionary, UnsafeMutablePointer($0))
+        }
+        result = nil
+        
+        #if DEBUG
+        SwiftyBeaver.debug("label=\(label) query=[\(self.queryString)]" +
+            " SecItemCopyMatching=\(self.errorString(status))")
+        #endif
+
+        switch status {
+        case noErr:
+            return true
+        case errSecItemNotFound:
+            return false
+        default:
+            SwiftyBeaver.error("label=\(label) SecItemCopyMatching=\(self.errorString(status))")
+            throw CryptorError.SecItemError(error: status)
+        }
+    }
+    
+    func read(label: String, iCloud: Bool = true) throws -> Data? {
+        guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
+            SwiftyBeaver.error("label=\(label) mutex lock time out")
+            throw CryptorError.timeOut
+        }
+        defer { self.mutex.unlock() }
+
+        self.prepare(label: label, iCloud: iCloud)
         self.query[ kSecReturnData       as String] = kCFBooleanTrue
         self.query[ kSecMatchLimit       as String] = kSecMatchLimitOne
         self.query[ kSecReturnAttributes as String] = kCFBooleanTrue
@@ -57,32 +100,33 @@ internal class SecureStore {
             SecItemCopyMatching(self.query as CFDictionary, UnsafeMutablePointer($0))
         }
         #if DEBUG
-        SwiftyBeaver.debug("label = \(label) SecItemCopyMatching = \(status)")
+        SwiftyBeaver.debug("label=\(label) query=[\(self.queryString)]" +
+            " SecItemCopyMatching=\(self.errorString(status))")
         #endif
 
         guard status != errSecItemNotFound else {
-            SwiftyBeaver.error("label = \(label) SecItemCopyMatching = \(status)")
+            SwiftyBeaver.warning("label=\(label) SecItemCopyMatching=\(self.errorString(status))")
             return nil
         }
         guard status == noErr else {
-            SwiftyBeaver.error("label = \(label) SecItemCopyMatching = \(status)")
+            SwiftyBeaver.error("label=\(label) SecItemCopyMatching=\(self.errorString(status))")
             throw CryptorError.SecItemError(error: status)
         }
         guard let items = result as? Dictionary<String, AnyObject> else {
              SwiftyBeaver.error(
-                "label = \(label) SecItemCopyMatching = \(status) items = ",
+                "label=\(label) SecItemCopyMatching=\(self.errorString(status)) items=",
                 context:result)
             throw CryptorError.SecItemBroken
         }
         guard let data = items[kSecValueData as String] as? Data else {
             SwiftyBeaver.error(
-                "label = \(label) SecItemCopyMatching = \(status) data = ",
+                "label=\(label) SecItemCopyMatching=\(self.errorString(status)) data=",
                 context: items)
             throw CryptorError.SecItemBroken
         }
 
         #if DEBUG
-        SwiftyBeaver.debug("label = \(label) kSecValueData = \(data as NSData)")
+        SwiftyBeaver.debug("label=\(label) kSecValueData=\(data as NSData)")
         #endif
 
         self.dateCreated  = items[kSecAttrCreationDate     as String] as? Date
@@ -91,65 +135,64 @@ internal class SecureStore {
         return data
     }
 
-    func write(label: String, _ data: Data, synchronize: Bool = true) throws {
+    func write(label: String, _ data: Data, iCloud: Bool = true) throws {
         guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            SwiftyBeaver.error("label = \(label) mutex lock time out")
+            SwiftyBeaver.error("label=\(label) mutex lock time out")
             throw CryptorError.timeOut
         }
-        self.prepare(label: label)
-        self.query[ kSecAttrSynchronizable as String ] =
-            synchronize ? kCFBooleanTrue! : kCFBooleanFalse
+        self.prepare(label: label, iCloud: iCloud)
         self.query[kSecValueData  as String] = data
         let status = SecItemAdd(self.query as CFDictionary, nil)
         self.mutex.unlock()
 
         #if DEBUG
-        SwiftyBeaver.debug("label = \(label) SecItemAdd = \(status)")
+        SwiftyBeaver.debug("label=\(label) query=[\(self.queryString)]" +
+            " SecItemAdd=\(self.errorString(status))")
         #endif
 
         guard status == noErr else {
-            SwiftyBeaver.error("label = \(label) SecItemAdd = \(status)")
+            SwiftyBeaver.error("label=\(label) SecItemAdd=\(self.errorString(status))")
             throw CryptorError.SecItemError(error: status)
         }
     }
 
-    func update(label: String, _ data: Data, synchronize: Bool = true) throws {
+    func update(label: String, _ data: Data, iCloud: Bool = true) throws {
         guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            SwiftyBeaver.error("label = \(label) mutex lock time out")
+            SwiftyBeaver.error("label=\(label) mutex lock time out")
             throw CryptorError.timeOut
         }
-        self.prepare(label: label)
-        self.query[ kSecAttrSynchronizable as String ] =
-            synchronize ? kCFBooleanTrue! : kCFBooleanFalse
+        self.prepare(label: label, iCloud: iCloud)
         let attr: [String: AnyObject] = [kSecValueData as String: data as AnyObject]
         let status = SecItemUpdate(self.query as CFDictionary, attr as CFDictionary)
         self.mutex.unlock()
 
         #if DEBUG
-        SwiftyBeaver.debug("label = \(label) SecItemUpdate = \(status)")
+        SwiftyBeaver.debug("label=\(label) query=[\(self.queryString)]" +
+            " SecItemUpdate=\(self.errorString(status))")
         #endif
 
         guard status == noErr else {
-            SwiftyBeaver.error("label = \(label) SecItemUpdate = \(status)")
+            SwiftyBeaver.error("label=\(label) SecItemUpdate=\(status)")
             throw CryptorError.SecItemError(error: status)
         }
     }
 
-    func delete(label: String) throws {
+    func delete(label: String, iCloud: Bool = true) throws {
         guard self.mutex.lock(before: Date(timeIntervalSinceNow: 30)) else {
-            SwiftyBeaver.error("label = \(label) mutex lock time out")
+            SwiftyBeaver.error("label=\(label) mutex lock time out")
             throw CryptorError.timeOut
         }
-        self.prepare(label: label)
+        self.prepare(label: label, iCloud: iCloud)
         let status = SecItemDelete(self.query as NSDictionary)
         self.mutex.unlock()
 
         #if DEBUG
-        SwiftyBeaver.debug("label = \(label) SecItemDelete = \(status)")
+        SwiftyBeaver.debug("label=\(label) query=[\(self.queryString)]" +
+            " SecItemDelete=\(self.errorString(status))")
         #endif
 
         guard status == noErr || status == errSecItemNotFound else {
-            SwiftyBeaver.error("label = \(label) SecItemDelete = \(status)")
+            SwiftyBeaver.error("label=\(label) SecItemDelete=\(self.errorString(status))")
             throw CryptorError.SecItemError(error: status)
         }
     }

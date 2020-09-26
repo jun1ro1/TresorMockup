@@ -37,6 +37,7 @@
 		F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9610E1020552FEA00A97F0E /* Layouter.swift */; };
 		F961686B24152C500084C3BB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961686A24152C500084C3BB /* AuthenticationManager.swift */; };
 		F961686C24152C500084C3BB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F961686A24152C500084C3BB /* AuthenticationManager.swift */; };
+		F9854A1D251F296900CE61E2 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB5566217DF6D7006C291E /* CloudKit.framework */; };
 		F985628C20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
 		F985628D20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
 		F985628E20DD438400177F55 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F985628B20DD438400177F55 /* CoreDataManager.swift */; };
@@ -56,7 +57,6 @@
 		F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAD2042E99300F892DC /* MasterViewController.swift */; };
 		F9D85C8A206FE14F00317AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
 		F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EA82042E99300F892DC /* AppDelegate.swift */; };
-		F9DB5567217DF6D7006C291E /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9DB5566217DF6D7006C291E /* CloudKit.framework */; };
 		F9E20846204BEFDE00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20847204BEFDF00543C81 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FE6EAF2042E99300F892DC /* DetailViewController.swift */; };
 		F9E20849204BF0D600543C81 /* Site.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E20848204BF0D600543C81 /* Site.swift */; };
@@ -157,7 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */,
-				F9DB5567217DF6D7006C291E /* CloudKit.framework in Frameworks */,
+				F9854A1D251F296900CE61E2 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +376,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "OKU Junichirou";
 				TargetAttributes = {
 					F9FE6EA42042E99300F892DC = {
@@ -681,6 +681,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -741,6 +742,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

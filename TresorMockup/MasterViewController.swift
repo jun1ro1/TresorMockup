@@ -13,6 +13,8 @@ import SwiftyBeaver
 
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    private static var _calledFirst = false
+
     @IBOutlet var searchBar: UISearchBar!
     
     private let CACHE_NAME = "MASTER"
@@ -54,9 +56,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //        AuthenticationManger.shared.authenticate(self)
 
-         AuthenticationManger.shared.authenticate(self)
+        AuthenticationManger.shared.authenticate(self)
     }
     
     override func didReceiveMemoryWarning() {

@@ -273,7 +273,7 @@ internal struct CryptorSeed {
             self.key?.base64EncodedString() ?? "",
             ].joined(separator: ":")
     }
-
+    
     static func read() throws -> CryptorSeed? {
         guard var data = try SecureStore.shared.read(label: CryptorSeed.label) else {
             return nil
@@ -451,8 +451,12 @@ internal class CryptorCore {
     static var shared = CryptorCore()
 
     var isPrepared: Bool {
-        let seed = try? CryptorSeed.read()
-        return seed != nil
+        do {
+            return try SecureStore.shared.doseExist(label: CryptorSeed.label)
+        }
+        catch {
+            return false
+        }
     }
 
     private init() {
@@ -517,9 +521,16 @@ internal class CryptorCore {
     }
 
     func prepare(password: String) throws {
-        if var seed = try CryptorSeed.read() {
-            var validator = try Validator.read()
-            defer { validator?.reset() }
+        if self.isPrepared {
+            guard var seed = try CryptorSeed.read() else {
+                throw CryptorError.SecItemBroken
+            }
+            defer { seed.reset() }
+            
+            guard let validator = try Validator.read() else {
+                throw CryptorError.SecItemBroken
+            }
+            defer { validator.reset() }
 
             // get a CEK encrypted with a KEK
             guard var cekEnc = seed.key else {
@@ -535,7 +546,7 @@ internal class CryptorCore {
             var cek = try cekEnc.decrypt(with: kek)
             defer{ cek.reset() }
 
-            guard validator?.validate(key: cek) == true else {
+            guard validator.validate(key: cek) == true else {
                 throw CryptorError.wrongPassword
             }
         }
@@ -562,7 +573,7 @@ internal class CryptorCore {
             defer { cek.reset() }
 
             // create a Validator
-            guard var validator = Validator(key: cek) else {
+            guard let validator = Validator(key: cek) else {
                 throw CryptorError.unexpected
             }
             defer { validator.reset() }
@@ -592,15 +603,13 @@ internal class CryptorCore {
 
 
     func open(password: String, cryptor: Cryptor) throws -> CryptorKeyType {
-        var status: CCCryptorStatus = CCCryptorStatus(kCCSuccess)
-
         // get a seed
         guard var seed = try CryptorSeed.read() else {
             throw CryptorError.notPrepared
         }
         defer { seed.reset() }
 
-        guard var validator = try Validator.read() else {
+        guard let validator = try Validator.read() else {
             throw CryptorError.notPrepared
         }
         defer { validator.reset() }
@@ -688,15 +697,13 @@ internal class CryptorCore {
     }
 
     func change(password oldpass: String, to newpass: String) throws {
-        var status: CCCryptorStatus = CCCryptorStatus(kCCSuccess)
-
         // get a seed
         guard var seed = try CryptorSeed.read() else {
             throw CryptorError.notPrepared
         }
         defer { seed.reset() }
 
-        guard var validator = try Validator.read() else {
+        guard let validator = try Validator.read() else {
             throw CryptorError.notPrepared
         }
         defer { validator.reset() }
