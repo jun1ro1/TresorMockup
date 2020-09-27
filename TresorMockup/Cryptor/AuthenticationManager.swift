@@ -45,64 +45,73 @@ class AuthenticationManger {
     init() {}
     
     // https://stackoverflow.com/questions/24158062/how-to-use-touch-id-sensor-in-ios-8/40612228
-    func authenticate(_ viewController: UIViewController) {
+    func authenticate(_ viewController: UIViewController, _ authenticationBlock: @escaping (Bool) -> Void) {
         let context = LAContext()
         let reason  = "This app uses Touch ID / Facd ID to secure your data."
         var authError: NSError? = nil
         
         if type(of: self)._calledFirst {
             type(of: self)._calledFirst = false
-            #if DEBUG
-            // try? CryptorSeed.delete()
-            // try? Validator.delete()
+            #if DEBUG_DELETE_KEYCHAIN
+            try? CryptorSeed.delete()
+            try? Validator.delete()
             #endif
         }
         
         if !Cryptor.isPrepared  {
-            let vc =
-                (viewController.storyboard?.instantiateViewController(identifier: "SetPasswordViewController"))!
-            vc.modalPresentationStyle = .pageSheet
-            vc.modalTransitionStyle   = .coverVertical
-            viewController.navigationController?.present(vc, animated: true)
+            DispatchQueue.main.async {
+                let vc =
+                    (viewController.storyboard?.instantiateViewController(identifier: "SetPasswordViewController"))! as SetPasswordViewController
+                vc.modalPresentationStyle = .pageSheet
+                vc.modalTransitionStyle   = .coverVertical
+                vc.authenticationBlock = authenticationBlock
+                viewController.navigationController?.present(vc, animated: true)
+            }
         }
         else {
             if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
                 context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
                     if success {
-                        guard let data =
-                                try? SecureStore.shared.read(label: "PASS", iCloud: false) else {
-                            SwiftyBeaver.self.error("SecureStore read pass Error \(error!)")
-                            return
-                        }
-                        
-                        // get a CryptorSeed string value from SecItem
-                        guard var pass = String(data: data, encoding: .utf8) else {
-                            SwiftyBeaver.self.error("SecureStore read pass Broken \(error!)")
-                            return
-                        }
-                        defer{ pass = "" }
-                        
+                        SwiftyBeaver.self.debug("evaluatePolicy=success")
+                        var passwordStore: PasswordStore? = nil
                         do {
-                            try Cryptor.prepare(password: pass)
+                            passwordStore = try PasswordStore.read()
+                        }
+                        catch(let error) {
+                            SwiftyBeaver.self.error("SecureStore read password Error \(error)")
+                            authenticationBlock(false)
+                            return
+                        }
+                        guard passwordStore != nil else {
+                            SwiftyBeaver.self.error("SecureStore read password failed")
+                            authenticationBlock(false)
+                            return
+                        }
+                        do {
+                            try Cryptor.prepare(password: passwordStore!.password!)
+                            authenticationBlock(true)
                         }
                         catch (let error) {
                             SwiftyBeaver.error("Cryptor.prepare error = \(error)")
+                            authenticationBlock(false)
                         }
                     }
                     else {
-                        print("Authenticaion Error \(error!)")
                         SwiftyBeaver.self.error("Authenticaion Error \(error!)")
-                        return
+                        authenticationBlock(false)
                     }
                 }
             }
             else {
                 SwiftyBeaver.self.error("Authenticaion Error \(authError!)")
-                let vc =
-                    (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))!
-                vc.modalPresentationStyle = .pageSheet
-                vc.modalTransitionStyle   = .coverVertical
-                viewController.navigationController?.present(vc, animated: true)
+                DispatchQueue.main.async {
+                    let vc =
+                        (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))! as PasswordViewController
+                    vc.modalPresentationStyle = .pageSheet
+                    vc.modalTransitionStyle   = .coverVertical
+                    vc.authenticationBlock = authenticationBlock
+                    viewController.navigationController?.present(vc, animated: true)
+                }
             }
         }
     }
@@ -118,6 +127,8 @@ class SetPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordTextField2: UITextField!
     @IBOutlet var okButton:  UIButton!
     
+    var authenticationBlock:  ((Bool) -> Void)?
+
     //    private var password1: String? = nil
     //    private var password2: String? = nil
     
@@ -151,7 +162,6 @@ class SetPasswordViewController: UIViewController, UITextFieldDelegate {
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true)
-            
         }
         else if password1 != password2 {
             let alert = UIAlertController(title: "Not Match",
@@ -166,21 +176,27 @@ class SetPasswordViewController: UIViewController, UITextFieldDelegate {
             }
             catch (let error) {
                 SwiftyBeaver.error("Cryptor.prepare error = \(error)")
+                if self.authenticationBlock != nil {
+                    self.authenticationBlock!(false)
+                }
                 return
             }
-            guard let data = password1.data(using: .utf8) else {
-                SwiftyBeaver.self.error("SecureStore write pass \(password1)")
-                return
-            }
+            let passwordStore = PasswordStore(password1)
             do {
-                try SecureStore.shared.write(label: "PASS", data, iCloud: false)
+                try PasswordStore.write(passwordStore)
             }
             catch(let error) {
                 SwiftyBeaver.self.error("SecureStore write pass Error \(error)")
+                if self.authenticationBlock != nil {
+                    self.authenticationBlock!(false)
+                }
                 return
             }
             
             self.dismiss(animated: true)
+            if self.authenticationBlock != nil {
+                self.authenticationBlock!(true)
+            }
         }
     }
     
@@ -233,6 +249,8 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var okButton:  UIButton!
     
+    var authenticationBlock:  ((Bool) -> Void)?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.passwordTextField.delegate = self
@@ -252,7 +270,6 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressed(_ sender: Any) {
         let password1 = self.passwordTextField.text ?? ""
-        
         if password1 == "" {
             let alert = UIAlertController(title: "Password Empty",
                                           message: "Please enter again",
@@ -274,6 +291,9 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
                 return
             }
             self.dismiss(animated: true)
+            if self.authenticationBlock != nil {
+                self.authenticationBlock!(true)
+            }
         }
     }
     

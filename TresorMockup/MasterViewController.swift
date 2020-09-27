@@ -57,7 +57,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        AuthenticationManger.shared.authenticate(self)
+        AuthenticationManger.shared.authenticate(self) { (success) in
+            
+        }
+
+//        var authenticated = false
+//        while !authenticated {
+//            AuthenticationManger.shared.authenticate(self) { (success) in
+//                authenticated = true
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
