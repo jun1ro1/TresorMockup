@@ -580,7 +580,13 @@ class DetailViewController: UITableViewController {
 
         switch cell {
         case is PasswordCell:
-            (cell as! PasswordCell).label?.secret(false)
+            AuthenticationManger.shared.authenticate(self) {
+                if $0 {
+                    DispatchQueue.main.async {
+                        (cell as! PasswordCell).label?.secret(false)
+                    }
+                }
+            }
         case is SecretTextViewCell:
             // https://stackoverflow.com/questions/34922331/getting-and-setting-cursor-position-of-uitextfield-and-uitextview-in-swift
             let tf = (cell as! SecretTextViewCell).textField

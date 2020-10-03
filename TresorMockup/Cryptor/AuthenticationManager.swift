@@ -18,6 +18,8 @@ class AuthenticationManger {
     private static var _manager: AuthenticationManger? = nil
     private static var _calledFirst = false
     
+    private static let DURATION = DispatchTimeInterval.seconds(30)
+    
     static var shared: AuthenticationManger = {
         if _manager == nil {
             _manager     = AuthenticationManger()
@@ -28,7 +30,7 @@ class AuthenticationManger {
     
     private var mutex = NSLock()
     private var _authenticated = false
-    private var authenticated: Bool {
+    fileprivate var authenticated: Bool {
         get {
             self.mutex.lock()
             let val = self._authenticated
@@ -39,15 +41,20 @@ class AuthenticationManger {
             self.mutex.lock()
             self._authenticated = newValue
             self.mutex.unlock()
+            if newValue {
+                DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + AuthenticationManger.DURATION) {
+                    SwiftyBeaver.self.debug("authenticated time out=\(AuthenticationManger.DURATION)")
+                    self.authenticated = false
+                }
+            }
         }
     }
     
     init() {}
     
     // https://stackoverflow.com/questions/24158062/how-to-use-touch-id-sensor-in-ios-8/40612228
-    func authenticate(_ viewController: UIViewController, _ authenticationBlock: @escaping (Bool) -> Void) {
-        let context = LAContext()
-        let reason  = "This app uses Touch ID / Facd ID to secure your data."
+    func authenticate(_ viewController: UIViewController,
+                      _ authenticationBlock: @escaping (Bool) -> Void) {
         var authError: NSError? = nil
         
         if type(of: self)._calledFirst {
@@ -58,7 +65,7 @@ class AuthenticationManger {
             #endif
         }
         
-        if !Cryptor.isPrepared  {
+        guard Cryptor.isPrepared else {
             DispatchQueue.main.async {
                 let vc =
                     (viewController.storyboard?.instantiateViewController(identifier: "SetPasswordViewController"))! as SetPasswordViewController
@@ -67,51 +74,66 @@ class AuthenticationManger {
                 vc.authenticationBlock = authenticationBlock
                 viewController.navigationController?.present(vc, animated: true)
             }
+            return
+        }
+        
+        let val = self.authenticated
+        if val {
+            SwiftyBeaver.self.debug("authenticated=\(val)")
+            authenticationBlock(val)
+            return
+        }
+
+        let context = LAContext()
+        let reason  = "This app uses Touch ID / Facd ID to secure your data."
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                                     error: &authError) {
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics,
+                                   localizedReason: reason) { (success, error) in
+                checkPassword: do {
+                    guard success else {
+                        SwiftyBeaver.self.error("Authenticaion Error \(error!)")
+                        break checkPassword
+                    }
+                    SwiftyBeaver.self.debug("evaluatePolicy=success")
+                    
+                    var passwordStore: PasswordStore? = nil
+                    do {
+                        passwordStore = try PasswordStore.read()
+                    }
+                    catch(let error) {
+                        SwiftyBeaver.self.error("SecureStore read password Error \(error)")
+                        break checkPassword
+                    }
+                    
+                    guard passwordStore != nil else {
+                        SwiftyBeaver.self.error("SecureStore read password failed")
+                        break checkPassword
+                    }
+                    do {
+                        try Cryptor.prepare(password: passwordStore!.password!)
+                    }
+                    catch (let error) {
+                        SwiftyBeaver.error("Cryptor.prepare error = \(error)")
+                        break checkPassword
+                    }
+                    
+                    self.authenticated = true
+                }
+                let val = self.authenticated
+                SwiftyBeaver.self.debug("authenticated=\(val)")
+                authenticationBlock(val)
+            }
         }
         else {
-            if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-                context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, error) in
-                    if success {
-                        SwiftyBeaver.self.debug("evaluatePolicy=success")
-                        var passwordStore: PasswordStore? = nil
-                        do {
-                            passwordStore = try PasswordStore.read()
-                        }
-                        catch(let error) {
-                            SwiftyBeaver.self.error("SecureStore read password Error \(error)")
-                            authenticationBlock(false)
-                            return
-                        }
-                        guard passwordStore != nil else {
-                            SwiftyBeaver.self.error("SecureStore read password failed")
-                            authenticationBlock(false)
-                            return
-                        }
-                        do {
-                            try Cryptor.prepare(password: passwordStore!.password!)
-                            authenticationBlock(true)
-                        }
-                        catch (let error) {
-                            SwiftyBeaver.error("Cryptor.prepare error = \(error)")
-                            authenticationBlock(false)
-                        }
-                    }
-                    else {
-                        SwiftyBeaver.self.error("Authenticaion Error \(error!)")
-                        authenticationBlock(false)
-                    }
-                }
-            }
-            else {
-                SwiftyBeaver.self.error("Authenticaion Error \(authError!)")
-                DispatchQueue.main.async {
-                    let vc =
-                        (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))! as PasswordViewController
-                    vc.modalPresentationStyle = .pageSheet
-                    vc.modalTransitionStyle   = .coverVertical
-                    vc.authenticationBlock = authenticationBlock
-                    viewController.navigationController?.present(vc, animated: true)
-                }
+            SwiftyBeaver.self.info("Authentication with Biometrics is not enrolled \(authError!)")
+            DispatchQueue.main.async {
+                let vc =
+                    (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))! as PasswordViewController
+                vc.modalPresentationStyle = .pageSheet
+                vc.modalTransitionStyle   = .coverVertical
+                vc.authenticationBlock = authenticationBlock
+                viewController.navigationController?.present(vc, animated: true)
             }
         }
     }
@@ -128,7 +150,7 @@ class SetPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var okButton:  UIButton!
     
     var authenticationBlock:  ((Bool) -> Void)?
-
+    
     //    private var password1: String? = nil
     //    private var password2: String? = nil
     
@@ -250,7 +272,7 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var okButton:  UIButton!
     
     var authenticationBlock:  ((Bool) -> Void)?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.passwordTextField.delegate = self
@@ -292,7 +314,10 @@ class PasswordViewController: UIViewController, UITextFieldDelegate {
             }
             self.dismiss(animated: true)
             if self.authenticationBlock != nil {
-                self.authenticationBlock!(true)
+                let val = true
+                AuthenticationManger.shared.authenticated = val
+                SwiftyBeaver.self.debug("authenticated=\(val)")
+                self.authenticationBlock!(val)
             }
         }
     }
