@@ -29,7 +29,7 @@
 		F935B37B204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
 		F935B37C204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
 		F935B37D204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
-		F9388E0A2520C6510029D1B7 /* PasswordStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9388E092520C6510029D1B7 /* PasswordStore.swift */; };
+		F9388E0A2520C6510029D1B7 /* LocalPssword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9388E092520C6510029D1B7 /* LocalPssword.swift */; };
 		F950E78320676C8600D55557 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950E78220676C8600D55557 /* TextViewController.swift */; };
 		F950E78420676C8600D55557 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950E78220676C8600D55557 /* TextViewController.swift */; };
 		F950E78520676C8600D55557 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950E78220676C8600D55557 /* TextViewController.swift */; };
@@ -117,7 +117,7 @@
 		F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Site+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F92E9AD920D411F9007EE75A /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F935B37A204A3ACA00B004B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F9388E092520C6510029D1B7 /* PasswordStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStore.swift; sourceTree = "<group>"; };
+		F9388E092520C6510029D1B7 /* LocalPssword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPssword.swift; sourceTree = "<group>"; };
 		F950E78220676C8600D55557 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
 		F961686A24152C500084C3BB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
@@ -218,7 +218,7 @@
 				F9FEFDAB24F102CB00D1A2FD /* AsBytes.swift */,
 				F9FEFDA824F102CA00D1A2FD /* Cryptor.swift */,
 				F9FEFDAA24F102CB00D1A2FD /* CryptorCore.swift */,
-				F9388E092520C6510029D1B7 /* PasswordStore.swift */,
+				F9388E092520C6510029D1B7 /* LocalPssword.swift */,
 				F9FEFDA924F102CA00D1A2FD /* RandomData.swift */,
 				F91A815524F288D200436F6C /* SecureStore.swift */,
 				F91A815924F28B3900436F6C /* SecureEnclave.swift */,
@@ -560,7 +560,7 @@
 				F9FEFDAD24F102CB00D1A2FD /* RandomData.swift in Sources */,
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
 				F9FEFDAE24F102CB00D1A2FD /* CryptorCore.swift in Sources */,
-				F9388E0A2520C6510029D1B7 /* PasswordStore.swift in Sources */,
+				F9388E0A2520C6510029D1B7 /* LocalPssword.swift in Sources */,
 				F9FEFDAC24F102CB00D1A2FD /* Cryptor.swift in Sources */,
 				F9C3C5BA20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F92E9AE320D411F9007EE75A /* Password+CoreDataProperties.swift in Sources */,

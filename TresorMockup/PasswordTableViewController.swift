@@ -146,7 +146,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
     fileprivate func configureCell(_ cell: PasswordTableCell, with password: Password?) {
         // Configure the cell...
         cell.password?.value = password?.password
-        cell.password?.secret(true)
+        cell.password?.secret = true
 
         cell.createdAt?.text = { () -> String? in
             if let date = password?.createdAt {
@@ -333,7 +333,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         }
         indexPaths.forEach {
             if let cell = self.tableView.cellForRow(at: $0) as? PasswordTableCell {
-                cell.password!.secret(false)
+                cell.password!.secret = false
             }
             else {
                 assertionFailure()
@@ -348,7 +348,7 @@ class PasswordTableViewController: UITableViewController, NSFetchedResultsContro
         }
         indexPaths.forEach {
             if let cell = self.tableView.cellForRow(at: $0) as? PasswordTableCell {
-                cell.password!.secret(true)
+                cell.password!.secret = true
             }
             else {
                 assertionFailure()

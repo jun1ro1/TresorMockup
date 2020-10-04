@@ -57,8 +57,8 @@ class AuthenticationManger {
                       _ authenticationBlock: @escaping (Bool) -> Void) {
         var authError: NSError? = nil
         
-        if type(of: self)._calledFirst {
-            type(of: self)._calledFirst = false
+        if AuthenticationManger._calledFirst {
+            AuthenticationManger._calledFirst = false
             #if DEBUG_DELETE_KEYCHAIN
             try? CryptorSeed.delete()
             try? Validator.delete()
@@ -71,7 +71,7 @@ class AuthenticationManger {
                     (viewController.storyboard?.instantiateViewController(identifier: "SetPasswordViewController"))! as SetPasswordViewController
                 vc.modalPresentationStyle = .pageSheet
                 vc.modalTransitionStyle   = .coverVertical
-                vc.authenticationBlock = authenticationBlock
+                vc.authenticationBlock    = authenticationBlock
                 viewController.navigationController?.present(vc, animated: true)
             }
             return
@@ -82,6 +82,26 @@ class AuthenticationManger {
             SwiftyBeaver.self.debug("authenticated=\(val)")
             authenticationBlock(val)
             return
+        }
+        assert(val == false, "self.authenticated is not false")
+        
+        do {
+            let exists = try LocalPssword.doesExist()
+            guard exists else {
+                DispatchQueue.main.async {
+                    let vc =
+                        (viewController.storyboard?.instantiateViewController(identifier: "SetPasswordViewController"))! as SetPasswordViewController
+                    vc.modalPresentationStyle = .pageSheet
+                    vc.modalTransitionStyle   = .coverVertical
+                    vc.authenticationBlock    = authenticationBlock
+                    viewController.navigationController?.present(vc, animated: true)
+                }
+                return
+            }
+        }
+        catch(let error) {
+            SwiftyBeaver.self.debug("LocalPssword.doesExist=\(error)")
+            authenticationBlock(false)
         }
 
         let context = LAContext()
@@ -97,27 +117,26 @@ class AuthenticationManger {
                     }
                     SwiftyBeaver.self.debug("evaluatePolicy=success")
                     
-                    var passwordStore: PasswordStore? = nil
+                    var localPass: LocalPssword? = nil
                     do {
-                        passwordStore = try PasswordStore.read()
+                        localPass = try LocalPssword.read()
                     }
                     catch(let error) {
                         SwiftyBeaver.self.error("SecureStore read password Error \(error)")
                         break checkPassword
                     }
                     
-                    guard passwordStore != nil else {
+                    guard localPass != nil else {
                         SwiftyBeaver.self.error("SecureStore read password failed")
                         break checkPassword
                     }
                     do {
-                        try Cryptor.prepare(password: passwordStore!.password!)
+                        try Cryptor.prepare(password: localPass!.password!)
                     }
                     catch (let error) {
                         SwiftyBeaver.error("Cryptor.prepare error = \(error)")
                         break checkPassword
-                    }
-                    
+                    }                    
                     self.authenticated = true
                 }
                 let val = self.authenticated
@@ -132,7 +151,7 @@ class AuthenticationManger {
                     (viewController.storyboard?.instantiateViewController(identifier: "PasswordViewController"))! as PasswordViewController
                 vc.modalPresentationStyle = .pageSheet
                 vc.modalTransitionStyle   = .coverVertical
-                vc.authenticationBlock = authenticationBlock
+                vc.authenticationBlock    = authenticationBlock
                 viewController.navigationController?.present(vc, animated: true)
             }
         }
@@ -203,9 +222,9 @@ class SetPasswordViewController: UIViewController, UITextFieldDelegate {
                 }
                 return
             }
-            let passwordStore = PasswordStore(password1)
+            let passwordStore = LocalPssword(password1)
             do {
-                try PasswordStore.write(passwordStore)
+                try LocalPssword.write(passwordStore)
             }
             catch(let error) {
                 SwiftyBeaver.self.error("SecureStore write pass Error \(error)")

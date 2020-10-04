@@ -8,7 +8,7 @@
 
 import Foundation
 
-internal class PasswordStore {
+internal class LocalPssword {
     var password: String? = nil
 
     static let label: String = "Password"
@@ -25,9 +25,25 @@ internal class PasswordStore {
         return self.password ?? ""
     }
 
-    static func read() throws -> PasswordStore? {
+    static func doesExist() throws -> Bool {
         guard var data =
-                try SecureStore.shared.read(label: PasswordStore.label, iCloud: false) else {
+                try SecureStore.shared.read(label: LocalPssword.label, iCloud: false) else {
+            return false
+        }
+        defer { data.removeAll() }
+
+        guard var str = String(data: data, encoding: .utf8) else {
+            return false
+        }
+        defer { str = "" }
+
+        let val = (str != "")
+        return val
+    }
+    
+    static func read() throws -> LocalPssword? {
+        guard var data =
+                try SecureStore.shared.read(label: LocalPssword.label, iCloud: false) else {
             throw CryptorError.SecItemBroken
         }
         defer { data.removeAll() }
@@ -37,18 +53,18 @@ internal class PasswordStore {
         }
         defer { str = "" }
 
-        return PasswordStore(str)
+        return LocalPssword(str)
     }
 
-    static func write(_ passwordStore: PasswordStore) throws {
+    static func write(_ passwordStore: LocalPssword) throws {
         guard var data = passwordStore.string.data(using: .utf8) else {
             throw CryptorError.unexpected
         }
         defer { data.removeAll() }
-        try SecureStore.shared.write(label: PasswordStore.label, data, iCloud: false)
+        try SecureStore.shared.write(label: LocalPssword.label, data, iCloud: false)
     }
 
     static func delete() throws {
-        try SecureStore.shared.delete(label: PasswordStore.label)
+        try SecureStore.shared.delete(label: LocalPssword.label)
     }
 } // Validator
