@@ -10,6 +10,8 @@
 		592F958880EDC3597BCBC738 /* Pods_TresorMockupTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E1A949D0740014946527B3 /* Pods_TresorMockupTests.framework */; };
 		860B1E9F21EABE60A150DAF0 /* Pods_TresorMockup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A83711D8A1ABF7045343434A /* Pods_TresorMockup.framework */; };
 		CD66B538CEA5298BF975469B /* Pods_TresorMockupUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */; };
+		F907FD86252A2DE20062F2FB /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FD85252A2DE20062F2FB /* SplitViewController.swift */; };
+		F907FD87252A2DE20062F2FB /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F907FD85252A2DE20062F2FB /* SplitViewController.swift */; };
 		F91A815624F288D200436F6C /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A815524F288D200436F6C /* SecureStore.swift */; };
 		F91A815724F288D200436F6C /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A815524F288D200436F6C /* SecureStore.swift */; };
 		F91A815824F288D200436F6C /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91A815524F288D200436F6C /* SecureStore.swift */; };
@@ -30,6 +32,7 @@
 		F935B37C204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
 		F935B37D204A3ACA00B004B2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F935B37A204A3ACA00B004B2 /* Extensions.swift */; };
 		F9388E0A2520C6510029D1B7 /* LocalPssword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9388E092520C6510029D1B7 /* LocalPssword.swift */; };
+		F946EADB252E176F0093715E /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F946EADA252E176F0093715E /* SettingsViewController.swift */; };
 		F950E78320676C8600D55557 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950E78220676C8600D55557 /* TextViewController.swift */; };
 		F950E78420676C8600D55557 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950E78220676C8600D55557 /* TextViewController.swift */; };
 		F950E78520676C8600D55557 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F950E78220676C8600D55557 /* TextViewController.swift */; };
@@ -109,6 +112,7 @@
 		B9DA5B988DF5CAB90B280759 /* Pods_TresorMockupUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TresorMockupUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8044FEF4B5528D4F1AD658C /* Pods-TresorMockupTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TresorMockupTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TresorMockupTests/Pods-TresorMockupTests.release.xcconfig"; sourceTree = "<group>"; };
 		F906C49820DE5F57003DADEC /* log1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = log1.txt; sourceTree = "<group>"; };
+		F907FD85252A2DE20062F2FB /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		F91A815524F288D200436F6C /* SecureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStore.swift; sourceTree = "<group>"; };
 		F91A815924F28B3900436F6C /* SecureEnclave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureEnclave.swift; sourceTree = "<group>"; };
 		F920892321ECF701001F28DD /* Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Simulator Screen Shot - iPhone XS - 2019-01-15 at 01.57.11.png"; sourceTree = "<group>"; };
@@ -118,9 +122,11 @@
 		F92E9AD920D411F9007EE75A /* Password+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Password+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F935B37A204A3ACA00B004B2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F9388E092520C6510029D1B7 /* LocalPssword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalPssword.swift; sourceTree = "<group>"; };
+		F946EADA252E176F0093715E /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		F950E78220676C8600D55557 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		F9610E1020552FEA00A97F0E /* Layouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layouter.swift; sourceTree = "<group>"; };
 		F961686A24152C500084C3BB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		F966B63F253C9B55003904A3 /* URLs.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = URLs.csv; sourceTree = "<group>"; };
 		F985628B20DD438400177F55 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F98B615A20B5CA06008E7048 /* PasswordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordManager.swift; sourceTree = "<group>"; };
 		F98CE01A215D34D6001AEF1A /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -260,6 +266,7 @@
 				F9FE6EDB2042E9A100F892DC /* TresorMockup.entitlements */,
 				F9FE6EB92042E99300F892DC /* Info.plist */,
 				F9FE6EA82042E99300F892DC /* AppDelegate.swift */,
+				F907FD85252A2DE20062F2FB /* SplitViewController.swift */,
 				F9D3F352205E97F200878975 /* AppKey.swift */,
 				F985628B20DD438400177F55 /* CoreDataManager.swift */,
 				F9FE6EAF2042E99300F892DC /* DetailViewController.swift */,
@@ -272,9 +279,11 @@
 				F9C3C5B920B99EFD003CFFEE /* PasswordTableViewController.swift */,
 				F9E20848204BF0D600543C81 /* Site.swift */,
 				F92E9AD720D411F9007EE75A /* Site+CoreDataProperties.swift */,
+				F966B63F253C9B55003904A3 /* URLs.csv */,
 				F950E78220676C8600D55557 /* TextViewController.swift */,
 				F906C49820DE5F57003DADEC /* log1.txt */,
 				F9FB81C1251A65D10024361A /* log2.txt */,
+				F946EADA252E176F0093715E /* SettingsViewController.swift */,
 				F9FE6EB42042E99300F892DC /* Assets.xcassets */,
 				F9FE6EB62042E99300F892DC /* LaunchScreen.storyboard */,
 				F9FE6EB12042E99300F892DC /* Main.storyboard */,
@@ -556,6 +565,7 @@
 				F961686B24152C500084C3BB /* AuthenticationManager.swift in Sources */,
 				F9FE6EA92042E99300F892DC /* AppDelegate.swift in Sources */,
 				F985628C20DD438400177F55 /* CoreDataManager.swift in Sources */,
+				F946EADB252E176F0093715E /* SettingsViewController.swift in Sources */,
 				F91A815A24F28B3900436F6C /* SecureEnclave.swift in Sources */,
 				F9FEFDAD24F102CB00D1A2FD /* RandomData.swift in Sources */,
 				F9E2084D204BF14F00543C81 /* Password.swift in Sources */,
@@ -571,6 +581,7 @@
 				F9FE6EB02042E99300F892DC /* DetailViewController.swift in Sources */,
 				F950E78320676C8600D55557 /* TextViewController.swift in Sources */,
 				F98B615B20B5CA06008E7048 /* PasswordManager.swift in Sources */,
+				F907FD86252A2DE20062F2FB /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +629,7 @@
 				F950E78520676C8600D55557 /* TextViewController.swift in Sources */,
 				F9610E1320552FEA00A97F0E /* Layouter.swift in Sources */,
 				F9D85C8B206FE14F00317AFD /* AppDelegate.swift in Sources */,
+				F907FD87252A2DE20062F2FB /* SplitViewController.swift in Sources */,
 				F9D85C89206FE14500317AFD /* MasterViewController.swift in Sources */,
 				F9C3C5BC20B99EFD003CFFEE /* PasswordTableViewController.swift in Sources */,
 				F92E9ADF20D411F9007EE75A /* Site+CoreDataProperties.swift in Sources */,
@@ -711,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -766,7 +778,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -785,7 +797,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7G5AYFTLJ;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -809,7 +821,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7G5AYFTLJ;
 				INFOPLIST_FILE = TresorMockup/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -838,7 +850,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresorMockup.app/TresorMockup";
 			};
@@ -860,7 +872,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TresorMockup.app/TresorMockup";
 			};
@@ -881,7 +893,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TresorMockup;
 			};
@@ -902,7 +914,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.me.jun1ro1.TresorMockupUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = TresorMockup;
 			};

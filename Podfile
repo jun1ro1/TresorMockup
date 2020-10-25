@@ -7,6 +7,7 @@ target 'TresorMockup' do
 
   # Pods for TresorMockup
   pod 'SwiftyBeaver'
+  pod 'CSV.swift', '~> 2.4.3'
 
   target 'TresorMockupTests' do
     inherit! :search_paths

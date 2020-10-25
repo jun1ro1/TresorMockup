@@ -59,5 +59,17 @@
 	</array>
 	<key>NSFaceIDUsageDescription</key>
 	<string>To access user profile related information you must authenticate</string>
+	<key>NSUbiquitousContainerIs</key>
+	<dict>
+		<key>iCloud.com.gmail.jun1ro1.TresorMockup</key>
+		<dict>
+			<key>NSUbiquitousContainerIsDocumentScopePublic</key>
+			<true/>
+			<key>NSUbiquitousContainerName</key>
+			<string>TresorMockup</string>
+			<key>NSUbiquitousContainerSupportedFolderLevels</key>
+			<string>One</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

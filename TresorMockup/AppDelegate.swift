@@ -5,13 +5,14 @@
 //  Created by OKU Junichirou on 2018/02/25.
 //  Copyright (C) 2018 OKU Junichirou. All rights reserved.
 //
+// https://theswiftdev.com/how-to-use-icloud-drive-documents/
 
 import UIKit
 import CoreData
 import SwiftyBeaver
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
 
     var window: UIWindow?
 
@@ -27,14 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         log.info("bundleIdentifier=\(Bundle.main.bundleIdentifier ?? "nil")")
         log.info("device=\(UIDevice.current.name)")
 
+        let tabViewController = self.window!.rootViewController as! UITabBarController
+        tabViewController.delegate = self
 
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-        splitViewController.delegate = self
-        splitViewController.preferredDisplayMode = .allVisible
-
-        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
+        let masterNavigationController = (tabViewController.viewControllers![0] as! UISplitViewController)
+            .viewControllers[0] as! UINavigationController
         let controller = masterNavigationController.topViewController as! MasterViewController
 //        controller.managedObjectContext = self.persistentContainer.viewContext
 //        PasswordManager.shared.managedObjectContext = self.persistentContainer.viewContext
@@ -75,17 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         self.saveContext()
     }
 
-    // MARK: - Split view
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-        if topAsDetailController.detailItem == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
-        return false
-    }
 
     // MARK: - Receive Notifications
 
